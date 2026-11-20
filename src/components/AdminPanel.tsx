@@ -1,0 +1,180 @@
+"use client";
+
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { ApiError, api, formatDate } from "@/lib/client";
+import { useI18n } from "@/lib/i18n";
+import type { CatalogInfo } from "@/lib/seed";
+
+interface Props {
+  authorized: boolean;
+  configured: boolean;
+  showDemoHint: boolean;
+  notice: string | null;
+}
+
+type Summary = { state: "loading" | "error" } | { state: "ready"; info: CatalogInfo };
+type Published = { count: number; version: number; warnings: string[] };
+const buttonClass = "w-full rounded-md bg-primary px-4 py-2.5 font-semibold text-white hover:bg-primary-deep disabled:opacity-50";
+const fileErrors: Record<string, string> = {
+  "bad-file": "badFile", "empty-file": "unreadable", unreadable: "unreadable",
+  "file-too-big": "fileTooBig", "no-table": "noTable", "no-rows": "noRows",
+  "catalog-unavailable": "adminPublishUnavailable",
+};
+
+export default function AdminPanel({ authorized, configured, showDemoHint, notice }: Props) {
+  const { t, locale } = useI18n();
+  const input = useRef<HTMLInputElement>(null);
+  const [summary, setSummary] = useState<Summary>({ state: "loading" });
+  const [revision, setRevision] = useState(0);
+  const [file, setFile] = useState<File | null>(null);
+  const [publishing, setPublishing] = useState(false);
+  const [errorKey, setErrorKey] = useState("");
+  const [published, setPublished] = useState<Published | null>(null);
+
+  useEffect(() => {
+    if (!authorized) return;
+    if (new URL(location.href).searchParams.has("state")) {
+      history.replaceState(history.state, "", "/admin");
+    }
+    // Revalidate server-side permissions when restoring a page from browser history.
+    const onRestore = (event: PageTransitionEvent) => { if (event.persisted) location.reload(); };
+    window.addEventListener("pageshow", onRestore);
+    return () => window.removeEventListener("pageshow", onRestore);
+  }, [authorized]);
+
+  useEffect(() => {
+    if (!authorized) return;
+    let active = true;
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 10000);
+    api<CatalogInfo>("/api/admin/check", { cache: "no-store", credentials: "same-origin", signal: controller.signal })
+      .then((info) => {
+        if (typeof info?.count !== "number") throw new Error("Catalog summary unavailable");
+        if (active) setSummary({ state: "ready", info });
+      })
+      .catch((error: unknown) => {
+        if (!active) return;
+        if (error instanceof ApiError && error.status === 401) location.replace("/admin?state=expired");
+        else setSummary({ state: "error" });
+      })
+      .finally(() => clearTimeout(timer));
+    return () => { active = false; clearTimeout(timer); controller.abort(); };
+  }, [authorized, revision]);
+
+  function refreshSummary() {
+    setSummary({ state: "loading" });
+    setRevision((value) => value + 1);
+  }
+
+  async function publish(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!file || publishing) return;
+    setPublishing(true);
+    setErrorKey("");
+    setPublished(null);
+    try {
+      const data = new FormData();
+      data.set("file", file);
+      const response = await fetch("/api/admin/upload", { method: "POST", credentials: "same-origin", body: data });
+      if (response.status === 401) { location.replace("/admin?state=expired"); return; }
+      const result = await response.json().catch(() => null);
+      if (!response.ok || !result?.ok) {
+        setErrorKey(fileErrors[result?.error] || "error");
+        return;
+      }
+      setPublished({ count: result.count, version: result.version, warnings: result.warnings || [] });
+      setFile(null);
+      if (input.current) input.current.value = "";
+      refreshSummary();
+    } catch {
+      setErrorKey("error");
+    } finally {
+      setPublishing(false);
+    }
+  }
+
+  return (
+    <main className="mx-auto w-full max-w-lg px-4 py-6">
+      <header className="mb-6 flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h1 className="text-xl font-bold text-ink">{t("adminTitle")}</h1>
+          <a href="/" className="text-sm text-primary hover:underline">{t("home")}</a>
+        </div>
+        <div className="flex items-center gap-3">
+          <LanguageSwitcher />
+          {authorized && (
+            <form method="post" action="/api/admin/logout">
+              <button type="submit" className="text-sm text-soft hover:text-ink">{t("logout")}</button>
+            </form>
+          )}
+        </div>
+      </header>
+
+      {!authorized ? (
+        <section className="rounded-lg border border-line bg-card p-5">
+          <p className="mb-4 text-sm text-soft">{t("adminSignInHelp")}</p>
+          <form method="post" action="/api/admin/login" className="space-y-3">
+            <label htmlFor="admin-password" className="block text-sm font-medium text-ink">
+              {t("adminPassword")}
+              <input id="admin-password" name="password" type="password" dir="ltr" required
+                autoComplete="current-password" disabled={!configured}
+                aria-invalid={notice === "wrongPassword"} aria-describedby={notice ? "admin-notice" : undefined}
+                className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2.5 outline-none focus:border-primary" />
+            </label>
+            {notice && (
+              <div id="admin-notice" role="alert" className="rounded-md bg-danger-soft p-3 text-sm text-danger">
+                {t(notice)}
+                {notice === "adminCookieBlocked" && (
+                  <a href="/admin" target="_blank" rel="noopener noreferrer" className="mt-2 block font-semibold underline">{t("openAdminTab")}</a>
+                )}
+              </div>
+            )}
+            <button type="submit" disabled={!configured} className={buttonClass}>{t("unlock")}</button>
+          </form>
+          {showDemoHint && <p className="mt-3 text-xs text-soft">{t("adminHint")}</p>}
+        </section>
+      ) : (
+        <div className="space-y-4">
+          <section className="rounded-lg border border-line bg-card p-4" aria-labelledby="catalog-heading">
+            <h2 id="catalog-heading" className="font-semibold text-ink">{t("currentCatalog")}</h2>
+            <div aria-live="polite" className="mt-2 text-sm text-soft">
+              {summary.state === "loading" && <p>{t("loading")}</p>}
+              {summary.state === "error" && (
+                <><p>{t("adminCatalogUnavailable")}</p><button type="button" onClick={refreshSummary} className="mt-2 font-medium text-primary underline">{t("retry")}</button></>
+              )}
+              {summary.state === "ready" && (
+                <>
+                  <p>{new Intl.NumberFormat(locale).format(summary.info.count)} {t("specialties")} · {t("version")} {summary.info.version}</p>
+                  {summary.info.publishedAt && <p className="mt-1 text-xs">{t("published")}: {formatDate(summary.info.publishedAt, locale)}</p>}
+                </>
+              )}
+            </div>
+          </section>
+          <section className="rounded-lg border border-line bg-card p-4">
+            <h2 className="font-semibold text-ink"><label htmlFor="word-file">{t("uploadFile")}</label></h2>
+            <p id="upload-format" className="mt-1 text-sm text-soft">{t("uploadHint")}</p>
+            <form onSubmit={publish}>
+              <input ref={input} id="word-file" name="file" type="file" disabled={publishing} aria-describedby="upload-format"
+                accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                onChange={(event) => {
+                  const selected = event.target.files?.[0] || null;
+                  const invalid = selected && (!selected.name.toLowerCase().endsWith(".docx") ? "badFile" : selected.size > 15 * 1024 * 1024 ? "fileTooBig" : "");
+                  setErrorKey(invalid || ""); setPublished(null); setFile(invalid ? null : selected);
+                }}
+                className="mt-4 block w-full text-sm text-ink file:me-3 file:rounded-md file:border-0 file:bg-paper file:px-3 file:py-2 file:font-medium" />
+              {errorKey && <p role="alert" className="mt-3 text-sm text-danger">{t(errorKey)}</p>}
+              {published && (
+                <div role="status" className="mt-3 text-sm text-success">
+                  <p>{t("uploadedOk", { n: published.count, v: published.version })}</p>
+                  {published.warnings.length > 0 && <details className="mt-2 text-soft"><summary>{t("uploadedWarn")}</summary><ul>{published.warnings.map((warning, i) => <li key={i}>{warning}</li>)}</ul></details>}
+                </div>
+              )}
+              <button type="submit" disabled={!file || publishing} className={`mt-4 ${buttonClass}`}>{publishing ? t("uploading") : t("upload")}</button>
+            </form>
+          </section>
+        </div>
+      )}
+    </main>
+  );
+}
