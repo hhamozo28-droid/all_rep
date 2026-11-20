@@ -6,7 +6,19 @@ import { profiles, userSessions } from "@/db/schema";
 
 export const SESSION_COOKIE = "dl_session";
 
-const secret = () => process.env.SESSION_SECRET ?? "dl-dev-session-secret";
+const DEV_SESSION_SECRET = "dl-dev-session-secret";
+
+const secret = () => {
+  const configured = process.env.SESSION_SECRET?.trim();
+
+  if (configured) return configured;
+
+  if (process.env.NODE_ENV === "production") {
+    throw new Error("SESSION_SECRET is required in production");
+  }
+
+  return DEV_SESSION_SECRET;
+};
 const b64u = (s: string) => Buffer.from(s, "utf8").toString("base64url");
 const fromB64u = (s: string) => Buffer.from(s, "base64url").toString("utf8");
 
