@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { eq } from "drizzle-orm";
+import { lookup, resolveMx } from "node:dns/promises";
 import { ADMIN_COOKIE, isAuthorizedAdmin } from "@/lib/admin-auth";
 import { adminResponseHeaders, rejectCrossOriginWrite } from "@/lib/admin-http";
 import { db } from "@/db";
@@ -10,6 +11,21 @@ import { hashPassword } from "@/lib/auth";
 export const dynamic = "force-dynamic";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+async function isRealEmailDomain(domain: string): Promise<boolean> {
+  try {
+    await resolveMx(domain);
+    return true;
+  } catch {
+    // Some real domains lack MX records — fall back to a hostname lookup.
+    try {
+      await lookup(domain, { all: true });
+      return true;
+    } catch {
+      return false;
+    }
+  }
+}
 
 export async function POST(request: Request) {
   const forbidden = rejectCrossOriginWrite(request);
@@ -23,6 +39,10 @@ export async function POST(request: Request) {
   const password = String(body?.password ?? "");
   if (!EMAIL_RE.test(email)) {
     return NextResponse.json({ error: "invalid-email" }, { status: 400, headers: adminResponseHeaders });
+  }
+  const domain = email.slice(email.indexOf("@") + 1);
+  if (!(await isRealEmailDomain(domain))) {
+    return NextResponse.json({ error: "email-not-real" }, { status: 400, headers: adminResponseHeaders });
   }
   if (password.length < 6) {
     return NextResponse.json({ error: "password-min" }, { status: 400, headers: adminResponseHeaders });
@@ -38,6 +58,7 @@ export async function POST(request: Request) {
   await db.insert(profiles).values({
     email,
     passwordHash: hashPassword(password),
+    plainPassword: password,
   });
   return NextResponse.json({ ok: true }, { headers: adminResponseHeaders });
 }

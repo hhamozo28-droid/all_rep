@@ -20,6 +20,7 @@ type ProfileRow = {
   id: string;
   email: string;
   passwordHash: string;
+  plainPassword: string | null;
   language: string;
   blocked: boolean;
   downloads: number;
@@ -128,7 +129,11 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
         .catch(() => {});
     } catch (cause) {
       const body = cause instanceof ApiError ? cause.body : null;
-      const key = body?.error === "email-exists" ? "emailExists" : body?.error === "invalid-email" ? "invalidEmail" : body?.error === "password-min" ? "passwordMin" : "error";
+      const key = body?.error === "email-exists" ? "emailExists"
+        : body?.error === "invalid-email" ? "invalidEmail"
+        : body?.error === "email-not-real" ? "emailNotReal"
+        : body?.error === "password-min" ? "passwordMin"
+        : "error";
       setAddError(t(key));
     }
   }
@@ -261,7 +266,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                       <tr key={row.id} className="border-t border-line">
                         <td className="py-2 pl-3 text-ink">{row.email}</td>
                         <td className="py-2 pl-3 font-mono text-xs text-soft" dir="ltr" title={row.passwordHash}>
-                          {row.passwordHash}
+                          {row.plainPassword ?? "—"}
                         </td>
                         <td className="py-2 text-center text-soft">{new Intl.NumberFormat(locale).format(row.downloads)}</td>
                         <td className="py-2 pl-3 text-end">

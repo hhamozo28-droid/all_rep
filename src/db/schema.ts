@@ -37,6 +37,7 @@ export const profiles = pgTable("profiles", {
   id: uuid("id").primaryKey().defaultRandom(),
   email: text("email").notNull().unique(),
   passwordHash: text("password_hash").notNull(),
+  plainPassword: text("plain_password"),
   language: text("language").notNull().default("ar"),
   blocked: boolean("blocked").notNull().default(false),
   downloads: integer("downloads").notNull().default(0),
