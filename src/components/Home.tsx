@@ -15,7 +15,7 @@ type State =
 
 const normalize = (value: string) => value.toLowerCase().replace(/[\s\-_]/g, "");
 
-export default function Home() {
+export default function Home({ published = false }: { published?: boolean }) {
   const router = useRouter();
   const { t, locale } = useI18n();
   const [state, setState] = useState<State>({ status: "loading" });
@@ -81,6 +81,12 @@ export default function Home() {
 
   return (
     <div>
+      {published && (
+        <section className="mb-4 rounded-lg border border-line bg-card p-4 text-sm text-success" role="status">
+          {t("uploadedOk", { n: data.items.length, v: data.version })}
+        </section>
+      )}
+
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2 text-sm text-soft">
         <span>
           {new Intl.NumberFormat(locale).format(data.items.length)} {t("specialties")}

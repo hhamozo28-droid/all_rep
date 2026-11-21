@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { ApiError, api, formatDate } from "@/lib/client";
 import { useI18n } from "@/lib/i18n";
@@ -31,6 +33,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [publishing, setPublishing] = useState(false);
   const [errorKey, setErrorKey] = useState("");
   const [published, setPublished] = useState<Published | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     if (!authorized) return;
@@ -87,6 +90,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       setFile(null);
       if (input.current) input.current.value = "";
       refreshSummary();
+      router.push("/?published=1");
     } catch {
       setErrorKey("error");
     } finally {
@@ -99,7 +103,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       <header className="mb-6 flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-xl font-bold text-ink">{t("adminTitle")}</h1>
-          <a href="/" className="text-sm text-primary hover:underline">{t("home")}</a>
+          <Link href="/" className="text-sm text-primary hover:underline">{t("home")}</Link>
         </div>
         <div className="flex items-center gap-3">
           <LanguageSwitcher />

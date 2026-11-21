@@ -5,14 +5,19 @@ import { getSessionState } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 
-export default async function HomePage() {
+export default async function HomePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ published?: string }>;
+}) {
+  const { published } = await searchParams;
   const s = await getSessionState();
   if (s.status === "none") redirect("/login");
   if (s.status === "other-device") redirect("/login?kicked=1");
 
   return (
     <AppShell user={{ email: s.user.email, language: s.user.language }}>
-      <Home />
+      <Home published={published === "1"} />
     </AppShell>
   );
 }
