@@ -15,7 +15,7 @@ import { LOCALES, isLocale, type Locale } from "./locales";
 export { LOCALES, isLocale, type Locale };
 
 const ar: Record<string, string> = {
-  appName: "روابط التحميل",
+  appName: "منصة دروسي",
   appTagline: "مكتبة التخصصات وروابط التحميل عند الطلب",
   home: "الرئيسية",
   search: "بحث",
@@ -106,10 +106,13 @@ const ar: Record<string, string> = {
   unreadable: "تعذرت قراءة الملف — هل هو ملف .docx صالح؟",
   warnNoCode: "صف بدون رمز — تم تجاوزه",
   warnCols: "{n} أعمدة بدل 7",
+  linkSheets: "مخططات الدروس",
+  linkNotes: "مذكرات الدروس",
+  footerByline: "حقوق التصميم و النشر والمشاركة للأستاذ حمزة شعيب",
 };
 
 const en: Record<string, string> = {
-  appName: "Download Links",
+  appName: "Study Platform",
   appTagline: "Specialties library & on-demand download links",
   home: "Home",
   search: "Search",
@@ -202,10 +205,13 @@ const en: Record<string, string> = {
   unreadable: "Couldn't read the file — is it a valid .docx?",
   warnNoCode: "Row without code — skipped",
   warnCols: "{n} columns instead of 7",
+  linkSheets: "Lesson sheets",
+  linkNotes: "Lesson notes",
+  footerByline: "Design, publication and sharing rights to Br. Hamza Shaïb",
 };
 
 const fr: Record<string, string> = {
-  appName: "Liens de téléchargement",
+  appName: "Plateforme d'étude",
   appTagline: "Bibliothèque de spécialités et liens de téléchargement",
   home: "Accueil",
   search: "Recherche",
@@ -300,6 +306,9 @@ const fr: Record<string, string> = {
   unreadable: "Impossible de lire le fichier — est-ce un .docx valide ?",
   warnNoCode: "Ligne sans code — ignorée",
   warnCols: "{n} colonnes au lieu de 7",
+  linkSheets: "Fiches de cours",
+  linkNotes: "Notes de cours",
+  footerByline: "Droits de conception, publication et partage à Br. Hamza Shaïb",
 };
 
 const DICTS: Record<Locale, Record<string, string>> = { ar, en, fr };

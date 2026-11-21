@@ -80,7 +80,11 @@ export default function Home({ published = false }: { published?: boolean }) {
   const { data, offline } = state;
 
   return (
-    <div>
+    <div className="relative">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[url('/bg.jpg')] bg-cover bg-center opacity-10"
+      />
       {published && (
         <section className="mb-4 rounded-lg border border-line bg-card p-4 text-sm text-success" role="status">
           {t("uploadedOk", { n: data.items.length, v: data.version })}

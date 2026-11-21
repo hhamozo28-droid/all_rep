@@ -98,6 +98,9 @@ export default function AppShell({ children, user }: Props) {
         </div>
       </header>
       <main className="mx-auto w-full max-w-2xl px-4 py-5">{children}</main>
+      <footer className="mx-auto w-full max-w-2xl px-4 pb-4 text-center text-xs text-soft" dir="auto">
+        {t("footerByline")}
+      </footer>
     </div>
   );
 }
