@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import type { SpecialtyItem } from "@/types/specialty";
 import { useI18n } from "@/lib/i18n";
 import { badgeStyle, cardStyle, iconLetter, linkStyle } from "@/lib/tint";
+import { specialtyName } from "@/lib/specialtyNames";
 
 function track() {
   void fetch("/api/specialties/track", { method: "POST", credentials: "same-origin" });
@@ -11,7 +12,7 @@ function track() {
 
 export default function SpecialtyCard({ item }: { item: SpecialtyItem }) {
   const router = useRouter();
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [sheetsLink, notesLink] = item.links;
 
   return (
@@ -35,7 +36,7 @@ export default function SpecialtyCard({ item }: { item: SpecialtyItem }) {
           >
             {iconLetter(item.code)}
           </span>
-          <span className="min-w-0 flex-1 line-clamp-2">{item.name}</span>
+          <span className="min-w-0 flex-1 line-clamp-2">{specialtyName(item, locale)}</span>
         </h2>
       </button>
       <div className="mt-1.5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">

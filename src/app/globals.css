@@ -5,6 +5,12 @@ html[dir="rtl"] body {
   font-family: var(--font-arabic);
 }
 
+/* For French and English use the attached (Heather) font. */
+html[lang="fr"] body,
+html[lang="en"] body {
+  font-family: var(--font-heather);
+}
+
 @theme {
   --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;

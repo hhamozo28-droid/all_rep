@@ -5,6 +5,7 @@ import { formatDate, formatMb } from "@/lib/client";
 import { useI18n } from "@/lib/i18n";
 import type { SpecialtyItem } from "@/types/specialty";
 import { badgeStyle, iconLetter } from "@/lib/tint";
+import { specialtyName } from "@/lib/specialtyNames";
 
 function host(url: string) {
   try {
@@ -23,9 +24,10 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
   const { t, locale } = useI18n();
   const number = new Intl.NumberFormat(locale);
 
+  const showCount = (value: number) => (value > 0 ? number.format(value) : "/");
   const details = [
-    [`${t("modules")}`, number.format(item.modules)],
-    [`${t("lessons")}`, number.format(item.lessons)],
+    [`${t("modules")}`, showCount(item.modules)],
+    [`${t("lessons")}`, showCount(item.lessons)],
     [`${t("files")}`, number.format(item.filesCount)],
     [`${t("size")}`, formatMb(item.sizeMb, locale)],
   ];
@@ -48,7 +50,7 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
           >
             {iconLetter(item.code)}
           </span>
-          <h1 className="text-xl font-bold text-ink">{item.name}</h1>
+          <h1 className="text-xl font-bold text-ink">{specialtyName(item, locale)}</h1>
         </div>
         {item.contentType && <p className="mt-1 text-sm text-soft">{item.contentType}</p>}
         <div className="mt-4 grid grid-cols-2 gap-y-3 border-t border-line pt-4 text-sm">

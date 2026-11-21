@@ -126,13 +126,24 @@ export async function parseDocx(buffer: Buffer): Promise<ParseResult> {
       warnings.push(`row-${rowNum}: cols-${cells.length}`);
     }
 
+    const rowText = texts.join(" ");
+    const pickCount = (re: RegExp): number => toInt(rowText.match(re)?.[1]);
+    const modules =
+      toInt(texts[4]) ||
+      pickCount(/(?:الوحدات|وحدات|modules)\s*[:=]?\s*(\d+)/i) ||
+      pickCount(/(\d+)\s*(?:الوحدات|وحدات|modules)/i);
+    const lessons =
+      toInt(texts[5]) ||
+      pickCount(/(?:الدروس|دروس|lessons)\s*[:=]?\s*(\d+)/i) ||
+      pickCount(/(\d+)\s*(?:الدروس|دروس|lessons)/i);
+
     rows.push({
       idx: toInt(texts[0]) || rows.length + 1,
       code,
       name: (texts[2] ?? "").trim() || code,
       contentType: (texts[3] ?? "").trim() || null,
-      modules: toInt(texts[4]),
-      lessons: toInt(texts[5]),
+      modules,
+      lessons,
       filesCount: links.length,
       sizeMb:
         Math.round(parseSizeMb(texts.join(" ") + " " + $(linksCell).text()) * 100) /

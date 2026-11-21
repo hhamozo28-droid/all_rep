@@ -11,6 +11,12 @@ const notokufiArabic = localFont({
   variable: "--font-arabic",
 });
 
+const heather = localFont({
+  src: "../fonts/Heather.ttf",
+  display: "swap",
+  variable: "--font-heather",
+});
+
 export const metadata: Metadata = {
   title: "روابط التحميل",
   description:
@@ -40,7 +46,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ar" dir="rtl" className={notokufiArabic.variable}>
+    <html lang="ar" dir="rtl" className={`${notokufiArabic.variable} ${heather.variable}`}>
       <body className="min-h-dvh bg-paper font-sans text-ink antialiased">
         <I18nProvider>{children}</I18nProvider>
       </body>
