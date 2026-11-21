@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* The Arabic locale (dir="rtl") renders Arabic text with the attached bold font. */
+html[dir="rtl"] body {
+  font-family: var(--font-arabic);
+}
+
 @theme {
   --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;

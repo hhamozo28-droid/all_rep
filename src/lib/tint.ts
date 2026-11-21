@@ -37,3 +37,9 @@ export function badgeStyle(code: string): CSSProperties {
   const t = tintFor(code);
   return { backgroundColor: `hsl(${t.hue} ${t.saturation}% 84%)`, color: "white" };
 }
+
+/** Distinctive ink color for specialty links — derived from the card tint, darker for readability. */
+export function linkStyle(code: string): CSSProperties {
+  const t = tintFor(code);
+  return { color: `hsl(${t.hue} ${t.saturation}% 32%)` };
+}

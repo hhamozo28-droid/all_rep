@@ -130,32 +130,33 @@ export default function Home({ published = false, welcome = false }: { published
         </p>
       )}
 
-      <label className="mb-4 block">
-        <span className="sr-only">{t("search")}</span>
-        <input
-          type="search"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder={t("searchPlaceholder")}
-          className="w-full rounded-lg border border-line bg-white px-3 py-3 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary"
-        />
-      </label>
-
-      {sectors.length > 0 && (
-        <select
-          value={sector ?? ""}
-          onChange={(event) => setSector(event.target.value || null)}
-          aria-label={t("sectorFilter")}
-          className="mb-4 w-full rounded-lg border border-line bg-white px-3 py-2.5 text-sm text-ink outline-none focus:border-primary focus:ring-1 focus:ring-primary"
-        >
-          <option value="">{t("allSectors")}</option>
-          {sectors.map((s) => (
-            <option key={s.sector} value={s.sector}>
-              {s.sector} ({s.count})
-            </option>
-          ))}
-        </select>
-      )}
+      <div className="mb-4 flex flex-wrap items-center gap-2">
+        <label className="min-w-0 flex-1">
+          <span className="sr-only">{t("search")}</span>
+          <input
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={t("searchPlaceholder")}
+            className="w-full rounded-lg border border-line bg-white px-3 py-3 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+          />
+        </label>
+        {sectors.length > 0 && (
+          <select
+            value={sector ?? ""}
+            onChange={(event) => setSector(event.target.value || null)}
+            aria-label={t("sectorFilter")}
+            className="w-auto rounded-lg border border-line bg-white px-3 py-2.5 text-sm text-ink outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+          >
+            <option value="">{t("allSectors")}</option>
+            {sectors.map((s) => (
+              <option key={s.sector} value={s.sector}>
+                {s.sector} ({s.count})
+              </option>
+            ))}
+          </select>
+        )}
+      </div>
 
       {data.items.length === 0 ? (
         <p className="rounded-lg border border-line bg-white p-5 text-sm text-soft">{t("emptyTitle")}</p>

@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import type { SpecialtyItem } from "@/types/specialty";
 import { useI18n } from "@/lib/i18n";
-import { badgeStyle, cardStyle, iconLetter } from "@/lib/tint";
+import { badgeStyle, cardStyle, iconLetter, linkStyle } from "@/lib/tint";
 
 function track() {
   void fetch("/api/specialties/track", { method: "POST", credentials: "same-origin" });
@@ -38,14 +38,15 @@ export default function SpecialtyCard({ item }: { item: SpecialtyItem }) {
           <span className="min-w-0 flex-1 line-clamp-2">{item.name}</span>
         </h2>
       </button>
-      <div className="mt-1.5 flex flex-wrap gap-x-2 gap-y-1">
+      <div className="mt-1.5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
         {sheetsLink && (
           <a
             href={sheetsLink}
             target="_blank"
             rel="noopener noreferrer"
             onClick={track}
-            className="text-[12px] text-primary-deep hover:underline"
+            className="text-[12px] font-medium hover:underline"
+            style={linkStyle(item.code)}
           >
             {t("linkSheets")}
           </a>
@@ -56,7 +57,8 @@ export default function SpecialtyCard({ item }: { item: SpecialtyItem }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={track}
-            className="text-[12px] text-primary-deep hover:underline"
+            className="text-[12px] font-medium hover:underline"
+            style={linkStyle(item.code)}
           >
             {t("linkNotes")}
           </a>

@@ -1,7 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
+import localFont from "next/font/local";
 import { I18nProvider } from "@/lib/i18n";
+
+const notokufiArabic = localFont({
+  src: "../fonts/NotokufiArabic-Bold.ttf",
+  weight: "700",
+  display: "swap",
+  variable: "--font-arabic",
+});
 
 export const metadata: Metadata = {
   title: "روابط التحميل",
@@ -32,7 +40,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ar" dir="rtl">
+    <html lang="ar" dir="rtl" className={notokufiArabic.variable}>
       <body className="min-h-dvh bg-paper font-sans text-ink antialiased">
         <I18nProvider>{children}</I18nProvider>
       </body>
