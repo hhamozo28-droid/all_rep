@@ -26,7 +26,7 @@ export default function SpecialtyCard({ item }: { item: SpecialtyItem }) {
 
   return (
     <div
-      className="h-[4cm] w-[4cm] overflow-hidden rounded-lg border border-line p-1.5 text-start"
+      className="h-[5cm] w-full overflow-hidden rounded-lg border border-line p-1.5 text-start sm:h-[4cm] sm:w-[4cm]"
       style={cardStyle(item.code)}
     >
       <button

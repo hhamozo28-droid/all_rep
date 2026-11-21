@@ -142,25 +142,19 @@ export default function Home({ published = false, welcome = false }: { published
       </label>
 
       {sectors.length > 0 && (
-        <nav className="mb-4 flex flex-wrap gap-1.5" aria-label={t("sectorFilter")}>
-          <button
-            type="button"
-            onClick={() => setSector(null)}
-            className={`rounded-full border px-3 py-1.5 text-xs font-medium ${sector === null ? "border-primary bg-primary-soft text-primary-deep" : "border-line bg-white text-soft hover:text-ink"}`}
-          >
-            {t("allSectors")}
-          </button>
+        <select
+          value={sector ?? ""}
+          onChange={(event) => setSector(event.target.value || null)}
+          aria-label={t("sectorFilter")}
+          className="mb-4 w-full rounded-lg border border-line bg-white px-3 py-2.5 text-sm text-ink outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+        >
+          <option value="">{t("allSectors")}</option>
           {sectors.map((s) => (
-            <button
-              key={s.sector}
-              type="button"
-              onClick={() => setSector((current) => (current === s.sector ? null : s.sector))}
-              className={`rounded-full border px-3 py-1.5 text-xs font-medium ${sector === s.sector ? "border-primary bg-primary-soft text-primary-deep" : "border-line bg-white text-soft hover:text-ink"}`}
-            >
-              {s.sector} <span className="text-[10px] text-soft">({s.count})</span>
-            </button>
+            <option key={s.sector} value={s.sector}>
+              {s.sector} ({s.count})
+            </option>
           ))}
-        </nav>
+        </select>
       )}
 
       {data.items.length === 0 ? (
@@ -168,7 +162,7 @@ export default function Home({ published = false, welcome = false }: { published
       ) : items.length === 0 ? (
         <p className="rounded-lg border border-line bg-white p-5 text-sm text-soft">{t("noResults")}</p>
       ) : (
-        <div className="grid grid-cols-[repeat(auto-fill,4cm)] gap-[2cm]" dir="ltr">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-[repeat(auto-fill,4cm)] sm:gap-[2cm]" dir="ltr">
           {items.map((item) => <SpecialtyCard key={item.id} item={item} />)}
         </div>
       )}
