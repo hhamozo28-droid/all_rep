@@ -45,7 +45,7 @@ export default function SpecialtyCard({ item }: { item: SpecialtyItem }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={track}
-            className="text-[10px] text-primary-deep hover:underline"
+            className="text-[12px] text-primary-deep hover:underline"
           >
             {t("linkSheets")}
           </a>
@@ -56,7 +56,7 @@ export default function SpecialtyCard({ item }: { item: SpecialtyItem }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={track}
-            className="text-[10px] text-primary-deep hover:underline"
+            className="text-[12px] text-primary-deep hover:underline"
           >
             {t("linkNotes")}
           </a>
