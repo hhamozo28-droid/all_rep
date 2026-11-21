@@ -25,7 +25,7 @@ export default function RegisterPage() {
         method: "POST",
         body: JSON.stringify({ email: email.trim(), password, deviceId: getDeviceId(), language: locale }),
       });
-      router.replace("/");
+      router.replace("/?welcome=1");
     } catch (cause) {
       if (cause instanceof ApiError && cause.status === 409) setError(t("emailExists"));
       else if (cause instanceof ApiError && cause.status === 400) setError(t("passwordMin"));

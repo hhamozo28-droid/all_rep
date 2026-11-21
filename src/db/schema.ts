@@ -1,4 +1,5 @@
 import {
+  boolean,
   index,
   integer,
   jsonb,
@@ -37,6 +38,8 @@ export const profiles = pgTable("profiles", {
   email: text("email").notNull().unique(),
   passwordHash: text("password_hash").notNull(),
   language: text("language").notNull().default("ar"),
+  blocked: boolean("blocked").notNull().default(false),
+  downloads: integer("downloads").notNull().default(0),
   createdAt: timestamp("created_at", { withTimezone: true })
     .notNull()
     .defaultNow(),

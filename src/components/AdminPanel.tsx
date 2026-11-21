@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { ApiError, api, formatDate } from "@/lib/client";
@@ -17,6 +16,15 @@ interface Props {
 
 type Summary = { state: "loading" | "error" } | { state: "ready"; info: CatalogInfo };
 type Published = { count: number; version: number; warnings: string[] };
+type ProfileRow = {
+  id: string;
+  email: string;
+  passwordHash: string;
+  language: string;
+  blocked: boolean;
+  downloads: number;
+  createdAt: string;
+};
 const buttonClass = "w-full rounded-md bg-primary px-4 py-2.5 font-semibold text-white hover:bg-primary-deep disabled:opacity-50";
 const fileErrors: Record<string, string> = {
   "bad-file": "badFile", "empty-file": "unreadable", unreadable: "unreadable",
@@ -33,7 +41,13 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [publishing, setPublishing] = useState(false);
   const [errorKey, setErrorKey] = useState("");
   const [published, setPublished] = useState<Published | null>(null);
-  const router = useRouter();
+  const [users, setUsers] = useState<ProfileRow[] | null>(null);
+  const [usersError, setUsersError] = useState(false);
+  const [addEmail, setAddEmail] = useState("");
+  const [addPassword, setAddPassword] = useState("");
+  const [addError, setAddError] = useState("");
+  const [added, setAdded] = useState(false);
+  const [blockBusy, setBlockBusy] = useState<string | null>(null);
 
   useEffect(() => {
     if (!authorized) return;
@@ -70,6 +84,55 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
     setRevision((value) => value + 1);
   }
 
+  useEffect(() => {
+    if (!authorized) return;
+    let active = true;
+    api<ProfileRow[]>("/api/admin/users", { cache: "no-store", credentials: "same-origin" })
+      .then((rows) => { if (active) setUsers(rows); })
+      .catch(() => { if (active) setUsersError(true); });
+    return () => { active = false; };
+  }, [authorized]);
+
+  async function setBlocked(id: string, blocked: boolean) {
+    setBlockBusy(id);
+    try {
+      await api("/api/admin/users/block", {
+        method: "POST",
+        credentials: "same-origin",
+        body: JSON.stringify({ id, blocked }),
+      });
+      setUsers((rows) => rows?.map((row) => (row.id === id ? { ...row, blocked } : row)) ?? null);
+    } catch {
+      // keep the list as-is
+    } finally {
+      setBlockBusy(null);
+    }
+  }
+
+  async function addAccount(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!addEmail.trim() || !addPassword) return;
+    setAdded(false);
+    setAddError("");
+    try {
+      await api("/api/admin/accounts/new", {
+        method: "POST",
+        credentials: "same-origin",
+        body: JSON.stringify({ email: addEmail.trim(), password: addPassword }),
+      });
+      setAddEmail("");
+      setAddPassword("");
+      setAdded(true);
+      api<ProfileRow[]>("/api/admin/users", { cache: "no-store", credentials: "same-origin" })
+        .then(setUsers)
+        .catch(() => {});
+    } catch (cause) {
+      const body = cause instanceof ApiError ? cause.body : null;
+      const key = body?.error === "email-exists" ? "emailExists" : body?.error === "invalid-email" ? "invalidEmail" : body?.error === "password-min" ? "passwordMin" : "error";
+      setAddError(t(key));
+    }
+  }
+
   async function publish(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!file || publishing) return;
@@ -90,7 +153,6 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       setFile(null);
       if (input.current) input.current.value = "";
       refreshSummary();
-      router.push("/?published=1");
     } catch {
       setErrorKey("error");
     } finally {
@@ -170,11 +232,83 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
               {errorKey && <p role="alert" className="mt-3 text-sm text-danger">{t(errorKey)}</p>}
               {published && (
                 <div role="status" className="mt-3 text-sm text-success">
-                  <p>{t("uploadedOk", { n: published.count, v: published.version })}</p>
+                  <p>{t("uploadSuccess")}</p>
                   {published.warnings.length > 0 && <details className="mt-2 text-soft"><summary>{t("uploadedWarn")}</summary><ul>{published.warnings.map((warning, i) => <li key={i}>{warning}</li>)}</ul></details>}
                 </div>
               )}
               <button type="submit" disabled={!file || publishing} className={`mt-4 ${buttonClass}`}>{publishing ? t("uploading") : t("upload")}</button>
+            </form>
+          </section>
+          <section className="rounded-lg border border-line bg-card p-4">
+            <h2 className="font-semibold text-ink">{t("adminAccounts")}</h2>
+            {users === null ? (
+              <p className="mt-3 text-sm text-soft">{t("loading")}</p>
+            ) : usersError ? (
+              <p className="mt-3 text-sm text-danger">{t("error")}</p>
+            ) : (
+              <div className="mt-3 overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-line text-right text-xs font-semibold text-soft">
+                      <th className="py-2 pl-3 font-medium">{t("email")}</th>
+                      <th className="py-2 pl-3 font-medium">{t("adminTablePassword")}</th>
+                      <th className="py-2 text-center font-medium">{t("adminTableDownloads")}</th>
+                      <th className="py-2 pl-3 font-medium">{t("adminTableActions")}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {users.map((row) => (
+                      <tr key={row.id} className="border-t border-line">
+                        <td className="py-2 pl-3 text-ink">{row.email}</td>
+                        <td className="py-2 pl-3 font-mono text-xs text-soft" dir="ltr" title={row.passwordHash}>
+                          {row.passwordHash}
+                        </td>
+                        <td className="py-2 text-center text-soft">{new Intl.NumberFormat(locale).format(row.downloads)}</td>
+                        <td className="py-2 pl-3 text-end">
+                          <button
+                            type="button"
+                            onClick={() => setBlocked(row.id, !row.blocked)}
+                            disabled={blockBusy === row.id}
+                            className="font-medium text-primary hover:underline disabled:opacity-50"
+                          >
+                            {row.blocked ? t("adminUnblock") : t("adminBlock")}
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+            <form onSubmit={addAccount} className="mt-4 space-y-3">
+              <div className="grid gap-3 sm:grid-cols-2">
+                <label className="block text-sm font-medium text-ink">
+                  {t("email")}
+                  <input
+                    type="email"
+                    dir="ltr"
+                    required
+                    value={addEmail}
+                    onChange={(event) => setAddEmail(event.target.value)}
+                    className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                  />
+                </label>
+                <label className="block text-sm font-medium text-ink">
+                  {t("password")}
+                  <input
+                    type="password"
+                    dir="ltr"
+                    minLength={6}
+                    required
+                    value={addPassword}
+                    onChange={(event) => setAddPassword(event.target.value)}
+                    className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                  />
+                </label>
+              </div>
+              {addError && <p role="alert" className="text-sm text-danger">{addError}</p>}
+              {added && !addError && <p className="text-sm text-success">{t("adminAccountAdded")}</p>}
+              <button type="submit" className={buttonClass}>{t("adminAddAccount")}</button>
             </form>
           </section>
         </div>

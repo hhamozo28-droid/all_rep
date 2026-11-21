@@ -28,7 +28,11 @@ function LoginForm() {
       });
       router.replace("/");
     } catch (cause) {
-      setError(cause instanceof ApiError && cause.status === 401 ? t("wrongCredentials") : t("error"));
+      if (cause instanceof ApiError && cause.status === 401 && cause.body?.error === "blocked") {
+        setError(t("blocked"));
+      } else {
+        setError(cause instanceof ApiError && cause.status === 401 ? t("wrongCredentials") : t("error"));
+      }
       setBusy(false);
     }
   }
@@ -42,6 +46,9 @@ function LoginForm() {
 
       {params.get("kicked") === "1" && (
         <p className="mb-3 rounded-md bg-danger-soft p-3 text-sm text-danger">{t("kicked")}</p>
+      )}
+      {params.get("idle") === "1" && (
+        <p className="mb-3 rounded-md bg-accent-soft p-3 text-sm text-ink" role="status">{t("idleLoggedOut")}</p>
       )}
 
       <section className="rounded-lg border border-line bg-white p-5">

@@ -49,8 +49,9 @@ const ar: Record<string, string> = {
   account: "الحساب",
   email: "البريد الإلكتروني",
   password: "كلمة المرور",
-  loginTitle: "أهلًا بعودتك",
-  loginBody: "سجّل الدخول لعرض التخصصات وروابط التحميل. يُسمح بجلسة واحدة لكل حساب.",
+  loginTitle: "أهلا بك ، أتمنى أن تجد ماتريد",
+  loginBody:
+    "سجّل الدخول لعرض التخصصات وروابط التحميل. يُسمح بجلسة واحدة  لكل حساب. إذا لم تجد ملفاتك يمكنك التواصل معنا لتوفيرها على صفحتكم دروسي .",
   registerTitle: "حساب جديد",
   registerBody: "أنشئ حسابك بالبريد وكلمة المرور للوصول إلى مكتبة التخصصات.",
   noAccount: "ليس لديك حساب؟",
@@ -109,6 +110,20 @@ const ar: Record<string, string> = {
   linkSheets: "مخططات الدروس",
   linkNotes: "مذكرات الدروس",
   footerByline: "حقوق التصميم و النشر والمشاركة للأستاذ حمزة شعيب",
+  uploadSuccess: "تم الرفع بنجاح",
+  welcomeMessage: "مرحبا بك زميلي الأستاذ ، أتمنى أن تجد ماتريد",
+  idleLoggedOut: "تم تسجيل الخروج التلقائي بعد 10 دقائق من عدم التفاعل",
+  blocked: "الحساب محجوب",
+  allSectors: "الكل",
+  sectorFilter: "الشعبة المهنية",
+  adminAccounts: "الحسابات",
+  adminTablePassword: "كلمة السر",
+  adminTableDownloads: "عدد التحميلات",
+  adminTableActions: "الإجراءات",
+  adminBlock: "حظر",
+  adminUnblock: "إلغاء الحظر",
+  adminAddAccount: "إضافة حساب",
+  adminAccountAdded: "تمت إضافة الحساب",
 };
 
 const en: Record<string, string> = {
@@ -146,9 +161,9 @@ const en: Record<string, string> = {
   account: "Account",
   email: "Email",
   password: "Password",
-  loginTitle: "Welcome back",
+  loginTitle: "Welcome, I hope you find what you want",
   loginBody:
-    "Sign in to browse specialties and download links. One active session per account.",
+    "Sign in to browse specialties and download links. One active session per account. If you can't find your files, contact us so we can provide them.",
   registerTitle: "New account",
   registerBody: "Create your account with email and password to access the catalog.",
   noAccount: "No account yet?",
@@ -208,6 +223,20 @@ const en: Record<string, string> = {
   linkSheets: "Lesson sheets",
   linkNotes: "Lesson notes",
   footerByline: "Design, publication and sharing rights to Br. Hamza Shaïb",
+  uploadSuccess: "Uploaded successfully",
+  welcomeMessage: "Welcome, I hope you find what you want",
+  idleLoggedOut: "You were automatically signed out after 10 minutes of inactivity",
+  blocked: "Account is blocked",
+  allSectors: "All",
+  sectorFilter: "Specialty sector",
+  adminAccounts: "Accounts",
+  adminTablePassword: "Password",
+  adminTableDownloads: "Downloads",
+  adminTableActions: "Actions",
+  adminBlock: "Block",
+  adminUnblock: "Unblock",
+  adminAddAccount: "Add account",
+  adminAccountAdded: "Account added",
 };
 
 const fr: Record<string, string> = {
@@ -245,9 +274,9 @@ const fr: Record<string, string> = {
   account: "Compte",
   email: "E-mail",
   password: "Mot de passe",
-  loginTitle: "Bon retour",
+  loginTitle: "Bienvenue, j'espère que tu Profit",
   loginBody:
-    "Connectez-vous pour parcourir les spécialités. Une seule session active par compte.",
+    "Connectez-vous pour parcourir les spécialités et les liens de téléchargement. Une seule session active par compte. Si vous ne trouvez pas vos fichiers, contactez-nous pour nous les fournir.",
   registerTitle: "Nouveau compte",
   registerBody:
     "Créez votre compte avec e-mail et mot de passe pour accéder au catalogue.",
@@ -309,6 +338,20 @@ const fr: Record<string, string> = {
   linkSheets: "Fiches de cours",
   linkNotes: "Notes de cours",
   footerByline: "Droits de conception, publication et partage à Br. Hamza Shaïb",
+  uploadSuccess: "Téléversement réussi",
+  welcomeMessage: "Bienvenue, mon collègue, j'espère que tu Profit",
+  idleLoggedOut: "Vous êtes automatiquement déconnecté après 10 minutes d'inactivité",
+  blocked: "Compte bloqué",
+  allSectors: "Tous",
+  sectorFilter: "Secteur professionnel",
+  adminAccounts: "Comptes",
+  adminTablePassword: "Mot de passe",
+  adminTableDownloads: "Téléchargements",
+  adminTableActions: "Actions",
+  adminBlock: "Bloquer",
+  adminUnblock: "Débloquer",
+  adminAddAccount: "Ajouter un compte",
+  adminAccountAdded: "Compte ajouté",
 };
 
 const DICTS: Record<Locale, Record<string, string>> = { ar, en, fr };

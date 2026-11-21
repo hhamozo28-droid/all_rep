@@ -13,6 +13,10 @@ function host(url: string) {
   }
 }
 
+function track() {
+  void fetch("/api/specialties/track", { method: "POST", credentials: "same-origin" });
+}
+
 export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
   const router = useRouter();
   const { t, locale } = useI18n();
@@ -66,6 +70,7 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={track}
                   className="shrink-0 rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white"
                 >
                   {t("download")}

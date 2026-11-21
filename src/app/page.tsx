@@ -8,16 +8,16 @@ export const dynamic = "force-dynamic";
 export default async function HomePage({
   searchParams,
 }: {
-  searchParams: Promise<{ published?: string }>;
+  searchParams: Promise<{ published?: string; welcome?: string }>;
 }) {
-  const { published } = await searchParams;
+  const { published, welcome } = await searchParams;
   const s = await getSessionState();
   if (s.status === "none") redirect("/login");
   if (s.status === "other-device") redirect("/login?kicked=1");
 
   return (
     <AppShell user={{ email: s.user.email, language: s.user.language }}>
-      <Home published={published === "1"} />
+      <Home published={published === "1"} welcome={welcome === "1"} />
     </AppShell>
   );
 }

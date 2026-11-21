@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
 import AdminLink from "./AdminLink";
+import IdleLogout from "./IdleLogout";
 import { isLocale, useI18n, type Locale } from "@/lib/i18n";
 
 interface Props {
@@ -64,14 +65,17 @@ export default function AppShell({ children, user }: Props) {
 
   return (
     <div className="min-h-dvh">
+      <IdleLogout />
       <header className="border-b border-line bg-white">
         <div className="mx-auto flex max-w-2xl flex-wrap items-center justify-between gap-3 px-4 py-3">
-          <button type="button" onClick={() => router.push("/")} className="text-start">
-            <span className="block text-lg font-bold text-ink">{t("appName")}</span>
-            <span className="block text-xs text-soft">{t("appTagline")}</span>
-          </button>
+          <div className="flex flex-col items-start gap-0.5">
+            <button type="button" onClick={() => router.push("/")} className="text-start">
+              <span className="block text-lg font-bold text-ink">{t("appName")}</span>
+              <span className="block text-xs text-soft">{t("appTagline")}</span>
+            </button>
+            <AdminLink compact className="mt-0.5" />
+          </div>
           <div className="flex flex-wrap items-center gap-2">
-            <AdminLink />
             <LanguageSwitcher onLocalChange={changeLanguage} />
             {installPrompt && (
               <button

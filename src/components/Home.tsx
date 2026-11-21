@@ -15,11 +15,14 @@ type State =
 
 const normalize = (value: string) => value.toLowerCase().replace(/[\s\-_]/g, "");
 
-export default function Home({ published = false }: { published?: boolean }) {
+const sectorOf = (code: string) => (code.match(/^[A-Za-z]+/) || [])[0] || "";
+
+export default function Home({ published = false, welcome = false }: { published?: boolean; welcome?: boolean }) {
   const router = useRouter();
   const { t, locale } = useI18n();
   const [state, setState] = useState<State>({ status: "loading" });
   const [query, setQuery] = useState("");
+  const [sector, setSector] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     try {
@@ -38,14 +41,30 @@ export default function Home({ published = false }: { published?: boolean }) {
     void load();
   }, [load]);
 
+  const sectors = useMemo(() => {
+    if (state.status !== "ready") return [] as { sector: string; count: number }[];
+    const bySector = new Map<string, number>();
+    for (const item of state.data.items) {
+      const s = sectorOf(item.code);
+      if (!s) continue;
+      bySector.set(s, (bySector.get(s) ?? 0) + 1);
+    }
+    return [...bySector.entries()]
+      .map(([sector, count]) => ({ sector, count }))
+      .sort((a, b) => b.count - a.count || a.sector.localeCompare(b.sector));
+  }, [state]);
+
   const items = useMemo(() => {
     if (state.status !== "ready") return [];
+    const base = sector
+      ? state.data.items.filter((item) => sectorOf(item.code) === sector)
+      : state.data.items;
     const search = normalize(query.trim());
-    if (!search) return state.data.items;
-    return state.data.items.filter(
+    if (!search) return base;
+    return base.filter(
       (item) => normalize(item.code).includes(search) || normalize(item.name).includes(search),
     );
-  }, [query, state]);
+  }, [query, sector, state]);
 
   if (state.status === "loading") {
     return <p className="py-10 text-center text-sm text-soft">{t("loading")}</p>;
@@ -85,9 +104,15 @@ export default function Home({ published = false }: { published?: boolean }) {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[url('/bg.jpg')] bg-cover bg-center opacity-10"
       />
+      {welcome && (
+        <section className="mb-4 rounded-lg border border-line bg-card p-4 text-sm text-success" role="status">
+          {t("welcomeMessage")}
+        </section>
+      )}
+
       {published && (
         <section className="mb-4 rounded-lg border border-line bg-card p-4 text-sm text-success" role="status">
-          {t("uploadedOk", { n: data.items.length, v: data.version })}
+          {t("uploadSuccess")}
         </section>
       )}
 
@@ -116,12 +141,34 @@ export default function Home({ published = false }: { published?: boolean }) {
         />
       </label>
 
+      {sectors.length > 0 && (
+        <nav className="mb-4 flex flex-wrap gap-1.5" aria-label={t("sectorFilter")}>
+          <button
+            type="button"
+            onClick={() => setSector(null)}
+            className={`rounded-full border px-3 py-1.5 text-xs font-medium ${sector === null ? "border-primary bg-primary-soft text-primary-deep" : "border-line bg-white text-soft hover:text-ink"}`}
+          >
+            {t("allSectors")}
+          </button>
+          {sectors.map((s) => (
+            <button
+              key={s.sector}
+              type="button"
+              onClick={() => setSector((current) => (current === s.sector ? null : s.sector))}
+              className={`rounded-full border px-3 py-1.5 text-xs font-medium ${sector === s.sector ? "border-primary bg-primary-soft text-primary-deep" : "border-line bg-white text-soft hover:text-ink"}`}
+            >
+              {s.sector} <span className="text-[10px] text-soft">({s.count})</span>
+            </button>
+          ))}
+        </nav>
+      )}
+
       {data.items.length === 0 ? (
         <p className="rounded-lg border border-line bg-white p-5 text-sm text-soft">{t("emptyTitle")}</p>
       ) : items.length === 0 ? (
         <p className="rounded-lg border border-line bg-white p-5 text-sm text-soft">{t("noResults")}</p>
       ) : (
-        <div className="space-y-2">
+        <div className="grid grid-cols-[repeat(auto-fill,4cm)] gap-[2cm]" dir="ltr">
           {items.map((item) => <SpecialtyCard key={item.id} item={item} />)}
         </div>
       )}
