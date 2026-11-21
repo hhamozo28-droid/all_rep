@@ -1,22 +1,12 @@
 "use client";
 
-import type { CSSProperties } from "react";
 import { useRouter } from "next/navigation";
 import type { SpecialtyItem } from "@/types/specialty";
 import { useI18n } from "@/lib/i18n";
+import { badgeStyle, cardStyle, iconLetter } from "@/lib/tint";
 
 function track() {
   void fetch("/api/specialties/track", { method: "POST", credentials: "same-origin" });
-}
-
-/** A stable, readable tint per specialty code — each displayed specialty gets its own background. */
-function cardStyle(code: string): CSSProperties {
-  let hash = 0;
-  for (const ch of code) hash = (hash * 31 + ch.charCodeAt(0)) & 0x7fffffff;
-  const hue = (hash % 360 + 360) % 360;
-  const saturation = 30 + (hash % 40); // 30–69%
-  const lightness = 95 + (hash % 3); // 95–97%
-  return { backgroundColor: `hsl(${hue} ${saturation}% ${lightness}%)` };
 }
 
 export default function SpecialtyCard({ item }: { item: SpecialtyItem }) {
@@ -37,7 +27,16 @@ export default function SpecialtyCard({ item }: { item: SpecialtyItem }) {
         <span dir="ltr" className="block truncate text-[11px] font-mono font-semibold text-primary-deep">
           {item.code}
         </span>
-        <h2 className="mt-1 line-clamp-2 text-[12px] font-semibold text-ink">{item.name}</h2>
+        <h2 className="mt-1 flex items-center gap-1.5">
+          <span
+            aria-hidden="true"
+            className="inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full text-[10px] font-extrabold"
+            style={badgeStyle(item.code)}
+          >
+            {iconLetter(item.code)}
+          </span>
+          <span className="min-w-0 flex-1 line-clamp-2">{item.name}</span>
+        </h2>
       </button>
       <div className="mt-1.5 flex flex-wrap gap-x-2 gap-y-1">
         {sheetsLink && (

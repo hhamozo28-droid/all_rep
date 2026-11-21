@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { formatDate, formatMb } from "@/lib/client";
 import { useI18n } from "@/lib/i18n";
 import type { SpecialtyItem } from "@/types/specialty";
+import { badgeStyle, iconLetter } from "@/lib/tint";
 
 function host(url: string) {
   try {
@@ -39,7 +40,16 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
         <p dir="ltr" className="font-mono text-sm font-semibold text-primary-deep text-start">
           {item.code}
         </p>
-        <h1 className="mt-1 text-xl font-bold text-ink">{item.name}</h1>
+        <div className="mt-1 flex items-center gap-2">
+          <span
+            aria-hidden="true"
+            className="inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full text-base font-extrabold text-white"
+            style={badgeStyle(item.code)}
+          >
+            {iconLetter(item.code)}
+          </span>
+          <h1 className="text-xl font-bold text-ink">{item.name}</h1>
+        </div>
         {item.contentType && <p className="mt-1 text-sm text-soft">{item.contentType}</p>}
         <div className="mt-4 grid grid-cols-2 gap-y-3 border-t border-line pt-4 text-sm">
           {details.map(([label, value]) => (
