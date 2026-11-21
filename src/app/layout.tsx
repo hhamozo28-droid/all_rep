@@ -11,10 +11,10 @@ const notokufiArabic = localFont({
   variable: "--font-arabic",
 });
 
-const heather = localFont({
-  src: "../fonts/Heather.ttf",
+const constani = localFont({
+  src: "../fonts/Constani.ttf",
   display: "swap",
-  variable: "--font-heather",
+  variable: "--font-constani",
 });
 
 export const metadata: Metadata = {
@@ -46,7 +46,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ar" dir="rtl" className={`${notokufiArabic.variable} ${heather.variable}`}>
+    <html lang="ar" dir="rtl" className={`${notokufiArabic.variable} ${constani.variable}`}>
       <body className="min-h-dvh bg-paper font-sans text-ink antialiased">
         <I18nProvider>{children}</I18nProvider>
       </body>

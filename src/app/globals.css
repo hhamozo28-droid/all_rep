@@ -5,10 +5,10 @@ html[dir="rtl"] body {
   font-family: var(--font-arabic);
 }
 
-/* For French and English use the attached (Heather) font. */
+/* For French and English use the attached (Constani) font. */
 html[lang="fr"] body,
 html[lang="en"] body {
-  font-family: var(--font-heather);
+  font-family: var(--font-constani);
 }
 
 @theme {
