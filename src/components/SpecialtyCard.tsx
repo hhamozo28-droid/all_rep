@@ -1,18 +1,17 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import DownloadLink from "@/components/DownloadLink";
+import { useDownloadStatus } from "@/components/DownloadStatusProvider";
 import type { SpecialtyItem } from "@/types/specialty";
 import { useI18n } from "@/lib/i18n";
-import { badgeStyle, cardStyle, iconLetter, linkStyle } from "@/lib/tint";
+import { badgeStyle, cardStyle, iconLetter } from "@/lib/tint";
 import { specialtyName } from "@/lib/specialtyNames";
-
-function track() {
-  void fetch("/api/specialties/track", { method: "POST", credentials: "same-origin" });
-}
 
 export default function SpecialtyCard({ item }: { item: SpecialtyItem }) {
   const router = useRouter();
   const { t, locale } = useI18n();
+  const { canDownload, remaining } = useDownloadStatus();
   const [sheetsLink, notesLink] = item.links;
   const code = item.code.split(/\s+/)[0] || item.code;
 
@@ -41,31 +40,16 @@ export default function SpecialtyCard({ item }: { item: SpecialtyItem }) {
         </h2>
       </button>
       <div className="mt-1.5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
-        {sheetsLink && (
-          <a
-            href={sheetsLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={track}
-            className="text-[12px] font-medium hover:underline"
-            style={linkStyle(item.code)}
-          >
-            {t("linkSheets")}
-          </a>
-        )}
-        {notesLink && (
-          <a
-            href={notesLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={track}
-            className="text-[12px] font-medium hover:underline"
-            style={linkStyle(item.code)}
-          >
-            {t("linkNotes")}
-          </a>
-        )}
+        {sheetsLink && <DownloadLink href={sheetsLink} label={t("linkSheets")} className="text-[12px] text-blue" />}
+        {notesLink && <DownloadLink href={notesLink} label={t("linkNotes")} className="text-[12px] text-blue" />}
       </div>
+      {!canDownload ? (
+        <p className="mt-1.5 text-[11px] font-medium text-danger">{t("downloadLimitMessage")}</p>
+      ) : remaining !== null && remaining > 0 ? (
+        <p className="mt-1.5 text-[11px] text-brown">
+          {t("downloadsRemainingLabel").replace("%d", String(remaining))}
+        </p>
+      ) : null}
     </div>
   );
 }

@@ -30,7 +30,14 @@ export default async function SpecialtyPage({
   if (rows.length === 0) notFound();
 
   return (
-    <AppShell user={{ email: s.user.email, language: s.user.language }}>
+    <AppShell
+      user={{
+        email: s.user.email,
+        language: s.user.language,
+        downloads: s.user.downloads,
+        downloadLimit: s.user.downloadLimit,
+      }}
+    >
       <SpecialtyDetail item={serializeSpecialty(rows[0])} />
     </AppShell>
   );

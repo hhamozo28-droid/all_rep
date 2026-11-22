@@ -6,10 +6,11 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import AdminLink from "./AdminLink";
 import IdleLogout from "./IdleLogout";
 import { isLocale, useI18n, type Locale } from "@/lib/i18n";
+import DownloadStatusProvider from "./DownloadStatusProvider";
 
 interface Props {
   children: ReactNode;
-  user?: { email: string; language: string } | null;
+  user?: { email: string; language: string; downloads?: number; downloadLimit?: number | null } | null;
 }
 
 interface InstallPromptEvent extends Event {
@@ -64,6 +65,9 @@ export default function AppShell({ children, user }: Props) {
   };
 
   return (
+    <DownloadStatusProvider
+      initial={{ downloads: user?.downloads ?? 0, downloadLimit: user?.downloadLimit ?? null }}
+    >
     <div className="min-h-dvh">
       <IdleLogout />
       <header className="border-b border-line bg-white">
@@ -106,5 +110,6 @@ export default function AppShell({ children, user }: Props) {
         {t("footerByline")}
       </footer>
     </div>
+    </DownloadStatusProvider>
   );
 }

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { useRouter } from "next/navigation";
+import DownloadLink from "@/components/DownloadLink";
+import { useDownloadStatus } from "@/components/DownloadStatusProvider";
 import { formatDate, formatMb } from "@/lib/client";
 import { useI18n } from "@/lib/i18n";
 import type { SpecialtyItem } from "@/types/specialty";
@@ -20,13 +21,7 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
   const router = useRouter();
   const { t, locale } = useI18n();
   const number = new Intl.NumberFormat(locale);
-  const [downloadBlocked, setDownloadBlocked] = useState(false);
-
-  async function track() {
-    const res = await fetch("/api/specialties/track", { method: "POST", credentials: "same-origin" });
-    if (res.status === 403) setDownloadBlocked(true);
-  }
-
+  const { canDownload, remaining } = useDownloadStatus();
   const showCount = (value: number) => (value > 0 ? number.format(value) : "/");
   const details = [
     [`${t("modules")}`, showCount(item.modules)],
@@ -72,7 +67,7 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
       <section className="rounded-lg border border-line bg-white p-5">
         <h2 className="font-semibold text-ink">{t("linksTitle")}</h2>
         <p className="mt-1 text-sm text-soft">{t("openHint")}</p>
-        {downloadBlocked && (
+        {!canDownload && (
           <p role="status" className="mt-4 text-sm text-danger">
             {t("downloadLimitMessage")}
           </p>
@@ -86,18 +81,17 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
                 <span className="min-w-0 truncate text-sm text-soft" dir="ltr">
                   {index + 1}. {host(url)}
                 </span>
-                <a
+                <DownloadLink
                   href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={track}
-                  className="shrink-0 rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white"
-                >
-                  {t("download")}
-                </a>
+                  label={t("download")}
+                  className="shrink-0 rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white hover:bg-primary-deep"
+                />
               </li>
             ))}
           </ol>
+        )}
+        {canDownload && remaining !== null && remaining > 0 && (
+          <p className="mt-3 text-sm text-brown">{t("downloadsRemainingLabel").replace("%d", String(remaining))}</p>
         )}
       </section>
     </div>

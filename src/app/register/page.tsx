@@ -13,6 +13,7 @@ export default function RegisterPage() {
   const { t, locale } = useI18n();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
 
@@ -58,16 +59,27 @@ export default function RegisterPage() {
           </label>
           <label className="block text-sm font-medium text-ink">
             {t("password")}
-            <input
-              type="password"
-              dir="ltr"
-              autoComplete="new-password"
-              minLength={6}
-              required
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2.5 outline-none focus:border-primary"
-            />
+            <span className="relative mt-1 block">
+              <input
+                type={passwordVisible ? "text" : "password"}
+                dir="ltr"
+                autoComplete="new-password"
+                minLength={6}
+                required
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                className="w-full rounded-md border border-line bg-white px-3 py-2.5 outline-none focus:border-primary"
+              />
+              <button
+                type="button"
+                onClick={() => setPasswordVisible((v) => !v)}
+                aria-label={passwordVisible ? t("hidePassword") : t("showPassword")}
+                aria-pressed={passwordVisible}
+                className="absolute end-2 top-2.5 text-blue"
+              >
+                {passwordVisible ? "\u{1F441}\u{1F6D1}" : "\u{1F441}"}
+              </button>
+            </span>
           </label>
           {error && <p className="text-sm text-danger">{error}</p>}
           <button

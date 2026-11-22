@@ -28,6 +28,10 @@ html[lang="en"] body {
   --color-danger-soft: #fef2f2;
   --color-success: #15803d;
   --color-success-soft: #f0fdf4;
+  --color-black: #0b0b0c;
+  --color-yellow: #ca8a04;
+  --color-brown: #92400e;
+  --color-blue: #2563eb;
 }
 
 body {

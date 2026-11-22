@@ -16,7 +16,14 @@ export default async function HomePage({
   if (s.status === "other-device") redirect("/login?kicked=1");
 
   return (
-    <AppShell user={{ email: s.user.email, language: s.user.language }}>
+    <AppShell
+      user={{
+        email: s.user.email,
+        language: s.user.language,
+        downloads: s.user.downloads,
+        downloadLimit: s.user.downloadLimit,
+      }}
+    >
       <Home published={published === "1"} welcome={welcome === "1"} />
     </AppShell>
   );

@@ -72,7 +72,13 @@ export function verifyPassword(password: string, stored: string): boolean {
   }
 }
 
-export type PublicUser = { id: string; email: string; language: string };
+export type PublicUser = {
+  id: string;
+  email: string;
+  language: string;
+  downloads: number;
+  downloadLimit: number | null;
+};
 export type SessionState =
   | { status: "ok"; user: PublicUser }
   | { status: "other-device" }
@@ -109,7 +115,7 @@ export async function getSessionState(): Promise<SessionState> {
 
   return {
     status: "ok",
-    user: { id: p.id, email: p.email, language: p.language },
+    user: { id: p.id, email: p.email, language: p.language, downloads: p.downloads, downloadLimit: p.downloadLimit },
   };
 }
 
