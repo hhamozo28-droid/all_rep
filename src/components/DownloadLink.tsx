@@ -27,7 +27,18 @@ export default function DownloadLink({
     event.preventDefault();
     if (!canDownload || busy) return;
     setBusy(true);
-    const tab = window.open("", "_blank", "noopener noreferrer"); // synchronous: popup allowed
+    // Open synchronously in the user gesture; "noopener" makes window.open
+    // return null, so sever the opener after instead.
+    const tab = window.open("", "_blank");
+    if (!tab) {
+      setBusy(false);
+      return;
+    }
+    try {
+      tab.opener = null;
+    } catch {
+      /* ignore when the target is not writable */
+    }
     let ok = false;
     try {
       const res = await fetch("/api/specialties/track", { method: "POST", credentials: "same-origin" });
@@ -35,10 +46,10 @@ export default function DownloadLink({
     } catch {
       ok = false;
     }
-    if (ok && tab) tab.location.href = href;
-    else if (tab) tab.close();
+    if (ok) tab.location.assign(href);
+    else tab.close();
     setBusy(false);
-    if (ok) await refresh(); // if the limit was hit, this disables the links immediately
+    if (ok) await refresh(); // a hit at the limit now disables the links immediately
   }
 
   const shared = busy ? `opacity-60 ${className}` : className;
