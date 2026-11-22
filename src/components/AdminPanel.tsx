@@ -24,6 +24,7 @@ type ProfileRow = {
   language: string;
   blocked: boolean;
   downloads: number;
+  downloadLimit: number | null;
   createdAt: string;
 };
 const buttonClass = "w-full rounded-md bg-primary px-4 py-2.5 font-semibold text-white hover:bg-primary-deep disabled:opacity-50";
@@ -52,6 +53,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
   const [deleteBusy, setDeleteBusy] = useState(false);
   const [deletedMsg, setDeletedMsg] = useState(false);
+  const [limitBusy, setLimitBusy] = useState<string | null>(null);
 
   useEffect(() => {
     if (!authorized) return;
@@ -132,6 +134,22 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
         .catch(() => {});
     } finally {
       setDeleteBusy(false);
+    }
+  }
+
+  async function setLimit(id: string, limit: number | null) {
+    setLimitBusy(id);
+    try {
+      await api("/api/admin/accounts/limit", {
+        method: "POST",
+        credentials: "same-origin",
+        body: JSON.stringify({ id, limit }),
+      });
+      setUsers((rows) => rows?.map((row) => (row.id === id ? { ...row, downloadLimit: limit } : row)) ?? null);
+    } catch {
+      // keep the list as-is
+    } finally {
+      setLimitBusy(null);
     }
   }
 
@@ -283,6 +301,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                       <th className="py-2 pl-3 font-medium">{t("email")}</th>
                       <th className="py-2 pl-3 font-medium">{t("adminTablePassword")}</th>
                       <th className="py-2 text-center font-medium">{t("adminTableDownloads")}</th>
+                      <th className="py-2 text-center font-medium">{t("adminLimit")}</th>
                       <th className="py-2 pl-3 font-medium">{t("adminTableActions")}</th>
                     </tr>
                   </thead>
@@ -294,6 +313,22 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                           {row.plainPassword ?? "—"}
                         </td>
                         <td className="py-2 text-center text-soft">{new Intl.NumberFormat(locale).format(row.downloads)}</td>
+                        <td className="py-2 text-center">
+                          <select
+                            value={row.downloadLimit ?? ""}
+                            onChange={(event) => setLimit(row.id, event.target.value === "" ? null : Number(event.target.value))}
+                            disabled={limitBusy === row.id}
+                            aria-label={t("adminLimit")}
+                            className="w-full rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary disabled:opacity-50"
+                          >
+                            <option value="">{t("adminLimitUnlimited")}</option>
+                            <option value="3">{t("adminLimit3")}</option>
+                            <option value="10">{t("adminLimit10")}</option>
+                            <option value="20">{t("adminLimit20")}</option>
+                            <option value="50">{t("adminLimit50")}</option>
+                            <option value="150">{t("adminLimit150")}</option>
+                          </select>
+                        </td>
                         <td className="py-2 pl-3 text-end">
                           <div className="flex items-center justify-end gap-2">
                             <button

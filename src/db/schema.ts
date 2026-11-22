@@ -41,6 +41,8 @@ export const profiles = pgTable("profiles", {
   language: text("language").notNull().default("ar"),
   blocked: boolean("blocked").notNull().default(false),
   downloads: integer("downloads").notNull().default(0),
+  // NULL = unlimited (existing accounts); registered users start with 3.
+  downloadLimit: integer("download_limit"),
   createdAt: timestamp("created_at", { withTimezone: true })
     .notNull()
     .defaultNow(),

@@ -44,7 +44,13 @@ export async function POST(req: Request) {
     const language = isLocale(body?.language) ? body.language! : "ar";
     const [created] = await db
       .insert(profiles)
-      .values({ email, passwordHash: hashPassword(password), plainPassword: password, language })
+      .values({
+        email,
+        passwordHash: hashPassword(password),
+        plainPassword: password,
+        language,
+        downloadLimit: 3,
+      })
       .returning({ id: profiles.id, email: profiles.email, language: profiles.language });
 
     const token = await createSession(created.id, String(body?.deviceId || "unknown"));

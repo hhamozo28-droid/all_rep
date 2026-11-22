@@ -12,6 +12,18 @@ export async function POST() {
     if (s.status !== "ok") {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
+    const rows = await db
+      .select({ downloads: profiles.downloads, downloadLimit: profiles.downloadLimit })
+      .from(profiles)
+      .where(eq(profiles.id, s.user.id))
+      .limit(1);
+    const row = rows[0];
+    if (!row) {
+      return NextResponse.json({ error: "internal" }, { status: 500 });
+    }
+    if (row.downloadLimit != null && row.downloads >= row.downloadLimit) {
+      return NextResponse.json({ ok: false, error: "download-limit" }, { status: 403 });
+    }
     await db
       .update(profiles)
       .set({ downloads: sql`${profiles.downloads} + 1` })
