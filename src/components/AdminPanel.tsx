@@ -228,6 +228,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
 
       {!authorized ? (
         <section className="rounded-lg border border-line bg-card p-5">
+          <h2 className="mb-3 font-semibold text-ink">{t("appName")}</h2>
           <p className="mb-4 text-sm text-soft">{t("adminSignInHelp")}</p>
           <form method="post" action="/api/admin/login" className="space-y-3">
             <label htmlFor="admin-password" className="block text-sm font-medium text-ink">
@@ -254,7 +255,11 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                 )}
               </div>
             )}
-            <button type="submit" disabled={!configured} className={buttonClass}>{t("unlock")}</button>
+            <button type="submit" disabled={!configured}
+              className="flex items-center gap-3 rounded-full border border-line bg-card px-4 py-2 text-sm font-semibold text-primary opacity-60 transition-colors hover:opacity-100 hover:bg-paper">
+              <span className="h-2 w-2 rounded-full bg-primary" />
+              {t("unlock")}
+            </button>
           </form>
           {showDemoHint && <p className="mt-3 text-xs text-soft">{t("adminHint")}</p>}
         </section>
