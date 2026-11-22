@@ -33,7 +33,7 @@ export default function SpecialtyCard({ item }: { item: SpecialtyItem }) {
         <button
           type="button"
           onClick={() => router.push(`/specialty/${item.id}`)}
-          className="block flex-1"
+          className="block flex-1 text-start"
         >
           <span dir="ltr" className="block truncate text-[10px] font-mono font-semibold text-primary-deep">
             {code}
