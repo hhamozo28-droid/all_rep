@@ -163,7 +163,7 @@ export default function Home({ published = false, welcome = false }: { published
       ) : items.length === 0 ? (
         <p className="rounded-lg border border-line bg-white p-5 text-sm text-soft">{t("noResults")}</p>
       ) : (
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-[repeat(auto-fill,4.6cm)] sm:gap-[1.5cm]" dir="ltr">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-[repeat(auto-fill,4.6cm)] sm:gap-[1.5cm]">
           {items.map((item) => <SpecialtyCard key={item.id} item={item} />)}
         </div>
       )}
