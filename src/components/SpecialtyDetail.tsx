@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { formatDate, formatMb } from "@/lib/client";
 import { useI18n } from "@/lib/i18n";
@@ -15,14 +16,16 @@ function host(url: string) {
   }
 }
 
-function track() {
-  void fetch("/api/specialties/track", { method: "POST", credentials: "same-origin" });
-}
-
 export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
   const router = useRouter();
   const { t, locale } = useI18n();
   const number = new Intl.NumberFormat(locale);
+  const [downloadBlocked, setDownloadBlocked] = useState(false);
+
+  async function track() {
+    const res = await fetch("/api/specialties/track", { method: "POST", credentials: "same-origin" });
+    if (res.status === 403) setDownloadBlocked(true);
+  }
 
   const showCount = (value: number) => (value > 0 ? number.format(value) : "/");
   const details = [
@@ -69,6 +72,11 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
       <section className="rounded-lg border border-line bg-white p-5">
         <h2 className="font-semibold text-ink">{t("linksTitle")}</h2>
         <p className="mt-1 text-sm text-soft">{t("openHint")}</p>
+        {downloadBlocked && (
+          <p role="status" className="mt-4 text-sm text-danger">
+            {t("downloadLimitMessage")}
+          </p>
+        )}
         {item.links.length === 0 ? (
           <p className="mt-4 text-sm text-soft">{t("noResults")}</p>
         ) : (
