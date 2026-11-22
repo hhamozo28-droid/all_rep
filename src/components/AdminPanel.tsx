@@ -47,6 +47,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [usersError, setUsersError] = useState(false);
   const [addEmail, setAddEmail] = useState("");
   const [addPassword, setAddPassword] = useState("");
+  const [adminPwVisible, setAdminPwVisible] = useState(false);
   const [addError, setAddError] = useState("");
   const [added, setAdded] = useState(false);
   const [blockBusy, setBlockBusy] = useState<string | null>(null);
@@ -231,10 +232,19 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
           <form method="post" action="/api/admin/login" className="space-y-3">
             <label htmlFor="admin-password" className="block text-sm font-medium text-ink">
               {t("adminPassword")}
-              <input id="admin-password" name="password" type="password" dir="ltr" required
-                autoComplete="current-password" disabled={!configured}
-                aria-invalid={notice === "wrongPassword"} aria-describedby={notice ? "admin-notice" : undefined}
-                className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2.5 outline-none focus:border-primary" />
+              <span className="mt-1 block">
+                <input id="admin-password" name="password" type={adminPwVisible ? "text" : "password"} dir="ltr" required
+                  autoComplete="current-password" disabled={!configured}
+                  aria-invalid={notice === "wrongPassword"} aria-describedby={notice ? "admin-notice" : undefined}
+                  className="w-full rounded-md border border-line bg-white px-3 py-2.5 outline-none focus:border-primary" />
+                <button type="button" onClick={() => setAdminPwVisible((v) => !v)}
+                  aria-label={adminPwVisible ? t("hidePassword") : t("showPassword")} aria-pressed={adminPwVisible}
+                  disabled={!configured}
+                  className="mt-1.5 flex items-center gap-2 text-xs font-medium text-primary">
+                  {adminPwVisible ? "\u{1F441}\u{1F6D1}" : "\u{1F441}"}
+                  {adminPwVisible ? t("hidePassword") : t("showPassword")}
+                </button>
+              </span>
             </label>
             {notice && (
               <div id="admin-notice" role="alert" className="rounded-md bg-danger-soft p-3 text-sm text-danger">

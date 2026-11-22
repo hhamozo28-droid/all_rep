@@ -59,7 +59,7 @@ export default function RegisterPage() {
           </label>
           <label className="block text-sm font-medium text-ink">
             {t("password")}
-            <span className="relative mt-1 block">
+            <span className="mt-1 block">
               <input
                 type={passwordVisible ? "text" : "password"}
                 dir="ltr"
@@ -75,9 +75,10 @@ export default function RegisterPage() {
                 onClick={() => setPasswordVisible((v) => !v)}
                 aria-label={passwordVisible ? t("hidePassword") : t("showPassword")}
                 aria-pressed={passwordVisible}
-                className="absolute end-2 top-2.5 text-blue"
+                className="mt-1.5 flex items-center gap-2 text-xs font-medium text-primary"
               >
                 {passwordVisible ? "\u{1F441}\u{1F6D1}" : "\u{1F441}"}
+                {passwordVisible ? t("hidePassword") : t("showPassword")}
               </button>
             </span>
           </label>
