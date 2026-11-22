@@ -49,6 +49,9 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [addError, setAddError] = useState("");
   const [added, setAdded] = useState(false);
   const [blockBusy, setBlockBusy] = useState<string | null>(null);
+  const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
+  const [deleteBusy, setDeleteBusy] = useState(false);
+  const [deletedMsg, setDeletedMsg] = useState(false);
 
   useEffect(() => {
     if (!authorized) return;
@@ -107,6 +110,28 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       // keep the list as-is
     } finally {
       setBlockBusy(null);
+    }
+  }
+
+  async function removeAccount(id: string) {
+    setDeleteTarget(null);
+    setDeleteBusy(true);
+    setDeletedMsg(false);
+    try {
+      await api("/api/admin/users/delete", {
+        method: "POST",
+        credentials: "same-origin",
+        body: JSON.stringify({ id }),
+      });
+      setUsers((rows) => rows?.filter((row) => row.id !== id) ?? null);
+      setDeletedMsg(true);
+    } catch {
+      // refresh the list from the server to show the true state
+      api<ProfileRow[]>("/api/admin/users", { cache: "no-store", credentials: "same-origin" })
+        .then(setUsers)
+        .catch(() => {});
+    } finally {
+      setDeleteBusy(false);
     }
   }
 
@@ -270,19 +295,55 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                         </td>
                         <td className="py-2 text-center text-soft">{new Intl.NumberFormat(locale).format(row.downloads)}</td>
                         <td className="py-2 pl-3 text-end">
-                          <button
-                            type="button"
-                            onClick={() => setBlocked(row.id, !row.blocked)}
-                            disabled={blockBusy === row.id}
-                            className="font-medium text-primary hover:underline disabled:opacity-50"
-                          >
-                            {row.blocked ? t("adminUnblock") : t("adminBlock")}
-                          </button>
+                          <div className="flex items-center justify-end gap-2">
+                            <button
+                              type="button"
+                              onClick={() => setBlocked(row.id, !row.blocked)}
+                              disabled={blockBusy === row.id}
+                              className="font-medium text-primary hover:underline disabled:opacity-50"
+                            >
+                              {row.blocked ? t("adminUnblock") : t("adminBlock")}
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => setDeleteTarget(row.id)}
+                              disabled={deleteBusy}
+                              className="font-medium text-danger hover:underline disabled:opacity-50"
+                            >
+                              {t("adminDelete")}
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
+              </div>
+            )}
+            {deletedMsg && (
+              <p className="mt-3 text-sm text-success">{t("adminDeleted")}</p>
+            )}
+            {deleteTarget && (
+              <div className="mt-3 rounded-lg border border-line bg-card p-4" role="alertdialog" aria-modal="true" aria-labelledby="delete-account-title" aria-describedby="delete-account-body">
+                <h3 id="delete-account-title" className="font-semibold text-ink">{t("adminDeleteTitle")}</h3>
+                <p id="delete-account-body" className="mt-2 text-sm text-ink">{t("adminDeleteConfirm")}</p>
+                <div className="mt-4 flex justify-end gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setDeleteTarget(null)}
+                    className="rounded-md border border-line px-3 py-2 text-sm font-medium text-ink hover:bg-paper"
+                  >
+                    {t("adminDeleteCancel")}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => removeAccount(deleteTarget)}
+                    disabled={deleteBusy}
+                    className="rounded-md bg-danger px-3 py-2 text-sm font-semibold text-white disabled:opacity-50"
+                  >
+                    {t("adminDelete")}
+                  </button>
+                </div>
               </div>
             )}
             <form onSubmit={addAccount} className="mt-4 space-y-3">

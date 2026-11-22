@@ -125,6 +125,11 @@ const ar: Record<string, string> = {
   adminUnblock: "إلغاء الحظر",
   adminAddAccount: "إضافة حساب",
   adminAccountAdded: "تمت إضافة الحساب",
+  adminDelete: "حذف",
+  adminDeleteTitle: "حذف الحساب",
+  adminDeleteConfirm: "هل تريد حذف هذا الحساب؟ لا يمكن التراجع عن هذا الإجراء.",
+  adminDeleteCancel: "إلغاء",
+  adminDeleted: "تم حذف الحساب",
 };
 
 const en: Record<string, string> = {
@@ -239,6 +244,11 @@ const en: Record<string, string> = {
   adminUnblock: "Unblock",
   adminAddAccount: "Add account",
   adminAccountAdded: "Account added",
+  adminDelete: "Delete",
+  adminDeleteTitle: "Delete account",
+  adminDeleteConfirm: "Are you sure you want to delete this account? This action cannot be undone.",
+  adminDeleteCancel: "Cancel",
+  adminDeleted: "Account deleted",
 };
 
 const fr: Record<string, string> = {
@@ -355,6 +365,11 @@ const fr: Record<string, string> = {
   adminUnblock: "Débloquer",
   adminAddAccount: "Ajouter un compte",
   adminAccountAdded: "Compte ajouté",
+  adminDelete: "Supprimer",
+  adminDeleteTitle: "Supprimer le compte",
+  adminDeleteConfirm: "Voulez-vous vraiment supprimer ce compte ? Cette action ne peut pas être annulée.",
+  adminDeleteCancel: "Annuler",
+  adminDeleted: "Compte supprimé",
 };
 
 const DICTS: Record<Locale, Record<string, string>> = { ar, en, fr };
