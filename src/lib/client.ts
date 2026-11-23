@@ -28,9 +28,12 @@ export async function api<T = unknown>(
   path: string,
   init?: RequestInit,
 ): Promise<T> {
+  const isFormData = init?.body instanceof FormData;
   const res = await fetch(path, {
     ...init,
-    headers: { "Content-Type": "application/json", ...(init?.headers ?? {}) },
+    headers: isFormData
+      ? (init?.headers as HeadersInit | undefined)
+      : { "Content-Type": "application/json", ...(init?.headers ?? {}) },
   });
   let body: Record<string, unknown> | null = null;
   try {

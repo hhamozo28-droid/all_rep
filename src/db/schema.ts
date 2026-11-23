@@ -34,6 +34,18 @@ export const specialties = pgTable(
   (t) => [index("specialties_code_idx").on(t.code)],
 );
 
+/** Metadata for pedagogical PDF guides uploaded to GitHub (`guides/`). */
+export const guides = pgTable("guides", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  path: text("path").notNull().unique(),
+  sha: text("sha").notNull(),
+  size: integer("size").notNull(),
+  title: text("title").notNull(),
+  fileName: text("file_name").notNull(),
+  downloads: integer("downloads").notNull().default(0),
+  uploadedAt: timestamp("uploaded_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
 export const profiles = pgTable("profiles", {
   id: uuid("id").primaryKey().defaultRandom(),
   email: text("email").notNull().unique(),

@@ -18,6 +18,21 @@ export async function ensureSpecialtyDownloadsTable(): Promise<void> {
   `);
 }
 
+export async function ensureGuidesTable(): Promise<void> {
+  await db.execute(sql`
+    CREATE TABLE IF NOT EXISTS guides (
+      id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+      path text NOT NULL UNIQUE,
+      sha text NOT NULL,
+      size integer NOT NULL,
+      title text NOT NULL,
+      file_name text NOT NULL,
+      downloads integer NOT NULL DEFAULT 0,
+      uploaded_at timestamptz NOT NULL DEFAULT now()
+    )
+  `);
+}
+
 export async function recordSpecialtyDownload(userId: string, specialtyId?: string): Promise<void> {
   if (!specialtyId) return;
   await ensureSpecialtyDownloadsTable();

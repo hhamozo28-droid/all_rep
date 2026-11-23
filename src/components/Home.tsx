@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import SpecialtyCard from "./SpecialtyCard";
+import GuideTab from "./GuideTab";
 import { IconSearch } from "./icons";
 import { ApiError, apiWithOffline, formatDate } from "@/lib/client";
 import { useI18n } from "@/lib/i18n";
@@ -24,6 +25,11 @@ export default function Home({ published = false, welcome = false }: { published
   const [state, setState] = useState<State>({ status: "loading" });
   const [query, setQuery] = useState("");
   const [sector, setSector] = useState<string | null>(null);
+  const [tab, setTab] = useState<"specialties" | "guides">("specialties");
+
+  useEffect(() => {
+    if (location.hash === "#guides") setTab("guides");
+  }, []);
 
   const load = useCallback(async () => {
     try {
@@ -165,14 +171,27 @@ export default function Home({ published = false, welcome = false }: { published
         )}
       </div>
 
-      {data.items.length === 0 ? (
-        <p className="rounded-lg border border-line bg-white p-5 text-sm text-soft">{t("emptyTitle")}</p>
-      ) : items.length === 0 ? (
-        <p className="rounded-lg border border-line bg-white p-5 text-sm text-soft">{t("noResults")}</p>
+      <div className="mb-3 flex flex-wrap gap-1.5 border-b border-line" role="tablist">
+        <button type="button" role="tab" aria-selected={tab === "specialties"}
+          className={`rounded-t-lg border-b-2 pb-2 text-sm font-medium ${tab === "specialties" ? "border-primary text-ink" : "border-transparent text-soft hover:text-ink"}`}
+          onClick={() => setTab("specialties")}>{t("specialties")}</button>
+        <button type="button" role="tab" aria-selected={tab === "guides"}
+          className={`rounded-t-lg border-b-2 pb-2 text-sm font-medium ${tab === "guides" ? "border-primary text-ink" : "border-transparent text-soft hover:text-ink"}`}
+          onClick={() => { setTab("guides"); location.hash = "#guides"; }}>{t("guidesTab")}</button>
+      </div>
+
+      {tab === "specialties" ? (
+        data.items.length === 0 ? (
+          <p className="rounded-lg border border-line bg-white p-5 text-sm text-soft">{t("emptyTitle")}</p>
+        ) : items.length === 0 ? (
+          <p className="rounded-lg border border-line bg-white p-5 text-sm text-soft">{t("noResults")}</p>
+        ) : (
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-[repeat(auto-fill,4.6cm)] sm:gap-[1.5cm]">
+            {items.map((item) => <SpecialtyCard key={item.id} item={item} />)}
+          </div>
+        )
       ) : (
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-[repeat(auto-fill,4.6cm)] sm:gap-[1.5cm]">
-          {items.map((item) => <SpecialtyCard key={item.id} item={item} />)}
-        </div>
+        <GuideTab />
       )}
     </div>
   );
