@@ -71,6 +71,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [usersError, setUsersError] = useState(false);
   const [guides, setGuides] = useState<AdminGuideRow[] | null>(null);
   const [guideFile, setGuideFile] = useState<File | null>(null);
+  const [uploadKind, setUploadKind] = useState<"links" | "guide">("links");
   const [guideUploading, setGuideUploading] = useState(false);
   const [guideAdded, setGuideAdded] = useState(false);
   const [guideError, setGuideError] = useState("");
@@ -352,6 +353,19 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       ]
     : [];
 
+  const switchUploadKind = (kind: "links" | "guide") => {
+    setUploadKind(kind);
+    setPublished(null);
+    setErrorKey("");
+    setFile(null);
+    setGuideFile(null);
+    setGuideError("");
+    setGuideAdded(false);
+    setGuideDeleted(false);
+    setGuideDeleteTarget(null);
+    setGuideUploading(false);
+  };
+
   return (
     <main className="mx-auto w-full max-w-lg px-4 py-6">
       <header className="mb-6 flex flex-wrap items-center justify-between gap-3">
@@ -408,6 +422,33 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
         </section>
       ) : (
         <div className="space-y-4">
+          <section className="rounded-lg border border-line bg-card p-4" aria-label={t("adminUploadKindTitle")}>
+            <h2 className="font-semibold text-ink">{t("adminUploadKindTitle")}</h2>
+            <div className="mt-3 flex flex-wrap gap-2 sm:gap-3">
+              <button
+                type="button"
+                aria-pressed={uploadKind === "links"}
+                onClick={() => switchUploadKind("links")}
+                className={uploadKind === "links"
+                  ? "rounded-md bg-primary px-4 py-2.5 font-semibold text-white"
+                  : "rounded-md border border-line bg-card px-4 py-2.5 font-semibold text-primary hover:bg-paper"}
+              >
+                {t("adminUploadKindLinks")}
+              </button>
+              <button
+                type="button"
+                aria-pressed={uploadKind === "guide"}
+                onClick={() => switchUploadKind("guide")}
+                className={uploadKind === "guide"
+                  ? "rounded-md bg-primary px-4 py-2.5 font-semibold text-white"
+                  : "rounded-md border border-line bg-card px-4 py-2.5 font-semibold text-primary hover:bg-paper"}
+              >
+                {t("adminUploadKindGuide")}
+              </button>
+            </div>
+          </section>
+
+          {uploadKind === "links" && (
           <section className="rounded-lg border border-line bg-card p-4">
             <h2 className="font-semibold text-ink"><label htmlFor="word-file">{t("uploadFile")}</label></h2>
             <p id="upload-format" className="mt-1 text-sm text-soft">{t("uploadHint")}</p>
@@ -430,6 +471,83 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
               <button type="submit" disabled={!file || publishing} className={`mt-4 ${buttonClass}`}>{publishing ? t("uploading") : t("upload")}</button>
             </form>
           </section>
+          )}
+
+          {uploadKind === "guide" && (
+          <section className="rounded-lg border border-line bg-card p-4">
+            <h2 className="font-semibold text-ink"><label htmlFor="guide-file">{t("adminGuidesSection")}</label></h2>
+            <p className="mt-1 text-sm text-soft">{t("adminGuidesUploadHint")}</p>
+            <form onSubmit={(event) => { event.preventDefault(); void uploadGuide(); }} className="mt-3 flex items-center gap-2">
+              <input id="guide-file" name="file" type="file" accept=".pdf,application/pdf" required disabled={guideUploading}
+                onChange={(event) => {
+                  const selected = event.target.files?.[0] || null;
+                  const invalid = selected && !selected.name.toLowerCase().endsWith(".pdf")
+                    ? "badPdfFile"
+                    : selected && selected.size > 15 * 1024 * 1024
+                      ? "fileTooBig"
+                      : "";
+                  setGuideError(invalid);
+                  setGuideFile(invalid ? null : selected);
+                }}
+                className="block min-w-0 flex-1 text-sm text-ink file:me-3 file:rounded-md file:border-0 file:bg-paper file:px-3 file:py-2 file:font-medium" />
+              <button type="submit" disabled={!guideFile || guideUploading} className={`shrink-0 ${buttonClass}`}>
+                {guideUploading ? t("uploading") : t("upload")}
+              </button>
+            </form>
+            {guideError && <p role="alert" className="mt-2 text-sm text-danger">{guideError}</p>}
+            {guideAdded && !guideError && <p className="text-sm text-success">{t("uploadSuccess")}</p>}
+            {guideDeleted && <p className="mt-2 text-sm text-success">{t("adminGuidesDeleted")}</p>}
+            {guides === null ? (
+              <p className="mt-3 text-sm text-soft">{t("loading")}</p>
+            ) : guides.length === 0 ? (
+              <p className="mt-3 text-sm text-soft">{t("adminGuidesNoFiles")}</p>
+            ) : (
+              <div className="mt-3 overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-line text-right text-xs font-semibold text-soft">
+                      <th className="py-2 pl-3 font-medium">{t("adminGuidesPath")}</th>
+                      <th className="py-2 text-center font-medium">{t("name")}</th>
+                      <th className="py-2 text-center font-medium">{t("size")}</th>
+                      <th className="py-2 pl-3 font-medium">{t("adminTableActions")}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {guides.map((g) => (
+                      <tr key={g.id} className="border-t border-line">
+                        <td className="py-2 pl-3 text-ink" dir="ltr" title={g.path}>{g.path}</td>
+                        <td className="py-2 text-center text-soft">{g.title}</td>
+                        <td className="py-2 text-center text-soft">{n(g.size)}</td>
+                        <td className="py-2 pl-3 text-end">
+                          <button type="button" onClick={() => setGuideDeleteTarget(g.id)} disabled={guideDeleteBusy}
+                            className="font-medium text-danger hover:underline disabled:opacity-50">
+                            {t("adminGuidesDeleteOk")}
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+            {guideDeleteTarget && (
+              <div className="mt-3 rounded-lg border border-line bg-card p-4" role="alertdialog" aria-modal="true" aria-labelledby="delete-guide-title" aria-describedby="delete-guide-body">
+                <h3 id="delete-guide-title" className="font-semibold text-ink">{t("adminGuidesDeleteTitle")}</h3>
+                <p id="delete-guide-body" className="mt-2 text-sm text-ink">{t("adminGuidesDeleteConfirm")}</p>
+                <div className="mt-4 flex justify-end gap-2">
+                  <button type="button" onClick={() => setGuideDeleteTarget(null)}
+                    className="rounded-md border border-line px-3 py-2 text-sm font-medium text-ink hover:bg-paper">
+                    {t("adminGuidesDeleteCancel")}
+                  </button>
+                  <button type="button" onClick={() => deleteGuideRow(guideDeleteTarget)} disabled={guideDeleteBusy}
+                    className="rounded-md bg-danger px-3 py-2 text-sm font-semibold text-white disabled:opacity-50">
+                    {t("adminGuidesDeleteOk")}
+                  </button>
+                </div>
+              </div>
+            )}
+          </section>
+          )}
 
           <section className="rounded-lg border border-line bg-card p-4">
             <details id="admin-settings">
@@ -578,80 +696,6 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                   className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
                 />
               </label>
-
-              <div className="mt-5 border-t border-line pt-4">
-                <h3 className="font-semibold text-ink">{t("adminGuidesSection")}</h3>
-                <p className="mt-1 text-sm text-soft">{t("adminGuidesUploadHint")}</p>
-                <form onSubmit={(event) => { event.preventDefault(); void uploadGuide(); }} className="mt-3 flex items-center gap-2">
-                  <input id="guide-file" name="file" type="file" accept=".pdf,application/pdf" required disabled={guideUploading}
-                    onChange={(event) => {
-                      const selected = event.target.files?.[0] || null;
-                      const invalid = selected && !selected.name.toLowerCase().endsWith(".pdf")
-                        ? "badPdfFile"
-                        : selected && selected.size > 15 * 1024 * 1024
-                          ? "fileTooBig"
-                          : "";
-                      setGuideError(invalid);
-                      setGuideFile(invalid ? null : selected);
-                    }}
-                    className="block min-w-0 flex-1 text-sm text-ink file:me-3 file:rounded-md file:border-0 file:bg-paper file:px-3 file:py-2 file:font-medium" />
-                  <button type="submit" disabled={!guideFile || guideUploading} className={`shrink-0 ${buttonClass}`}>
-                    {guideUploading ? t("uploading") : t("upload")}
-                  </button>
-                </form>
-                {guideError && <p role="alert" className="mt-2 text-sm text-danger">{guideError}</p>}
-                {guideAdded && !guideError && <p className="text-sm text-success">{t("adminGuidesUploaded")}</p>}
-                {guideDeleted && <p className="mt-2 text-sm text-success">{t("adminGuidesDeleted")}</p>}
-                {guides === null ? (
-                  <p className="mt-3 text-sm text-soft">{t("loading")}</p>
-                ) : guides.length === 0 ? (
-                  <p className="mt-3 text-sm text-soft">{t("adminGuidesNoFiles")}</p>
-                ) : (
-                  <div className="mt-3 overflow-x-auto">
-                    <table className="w-full text-sm">
-                      <thead>
-                        <tr className="border-b border-line text-right text-xs font-semibold text-soft">
-                          <th className="py-2 pl-3 font-medium">{t("adminGuidesPath")}</th>
-                          <th className="py-2 text-center font-medium">{t("name")}</th>
-                          <th className="py-2 text-center font-medium">{t("size")}</th>
-                          <th className="py-2 pl-3 font-medium">{t("adminTableActions")}</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {guides.map((g) => (
-                          <tr key={g.id} className="border-t border-line">
-                            <td className="py-2 pl-3 text-ink" dir="ltr" title={g.path}>{g.path}</td>
-                            <td className="py-2 text-center text-soft">{g.title}</td>
-                            <td className="py-2 text-center text-soft">{n(g.size)}</td>
-                            <td className="py-2 pl-3 text-end">
-                              <button type="button" onClick={() => setGuideDeleteTarget(g.id)} disabled={guideDeleteBusy}
-                                className="font-medium text-danger hover:underline disabled:opacity-50">
-                                {t("adminGuidesDeleteOk")}
-                              </button>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                )}
-                {guideDeleteTarget && (
-                  <div className="mt-3 rounded-lg border border-line bg-card p-4" role="alertdialog" aria-modal="true" aria-labelledby="delete-guide-title" aria-describedby="delete-guide-body">
-                    <h3 id="delete-guide-title" className="font-semibold text-ink">{t("adminGuidesDeleteTitle")}</h3>
-                    <p id="delete-guide-body" className="mt-2 text-sm text-ink">{t("adminGuidesDeleteConfirm")}</p>
-                    <div className="mt-4 flex justify-end gap-2">
-                      <button type="button" onClick={() => setGuideDeleteTarget(null)}
-                        className="rounded-md border border-line px-3 py-2 text-sm font-medium text-ink hover:bg-paper">
-                        {t("adminGuidesDeleteCancel")}
-                      </button>
-                      <button type="button" onClick={() => deleteGuideRow(guideDeleteTarget)} disabled={guideDeleteBusy}
-                        className="rounded-md bg-danger px-3 py-2 text-sm font-semibold text-white disabled:opacity-50">
-                        {t("adminGuidesDeleteOk")}
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
 
               <form onSubmit={addAccount} className="mt-3 space-y-3">
                 <div className="grid gap-3 sm:grid-cols-2">

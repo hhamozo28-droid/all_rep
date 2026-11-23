@@ -54,7 +54,8 @@ export async function POST(request: Request) {
       },
       { headers: adminResponseHeaders },
     );
-  } catch {
+  } catch (error) {
+    console.error("guides upload failed", error);
     return fail("internal", 500);
   }
 }

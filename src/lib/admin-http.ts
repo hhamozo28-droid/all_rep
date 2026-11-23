@@ -24,6 +24,6 @@ export function adminRedirect(reason?: "verify" | "invalid" | "setup") {
   // A relative redirect preserves the public preview host behind reverse proxies.
   return new NextResponse(null, {
     status: 303,
-    headers: { ...adminResponseHeaders, Location: reason ? `/admin?state=${reason}` : "/admin" },
+    headers: { ...adminResponseHeaders, Location: reason ? `/admin?state=${reason}` : "/" },
   });
 }
