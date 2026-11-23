@@ -16,50 +16,49 @@ export async function GET() {
   if (!isAuthorizedAdmin(cookie)) {
     return NextResponse.json({ ok: false }, { status: 401, headers: adminResponseHeaders });
   }
-  await ensureSpecialtyDownloadsTable();
+  try {
+    await ensureSpecialtyDownloadsTable();
 
-  // 1. Total downloads across all accounts.
-  const [totalRow] = await db
-    .select({ total: sql<number>`coalesce(sum(${profiles.downloads}), 0)::int` })
-    .from(profiles);
+    // 1. Total downloads across all accounts.
+    const [totalRow] = await db
+      .select({ total: sql<number>`coalesce(sum(${profiles.downloads}), 0)::int` })
+      .from(profiles);
 
-  // 2. The specialty with the most download operations overall.
-  const topSpecialtyRows = await db
-    .select({
-      specialtyId: specialtyDownloads.specialtyId,
-      total: sql<number>`coalesce(sum(${specialtyDownloads.downloads}), 0)::int`,
-    })
-    .from(specialtyDownloads)
-    .groupBy(specialtyDownloads.specialtyId)
-    .orderBy(desc(sql`coalesce(sum(${specialtyDownloads.downloads}), 0)::int`), desc(specialtyDownloads.specialtyId))
-    .limit(1);
-
-  let topSpecialty: TopSpecialty | null = null;
-  if (topSpecialtyRows[0]) {
-    const spRows = await db
-      .select({ code: specialties.code, name: specialties.name })
-      .from(specialties)
-      .where(eq(specialties.id, topSpecialtyRows[0].specialtyId))
+    // 2. The specialty with the most download operations overall.
+    const topSpecialtyRows = await db
+      .select({
+        specialtyId: specialtyDownloads.specialtyId,
+        total: sql<number>`coalesce(sum(${specialtyDownloads.downloads}), 0)::int`,
+      })
+      .from(specialtyDownloads)
+      .groupBy(specialtyDownloads.specialtyId)
+      .orderBy(desc(sql`coalesce(sum(${specialtyDownloads.downloads}), 0)::int`), desc(specialtyDownloads.specialtyId))
       .limit(1);
-    if (spRows[0]) {
-      topSpecialty = { code: spRows[0].code, name: spRows[0].name, downloads: topSpecialtyRows[0].total };
+
+    let topSpecialty: TopSpecialty | null = null;
+    if (topSpecialtyRows[0]) {
+      const spRows = await db
+        .select({ code: specialties.code, name: specialties.name })
+        .from(specialties)
+        .where(eq(specialties.id, topSpecialtyRows[0].specialtyId))
+        .limit(1);
+      if (spRows[0]) {
+        topSpecialty = { code: spRows[0].code, name: spRows[0].name, downloads: topSpecialtyRows[0].total };
+      }
     }
+
+    // 3. The account with the most downloads.
+    const topAccountRows = await db
+      .select({ email: profiles.email, downloads: profiles.downloads })
+      .from(profiles)
+      .orderBy(desc(profiles.downloads), desc(profiles.email))
+      .limit(1);
+
+    return NextResponse.json(
+      { ok: true, total: totalRow?.total ?? 0, topSpecialty, topAccount: topAccountRows[0] ?? null },
+      { headers: adminResponseHeaders },
+    );
+  } catch (error) {
+    return NextResponse.json({ ok: false, error: String(error) }, { status: 500, headers: adminResponseHeaders });
   }
-
-  // 3. The account with the most downloads.
-  const topAccountRows = await db
-    .select({ email: profiles.email, downloads: profiles.downloads })
-    .from(profiles)
-    .orderBy(desc(profiles.downloads), desc(profiles.email))
-    .limit(1);
-
-  return NextResponse.json(
-    {
-      ok: true,
-      total: totalRow?.total ?? 0,
-      topSpecialty,
-      topAccount: topAccountRows[0] ?? null,
-    },
-    { headers: adminResponseHeaders },
-  );
 }
