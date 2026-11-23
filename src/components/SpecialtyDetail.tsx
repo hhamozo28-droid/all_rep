@@ -84,6 +84,7 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
                 <DownloadLink
                   href={url}
                   label={t("download")}
+                  specialtyId={item.id}
                   className="shrink-0 rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white hover:bg-primary-deep"
                 />
               </li>

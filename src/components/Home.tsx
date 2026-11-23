@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import SpecialtyCard from "./SpecialtyCard";
+import { IconSearch } from "./icons";
 import { ApiError, apiWithOffline, formatDate } from "@/lib/client";
 import { useI18n } from "@/lib/i18n";
 import type { CatalogResponse } from "@/types/specialty";
@@ -104,6 +105,10 @@ export default function Home({ published = false, welcome = false }: { published
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[url('/bg.jpg')] bg-cover bg-center opacity-10"
       />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -end-16 top-2 h-48 w-48 rounded-full bg-primary-soft opacity-60 blur-xl sm:top-4"
+      />
       {welcome && (
         <section className="mb-4 rounded-lg border border-line bg-card p-4 text-sm text-success" role="status">
           {t("welcomeMessage")}
@@ -131,16 +136,18 @@ export default function Home({ published = false, welcome = false }: { published
       )}
 
       <div className="mb-4 flex flex-wrap items-center gap-2">
-        <label className="min-w-0 flex-1">
-          <span className="sr-only">{t("search")}</span>
+        <span className="relative min-w-0 flex-1">
+          <span className="pointer-events-none absolute start-3 top-1/2 -translate-y-1/2 text-soft" aria-hidden="true">
+            <IconSearch className="h-4 w-4" />
+          </span>
           <input
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder={t("searchPlaceholder")}
-            className="w-full rounded-lg border border-line bg-white px-3 py-3 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+            className="w-full rounded-lg border border-line bg-white ps-9 py-3 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary"
           />
-        </label>
+        </span>
         {sectors.length > 0 && (
           <select
             value={sector ?? ""}

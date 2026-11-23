@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
 import AdminLink from "./AdminLink";
 import IdleLogout from "./IdleLogout";
+import LoginDialog from "./LoginDialog";
 import { isLocale, useI18n, type Locale } from "@/lib/i18n";
 import DownloadStatusProvider from "./DownloadStatusProvider";
 
@@ -61,7 +62,7 @@ export default function AppShell({ children, user }: Props) {
 
   const logout = async () => {
     await fetch("/api/auth/logout", { method: "POST" }).catch(() => {});
-    router.replace("/login");
+    router.replace("/");
   };
 
   return (
@@ -70,6 +71,7 @@ export default function AppShell({ children, user }: Props) {
     >
     <div className="min-h-dvh">
       <IdleLogout />
+      <LoginDialog />
       <header className="border-b border-line bg-white">
         <div className="mx-auto flex max-w-2xl flex-wrap items-center justify-between gap-3 px-4 py-3">
           <div className="flex flex-col items-start gap-0.5">

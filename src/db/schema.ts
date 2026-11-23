@@ -5,6 +5,7 @@ import {
   jsonb,
   numeric,
   pgTable,
+  primaryKey,
   text,
   timestamp,
   uuid,
@@ -61,6 +62,16 @@ export const userSessions = pgTable(
       .defaultNow(),
   },
   (t) => [index("user_sessions_token_idx").on(t.token)],
+);
+
+export const specialtyDownloads = pgTable(
+  "specialty_downloads",
+  {
+    userId: text("user_id").notNull().references(() => profiles.id, { onDelete: "cascade" }),
+    specialtyId: text("specialty_id").notNull().references(() => specialties.id, { onDelete: "cascade" }),
+    downloads: integer("downloads").notNull().default(0),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.specialtyId] })],
 );
 
 export const meta = pgTable("meta", {

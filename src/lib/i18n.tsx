@@ -141,6 +141,18 @@ const ar: Record<string, string> = {
   adminDeleteConfirm: "هل تريد حذف هذا الحساب؟ لا يمكن التراجع عن هذا الإجراء.",
   adminDeleteCancel: "إلغاء",
   adminDeleted: "تم حذف الحساب",
+  developerName: "اسم مطور البرنامج : حمزة شعيب",
+  downloadsAvailable: "عدد التحميلات المتاحة",
+  dialogOk: "موافق",
+  unlimited: "غير محدود",
+  adminStatsTotal: "عدد التحميلات الكلي: %d",
+  adminStatsTopSpecialty: "التخصص الأكثر تحميلا: %s",
+  adminStatsTopAccount: "الحساب الأكثر تحميلا: %s",
+  appTheme: "الموضوع",
+  themeDefault: "افتراضي",
+  themeWhiteBlack: "ابيض وأسود",
+  themeRedPurple: "أحمر ارجواني",
+  themeBrownShiny: "بني لامع",
 };
 
 const en: Record<string, string> = {
@@ -271,6 +283,18 @@ const en: Record<string, string> = {
   adminDeleteConfirm: "Are you sure you want to delete this account? This action cannot be undone.",
   adminDeleteCancel: "Cancel",
   adminDeleted: "Account deleted",
+  developerName: "Developer name: Hammza Shaib",
+  downloadsAvailable: "Available downloads",
+  dialogOk: "OK",
+  unlimited: "Unlimited",
+  adminStatsTotal: "Total downloads: %d",
+  adminStatsTopSpecialty: "Most-downloaded specialty: %s",
+  adminStatsTopAccount: "Most-downloaded account: %s",
+  appTheme: "Theme",
+  themeDefault: "Default",
+  themeWhiteBlack: "White and black",
+  themeRedPurple: "Red purple",
+  themeBrownShiny: "Brown shiny",
 };
 
 const fr: Record<string, string> = {
@@ -403,6 +427,18 @@ const fr: Record<string, string> = {
   adminDeleteConfirm: "Voulez-vous vraiment supprimer ce compte ? Cette action ne peut pas être annulée.",
   adminDeleteCancel: "Annuler",
   adminDeleted: "Compte supprimé",
+  developerName: "Nom du développeur : Hammza Shaib",
+  downloadsAvailable: "Téléchargements disponibles",
+  dialogOk: "OK",
+  unlimited: "Illimité",
+  adminStatsTotal: "Téléchargements totaux : %d",
+  adminStatsTopSpecialty: "Spécialité la plus téléchargée : %s",
+  adminStatsTopAccount: "Compte le plus téléchargé : %s",
+  appTheme: "Thème",
+  themeDefault: "Par défaut",
+  themeWhiteBlack: "Blanc et noir",
+  themeRedPurple: "Rouge violet",
+  themeBrownShiny: "Marron brillant",
 };
 
 const DICTS: Record<Locale, Record<string, string>> = { ar, en, fr };

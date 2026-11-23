@@ -7,6 +7,7 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import AdminLink from "@/components/AdminLink";
 import { useI18n } from "@/lib/i18n";
 import { ApiError, api, getDeviceId } from "@/lib/client";
+import { IconDot } from "@/components/icons";
 
 function LoginForm() {
   const router = useRouter();
@@ -27,6 +28,7 @@ function LoginForm() {
         method: "POST",
         body: JSON.stringify({ email: email.trim(), password, deviceId: getDeviceId(), language: locale }),
       });
+      sessionStorage.setItem("dl_fresh_login", "1");
       router.replace("/");
     } catch (cause) {
       if (cause instanceof ApiError && cause.status === 401 && cause.body?.error === "blocked") {
@@ -52,9 +54,9 @@ function LoginForm() {
         <p className="mb-3 rounded-md bg-accent-soft p-3 text-sm text-ink" role="status">{t("idleLoggedOut")}</p>
       )}
 
-      <section className="rounded-lg border border-line bg-white p-5">
+      <section className="relative rounded-lg border border-line bg-white p-5">
         <h1 className="text-xl font-bold text-ink">{t("loginTitle")}</h1>
-        <p className="mt-1 text-sm text-soft">{t("loginBody")}</p>
+        <p className="mt-1 whitespace-pre-line text-sm text-soft">{t("loginBody")}</p>
         <form onSubmit={submit} className="mt-5 space-y-3">
           <label className="block text-sm font-medium text-ink">
             {t("email")}
@@ -96,11 +98,17 @@ function LoginForm() {
           <button
             type="submit"
             disabled={busy}
-            className="w-full rounded-md bg-primary px-4 py-2.5 font-semibold text-white disabled:opacity-60"
+            className="w-full rounded-md bg-primary px-4 py-2.5 font-semibold text-white hover:bg-primary-deep disabled:opacity-60"
           >
             {busy ? t("loading") : t("login")}
           </button>
         </form>
+        <p className="mt-2 text-[11px] font-semibold text-soft" dir="auto">{t("developerName")}</p>        <span
+          aria-hidden="true"
+          className="absolute -end-3 top-1/2 -translate-y-1/2 pointer-events-none text-black opacity-[0.12]"
+        >
+          <IconDot className="h-8 w-8" />
+        </span>
         <p className="mt-4 text-sm text-soft">
           {t("noAccount")} {" "}
           <Link href="/register" className="font-semibold text-primary">{t("register")}</Link>

@@ -2,24 +2,16 @@
 
 import { useState, type MouseEvent } from "react";
 import { useDownloadStatus } from "@/components/DownloadStatusProvider";
+import { IconDownload } from "@/components/icons";
 
-/**
- * A gated download link. When the account has reached its admin-set limit,
- * the anchor is non-clickable and the parent shows the
- * "download limited by admin" message. When allowed, clicking tracks one
- * download first (atomic on the server) and only then opens the tab; the
- * server may have reached the limit in the meantime, in which case nothing
- * opens and the links disable themselves.
- */
-export default function DownloadLink({
-  href,
-  label,
-  className = "",
-}: {
+type Props = {
   href: string;
   label: string;
+  specialtyId?: string;
   className?: string;
-}) {
+};
+
+export default function DownloadLink({ href, label, specialtyId, className = "" }: Props) {
   const { canDownload, refresh } = useDownloadStatus();
   const [busy, setBusy] = useState(false);
 
@@ -27,8 +19,6 @@ export default function DownloadLink({
     event.preventDefault();
     if (!canDownload || busy) return;
     setBusy(true);
-    // Open synchronously in the user gesture; "noopener" makes window.open
-    // return null, so sever the opener after instead.
     const tab = window.open("", "_blank");
     if (!tab) {
       setBusy(false);
@@ -37,11 +27,15 @@ export default function DownloadLink({
     try {
       tab.opener = null;
     } catch {
-      /* ignore when the target is not writable */
+      /* ignore */
     }
     let ok = false;
     try {
-      const res = await fetch("/api/specialties/track", { method: "POST", credentials: "same-origin" });
+      const res = await fetch("/api/specialties/track", {
+        method: "POST",
+        credentials: "same-origin",
+        body: specialtyId ? JSON.stringify({ specialtyId }) : undefined,
+      });
       ok = res.ok;
     } catch {
       ok = false;
@@ -49,7 +43,7 @@ export default function DownloadLink({
     if (ok) tab.location.assign(href);
     else tab.close();
     setBusy(false);
-    if (ok) await refresh(); // a hit at the limit now disables the links immediately
+    if (ok) await refresh();
   }
 
   const shared = busy ? `opacity-60 ${className}` : className;
@@ -66,13 +60,8 @@ export default function DownloadLink({
     );
   }
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={open}
-      className={`hover:underline ${shared}`}
-    >
+    <a href={href} target="_blank" rel="noopener noreferrer" onClick={open} className={`hover:underline ${shared}`}>
+      <IconDownload className="mr-1 inline h-3 w-3 align-[-1px]" />
       {label}
     </a>
   );
