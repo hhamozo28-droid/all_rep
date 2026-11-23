@@ -10,8 +10,8 @@ import { specialtyDownloads } from "@/db/schema";
 export async function ensureSpecialtyDownloadsTable(): Promise<void> {
   await db.execute(sql`
     CREATE TABLE IF NOT EXISTS specialty_downloads (
-      user_id text NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
-      specialty_id text NOT NULL REFERENCES specialties(id) ON DELETE CASCADE,
+      user_id uuid NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+      specialty_id uuid NOT NULL REFERENCES specialties(id) ON DELETE CASCADE,
       downloads integer NOT NULL DEFAULT 0,
       PRIMARY KEY (user_id, specialty_id)
     )

@@ -67,8 +67,8 @@ export const userSessions = pgTable(
 export const specialtyDownloads = pgTable(
   "specialty_downloads",
   {
-    userId: text("user_id").notNull().references(() => profiles.id, { onDelete: "cascade" }),
-    specialtyId: text("specialty_id").notNull().references(() => specialties.id, { onDelete: "cascade" }),
+    userId: uuid("user_id").notNull().references(() => profiles.id, { onDelete: "cascade" }),
+    specialtyId: uuid("specialty_id").notNull().references(() => specialties.id, { onDelete: "cascade" }),
     downloads: integer("downloads").notNull().default(0),
   },
   (t) => [primaryKey({ columns: [t.userId, t.specialtyId] })],
