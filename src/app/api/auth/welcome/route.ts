@@ -1,18 +1,13 @@
 import { NextResponse } from "next/server";
-import { eq, sql } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { db } from "@/db";
 import { meta, profiles } from "@/db/schema";
 import { getSessionState } from "@/lib/auth";
+import { ensureWelcomeColumn } from "@/lib/ensureWelcomeColumn";
 
 export const dynamic = "force-dynamic";
 
 const KEY = "welcomeMessage";
-const MESSAGE_MAX = 500;
-
-/** Self-healing DDL: applied the first time the endpoint is used. */
-async function ensureWelcomeColumn(): Promise<void> {
-  await db.execute(sql`ALTER TABLE profiles ADD COLUMN IF NOT EXISTS welcome_shown boolean NOT NULL DEFAULT false`);
-}
 
 export async function GET() {
   const s = await getSessionState();

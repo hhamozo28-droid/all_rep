@@ -5,6 +5,7 @@ import { ADMIN_COOKIE, isAuthorizedAdmin } from "@/lib/admin-auth";
 import { adminResponseHeaders } from "@/lib/admin-http";
 import { db } from "@/db";
 import { profiles } from "@/db/schema";
+import { ensureWelcomeColumn } from "@/lib/ensureWelcomeColumn";
 
 export const dynamic = "force-dynamic";
 
@@ -13,6 +14,7 @@ export async function GET() {
   if (!isAuthorizedAdmin(cookie)) {
     return NextResponse.json({ ok: false }, { status: 401, headers: adminResponseHeaders });
   }
+  await ensureWelcomeColumn();
   const rows = await db
     .select()
     .from(profiles)

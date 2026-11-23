@@ -6,6 +6,7 @@ import { adminResponseHeaders } from "@/lib/admin-http";
 import { db } from "@/db";
 import { profiles, specialties, specialtyDownloads } from "@/db/schema";
 import { ensureSpecialtyDownloadsTable } from "@/lib/specialtyStats";
+import { ensureWelcomeColumn } from "@/lib/ensureWelcomeColumn";
 
 export const dynamic = "force-dynamic";
 
@@ -17,6 +18,7 @@ export async function GET() {
     return NextResponse.json({ ok: false }, { status: 401, headers: adminResponseHeaders });
   }
   try {
+    await ensureWelcomeColumn();
     await ensureSpecialtyDownloadsTable();
 
     // 1. Total downloads across all accounts.

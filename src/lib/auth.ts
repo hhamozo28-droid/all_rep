@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { eq } from "drizzle-orm";
 import { db } from "@/db";
 import { profiles, userSessions } from "@/db/schema";
+import { ensureWelcomeColumn } from "@/lib/ensureWelcomeColumn";
 
 export const SESSION_COOKIE = "dl_session";
 
@@ -90,6 +91,7 @@ export type SessionState =
  *   holds a different token → the account was signed in elsewhere (kick).
  */
 export async function getSessionState(): Promise<SessionState> {
+  await ensureWelcomeColumn();
   const store = await cookies();
   const value = store.get(SESSION_COOKIE)?.value;
   const claimed = verifySession(value);

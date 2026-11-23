@@ -6,6 +6,7 @@ import { adminResponseHeaders, rejectCrossOriginWrite } from "@/lib/admin-http";
 import { db } from "@/db";
 import { meta } from "@/db/schema";
 import { FONT_STYLES, THEMES, isFontStyle, isTheme } from "@/lib/appSettings";
+import { ensureWelcomeColumn } from "@/lib/ensureWelcomeColumn";
 
 export const dynamic = "force-dynamic";
 
@@ -14,6 +15,7 @@ export async function GET() {
   if (!isAuthorizedAdmin(cookie)) {
     return NextResponse.json({ ok: false }, { status: 401, headers: adminResponseHeaders });
   }
+  await ensureWelcomeColumn();
   const [themeRow, fontRow, msgRow] = await Promise.all([
     db.select().from(meta).where(eq(meta.key, "theme")).limit(1),
     db.select().from(meta).where(eq(meta.key, "fontStyle")).limit(1),
@@ -37,6 +39,7 @@ export async function POST(request: Request) {
   if (!isAuthorizedAdmin(cookie)) {
     return NextResponse.json({ ok: false }, { status: 401, headers: adminResponseHeaders });
   }
+  await ensureWelcomeColumn();
   const body = (await request.json().catch(() => null)) as {
     theme?: string;
     fontStyle?: string;

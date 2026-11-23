@@ -9,6 +9,7 @@ import {
   sessionCookieOptions,
 } from "@/lib/auth";
 import { isLocale } from "@/lib/locales";
+import { ensureWelcomeColumn } from "@/lib/ensureWelcomeColumn";
 
 export const dynamic = "force-dynamic";
 
@@ -16,6 +17,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export async function POST(req: Request) {
   try {
+    await ensureWelcomeColumn();
     const body = (await req.json().catch(() => null)) as {
       email?: string;
       password?: string;
