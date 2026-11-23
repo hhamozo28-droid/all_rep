@@ -59,6 +59,10 @@ export async function GET() {
       { headers: adminResponseHeaders },
     );
   } catch (error) {
-    return NextResponse.json({ ok: false, error: String(error) }, { status: 500, headers: adminResponseHeaders });
+    const e = error as { message?: string; cause?: unknown; query?: string };
+    return NextResponse.json(
+      { ok: false, error: e?.message ?? String(error), cause: String((e as { cause?: { message?: string } })?.cause ?? "") },
+      { status: 500, headers: adminResponseHeaders },
+    );
   }
 }
