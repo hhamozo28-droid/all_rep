@@ -63,7 +63,7 @@ export async function uploadGuide(
   file: Buffer,
 ): Promise<{ path: string; sha: string; size: number; fileName: string }> {
   const safeName = sanitizeFileName(name);
-  const fileName = `${safeName}.pdf`;
+  const fileName = /\.pdf$/i.test(safeName) ? safeName : `${safeName}.pdf`;
   const path = `${guidesDir}/${randomUUID()}.pdf`;
   const payload = await gh<GitHubContentsResponse>("/contents/" + encPath(path), {
     method: "PUT",
