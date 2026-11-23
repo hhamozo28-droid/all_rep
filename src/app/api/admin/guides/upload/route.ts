@@ -6,6 +6,7 @@ import { db } from "@/db";
 import { guides } from "@/db/schema";
 import { ensureGuidesTable } from "@/lib/specialtyStats";
 import { isPdfFile, uploadGuide } from "@/lib/githubGuides";
+import { MAX_DIRECT_UPLOAD } from "@/lib/uploadLimits";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -27,7 +28,7 @@ export async function POST(request: Request) {
   }
   const buffer = Buffer.from(await file.arrayBuffer());
   if (!isPdfFile(file.name, buffer)) return fail("bad-file", 400);
-  if (buffer.length > 15 * 1024 * 1024) return fail("file-too-big", 413);
+  if (buffer.length > MAX_DIRECT_UPLOAD) return fail("file-too-big", 413);
 
   try {
     await ensureGuidesTable();

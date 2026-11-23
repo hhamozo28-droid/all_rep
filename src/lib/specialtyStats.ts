@@ -33,6 +33,23 @@ export async function ensureGuidesTable(): Promise<void> {
   `);
 }
 
+/**
+ * Staging table for chunked guide uploads (> MAX_DIRECT_UPLOAD). Each row is
+ * one small staging part; `POST /api/admin/guides/upload/complete`
+ * reassembles the parts and uploads the guide to GitHub.
+ */
+export async function ensureGuideUploadChunksTable(): Promise<void> {
+  await db.execute(sql`
+    CREATE TABLE IF NOT EXISTS guide_upload_chunks (
+      session_id text NOT NULL,
+      part_index integer NOT NULL,
+      data text NOT NULL,
+      uploaded_at timestamptz NOT NULL DEFAULT now(),
+      PRIMARY KEY (session_id, part_index)
+    )
+  `);
+}
+
 export async function recordSpecialtyDownload(userId: string, specialtyId?: string): Promise<void> {
   if (!specialtyId) return;
   await ensureSpecialtyDownloadsTable();

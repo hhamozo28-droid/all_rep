@@ -5,6 +5,7 @@ import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { ApiError, api, formatDate } from "@/lib/client";
 import { useI18n } from "@/lib/i18n";
+import { CHUNK_SIZE, MAX_DIRECT_UPLOAD, MAX_GUIDE_FILE_BYTES } from "@/lib/uploadLimits";
 import type { CatalogInfo } from "@/lib/seed";
 
 interface Props {
@@ -205,24 +206,44 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   }
 
   async function uploadGuide() {
-    if (!guideFile || guideUploading) return;
+    const selected = guideFile;
+    if (!selected || guideUploading) return;
     setGuideUploading(true);
     setGuideError("");
     setGuideAdded(false);
     setGuideDeleted(false);
     try {
-      const form = new FormData();
-      form.set("file", guideFile as File);
-      await api("/api/admin/guides/upload", {
-        method: "POST",
-        credentials: "same-origin",
-        body: form,
-      });
+      if (selected.size <= MAX_DIRECT_UPLOAD) {
+        const form = new FormData();
+        form.set("file", selected);
+        await api("/api/admin/guides/upload", {
+          method: "POST",
+          credentials: "same-origin",
+          body: form,
+        });
+      } else {
+        // Bigger PDFs go through small staging parts (< platform body limit),
+        // then the server reassembles them and uploads to GitHub.
+        const sessionId = crypto.randomUUID();
+        for (let index = 0, offset = 0; offset < selected.size; offset += CHUNK_SIZE, index += 1) {
+          const slice = selected.slice(offset, Math.min(offset + CHUNK_SIZE, selected.size));
+          await api(`/api/admin/guides/upload/chunk?sessionId=${sessionId}&index=${index}`, {
+            method: "POST",
+            credentials: "same-origin",
+            body: slice,
+          });
+        }
+        await api("/api/admin/guides/upload/complete", {
+          method: "POST",
+          credentials: "same-origin",
+          body: JSON.stringify({ sessionId, fileName: selected.name, size: selected.size }),
+        });
+      }
       setGuideFile(null);
       setGuideAdded(true);
       void refreshGuides();
     } catch {
-      setGuideError(t("error"));
+      setGuideError("error");
     } finally {
       setGuideUploading(false);
     }
@@ -481,11 +502,13 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
               <input id="guide-file" name="file" type="file" accept=".pdf,application/pdf" required disabled={guideUploading}
                 onChange={(event) => {
                   const selected = event.target.files?.[0] || null;
-                  const invalid = selected && !selected.name.toLowerCase().endsWith(".pdf")
-                    ? "badPdfFile"
-                    : selected && selected.size > 15 * 1024 * 1024
-                      ? "fileTooBig"
-                      : "";
+                  const invalid = selected
+                    ? (!selected.name.toLowerCase().endsWith(".pdf")
+                      ? "badPdfFile"
+                      : selected.size > MAX_GUIDE_FILE_BYTES
+                        ? "fileTooBig"
+                        : "")
+                    : "";
                   setGuideError(invalid);
                   setGuideFile(invalid ? null : selected);
                 }}
@@ -494,7 +517,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                 {guideUploading ? t("uploading") : t("upload")}
               </button>
             </form>
-            {guideError && <p role="alert" className="mt-2 text-sm text-danger">{guideError}</p>}
+            {guideError && <p role="alert" className="mt-2 text-sm text-danger">{t(guideError)}</p>}
             {guideAdded && !guideError && <p className="text-sm text-success">{t("uploadSuccess")}</p>}
             {guideDeleted && <p className="mt-2 text-sm text-success">{t("adminGuidesDeleted")}</p>}
             {guides === null ? (

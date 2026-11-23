@@ -46,6 +46,14 @@ export const guides = pgTable("guides", {
   uploadedAt: timestamp("uploaded_at", { withTimezone: true }).notNull().defaultNow(),
 });
 
+/** Staging rows for chunked guide uploads; reassembled server-side. `data` is base64-encoded. */
+export const guideUploadChunks = pgTable("guide_upload_chunks", {
+  sessionId: text("session_id").notNull(),
+  partIndex: integer("part_index").notNull(),
+  data: text("data").notNull(),
+  uploadedAt: timestamp("uploaded_at", { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [primaryKey({ columns: [t.sessionId, t.partIndex] })]);
+
 export const profiles = pgTable("profiles", {
   id: uuid("id").primaryKey().defaultRandom(),
   email: text("email").notNull().unique(),
