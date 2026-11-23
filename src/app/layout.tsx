@@ -20,7 +20,7 @@ const constani = localFont({
   variable: "--font-constani",
 });
 
-const THEMES = ["default", "white-black", "red-purple", "brown-shiny"] as const;
+import { THEMES, FONT_STYLES } from "@/lib/appSettings";
 
 export const dynamic = "force-dynamic";
 
@@ -53,10 +53,11 @@ export const viewport: Viewport = {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const themeRow = await db.select().from(meta).where(eq(meta.key, "theme")).limit(1);
-  const theme = themeRow[0]?.value;
-  const dataTheme = (THEMES as readonly string[]).includes(theme) ? theme : "default";
+  const fontRow = await db.select().from(meta).where(eq(meta.key, "fontStyle")).limit(1);
+  const dataTheme = (THEMES as readonly string[]).includes(themeRow[0]?.value) ? themeRow[0].value : "default";
+  const dataFontStyle = (FONT_STYLES as readonly string[]).includes(fontRow[0]?.value) ? fontRow[0].value : "default";
   return (
-    <html lang="ar" dir="rtl" data-theme={dataTheme} className={`${notokufiArabic.variable} ${constani.variable}`}>
+    <html lang="ar" dir="rtl" data-theme={dataTheme} data-font-style={dataFontStyle} className={`${notokufiArabic.variable} ${constani.variable}`}>
       <body className="min-h-dvh bg-paper font-sans text-ink antialiased">
         <I18nProvider>{children}</I18nProvider>
       </body>

@@ -31,9 +31,16 @@ type ProfileRow = {
 type AdminStats = {
   ok: boolean;
   total: number;
+  totalAccounts: number;
+  blockedCount: number;
+  exhaustedCount: number;
+  activeCount: number;
   topSpecialty: { code: string; name: string; downloads: number } | null;
   topAccount: { email: string; downloads: number } | null;
 };
+
+type AdminSettings = { theme: string; fontStyle: string; welcomeMessage: string };
+
 const buttonClass = "w-full rounded-md bg-primary px-4 py-2.5 font-semibold text-white hover:bg-primary-deep disabled:opacity-50";
 const fileErrors: Record<string, string> = {
   "bad-file": "badFile", "empty-file": "unreadable", unreadable: "unreadable",
@@ -43,6 +50,7 @@ const fileErrors: Record<string, string> = {
 
 export default function AdminPanel({ authorized, configured, showDemoHint, notice }: Props) {
   const { t, locale } = useI18n();
+  const n = (value: number) => new Intl.NumberFormat(locale).format(value);
   const input = useRef<HTMLInputElement>(null);
   const [summary, setSummary] = useState<Summary>({ state: "loading" });
   const [revision, setRevision] = useState(0);
@@ -63,14 +71,12 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [deletedMsg, setDeletedMsg] = useState(false);
   const [limitBusy, setLimitBusy] = useState<string | null>(null);
   const [stats, setStats] = useState<AdminStats | null>(null);
-  const [theme, setTheme] = useState("default");
+  const [settings, setSettings] = useState<AdminSettings>({ theme: "default", fontStyle: "default", welcomeMessage: "" });
 
   useEffect(() => {
     if (!authorized) return;
-    api<{ ok: boolean; theme?: string }>("/api/admin/theme", { cache: "no-store" })
-      .then((res) => {
-        if (res.theme) setTheme(res.theme);
-      })
+    api<AdminSettings>("/api/admin/settings", { cache: "no-store" })
+      .then(setSettings)
       .catch(() => {});
     api<AdminStats>("/api/admin/stats", { cache: "no-store" })
       .then((res) => {
@@ -79,15 +85,13 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       .catch(() => {});
   }, [authorized]);
 
-  const changeTheme = (value: string) => {
-    setTheme(value);
-    void api("/api/admin/theme", {
+  const changeSetting = (field: keyof AdminSettings, value: string) => {
+    setSettings((prev) => ({ ...prev, [field]: value }));
+    void api("/api/admin/settings", {
       method: "POST",
       credentials: "same-origin",
-      body: JSON.stringify({ theme: value }),
-    }).catch(() => {
-      setTheme("default");
-    });
+      body: JSON.stringify({ [field]: value }),
+    }).catch(() => {});
   };
 
   useEffect(() => {
@@ -95,7 +99,6 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
     if (new URL(location.href).searchParams.has("state")) {
       history.replaceState(history.state, "", "/admin");
     }
-    // Revalidate server-side permissions when restoring a page from browser history.
     const onRestore = (event: PageTransitionEvent) => { if (event.persisted) location.reload(); };
     window.addEventListener("pageshow", onRestore);
     return () => window.removeEventListener("pageshow", onRestore);
@@ -163,7 +166,6 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       setUsers((rows) => rows?.filter((row) => row.id !== id) ?? null);
       setDeletedMsg(true);
     } catch {
-      // refresh the list from the server to show the true state
       api<ProfileRow[]>("/api/admin/users", { cache: "no-store", credentials: "same-origin" })
         .then(setUsers)
         .catch(() => {});
@@ -251,17 +253,6 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
           <Link href="/" className="text-sm text-primary hover:underline">{t("home")}</Link>
         </div>
         <div className="flex items-center gap-3">
-          <select
-            value={theme}
-            onChange={(event) => changeTheme(event.target.value)}
-            aria-label={t("appTheme")}
-            className="rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
-          >
-            <option value="default">{t("themeDefault")}</option>
-            <option value="white-black">{t("themeWhiteBlack")}</option>
-            <option value="red-purple">{t("themeRedPurple")}</option>
-            <option value="brown-shiny">{t("themeBrownShiny")}</option>
-          </select>
           <LanguageSwitcher />
           {authorized && (
             <form method="post" action="/api/admin/logout">
@@ -310,21 +301,6 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
         </section>
       ) : (
         <div className="space-y-4">
-          <section className="rounded-lg border border-line bg-card p-4" aria-labelledby="catalog-heading">
-            <h2 id="catalog-heading" className="font-semibold text-ink">{t("currentCatalog")}</h2>
-            <div aria-live="polite" className="mt-2 text-sm text-soft">
-              {summary.state === "loading" && <p>{t("loading")}</p>}
-              {summary.state === "error" && (
-                <><p>{t("adminCatalogUnavailable")}</p><button type="button" onClick={refreshSummary} className="mt-2 font-medium text-primary underline">{t("retry")}</button></>
-              )}
-              {summary.state === "ready" && (
-                <>
-                  <p>{new Intl.NumberFormat(locale).format(summary.info.count)} {t("specialties")} · {t("version")} {summary.info.version}</p>
-                  {summary.info.publishedAt && <p className="mt-1 text-xs">{t("published")}: {formatDate(summary.info.publishedAt, locale)}</p>}
-                </>
-              )}
-            </div>
-          </section>
           <section className="rounded-lg border border-line bg-card p-4">
             <h2 className="font-semibold text-ink"><label htmlFor="word-file">{t("uploadFile")}</label></h2>
             <p id="upload-format" className="mt-1 text-sm text-soft">{t("uploadHint")}</p>
@@ -347,62 +323,33 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
               <button type="submit" disabled={!file || publishing} className={`mt-4 ${buttonClass}`}>{publishing ? t("uploading") : t("upload")}</button>
             </form>
           </section>
+
           <section className="rounded-lg border border-line bg-card p-4">
-            <h2 className="font-semibold text-ink">{t("adminAccounts")}</h2>
-            {stats && (
-              <p className="mt-3 text-sm text-soft">
-                {t("adminStatsTotal").replace("%d", new Intl.NumberFormat(locale).format(stats.total))}
-                {" · "}
-                {stats.topSpecialty
-                  ? t("adminStatsTopSpecialty").replace(
-                      "%s",
-                      `${stats.topSpecialty.code} — ${stats.topSpecialty.name} (${new Intl.NumberFormat(locale).format(stats.topSpecialty.downloads)})`,
-                    )
-                  : ""}
-                {" · "}
-                {stats.topAccount
-                  ? t("adminStatsTopAccount").replace(
-                      "%s",
-                      `${stats.topAccount.email} (${new Intl.NumberFormat(locale).format(stats.topAccount.downloads)})`,
-                    )
-                  : ""}
-              </p>
-            )}
-            <form onSubmit={addAccount} className="mt-3 space-y-3">
-              <div className="grid gap-3 sm:grid-cols-2">
-                <label className="block text-sm font-medium text-ink">
-                  {t("email")}
-                  <input
-                    type="email"
-                    dir="ltr"
-                    required
-                    value={addEmail}
-                    onChange={(event) => setAddEmail(event.target.value)}
-                    className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
-                  />
-                </label>
-                <label className="block text-sm font-medium text-ink">
-                  {t("password")}
-                  <input
-                    type="password"
-                    dir="ltr"
-                    minLength={6}
-                    required
-                    value={addPassword}
-                    onChange={(event) => setAddPassword(event.target.value)}
-                    className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
-                  />
-                </label>
-              </div>
-              {addError && <p role="alert" className="text-sm text-danger">{addError}</p>}
-              {added && !addError && <p className="text-sm text-success">{t("adminAccountAdded")}</p>}
-              <button type="submit" className={buttonClass}>{t("adminAddAccount")}</button>
-            </form>
-            {users === null ? (
-              <p className="mt-3 text-sm text-soft">{t("loading")}</p>
-            ) : usersError ? (
-              <p className="mt-3 text-sm text-danger">{t("error")}</p>
-            ) : (
+            <details id="admin-settings">
+              <summary className="cursor-pointer select-none font-semibold text-ink">{t("adminSettings")}</summary>
+              {stats && (
+                <p className="mt-3 text-sm text-soft">
+                  {t("adminStatsTotalAccounts").replace("%d", n(stats.totalAccounts))}
+                  {" · "}
+                  {t("adminStatsBlocked").replace("%d", n(stats.blockedCount))}
+                  {" · "}
+                  {t("adminStatsExhausted").replace("%d", n(stats.exhaustedCount))}
+                  {" · "}
+                  {t("adminStatsActive").replace("%d", n(stats.activeCount))}
+                  {" · "}
+                  {t("adminStatsTotal").replace("%d", n(stats.total))}
+                  {" · "}
+                  {stats.topSpecialty ? t("adminStatsTopSpecialty").replace("%s", `${stats.topSpecialty.code} — ${stats.topSpecialty.name} (${n(stats.topSpecialty.downloads)})`) : ""}
+                  {" · "}
+                  {stats.topAccount ? t("adminStatsTopAccount").replace("%s", `${stats.topAccount.email} (${n(stats.topAccount.downloads)})`) : ""}
+                </p>
+              )}
+
+              {users === null ? (
+                <p className="mt-3 text-sm text-soft">{t("loading")}</p>
+              ) : usersError ? (
+                <p className="mt-3 text-sm text-danger">{t("error")}</p>
+              ) : (
               <div className="mt-3 overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
@@ -421,7 +368,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                         <td className="py-2 pl-3 font-mono text-xs text-soft" dir="ltr" title={row.passwordHash}>
                           {row.plainPassword ?? "—"}
                         </td>
-                        <td className="py-2 text-center text-soft">{new Intl.NumberFormat(locale).format(row.downloads)}</td>
+                        <td className="py-2 text-center text-soft">{n(row.downloads)}</td>
                         <td className="py-2 text-center">
                           <select
                             value={row.downloadLimit ?? ""}
@@ -463,33 +410,105 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                   </tbody>
                 </table>
               </div>
-            )}
-            {deletedMsg && (
-              <p className="mt-3 text-sm text-success">{t("adminDeleted")}</p>
-            )}
-            {deleteTarget && (
-              <div className="mt-3 rounded-lg border border-line bg-card p-4" role="alertdialog" aria-modal="true" aria-labelledby="delete-account-title" aria-describedby="delete-account-body">
-                <h3 id="delete-account-title" className="font-semibold text-ink">{t("adminDeleteTitle")}</h3>
-                <p id="delete-account-body" className="mt-2 text-sm text-ink">{t("adminDeleteConfirm")}</p>
-                <div className="mt-4 flex justify-end gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setDeleteTarget(null)}
-                    className="rounded-md border border-line px-3 py-2 text-sm font-medium text-ink hover:bg-paper"
-                  >
-                    {t("adminDeleteCancel")}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => removeAccount(deleteTarget)}
-                    disabled={deleteBusy}
-                    className="rounded-md bg-danger px-3 py-2 text-sm font-semibold text-white disabled:opacity-50"
-                  >
-                    {t("adminDelete")}
-                  </button>
+              )}
+              {deletedMsg && (
+                <p className="mt-3 text-sm text-success">{t("adminDeleted")}</p>
+              )}
+              {deleteTarget && (
+                <div className="mt-3 rounded-lg border border-line bg-card p-4" role="alertdialog" aria-modal="true" aria-labelledby="delete-account-title" aria-describedby="delete-account-body">
+                  <h3 id="delete-account-title" className="font-semibold text-ink">{t("adminDeleteTitle")}</h3>
+                  <p id="delete-account-body" className="mt-2 text-sm text-ink">{t("adminDeleteConfirm")}</p>
+                  <div className="mt-4 flex justify-end gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setDeleteTarget(null)}
+                      className="rounded-md border border-line px-3 py-2 text-sm font-medium text-ink hover:bg-paper"
+                    >
+                      {t("adminDeleteCancel")}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => removeAccount(deleteTarget)}
+                      disabled={deleteBusy}
+                      className="rounded-md bg-danger px-3 py-2 text-sm font-semibold text-white disabled:opacity-50"
+                    >
+                      {t("adminDelete")}
+                    </button>
+                  </div>
                 </div>
+              )}
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <label className="block text-sm font-medium text-ink">
+                  {t("adminFontStyle")}
+                  <select
+                    value={settings.fontStyle}
+                    onChange={(event) => changeSetting("fontStyle", event.target.value)}
+                    aria-label={t("adminFontStyle")}
+                    className="mt-1 w-auto rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
+                  >
+                    <option value="default">{t("fontStyleDefault")}</option>
+                    <option value="compact">{t("fontStyleCompact")}</option>
+                    <option value="large">{t("fontStyleLarge")}</option>
+                    <option value="expanded">{t("fontStyleExpanded")}</option>
+                  </select>
+                </label>
+                <label className="block text-sm font-medium text-ink">
+                  {t("appTheme")}
+                  <select
+                    value={settings.theme}
+                    onChange={(event) => changeSetting("theme", event.target.value)}
+                    aria-label={t("appTheme")}
+                    className="mt-1 w-auto rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
+                  >
+                    <option value="default">{t("themeDefault")}</option>
+                    <option value="white-black">{t("themeWhiteBlack")}</option>
+                    <option value="red-purple">{t("themeRedPurple")}</option>
+                    <option value="brown-shiny">{t("themeBrownShiny")}</option>
+                  </select>
+                </label>
               </div>
-            )}
+              <label className="mt-3 block text-sm font-medium text-ink">
+                {t("adminWelcomeLabel")}
+                <textarea
+                  value={settings.welcomeMessage}
+                  maxLength={500}
+                  placeholder={t("adminWelcomePlaceholder")}
+                  onChange={(event) => changeSetting("welcomeMessage", event.target.value)}
+                  rows={2}
+                  className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                />
+              </label>
+              <form onSubmit={addAccount} className="mt-3 space-y-3">
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <label className="block text-sm font-medium text-ink">
+                    {t("email")}
+                    <input
+                      type="email"
+                      dir="ltr"
+                      required
+                      value={addEmail}
+                      onChange={(event) => setAddEmail(event.target.value)}
+                      className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                    />
+                  </label>
+                  <label className="block text-sm font-medium text-ink">
+                    {t("password")}
+                    <input
+                      type="password"
+                      dir="ltr"
+                      minLength={6}
+                      required
+                      value={addPassword}
+                      onChange={(event) => setAddPassword(event.target.value)}
+                      className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                    />
+                  </label>
+                </div>
+                {addError && <p role="alert" className="text-sm text-danger">{addError}</p>}
+                {added && !addError && <p className="text-sm text-success">{t("adminAccountAdded")}</p>}
+                <button type="submit" className={buttonClass}>{t("adminAddAccount")}</button>
+              </form>
+            </details>
           </section>
         </div>
       )}

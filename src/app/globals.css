@@ -104,6 +104,11 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Admin-chosen font styles (data-font-style). */
+html[data-font-style="compact"] body { font-size: 0.88rem; }
+html[data-font-style="large"] body { font-size: 1.06rem; }
+html[data-font-style="expanded"] body { font-size: 1.15rem; }
+
 input,
 textarea {
   caret-color: var(--color-primary);

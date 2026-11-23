@@ -44,11 +44,12 @@ export const profiles = pgTable("profiles", {
   downloads: integer("downloads").notNull().default(0),
   // NULL = unlimited (existing accounts); registered users start with 3.
   downloadLimit: integer("download_limit"),
+  // Set when a user has seen the admin's welcome message at login (once per account).
+  welcomeShown: boolean("welcome_shown").notNull().default(false),
   createdAt: timestamp("created_at", { withTimezone: true })
     .notNull()
     .defaultNow(),
 });
-
 export const userSessions = pgTable(
   "user_sessions",
   {

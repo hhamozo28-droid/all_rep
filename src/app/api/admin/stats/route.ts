@@ -24,6 +24,20 @@ export async function GET() {
       .select({ total: sql<number>`coalesce(sum(${profiles.downloads}), 0)::int` })
       .from(profiles);
 
+    // 2. Account counters.
+    const [totalAccounts] = await db
+      .select({ count: sql<number>`coalesce(count(*), 0)::int` })
+      .from(profiles);
+    const [blockedCount] = await db
+      .select({ count: sql<number>`coalesce(count(*) FILTER (WHERE ${profiles.blocked}), 0)::int` })
+      .from(profiles);
+    const [exhaustedCount] = await db
+      .select({ count: sql<number>`coalesce(count(*) FILTER (WHERE ${profiles.blocked} = false AND ${profiles.downloadLimit} IS NOT NULL AND ${profiles.downloads} >= ${profiles.downloadLimit}), 0)::int` })
+      .from(profiles);
+    const [activeCount] = await db
+      .select({ count: sql<number>`coalesce(count(*) FILTER (WHERE ${profiles.blocked} = false AND (${profiles.downloadLimit} IS NULL OR ${profiles.downloads} < ${profiles.downloadLimit})), 0)::int` })
+      .from(profiles);
+
     // 2. The specialty with the most download operations overall.
     const topSpecialtyRows = await db
       .select({
@@ -55,13 +69,22 @@ export async function GET() {
       .limit(1);
 
     return NextResponse.json(
-      { ok: true, total: totalRow?.total ?? 0, topSpecialty, topAccount: topAccountRows[0] ?? null },
+      {
+        ok: true,
+        total: totalRow?.total ?? 0,
+        totalAccounts: totalAccounts?.count ?? 0,
+        blockedCount: blockedCount?.count ?? 0,
+        exhaustedCount: exhaustedCount?.count ?? 0,
+        activeCount: activeCount?.count ?? 0,
+        topSpecialty,
+        topAccount: topAccountRows[0] ?? null,
+      },
       { headers: adminResponseHeaders },
     );
   } catch (error) {
-    const e = error as { message?: string; cause?: unknown; query?: string };
+    const e = error as { message?: string; cause?: { message?: string } };
     return NextResponse.json(
-      { ok: false, error: e?.message ?? String(error), cause: String((e as { cause?: { message?: string } })?.cause ?? "") },
+      { ok: false, error: e?.message ?? String(error), cause: e?.cause?.message ?? "" },
       { status: 500, headers: adminResponseHeaders },
     );
   }
