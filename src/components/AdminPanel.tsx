@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { ApiError, api, formatDate } from "@/lib/client";
@@ -245,6 +245,37 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
     }
   }
 
+  const stat = (label: string, value: ReactNode): { label: string; value: ReactNode } => ({ label, value });
+  const statItems: Array<{ label: string; value: ReactNode }> = stats
+    ? [
+        stat(t("adminStatsTotalAccounts"), <b className="font-semibold text-danger">{n(stats.totalAccounts)}</b>),
+        stat(t("adminStatsBlocked"), <b className="font-semibold text-danger">{n(stats.blockedCount)}</b>),
+        stat(t("adminStatsExhausted"), <b className="font-semibold text-danger">{n(stats.exhaustedCount)}</b>),
+        stat(t("adminStatsActive"), <b className="font-semibold text-danger">{n(stats.activeCount)}</b>),
+        stat(t("adminStatsTotal"), <b className="font-semibold text-danger">{n(stats.total)}</b>),
+        ...(stats.topSpecialty
+          ? [stat(
+              t("adminStatsTopSpecialty"),
+              <>
+                {`${stats.topSpecialty.code} — ${stats.topSpecialty.name} (`}
+                <b className="font-semibold text-danger">{n(stats.topSpecialty.downloads)}</b>
+                {")"}
+              </>,
+            )]
+          : []),
+        ...(stats.topAccount
+          ? [stat(
+              t("adminStatsTopAccount"),
+              <>
+                {stats.topAccount.email}{" ("}
+                <b className="font-semibold text-danger">{n(stats.topAccount.downloads)}</b>
+                {")"}
+              </>,
+            )]
+          : []),
+      ]
+    : [];
+
   return (
     <main className="mx-auto w-full max-w-lg px-4 py-6">
       <header className="mb-6 flex flex-wrap items-center justify-between gap-3">
@@ -327,21 +358,14 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
           <section className="rounded-lg border border-line bg-card p-4">
             <details id="admin-settings">
               <summary className="cursor-pointer select-none font-semibold text-ink">{t("adminSettings")}</summary>
-              {stats && (
+              {stats && statItems.length > 0 && (
                 <p className="mt-3 text-sm text-soft">
-                  {t("adminStatsTotalAccounts").replace("%d", n(stats.totalAccounts))}
-                  {" · "}
-                  {t("adminStatsBlocked").replace("%d", n(stats.blockedCount))}
-                  {" · "}
-                  {t("adminStatsExhausted").replace("%d", n(stats.exhaustedCount))}
-                  {" · "}
-                  {t("adminStatsActive").replace("%d", n(stats.activeCount))}
-                  {" · "}
-                  {t("adminStatsTotal").replace("%d", n(stats.total))}
-                  {" · "}
-                  {stats.topSpecialty ? t("adminStatsTopSpecialty").replace("%s", `${stats.topSpecialty.code} — ${stats.topSpecialty.name} (${n(stats.topSpecialty.downloads)})`) : ""}
-                  {" · "}
-                  {stats.topAccount ? t("adminStatsTopAccount").replace("%s", `${stats.topAccount.email} (${n(stats.topAccount.downloads)})`) : ""}
+                  {statItems.map((item, i) => (
+                    <span key={i}>
+                      {i > 0 ? " · " : null}
+                      {item.label} {item.value}
+                    </span>
+                  ))}
                 </p>
               )}
 
