@@ -38,10 +38,10 @@ export async function POST() {
     .limit(1);
   const [msgRow] = await db.select().from(meta).where(eq(meta.key, KEY)).limit(1);
   const message = msgRow?.value ?? "";
-  const shown = profile?.welcomeShown ?? false;
+  const wasShown = profile?.welcomeShown ?? false;
   // Mark as seen once, so the message is shown at most once per account.
-  if (message && !shown) {
+  if (message && !wasShown) {
     await db.update(profiles).set({ welcomeShown: true }).where(eq(profiles.id, s.user.id));
   }
-  return NextResponse.json({ ok: true, message: message || null, shown: message ? true : shown });
+  return NextResponse.json({ ok: true, message: message || null, isNew: Boolean(message && !wasShown) });
 }

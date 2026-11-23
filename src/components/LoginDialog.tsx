@@ -25,7 +25,8 @@ export default function LoginDialog() {
       .then((res) => res.json().catch(() => null))
       .then((data) => {
         if (cancelled || !data) return;
-        if (data.message && !data.shown) {
+        // Show the admin-defined welcome message once per account.
+        if (data.message && data.isNew) {
           setWelcome(data.message);
           setOpen(true);
           return;
