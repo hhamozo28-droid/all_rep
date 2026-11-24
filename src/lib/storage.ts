@@ -3,6 +3,7 @@ import { createReadStream } from "node:fs";
 import {
   DeleteObjectCommand,
   GetObjectCommand,
+  HeadObjectCommand,
   PutObjectCommand,
   S3Client,
 } from "@aws-sdk/client-s3";
@@ -112,6 +113,41 @@ export async function deleteObject(key: string): Promise<void> {
   await client().send(
     new DeleteObjectCommand({ Bucket: config()!.bucket, Key: fullKey(key) }),
   );
+}
+
+/** Presigned PUT used by the admin upload page; the browser never sees credentials. */
+export async function presignedPutUrl(
+  key: string,
+  contentType: string,
+  expiresIn = 15 * 60,
+): Promise<string> {
+  return getSignedUrl(
+    client(),
+    new PutObjectCommand({
+      Bucket: config()!.bucket,
+      Key: fullKey(key),
+      ContentType: contentType,
+      ServerSideEncryption: "AES256",
+    }),
+    { expiresIn },
+  );
+}
+
+/** Verify that a browser upload really landed before registering it. */
+export async function headObject(
+  key: string,
+): Promise<{ size: number; contentType: string | null } | null> {
+  try {
+    const result = await client().send(
+      new HeadObjectCommand({ Bucket: config()!.bucket, Key: fullKey(key) }),
+    );
+    return {
+      size: Number(result.ContentLength ?? 0),
+      contentType: result.ContentType ?? null,
+    };
+  } catch {
+    return null;
+  }
 }
 
 export async function signedObjectUrl(

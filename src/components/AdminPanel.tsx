@@ -393,7 +393,14 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       <header className="mb-6 flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-xl font-bold text-ink">{t("adminTitle")}</h1>
-          <Link href="/" className="text-sm text-primary hover:underline">{t("home")}</Link>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/" className="text-sm text-primary hover:underline">{t("home")}</Link>
+            {authorized && (
+              <Link href="/admin/upload-files" className="text-sm text-primary hover:underline">
+                رفع ملفات التخصصات والأدلة
+              </Link>
+            )}
+          </div>
         </div>
         <div className="flex items-center gap-3">
           <LanguageSwitcher />
