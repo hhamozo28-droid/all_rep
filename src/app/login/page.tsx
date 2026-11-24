@@ -111,9 +111,9 @@ function LoginForm() {
         >
           <IconDot className="h-8 w-8" />
         </span>
-        <p className="mt-4 text-sm text-soft">
+        <p className="mt-4 text-sm text-soft" dir="auto">
           {t("noAccount")} {" "}
-          <Link href="/register" className="font-semibold text-primary">{t("register")}</Link>
+          <span className="font-semibold text-primary">{t("contactAdmin")}</span>
         </p>
       </section>
       <AdminLink className="mt-4 self-center" />

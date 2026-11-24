@@ -5,8 +5,9 @@ import { lookup, resolveMx } from "node:dns/promises";
 import { ADMIN_COOKIE, isAuthorizedAdmin } from "@/lib/admin-auth";
 import { adminResponseHeaders, rejectCrossOriginWrite } from "@/lib/admin-http";
 import { db } from "@/db";
-import { profiles } from "@/db/schema";
+import { deletedAccounts, profiles } from "@/db/schema";
 import { hashPassword } from "@/lib/auth";
+import { ensureDeletedAccountsTable } from "@/lib/accountDeletion";
 
 export const dynamic = "force-dynamic";
 
@@ -53,6 +54,16 @@ export async function POST(request: Request) {
     .where(eq(profiles.email, email))
     .limit(1);
   if (existing.length > 0) {
+    return NextResponse.json({ error: "email-exists" }, { status: 409, headers: adminResponseHeaders });
+  }
+  // A permanently deleted email must never be registered again, even by an admin.
+  await ensureDeletedAccountsTable();
+  const tombstone = await db
+    .select({ email: deletedAccounts.email })
+    .from(deletedAccounts)
+    .where(eq(deletedAccounts.email, email))
+    .limit(1);
+  if (tombstone.length > 0) {
     return NextResponse.json({ error: "email-exists" }, { status: 409, headers: adminResponseHeaders });
   }
   await db.insert(profiles).values({

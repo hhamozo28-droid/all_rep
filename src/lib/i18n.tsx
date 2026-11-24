@@ -59,6 +59,10 @@ const ar: Record<string, string> = {
   registerTitle: "حساب جديد",
   registerBody: "أنشئ حسابك بالبريد وكلمة المرور للوصول إلى مكتبة التخصصات.",
   noAccount: "ليس لديك حساب؟",
+  registrationClosed: "التسجيل مغلق",
+  registrationClosedBody:
+    "لا يمكن إنشاء حساب جديد من هذه الصفحة. تُنشأ الحسابات من طرف مسؤول المنصة فقط عبر لوحة الإدارة.",
+  contactAdmin: "تواصل مع مسؤول المنصة لإنشاء حسابك",
   haveAccount: "لديك حساب بالفعل؟",
   kicked:
     "تم تسجيل الدخول بحسابك من جهاز آخر، لذا أُنهيت الجلسة على هذا الجهاز.",
@@ -236,6 +240,10 @@ const en: Record<string, string> = {
   registerTitle: "New account",
   registerBody: "Create your account with email and password to access the catalog.",
   noAccount: "No account yet?",
+  registrationClosed: "Registration is closed",
+  registrationClosedBody:
+    "New accounts cannot be created here. Accounts are created only by the platform administrator from the admin panel.",
+  contactAdmin: "Contact the platform administrator to create an account",
   haveAccount: "Already have an account?",
   kicked:
     "Your account was signed in on another device, so this session was signed out.",
@@ -415,6 +423,10 @@ const fr: Record<string, string> = {
   registerBody:
     "Créez votre compte avec e-mail et mot de passe pour accéder au catalogue.",
   noAccount: "Pas encore de compte ?",
+  registrationClosed: "Inscription fermée",
+  registrationClosedBody:
+    "Les nouveaux comptes ne peuvent pas être créés ici. Ils sont créés uniquement par l'administrateur de la plateforme via le panneau d'administration.",
+  contactAdmin: "Contactez l'administrateur de la plateforme pour créer un compte",
   haveAccount: "Déjà un compte ?",
   kicked:
     "Votre compte a été utilisé sur un autre appareil, cette session a donc été déconnectée.",
