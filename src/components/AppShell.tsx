@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import LanguageSwitcher from "./LanguageSwitcher";
 import AdminLink from "./AdminLink";
 import IdleLogout from "./IdleLogout";
@@ -132,7 +133,10 @@ export default function AppShell({ children, user }: Props) {
       </header>
       <main className="mx-auto w-full max-w-2xl px-4 py-5">{children}</main>
       <footer className="mx-auto w-full max-w-2xl px-4 pb-4 text-center text-xs text-soft" dir="auto">
-        {t("footerByline")}
+        <Link href="/privacy" className="mb-1 inline-block hover:text-ink hover:underline">
+          {t("privacyPolicy")}
+        </Link>
+        <div>{t("footerByline")}</div>
       </footer>
       {deleteOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" role="dialog" aria-modal="true" aria-labelledby="delete-account-title">

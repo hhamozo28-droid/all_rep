@@ -1,0 +1,10 @@
+analyzer:
+  exclude:
+    - build/**
+    - android/**
+  errors:
+    # Flutter 3.47+ marks the legacy flutter/material.dart import as deprecated
+    # while the framework migrates to package:material_ui. Keeping the legacy
+    # import preserves compatibility with older Flutter versions.
+    deprecated_member_use: ignore
+include: package:flutter_lints/flutter.yaml
