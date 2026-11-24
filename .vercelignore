@@ -1,0 +1,11 @@
+# The Flutter project and its Gradle build outputs are not part of the web
+# deployment. The Android APK that must be served lives in public/downloads.
+mobile/
+
+# Guide PDFs are stored on GitHub and fetched by the API at runtime; the local
+# copies are only the source for those GitHub commits.
+guides/
+
+# Local build artifacts
+.next/
+node_modules/

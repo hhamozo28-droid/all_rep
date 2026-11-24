@@ -117,6 +117,18 @@ function LoginForm() {
         </p>
       </section>
       <AdminLink className="mt-4 self-center" />
+      <footer className="mt-6 text-center text-xs text-soft" dir="auto">
+        <div className="mb-1 flex flex-wrap items-center justify-center gap-2">
+          <Link href="/download" className="font-semibold text-primary hover:underline">
+            {t("androidApp")}
+          </Link>
+          <span aria-hidden="true">·</span>
+          <Link href="/privacy" className="font-semibold text-primary hover:underline">
+            {t("privacyPolicy")}
+          </Link>
+        </div>
+        <div>{t("footerByline")}</div>
+      </footer>
     </main>
   );
 }
