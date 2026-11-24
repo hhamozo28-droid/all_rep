@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { desc, eq, sql } from "drizzle-orm";
+import { desc, eq, isNull, sql } from "drizzle-orm";
 import { ADMIN_COOKIE, isAuthorizedAdmin } from "@/lib/admin-auth";
 import { adminResponseHeaders } from "@/lib/admin-http";
 import { db } from "@/db";
@@ -28,16 +28,16 @@ export async function GET() {
 
     // 2. Account counters.
     const [totalAccounts] = await db
-      .select({ count: sql<number>`coalesce(count(*), 0)::int` })
+      .select({ count: sql<number>`coalesce(count(*) FILTER (WHERE ${profiles.deletedAt} IS NULL), 0)::int` })
       .from(profiles);
     const [blockedCount] = await db
-      .select({ count: sql<number>`coalesce(count(*) FILTER (WHERE ${profiles.blocked}), 0)::int` })
+      .select({ count: sql<number>`coalesce(count(*) FILTER (WHERE ${profiles.deletedAt} IS NULL AND ${profiles.blocked}), 0)::int` })
       .from(profiles);
     const [exhaustedCount] = await db
-      .select({ count: sql<number>`coalesce(count(*) FILTER (WHERE ${profiles.blocked} = false AND ${profiles.downloadLimit} IS NOT NULL AND ${profiles.downloads} >= ${profiles.downloadLimit}), 0)::int` })
+      .select({ count: sql<number>`coalesce(count(*) FILTER (WHERE ${profiles.deletedAt} IS NULL AND ${profiles.blocked} = false AND ${profiles.downloadLimit} IS NOT NULL AND ${profiles.downloads} >= ${profiles.downloadLimit}), 0)::int` })
       .from(profiles);
     const [activeCount] = await db
-      .select({ count: sql<number>`coalesce(count(*) FILTER (WHERE ${profiles.blocked} = false AND (${profiles.downloadLimit} IS NULL OR ${profiles.downloads} < ${profiles.downloadLimit})), 0)::int` })
+      .select({ count: sql<number>`coalesce(count(*) FILTER (WHERE ${profiles.deletedAt} IS NULL AND ${profiles.blocked} = false AND (${profiles.downloadLimit} IS NULL OR ${profiles.downloads} < ${profiles.downloadLimit})), 0)::int` })
       .from(profiles);
 
     // 2. The specialty with the most download operations overall.
@@ -67,6 +67,7 @@ export async function GET() {
     const topAccountRows = await db
       .select({ email: profiles.email, downloads: profiles.downloads })
       .from(profiles)
+      .where(isNull(profiles.deletedAt))
       .orderBy(desc(profiles.downloads), desc(profiles.email))
       .limit(1);
 

@@ -66,9 +66,19 @@ export const profiles = pgTable("profiles", {
   downloadLimit: integer("download_limit"),
   // Set when a user has seen the admin's welcome message at login (once per account).
   welcomeShown: boolean("welcome_shown").notNull().default(false),
+  // Self-deleted from the app: the row stays (admin keeps the credentials) but
+  // the account can neither log in nor be re-registered. Only the admin can
+  // permanently delete it from the panel.
+  deletedAt: timestamp("deleted_at", { withTimezone: true }),
   createdAt: timestamp("created_at", { withTimezone: true })
     .notNull()
     .defaultNow(),
+});
+
+/** Emails of permanently deleted accounts: they can never be registered again. */
+export const deletedAccounts = pgTable("deleted_accounts", {
+  email: text("email").primaryKey(),
+  deletedAt: timestamp("deleted_at", { withTimezone: true }).notNull().defaultNow(),
 });
 export const userSessions = pgTable(
   "user_sessions",

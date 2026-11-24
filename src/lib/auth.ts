@@ -104,7 +104,7 @@ export async function getSessionState(): Promise<SessionState> {
     .limit(1);
   const p = profs[0];
   if (!p) return { status: "none" };
-  if (p.blocked) return { status: "none" };
+  if (p.deletedAt || p.blocked) return { status: "none" };
 
   const rows = await db
     .select()

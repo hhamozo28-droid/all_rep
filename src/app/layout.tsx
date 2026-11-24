@@ -25,15 +25,15 @@ import { THEMES, FONT_STYLES } from "@/lib/appSettings";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "روابط التحميل",
+  title: "منصة دروسي",
   description:
-    "قائمة التخصصات وروابط التحميل عند الطلب — تطبيق يمكن تثبيته على هاتفك",
-  applicationName: "روابط التحميل",
+    "التخصصات والدليل البيداغوجي للمتربص — منصة دروسي، تطبيق يمكن تثبيته على هاتفك",
+  applicationName: "منصة دروسي",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "روابط التحميل",
+    title: "منصة دروسي",
   },
   icons: {
     icon: [

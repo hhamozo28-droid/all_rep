@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { eq } from "drizzle-orm";
 import { db } from "@/db";
-import { profiles } from "@/db/schema";
+import { deletedAccounts, profiles } from "@/db/schema";
 import {
   SESSION_COOKIE,
   createSession,
@@ -10,6 +10,7 @@ import {
 } from "@/lib/auth";
 import { isLocale } from "@/lib/locales";
 import { ensureWelcomeColumn } from "@/lib/ensureWelcomeColumn";
+import { ensureDeletedAccountsTable } from "@/lib/accountDeletion";
 
 export const dynamic = "force-dynamic";
 
@@ -39,7 +40,14 @@ export async function POST(req: Request) {
       .from(profiles)
       .where(eq(profiles.email, email))
       .limit(1);
-    if (existing.length > 0) {
+    // A permanently deleted email (tombstone) can never be registered again.
+    await ensureDeletedAccountsTable();
+    const tombstone = await db
+      .select({ email: deletedAccounts.email })
+      .from(deletedAccounts)
+      .where(eq(deletedAccounts.email, email))
+      .limit(1);
+    if (existing.length > 0 || tombstone.length > 0) {
       return NextResponse.json({ error: "email-exists" }, { status: 409 });
     }
 

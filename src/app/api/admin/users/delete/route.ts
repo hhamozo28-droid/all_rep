@@ -4,7 +4,8 @@ import { eq } from "drizzle-orm";
 import { ADMIN_COOKIE, isAuthorizedAdmin } from "@/lib/admin-auth";
 import { adminResponseHeaders, rejectCrossOriginWrite } from "@/lib/admin-http";
 import { db } from "@/db";
-import { profiles } from "@/db/schema";
+import { deletedAccounts, profiles } from "@/db/schema";
+import { ensureDeletedAccountsTable } from "@/lib/accountDeletion";
 
 export const dynamic = "force-dynamic";
 
@@ -19,6 +20,20 @@ export async function POST(request: Request) {
   if (!body?.id) {
     return NextResponse.json({ error: "bad-request" }, { status: 400, headers: adminResponseHeaders });
   }
+  const target = await db
+    .select({ email: profiles.email })
+    .from(profiles)
+    .where(eq(profiles.id, body.id))
+    .limit(1);
+  if (!target[0]) {
+    return NextResponse.json({ error: "not-found" }, { status: 404, headers: adminResponseHeaders });
+  }
+  // Keep the email forever so it cannot be registered again.
+  await ensureDeletedAccountsTable();
+  await db
+    .insert(deletedAccounts)
+    .values({ email: target[0].email })
+    .onConflictDoNothing();
   const deleted = await db
     .delete(profiles)
     .where(eq(profiles.id, body.id))

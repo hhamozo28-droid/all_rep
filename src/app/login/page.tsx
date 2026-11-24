@@ -31,7 +31,9 @@ function LoginForm() {
       sessionStorage.setItem("dl_fresh_login", "1");
       router.replace("/");
     } catch (cause) {
-      if (cause instanceof ApiError && cause.status === 401 && cause.body?.error === "blocked") {
+      if (cause instanceof ApiError && cause.status === 401 && cause.body?.error === "account-deleted") {
+        setError(t("accountDeleted"));
+      } else if (cause instanceof ApiError && cause.status === 401 && cause.body?.error === "blocked") {
         setError(t("blocked"));
       } else {
         setError(cause instanceof ApiError && cause.status === 401 ? t("wrongCredentials") : t("error"));

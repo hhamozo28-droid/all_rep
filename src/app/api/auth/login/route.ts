@@ -34,6 +34,9 @@ export async function POST(req: Request) {
       .where(eq(profiles.email, email))
       .limit(1);
     const p = profs[0];
+    if (p?.deletedAt) {
+      return NextResponse.json({ error: "account-deleted" }, { status: 401 });
+    }
     if (p?.blocked) {
       return NextResponse.json({ error: "blocked" }, { status: 401 });
     }

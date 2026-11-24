@@ -23,6 +23,8 @@ export default function AppShell({ children, user }: Props) {
   const router = useRouter();
   const { t, locale, setLocale } = useI18n();
   const [installPrompt, setInstallPrompt] = useState<InstallPromptEvent | null>(null);
+  const [deleteOpen, setDeleteOpen] = useState(false);
+  const [deleteBusy, setDeleteBusy] = useState(false);
   const syncedLanguage = useRef<string | null>(null);
 
   useEffect(() => {
@@ -65,6 +67,18 @@ export default function AppShell({ children, user }: Props) {
     router.replace("/");
   };
 
+  const deleteAccount = async () => {
+    if (deleteBusy) return;
+    setDeleteBusy(true);
+    try {
+      const res = await fetch("/api/auth/delete", { method: "POST", credentials: "same-origin" });
+      if (!res.ok) throw new Error("delete failed");
+      router.replace("/login");
+    } catch {
+      setDeleteBusy(false);
+    }
+  };
+
   return (
     <DownloadStatusProvider
       initial={{ downloads: user?.downloads ?? 0, downloadLimit: user?.downloadLimit ?? null }}
@@ -96,13 +110,22 @@ export default function AppShell({ children, user }: Props) {
               </button>
             )}
             {user && (
-              <button
-                type="button"
-                onClick={() => void logout()}
-                className="rounded-md border border-line px-3 py-2 text-sm text-ink"
-              >
-                {t("logout")}
-              </button>
+              <>
+                <button
+                  type="button"
+                  onClick={() => void logout()}
+                  className="rounded-md border border-line px-3 py-2 text-sm text-ink"
+                >
+                  {t("logout")}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setDeleteOpen(true)}
+                  className="rounded-md border border-danger px-3 py-2 text-sm text-danger"
+                >
+                  {t("deleteAccount")}
+                </button>
+              </>
             )}
           </div>
         </div>
@@ -111,6 +134,32 @@ export default function AppShell({ children, user }: Props) {
       <footer className="mx-auto w-full max-w-2xl px-4 pb-4 text-center text-xs text-soft" dir="auto">
         {t("footerByline")}
       </footer>
+      {deleteOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" role="dialog" aria-modal="true" aria-labelledby="delete-account-title">
+          <div className="w-full max-w-sm rounded-lg border border-line bg-white p-5">
+            <h2 id="delete-account-title" className="text-lg font-bold text-ink">{t("deleteAccount")}</h2>
+            <p className="mt-2 text-sm text-soft">{t("deleteAccountConfirm")}</p>
+            <div className="mt-4 flex items-center justify-end gap-2">
+              <button
+                type="button"
+                onClick={() => setDeleteOpen(false)}
+                disabled={deleteBusy}
+                className="rounded-md border border-line px-3 py-2 text-sm text-ink disabled:opacity-50"
+              >
+                {t("adminDeleteCancel")}
+              </button>
+              <button
+                type="button"
+                onClick={() => void deleteAccount()}
+                disabled={deleteBusy}
+                className="rounded-md bg-danger px-3 py-2 text-sm font-semibold text-white disabled:opacity-50"
+              >
+                {deleteBusy ? t("loading") : t("deleteAccount")}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
     </DownloadStatusProvider>
   );

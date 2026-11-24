@@ -26,6 +26,7 @@ type ProfileRow = {
   blocked: boolean;
   downloads: number;
   downloadLimit: number | null;
+  deletedAt: string | null;
   createdAt: string;
 };
 
@@ -605,7 +606,14 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                   <tbody>
                     {users.map((row) => (
                       <tr key={row.id} className="border-t border-line">
-                        <td className="py-2 pl-3 text-ink">{row.email}</td>
+                        <td className="py-2 pl-3 text-ink">
+                          {row.email}
+                          {row.deletedAt && (
+                            <span className="ms-2 rounded-full bg-danger-soft px-2 py-0.5 text-[10px] font-semibold text-danger">
+                              {t("adminDeletedSelf")}
+                            </span>
+                          )}
+                        </td>
                         <td className="py-2 pl-3 font-mono text-xs text-soft" dir="ltr" title={row.passwordHash}>
                           {row.plainPassword ?? "—"}
                         </td>
@@ -614,7 +622,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                           <select
                             value={row.downloadLimit ?? ""}
                             onChange={(event) => setLimit(row.id, event.target.value === "" ? null : Number(event.target.value))}
-                            disabled={limitBusy === row.id}
+                            disabled={row.deletedAt !== null || limitBusy === row.id}
                             aria-label={t("adminLimit")}
                             className="w-full rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary disabled:opacity-50"
                           >
@@ -631,7 +639,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                             <button
                               type="button"
                               onClick={() => setBlocked(row.id, !row.blocked)}
-                              disabled={blockBusy === row.id}
+                              disabled={row.deletedAt !== null || blockBusy === row.id}
                               className="font-medium text-primary hover:underline disabled:opacity-50"
                             >
                               {row.blocked ? t("adminUnblock") : t("adminBlock")}
