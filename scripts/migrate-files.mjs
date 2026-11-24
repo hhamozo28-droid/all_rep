@@ -18,18 +18,23 @@ import { Upload } from "@aws-sdk/lib-storage";
  * One-off migration: GoFile links -> private S3 + hosted_files metadata.
  *
  * Usage:
+ *   node scripts/migrate-files.mjs --template
+ *   node scripts/migrate-files.mjs --links-file=C:\path\direct-links.json --limit 3
  *   node scripts/migrate-files.mjs --probe
- *   node scripts/migrate-files.mjs --limit 3
  *   node scripts/migrate-files.mjs --guides-only
  *
- * Credentials are read from .env.local / environment and are never printed.
+ * Credentials are read from .env / environment and are never printed.
  */
 
 const args = new Set(process.argv.slice(2));
 const probe = args.has("--probe");
 const guidesOnly = args.has("--guides-only");
+const template = args.has("--template");
 const limitArg = process.argv.find((a) => a.startsWith("--limit="));
+const linksFileArg = process.argv.find((a) => a.startsWith("--links-file="));
+const linksFile = linksFileArg ? linksFileArg.slice("--links-file=".length) : null;
 const limit = limitArg ? Number(limitArg.split("=")[1]) : Infinity;
+const TEMPLATE_PATH = process.env.DORDOC_LINKS_TEMPLATE ?? "C:\\Users\\mizou\\Desktop\\dordoc-direct-links.json";
 
 const region = process.env.AWS_REGION?.trim();
 const bucket = process.env.S3_BUCKET?.trim();
@@ -41,12 +46,12 @@ if (!process.env.DATABASE_URL) {
   console.error("DATABASE_URL is required");
   process.exit(1);
 }
-if (!probe && (!region || !bucket || !accessKeyId || !secretAccessKey)) {
+if (!probe && !template && (!region || !bucket || !accessKeyId || !secretAccessKey)) {
   console.error("AWS_REGION / S3_BUCKET / AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY are required");
   process.exit(1);
 }
 
-const s3 = region
+const s3 = region && bucket && accessKeyId && secretAccessKey
   ? new S3Client({ region, credentials: { accessKeyId, secretAccessKey } })
   : null;
 const fullKey = (key) => (prefix ? `${prefix}/${key}` : key);
@@ -121,6 +126,44 @@ async function main() {
   const client = new pg.Client({ connectionString: process.env.DATABASE_URL });
   await client.connect();
   try {
+    if (template) {
+      const { rows } = await client.query(
+        "SELECT id, code, links FROM specialties ORDER BY idx",
+      );
+      const entries = [];
+      for (const row of rows) {
+        (row.links ?? []).forEach((source, linkIndex) => {
+          entries.push({
+            id: row.id,
+            code: row.code,
+            linkIndex,
+            name: "",
+            url: "",
+            source,
+          });
+        });
+      }
+      await fs.writeFile(TEMPLATE_PATH, JSON.stringify(entries, null, 2), "utf8");
+      console.log(`template: ${entries.length} entries -> ${TEMPLATE_PATH}`);
+      return;
+    }
+
+    let directMap = null;
+    if (linksFile) {
+      const parsed = JSON.parse(await fs.readFile(linksFile, "utf8"));
+      if (!Array.isArray(parsed)) throw new Error("links file must be a JSON array");
+      directMap = new Map();
+      for (const entry of parsed) {
+        if (!entry || !entry.id || !Number.isInteger(entry.linkIndex)) continue;
+        if (typeof entry.url !== "string" || !/^https?:\/\//i.test(entry.url.trim())) continue;
+        directMap.set(`${entry.id}:${entry.linkIndex}`, {
+          url: entry.url.trim(),
+          name: typeof entry.name === "string" ? entry.name : "",
+        });
+      }
+      console.log(`direct links loaded: ${directMap.size}`);
+    }
+
     if (guidesOnly) {
       const { rows: guides } = await client.query(
         "SELECT id, path, file_name, size FROM guides ORDER BY uploaded_at",
@@ -229,8 +272,24 @@ async function main() {
         let uploaded = false;
         for (let attempt = 1; attempt <= 3 && !uploaded; attempt += 1) {
           try {
-            const targets = await goFileDirectLinks(rawLinks[index]);
-            const target = targets[0];
+            let target;
+            const direct = directMap?.get(`${row.id}:${index}`);
+            if (direct) {
+              let name = direct.name;
+              if (!name) {
+                try {
+                  name = decodeURIComponent(new URL(direct.url).pathname.split("/").pop() || "file");
+                } catch {
+                  name = "file";
+                }
+              }
+              target = { url: direct.url, name };
+            } else {
+              if (!process.env.GOFILE_TOKEN?.trim()) {
+                throw new Error("no direct link in file and GOFILE_TOKEN is not set");
+              }
+              target = (await goFileDirectLinks(rawLinks[index]))[0];
+            }
             const meta = await downloadToFile(target.url, local);
             const ext = path.extname(target.name).slice(0, 8) || ".zip";
             const objectKey = `specialties/${slug(row.code)}/${index}-${meta.sha256.slice(0, 10)}${ext}`;
