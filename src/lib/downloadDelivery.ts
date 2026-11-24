@@ -35,6 +35,7 @@ export async function deliverGrant(
   options: { itemId?: string } = {},
 ): Promise<NextResponse> {
   const sessionHash = await currentSessionHash();
+  if (!sessionHash) return errorResponse(410, "link-used-or-expired");
   const grant = await consumeGrant(token, { sessionHash, itemId: options.itemId });
   if (!grant) return errorResponse(410, "link-used-or-expired");
   return grant.kind === "guide" ? deliverGuide(grant) : deliverSpecialty(grant);

@@ -13,11 +13,12 @@ import { SESSION_COOKIE } from "@/lib/auth";
  * Short-lived, single-attempt download capabilities.
  *
  * The raw token is only present in the URL handed to the client. The database
- * keeps a SHA-256 hash, the owning account and (when a cookie is available)
- * a hash of the session cookie.
+ * keeps a SHA-256 hash, the owning account and a hash of the session cookie.
+ * Delivery is rejected unless the presenting browser has the same session
+ * cookie, so forwarding the link to somebody else cannot deliver the file.
  */
 
-export const GRANT_TTL_SECONDS = 120;
+export const GRANT_TTL_SECONDS = 60;
 
 export type GrantKind = "guide" | "specialty";
 export type GrantMode = "open" | "download";
@@ -116,13 +117,33 @@ export async function createGrant(input: {
 
 /**
  * Atomically mark an unused, unexpired grant as used. Returns null when the
- * link was already opened, expired or never issued.
+ * link was already opened, expired, presented by a different session or
+ * never issued. Validation happens BEFORE the atomic update so a forwarded
+ * link can never burn the legitimate owner's single attempt.
  */
 export async function consumeGrant(
   token: string,
   options: { sessionHash?: string | null; itemId?: string } = {},
 ): Promise<GrantRow | null> {
   await ensureDownloadTables();
+  const [candidate] = await db
+    .select()
+    .from(downloadGrants)
+    .where(eq(downloadGrants.tokenHash, hashGrantToken(token)))
+    .limit(1);
+  if (!candidate) return null;
+  if (candidate.usedAt || candidate.expiresAt <= new Date()) return null;
+  if (
+    !candidate.sessionHash ||
+    !options.sessionHash ||
+    candidate.sessionHash !== options.sessionHash
+  ) {
+    return null;
+  }
+  if (options.itemId !== undefined && candidate.itemId !== options.itemId) {
+    return null;
+  }
+
   const [grant] = await db
     .update(downloadGrants)
     .set({ usedAt: new Date() })
@@ -132,19 +153,7 @@ export async function consumeGrant(
         AND ${downloadGrants.expiresAt} > now()`,
     )
     .returning();
-  if (!grant) return null;
-
-  const sessionMismatch =
-    options.sessionHash !== undefined &&
-    Boolean(options.sessionHash) &&
-    Boolean(grant.sessionHash) &&
-    options.sessionHash !== grant.sessionHash;
-  const itemMismatch = options.itemId !== undefined && grant.itemId !== options.itemId;
-  if (sessionMismatch || itemMismatch) {
-    await refundGrant(grant);
-    return null;
-  }
-  return grant;
+  return grant ?? null;
 }
 
 /** Restore one balance unit when delivery failed before any bytes were sent. */
