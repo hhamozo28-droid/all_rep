@@ -502,7 +502,9 @@ class _GuidesTabState extends State<_GuidesTab> {
         _items = items;
         _error = false;
       });
-    } catch (_) {
+    } catch (e) {
+      // Kept as a breadcrumb for device logs; the UI stays friendly.
+      debugPrint('dordoc: guides load failed: $e');
       if (!mounted) return;
       setState(() => _error = true);
     }
@@ -628,6 +630,8 @@ class _GuidesTabState extends State<_GuidesTab> {
             const SizedBox(height: 6),
             Text(
               '${formatBytes(guide.size)} · ${guide.downloads}',
+              textDirection: TextDirection.ltr,
+              textAlign: TextAlign.right,
               style: theme.textTheme.bodySmall?.copyWith(
                 color: theme.colorScheme.onSurfaceVariant,
               ),

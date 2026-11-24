@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
-import 'dart:typed_data';
 
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -269,6 +269,9 @@ class Api {
       headers: _headers,
     );
     if (response.statusCode != 200) {
+      debugPrint(
+        'dordoc: GET /api/guides -> ${response.statusCode} ${response.body}',
+      );
       throw _failure(response);
     }
     final data = jsonDecode(response.body) as Map<String, dynamic>;
