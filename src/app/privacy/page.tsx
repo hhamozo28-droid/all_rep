@@ -79,6 +79,13 @@ export default function PrivacyPage() {
 
       <section className={section}>
         <h2 className={heading}>4. مدة الاحتفاظ وحذف الحساب</h2>
+        <p className={body}>
+          التفاصيل الكاملة والخطوات متوفرة في صفحة{" "}
+          <Link href="/delete-account" className="font-semibold text-primary hover:underline">
+            حذف الحساب
+          </Link>
+          .
+        </p>
         <ul className={`${body} list-disc ps-5`}>
           <li>
             يمكنك تعطيل حسابك في أي وقت من داخل الموقع أو التطبيق عبر

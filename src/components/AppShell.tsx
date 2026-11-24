@@ -141,6 +141,10 @@ export default function AppShell({ children, user }: Props) {
           <Link href="/privacy" className="hover:text-ink hover:underline">
             {t("privacyPolicy")}
           </Link>
+          <span aria-hidden="true">·</span>
+          <Link href="/delete-account" className="hover:text-ink hover:underline">
+            {t("deleteAccount")}
+          </Link>
         </div>
         <div>{t("footerByline")}</div>
       </footer>
