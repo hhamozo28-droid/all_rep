@@ -170,7 +170,9 @@ export function serializeSpecialty(row: {
     lessons: row.lessons,
     filesCount: row.filesCount,
     sizeMb: Number(row.sizeMb) || 0,
-    links: Array.isArray(row.links) ? row.links : [],
+    // Raw external URLs never leave the server. Clients receive opaque
+    // indexes and must request a one-attempt grant before downloading.
+    links: Array.isArray(row.links) ? row.links.map((_, index) => ({ index })) : [],
     version: row.version,
     publishedAt: row.publishedAt.toISOString(),
   };

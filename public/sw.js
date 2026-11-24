@@ -1,5 +1,5 @@
 /* Service worker: offline app shell + stale-while-revalidate catalog cache */
-const VERSION = "dl-v1";
+const VERSION = "dl-v2";
 const STATIC_CACHE = `dl-static-${VERSION}`;
 const API_CACHE = `dl-api-${VERSION}`;
 

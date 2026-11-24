@@ -2,51 +2,66 @@
 
 import { useState, type MouseEvent } from "react";
 import { useDownloadStatus } from "@/components/DownloadStatusProvider";
+import { ApiError, api } from "@/lib/client";
 import { IconDownload } from "@/components/icons";
+import { useI18n } from "@/lib/i18n";
 
 type Props = {
-  href: string;
+  specialtyId: string;
+  linkIndex: number;
   label: string;
-  specialtyId?: string;
   className?: string;
 };
 
-export default function DownloadLink({ href, label, specialtyId, className = "" }: Props) {
+type GrantResponse = { url: string };
+
+export default function DownloadLink({ specialtyId, linkIndex, label, className = "" }: Props) {
+  const { t } = useI18n();
   const { canDownload, refresh } = useDownloadStatus();
   const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
 
   async function open(event: MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();
     if (!canDownload || busy) return;
     setBusy(true);
+    setError("");
     const tab = window.open("", "_blank");
-    if (!tab) {
-      setBusy(false);
-      return;
+    if (tab) {
+      try {
+        tab.opener = null;
+      } catch {
+        /* ignore */
+      }
     }
     try {
-      tab.opener = null;
-    } catch {
-      /* ignore */
-    }
-    let ok = false;
-    try {
-      const res = await fetch("/api/specialties/track", {
+      const grant = await api<GrantResponse>("/api/specialties/track", {
         method: "POST",
-        credentials: "same-origin",
-        body: specialtyId ? JSON.stringify({ specialtyId }) : undefined,
+        body: JSON.stringify({ specialtyId, linkIndex }),
       });
-      ok = res.ok;
-    } catch {
-      ok = false;
+      if (tab) tab.location.assign(grant.url);
+      else window.location.assign(grant.url);
+      await refresh();
+    } catch (cause) {
+      tab?.close();
+      if (cause instanceof ApiError && cause.status === 403) setError(t("downloadLimitMessage"));
+      else if (cause instanceof ApiError && cause.status === 410) setError(t("linkUsed"));
+      else setError(t("error"));
+    } finally {
+      setBusy(false);
     }
-    if (ok) tab.location.assign(href);
-    else tab.close();
-    setBusy(false);
-    if (ok) await refresh();
   }
 
   const shared = busy ? `opacity-60 ${className}` : className;
+
+  if (error) {
+    return (
+      <span role="alert" className={`text-[10px] font-semibold text-danger ${className}`}>
+        {error}
+      </span>
+    );
+  }
+
   if (!canDownload) {
     return (
       <a
@@ -59,8 +74,9 @@ export default function DownloadLink({ href, label, specialtyId, className = "" 
       </a>
     );
   }
+
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" onClick={open} className={`hover:underline ${shared}`}>
+    <a href="#" onClick={open} className={`hover:underline ${shared}`}>
       <IconDownload className="mr-1 inline h-3 w-3 align-[-1px]" />
       {label}
     </a>

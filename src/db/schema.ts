@@ -1,4 +1,5 @@
 import {
+  bigint,
   boolean,
   index,
   integer,
@@ -80,6 +81,47 @@ export const deletedAccounts = pgTable("deleted_accounts", {
   email: text("email").primaryKey(),
   deletedAt: timestamp("deleted_at", { withTimezone: true }).notNull().defaultNow(),
 });
+
+/**
+ * Files served from private S3 storage. `kind` is either "guide" or
+ * "specialty"; `itemId` points at the matching row in `guides` or
+ * `specialties`. `linkIndex` is NULL for guides.
+ */
+export const hostedFiles = pgTable("hosted_files", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  kind: text("kind").notNull(),
+  itemId: uuid("item_id").notNull(),
+  linkIndex: integer("link_index"),
+  objectKey: text("object_key").notNull().unique(),
+  sizeBytes: bigint("size_bytes", { mode: "number" }),
+  mimeType: text("mime_type"),
+  sha256: text("sha256"),
+  fileName: text("file_name"),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+/**
+ * One-attempt download capabilities. Only the SHA-256 hash of the random token
+ * is stored; the raw token lives only in the short-lived URL given to the user.
+ */
+export const downloadGrants = pgTable("download_grants", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  tokenHash: text("token_hash").notNull().unique(),
+  userId: uuid("user_id").notNull().references(() => profiles.id, { onDelete: "cascade" }),
+  sessionHash: text("session_hash"),
+  kind: text("kind").notNull(),
+  itemId: uuid("item_id").notNull(),
+  linkIndex: integer("link_index"),
+  mode: text("mode").notNull().default("open"),
+  expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+  usedAt: timestamp("used_at", { withTimezone: true }),
+  refundedAt: timestamp("refunded_at", { withTimezone: true }),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [
+  index("download_grants_user_idx").on(t.userId),
+  index("download_grants_expires_idx").on(t.expiresAt),
+]);
+
 export const userSessions = pgTable(
   "user_sessions",
   {

@@ -8,7 +8,8 @@ export interface SpecialtyItem {
   lessons: number;
   filesCount: number;
   sizeMb: number;
-  links: string[];
+  /** Opaque link descriptors; the real URL requires a one-attempt grant. */
+  links: { index: number }[];
   version: number;
   publishedAt: string;
 }

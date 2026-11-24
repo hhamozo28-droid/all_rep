@@ -325,23 +325,22 @@ class _SpecialtiesTabState extends State<_SpecialtiesTab> {
       ..showSnackBar(SnackBar(content: Text(message)));
   }
 
-  Future<void> _openLink(Specialty item, String url) async {
+  Future<void> _openLink(Specialty item, int linkIndex) async {
     if (_busy) return;
     setState(() => _busy = true);
     try {
-      await Api.instance.trackSpecialty(item.id);
+      final grantPath = await Api.instance.trackSpecialty(item.id, linkIndex);
       await widget.onConsumed();
-      final uri = Uri.tryParse(url);
-      if (uri == null) {
-        _snack(error);
-        return;
-      }
+      final uri = Uri.parse(Api.absolute(grantPath));
       final launched =
           await launchUrl(uri, mode: LaunchMode.externalApplication);
       if (!launched) _snack(error);
     } on ApiException catch (e) {
       if (e.status == 403) {
         widget.onLimit();
+        await widget.onConsumed();
+      } else if (e.status == 410) {
+        _snack(linkUsed);
         await widget.onConsumed();
       } else {
         _snack(networkError);
@@ -452,10 +451,10 @@ class _SpecialtiesTabState extends State<_SpecialtiesTab> {
     );
   }
 
-  Widget _linkButton(Specialty item, String url, String label) {
+  Widget _linkButton(Specialty item, int linkIndex, String label) {
     return OutlinedButton.icon(
       onPressed:
-          (_busy || widget.exhausted) ? null : () => _openLink(item, url),
+          (_busy || widget.exhausted) ? null : () => _openLink(item, linkIndex),
       icon: const Icon(Icons.download_outlined, size: 18),
       label: Text(label),
     );
@@ -534,9 +533,9 @@ class _GuidesTabState extends State<_GuidesTab> {
     if (_busyId != null) return;
     setState(() => _busyId = guide.id);
     try {
-      await Api.instance.trackGuide(guide.id);
+      final grantPath = await Api.instance.trackGuide(guide.id, download: download);
       await widget.onConsumed();
-      final bytes = await Api.instance.guideFile(guide.id, download: download);
+      final bytes = await Api.instance.guideFile(grantPath);
       final directory = download
           ? await getApplicationDocumentsDirectory()
           : await getTemporaryDirectory();
@@ -555,6 +554,9 @@ class _GuidesTabState extends State<_GuidesTab> {
       if (!mounted) return;
       if (e.status == 403) {
         widget.onLimit();
+        await widget.onConsumed();
+      } else if (e.status == 410) {
+        _snack(linkUsed);
         await widget.onConsumed();
       } else {
         _snack(networkError);

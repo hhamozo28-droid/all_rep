@@ -215,6 +215,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                       )
                                     : const Text(loginButton),
                               ),
+                              const SizedBox(height: 12),
+                              const Text(
+                                '$noAccount $contactAdmin',
+                                textAlign: TextAlign.center,
+                              ),
                             ],
                           ),
                         ),

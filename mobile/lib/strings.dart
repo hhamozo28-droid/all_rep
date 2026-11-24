@@ -9,6 +9,13 @@ const emailLabel = 'البريد الإلكتروني';
 const passwordLabel = 'كلمة المرور';
 const loginButton = 'تسجيل الدخول';
 
+const noAccount = 'ليس لديك حساب؟';
+const contactAdmin = 'تواصل مع مسؤول المنصة لإنشاء حسابك';
+const haveAccount = 'لديك حساب بالفعل؟';
+const emailExists = 'هذا البريد الإلكتروني مسجّل مسبقًا';
+const invalidEmail = 'أدخل بريدًا إلكترونيًا صالحًا';
+const passwordMin = 'كلمة المرور يجب أن تكون 6 أحرف على الأقل';
+
 const logout = 'تسجيل الخروج';
 const deleteAccount = 'حذف الحساب';
 const deleteAccountConfirm =
@@ -32,6 +39,7 @@ const saveFailed = 'تعذّر حفظ الملف';
 const preparingFile = 'جارٍ تجهيز الملف…';
 
 const limitReached = 'التحميل محدود من المسؤول';
+const linkUsed = 'انتهت صلاحية رابط التحميل أو تم استخدامه. اضغط مجدداً للحصول على رابط جديد.';
 const downloadsLeft = 'رصيد التحميل';
 const unlimited = 'غير محدود';
 const networkError =

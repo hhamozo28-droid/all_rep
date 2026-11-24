@@ -6,7 +6,7 @@ import { adminResponseHeaders, rejectCrossOriginWrite } from "@/lib/admin-http";
 import { db } from "@/db";
 import { guides } from "@/db/schema";
 import { ensureGuidesTable } from "@/lib/specialtyStats";
-import { deleteGuide } from "@/lib/githubGuides";
+import { removeGuideFile } from "@/lib/guideStorage";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
   if (!row) return fail("not-found", 404);
 
   try {
-    await deleteGuide(row.path, row.sha);
+    await removeGuideFile({ guideId: row.id, path: row.path, sha: row.sha });
   } catch {
     return fail("internal", 500);
   }

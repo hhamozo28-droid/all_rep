@@ -6,7 +6,8 @@ import { adminResponseHeaders, rejectCrossOriginWrite } from "@/lib/admin-http";
 import { db } from "@/db";
 import { guides, guideUploadChunks } from "@/db/schema";
 import { ensureGuidesTable, ensureGuideUploadChunksTable } from "@/lib/specialtyStats";
-import { isPdfFile, uploadGuide } from "@/lib/githubGuides";
+import { isPdfFile } from "@/lib/githubGuides";
+import { registerHostedGuide, storeGuideFile } from "@/lib/guideStorage";
 import { MAX_GUIDE_FILE_BYTES } from "@/lib/uploadLimits";
 
 export const dynamic = "force-dynamic";
@@ -57,18 +58,27 @@ export async function POST(request: Request) {
   try {
     await clearSession();
     await ensureGuidesTable();
-    const uploaded = await uploadGuide(fileName, buffer);
+    const stored = await storeGuideFile(fileName, buffer);
     const [row] = await db
       .insert(guides)
       .values({
-        path: uploaded.path,
-        sha: uploaded.sha,
-        size: uploaded.size,
-        title: uploaded.fileName.replace(/\.pdf$/i, ""),
-        fileName: uploaded.fileName,
+        path: stored.path,
+        sha: stored.sha,
+        size: stored.size,
+        title: stored.fileName.replace(/\.pdf$/i, ""),
+        fileName: stored.fileName,
       })
       .returning();
     if (!row) return fail("internal", 500);
+    if (stored.storage === "s3") {
+      await registerHostedGuide({
+        guideId: row.id,
+        objectKey: stored.path,
+        size: stored.size,
+        sha: stored.sha,
+        fileName: stored.fileName,
+      });
+    }
     return NextResponse.json(
       {
         ok: true,

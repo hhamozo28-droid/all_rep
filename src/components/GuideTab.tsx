@@ -14,12 +14,15 @@ type GuideItem = {
   uploadedAt: string;
 };
 
+type GrantResponse = { url: string };
+
 export default function GuideTab() {
   const { t, locale } = useI18n();
   const [items, setItems] = useState<GuideItem[] | null>(null);
   const [error, setError] = useState(false);
   const [busyId, setBusyId] = useState<string | null>(null);
   const [limitMsg, setLimitMsg] = useState(false);
+  const [linkMsg, setLinkMsg] = useState("");
 
   const load = useCallback(async () => {
     try {
@@ -34,20 +37,42 @@ export default function GuideTab() {
     void load();
   }, [load]);
 
-  async function openGuide(id: string, download = false) {
-    setBusyId(id);
+  async function openGuide(guide: GuideItem, download: boolean) {
+    setBusyId(guide.id);
     setLimitMsg(false);
-    const tab = window.open("", "_blank");
-    if (tab) tab.opener = null;
+    setLinkMsg("");
     try {
-      await api(`/api/guides/${encodeURIComponent(id)}/track`, { method: "POST", credentials: "same-origin" });
-      const url = `/api/guides/${encodeURIComponent(id)}/file${download ? "?download=1" : ""}`;
-      if (tab) {
-        tab.location = url;
+      const grant = await api<GrantResponse>(`/api/guides/${encodeURIComponent(guide.id)}/track`, {
+        method: "POST",
+        body: JSON.stringify({ mode: download ? "download" : "open" }),
+      });
+      // Fetch the file once through the single-attempt link, then hand the
+      // bytes to the browser locally so PDF viewers cannot issue extra requests.
+      const response = await fetch(grant.url, { credentials: "same-origin", cache: "no-store" });
+      if (!response.ok) {
+        const body = (await response.json().catch(() => null)) as { error?: string } | null;
+        throw new ApiError(response.status, body as Record<string, unknown> | null);
       }
-    } catch (e) {
-      tab?.close();
-      if (e instanceof ApiError && e.status === 403) setLimitMsg(true);
+      const blob = await response.blob();
+      const objectUrl = URL.createObjectURL(blob);
+      if (download) {
+        const anchor = document.createElement("a");
+        anchor.href = objectUrl;
+        anchor.download = guide.fileName;
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        window.setTimeout(() => URL.revokeObjectURL(objectUrl), 60_000);
+      } else {
+        const tab = window.open(objectUrl, "_blank");
+        if (tab) tab.opener = null;
+        else window.location.assign(objectUrl);
+        window.setTimeout(() => URL.revokeObjectURL(objectUrl), 5 * 60_000);
+      }
+    } catch (cause) {
+      if (cause instanceof ApiError && cause.status === 403) setLimitMsg(true);
+      else if (cause instanceof ApiError && cause.status === 410) setLinkMsg(t("linkUsed"));
+      else setLinkMsg(t("error"));
     } finally {
       setBusyId(null);
     }
@@ -60,6 +85,7 @@ export default function GuideTab() {
   return (
     <section className="mt-3 rounded-lg border border-line bg-white p-4">
       {limitMsg && <p role="alert" className="mb-2 text-sm text-danger">{t("downloadLimitMessage")}</p>}
+      {linkMsg && <p role="alert" className="mb-2 text-sm text-danger">{linkMsg}</p>}
       <div className="grid gap-2">
         {items.map((g) => (
           <div key={g.id} className="flex flex-wrap items-center justify-between gap-2 border-t border-line py-2 first:border-t-0">
@@ -73,7 +99,7 @@ export default function GuideTab() {
               <button
                 type="button"
                 disabled={busyId === g.id}
-                onClick={() => void openGuide(g.id, false)}
+                onClick={() => void openGuide(g, false)}
                 className="rounded-md bg-primary px-3 py-1.5 text-sm font-semibold text-white hover:bg-primary-deep disabled:opacity-50"
               >
                 {t("guideOpen")}
@@ -81,7 +107,7 @@ export default function GuideTab() {
               <button
                 type="button"
                 disabled={busyId === g.id}
-                onClick={() => void openGuide(g.id, true)}
+                onClick={() => void openGuide(g, true)}
                 className="rounded-md border border-line px-3 py-1.5 text-sm font-medium text-primary hover:bg-paper disabled:opacity-50"
               >
                 {t("guideDownload")}

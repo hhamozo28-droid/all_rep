@@ -40,8 +40,11 @@ class Specialty {
         modules: (json['modules'] as num?)?.toInt() ?? 0,
         lessons: (json['lessons'] as num?)?.toInt() ?? 0,
         filesCount: (json['filesCount'] as num?)?.toInt() ?? 0,
-        links:
-            ((json['links'] as List?) ?? const []).whereType<String>().toList(),
+        links: ((json['links'] as List?) ?? const [])
+            .whereType<Map<String, dynamic>>()
+            .map((link) => (link['index'] as num?)?.toInt() ?? -1)
+            .where((index) => index >= 0)
+            .toList(),
       );
 
   final String id;
@@ -50,7 +53,8 @@ class Specialty {
   final int modules;
   final int lessons;
   final int filesCount;
-  final List<String> links;
+  /// Opaque link indexes. The server no longer exposes raw download URLs.
+  final List<int> links;
 }
 
 class Guide {
@@ -93,6 +97,9 @@ class Api {
   Api._();
 
   static final Api instance = Api._();
+
+  /// Convert a server-relative capability path into a launchable URL.
+  static String absolute(String path) => '$apiBase$path';
 
   static const _cookieKey = 'dl_session_cookie';
   static const _deviceKey = 'dl_device_id';
@@ -180,6 +187,27 @@ class Api {
         'email': email.trim(),
         'password': password,
         'deviceId': deviceId,
+      }),
+    );
+    if (response.statusCode != 200) {
+      throw ApiException(response.statusCode, _code(response));
+    }
+    await _saveCookie(response);
+  }
+
+  /// Creates a new account using the same endpoint as the website and keeps
+  /// the returned session cookie so the app opens straight into the catalog.
+  Future<void> register(String email, String password) async {
+    await _loadCookie();
+    final deviceId = await _loadDeviceId();
+    final response = await _client.post(
+      Uri.parse('$apiBase/api/auth/register'),
+      headers: _headers,
+      body: jsonEncode({
+        'email': email.trim(),
+        'password': password,
+        'deviceId': deviceId,
+        'language': 'ar',
       }),
     );
     if (response.statusCode != 200) {
@@ -281,41 +309,47 @@ class Api {
         .toList();
   }
 
-  /// Consumes one download from the account balance (same as the web buttons).
-  Future<void> trackGuide(String id) async {
+  String _grantPath(http.Response response) {
+    final data = jsonDecode(response.body) as Map<String, dynamic>;
+    final url = data['url'] as String?;
+    if (url == null || !url.startsWith('/api/dl/')) {
+      throw ApiException(response.statusCode, 'missing-grant');
+    }
+    return url;
+  }
+
+  /// Consumes one balance unit and returns a single-attempt delivery path.
+  Future<String> trackGuide(String id, {bool download = false}) async {
     await _loadCookie();
     final response = await _client.post(
       Uri.parse('$apiBase/api/guides/${Uri.encodeComponent(id)}/track'),
       headers: _headers,
+      body: jsonEncode({'mode': download ? 'download' : 'open'}),
     );
-    if (response.statusCode != 200) {
-      throw _failure(response);
-    }
+    if (response.statusCode != 200) throw _failure(response);
+    return _grantPath(response);
   }
 
-  /// Consumes one download from the balance for a specialty link.
-  Future<void> trackSpecialty(String specialtyId) async {
+  /// Consumes one balance unit for one specific specialty link.
+  Future<String> trackSpecialty(String specialtyId, int linkIndex) async {
     await _loadCookie();
     final response = await _client.post(
       Uri.parse('$apiBase/api/specialties/track'),
       headers: _headers,
-      body: jsonEncode({'specialtyId': specialtyId}),
+      body: jsonEncode({'specialtyId': specialtyId, 'linkIndex': linkIndex}),
     );
-    if (response.statusCode != 200) {
-      throw _failure(response);
-    }
+    if (response.statusCode != 200) throw _failure(response);
+    return _grantPath(response);
   }
 
-  Future<Uint8List> guideFile(String id, {bool download = false}) async {
+  /// Fetch the PDF once through the single-attempt capability path.
+  Future<Uint8List> guideFile(String grantPath) async {
     await _loadCookie();
-    final suffix = download ? '?download=1' : '';
     final response = await _client.get(
-      Uri.parse('$apiBase/api/guides/${Uri.encodeComponent(id)}/file$suffix'),
+      Uri.parse('$apiBase$grantPath'),
       headers: _headers,
     );
-    if (response.statusCode != 200) {
-      throw _failure(response);
-    }
+    if (response.statusCode != 200) throw _failure(response);
     return response.bodyBytes;
   }
 

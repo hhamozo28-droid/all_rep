@@ -14,7 +14,8 @@ export default function SpecialtyCard({ item }: { item: SpecialtyItem }) {
   const router = useRouter();
   const { t, locale } = useI18n();
   const { canDownload, remaining } = useDownloadStatus();
-  const [sheetsLink, notesLink] = item.links;
+  const sheetsLink = item.links.find((link) => link.index === 0);
+  const notesLink = item.links.find((link) => link.index === 1);
   const code = item.code.split(/\s+/)[0] || item.code;
   const number = new Intl.NumberFormat(locale);
   const showCount = (value: number) => (value > 0 ? number.format(value) : "/");
@@ -63,10 +64,18 @@ export default function SpecialtyCard({ item }: { item: SpecialtyItem }) {
         </div>
         <div className="mt-2 flex items-center gap-3">
           {sheetsLink && (
-            <DownloadLink href={sheetsLink} label={t("linkSheets")} specialtyId={item.id} />
+            <DownloadLink
+              specialtyId={item.id}
+              linkIndex={sheetsLink.index}
+              label={t("linkSheets")}
+            />
           )}
           {notesLink && (
-            <DownloadLink href={notesLink} label={t("linkNotes")} specialtyId={item.id} />
+            <DownloadLink
+              specialtyId={item.id}
+              linkIndex={notesLink.index}
+              label={t("linkNotes")}
+            />
           )}
         </div>
         {!canDownload ? (

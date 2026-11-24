@@ -9,14 +9,6 @@ import type { SpecialtyItem } from "@/types/specialty";
 import { badgeStyle, iconLetter } from "@/lib/tint";
 import { specialtyName } from "@/lib/specialtyNames";
 
-function host(url: string) {
-  try {
-    return new URL(url).host;
-  } catch {
-    return url;
-  }
-}
-
 export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
   const router = useRouter();
   const { t, locale } = useI18n();
@@ -66,7 +58,7 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
 
       <section className="rounded-lg border border-line bg-white p-5">
         <h2 className="font-semibold text-ink">{t("linksTitle")}</h2>
-        <p className="mt-1 text-sm text-soft">{t("openHint")}</p>
+        <p className="mt-1 text-sm text-soft">{t("oneTimeHint")}</p>
         {!canDownload && (
           <p role="status" className="mt-4 text-sm text-danger">
             {t("downloadLimitMessage")}
@@ -76,15 +68,15 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
           <p className="mt-4 text-sm text-soft">{t("noResults")}</p>
         ) : (
           <ol className="mt-3 divide-y divide-line">
-            {item.links.map((url, index) => (
-              <li key={`${url}-${index}`} className="flex items-center justify-between gap-3 py-3">
-                <span className="min-w-0 truncate text-sm text-soft" dir="ltr">
-                  {index + 1}. {host(url)}
+            {item.links.map((link) => (
+              <li key={link.index} className="flex items-center justify-between gap-3 py-3">
+                <span className="min-w-0 truncate text-sm text-soft">
+                  {link.index + 1}. {t("hostedFile")}
                 </span>
                 <DownloadLink
-                  href={url}
-                  label={t("download")}
                   specialtyId={item.id}
+                  linkIndex={link.index}
+                  label={t("download")}
                   className="shrink-0 rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white hover:bg-primary-deep"
                 />
               </li>
