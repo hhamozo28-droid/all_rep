@@ -57,7 +57,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const dataTheme = (THEMES as readonly string[]).includes(themeRow[0]?.value) ? themeRow[0].value : "default";
   const dataFontStyle = (FONT_STYLES as readonly string[]).includes(fontRow[0]?.value) ? fontRow[0].value : "default";
   return (
-    <html lang="ar" dir="rtl" data-theme={dataTheme} data-font-style={dataFontStyle} className={`${notokufiArabic.variable} ${constani.variable}`}>
+    <html lang="ar" dir="rtl" data-theme={dataTheme} data-font-style={dataFontStyle} data-app-only={process.env.APP_ONLY_DOWNLOADS === "1" ? "1" : "0"} className={`${notokufiArabic.variable} ${constani.variable}`}>
       <body className="min-h-dvh bg-paper font-sans text-ink antialiased">
         <I18nProvider>{children}</I18nProvider>
       </body>

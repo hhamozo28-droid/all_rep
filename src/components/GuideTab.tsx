@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import Link from "next/link";
+import { useAppOnlyDownloads } from "@/lib/appOnlyClient";
 import { ApiError, api, formatDate } from "@/lib/client";
 import { useI18n } from "@/lib/i18n";
 
@@ -18,6 +20,7 @@ type GrantResponse = { url: string };
 
 export default function GuideTab() {
   const { t, locale } = useI18n();
+  const appOnly = useAppOnlyDownloads();
   const [items, setItems] = useState<GuideItem[] | null>(null);
   const [error, setError] = useState(false);
   const [busyId, setBusyId] = useState<string | null>(null);
@@ -86,6 +89,12 @@ export default function GuideTab() {
     <section className="mt-3 rounded-lg border border-line bg-white p-4">
       {limitMsg && <p role="alert" className="mb-2 text-sm text-danger">{t("downloadLimitMessage")}</p>}
       {linkMsg && <p role="alert" className="mb-2 text-sm text-danger">{linkMsg}</p>}
+      {appOnly && (
+        <p className="mb-3 rounded-md bg-paper px-3 py-2 text-sm font-semibold text-primary" dir="auto">
+          {t("appOnlyNotice")} · {" "}
+          <Link href="/download" className="underline">{t("androidApp")}</Link>
+        </p>
+      )}
       <div className="grid gap-2">
         {items.map((g) => (
           <div key={g.id} className="flex flex-wrap items-center justify-between gap-2 border-t border-line py-2 first:border-t-0">
@@ -96,22 +105,30 @@ export default function GuideTab() {
               </p>
             </div>
             <div className="flex items-center gap-2">
-              <button
-                type="button"
-                disabled={busyId === g.id}
-                onClick={() => void openGuide(g, false)}
-                className="rounded-md bg-primary px-3 py-1.5 text-sm font-semibold text-white hover:bg-primary-deep disabled:opacity-50"
-              >
-                {t("guideOpen")}
-              </button>
-              <button
-                type="button"
-                disabled={busyId === g.id}
-                onClick={() => void openGuide(g, true)}
-                className="rounded-md border border-line px-3 py-1.5 text-sm font-medium text-primary hover:bg-paper disabled:opacity-50"
-              >
-                {t("guideDownload")}
-              </button>
+              {appOnly ? (
+                <Link href="/download" className="rounded-md border border-line px-3 py-1.5 text-sm font-medium text-primary hover:bg-paper">
+                  {t("androidApp")}
+                </Link>
+              ) : (
+                <>
+                  <button
+                    type="button"
+                    disabled={busyId === g.id}
+                    onClick={() => void openGuide(g, false)}
+                    className="rounded-md bg-primary px-3 py-1.5 text-sm font-semibold text-white hover:bg-primary-deep disabled:opacity-50"
+                  >
+                    {t("guideOpen")}
+                  </button>
+                  <button
+                    type="button"
+                    disabled={busyId === g.id}
+                    onClick={() => void openGuide(g, true)}
+                    className="rounded-md border border-line px-3 py-1.5 text-sm font-medium text-primary hover:bg-paper disabled:opacity-50"
+                  >
+                    {t("guideDownload")}
+                  </button>
+                </>
+              )}
             </div>
           </div>
         ))}

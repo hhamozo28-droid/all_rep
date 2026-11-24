@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.hamzachoaib.dordoc",
+      "sha256_cert_fingerprints": [
+        "23:32:2D:AC:E3:3C:C6:F6:B5:22:71:F3:32:2F:9D:9A:C3:92:71:02:F7:95:02:E8:35:45:FB:0A:CD:82:BC:4B"
+      ]
+    }
+  }
+]

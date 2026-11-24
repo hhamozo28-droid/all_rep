@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { eq, sql } from "drizzle-orm";
+import { appOnlyGate } from "@/lib/appOnly";
 import { consumeUserDownload } from "@/lib/consumeDownload";
 import { db } from "@/db";
 import { guides } from "@/db/schema";
@@ -18,6 +19,8 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
   const { id } = await params;
   const s = await getSessionState();
   if (s.status !== "ok") return fail("unauthorized", 401);
+  const blocked = await appOnlyGate(request);
+  if (blocked) return blocked;
   await ensureGuidesTable();
   const [row] = await db.select().from(guides).where(eq(guides.id, id)).limit(1);
   if (!row) return fail("not-found", 404);

@@ -3,6 +3,7 @@ import { and, eq } from "drizzle-orm";
 import { db } from "@/db";
 import { hostedFiles, specialties } from "@/db/schema";
 import { getSessionState } from "@/lib/auth";
+import { appOnlyGate } from "@/lib/appOnly";
 import { consumeUserDownload } from "@/lib/consumeDownload";
 import { createGrant, ensureDownloadTables } from "@/lib/downloadGrants";
 import { recordSpecialtyDownload } from "@/lib/specialtyStats";
@@ -24,6 +25,8 @@ export async function POST(request: Request) {
     } | null;
     const s = await getSessionState();
     if (s.status !== "ok") return fail("unauthorized", 401);
+    const blocked = await appOnlyGate(request);
+    if (blocked) return blocked;
 
     const specialtyId = body?.specialtyId;
     const linkIndex = body?.linkIndex;

@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, type MouseEvent } from "react";
+import Link from "next/link";
+import { useAppOnlyDownloads } from "@/lib/appOnlyClient";
 import { useDownloadStatus } from "@/components/DownloadStatusProvider";
 import { ApiError, api } from "@/lib/client";
 import { IconDownload } from "@/components/icons";
@@ -17,13 +19,14 @@ type GrantResponse = { url: string };
 
 export default function DownloadLink({ specialtyId, linkIndex, label, className = "" }: Props) {
   const { t } = useI18n();
+  const appOnly = useAppOnlyDownloads();
   const { canDownload, refresh } = useDownloadStatus();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
 
   async function open(event: MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();
-    if (!canDownload || busy) return;
+    if (appOnly || !canDownload || busy) return;
     setBusy(true);
     setError("");
     const tab = window.open("", "_blank");
@@ -59,6 +62,14 @@ export default function DownloadLink({ specialtyId, linkIndex, label, className 
       <span role="alert" className={`text-[10px] font-semibold text-danger ${className}`}>
         {error}
       </span>
+    );
+  }
+
+  if (appOnly) {
+    return (
+      <Link href="/download" title={t("appOnlyNotice")} className={`font-semibold text-primary hover:underline ${className}`}>
+        {t("androidApp")}
+      </Link>
     );
   }
 
