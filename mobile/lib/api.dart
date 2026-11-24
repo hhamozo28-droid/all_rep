@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/foundation.dart';
@@ -90,6 +91,15 @@ class DownloadStatus {
   bool get exhausted => limit != null && downloads >= limit!;
 }
 
+/// A file delivered through a single-attempt capability link, already written
+/// to disk so no signed/private URL ever appears in a browser or address bar.
+class DownloadedFile {
+  DownloadedFile({required this.path, required this.fileName});
+
+  final String path;
+  final String fileName;
+}
+
 /// Thin HTTP client for the existing Next.js API. The web app authenticates
 /// with the `dl_session` cookie, so we store that cookie locally and send it
 /// on every request (single-session-per-account is enforced server-side).
@@ -153,6 +163,15 @@ class Api {
         'Content-Type': 'application/json',
         if (_cookie != null) 'Cookie': _cookie!,
       };
+
+  /// Headers required by the server's staged app-only download gate.
+  Future<Map<String, String>> _appHeaders() async {
+    final deviceId = await _loadDeviceId();
+    final headers = Map<String, String>.from(_headers);
+    headers['X-Dordoc-App'] = '1';
+    headers['X-Dordoc-Device-Id'] = deviceId;
+    return headers;
+  }
 
   String _code(http.Response response) {
     try {
@@ -323,7 +342,7 @@ class Api {
     await _loadCookie();
     final response = await _client.post(
       Uri.parse('$apiBase/api/guides/${Uri.encodeComponent(id)}/track'),
-      headers: _headers,
+      headers: await _appHeaders(),
       body: jsonEncode({'mode': download ? 'download' : 'open'}),
     );
     if (response.statusCode != 200) throw _failure(response);
@@ -335,22 +354,143 @@ class Api {
     await _loadCookie();
     final response = await _client.post(
       Uri.parse('$apiBase/api/specialties/track'),
-      headers: _headers,
+      headers: await _appHeaders(),
       body: jsonEncode({'specialtyId': specialtyId, 'linkIndex': linkIndex}),
     );
     if (response.statusCode != 200) throw _failure(response);
     return _grantPath(response);
   }
 
-  /// Fetch the PDF once through the single-attempt capability path.
-  Future<Uint8List> guideFile(String grantPath) async {
+  /// Consume a one-attempt capability and stream its bytes straight to disk.
+  ///
+  /// Redirects are NOT followed by a browser: the HttpClient reads the short
+  /// signed `Location` itself, so the final URL is never displayed or copied.
+  Future<DownloadedFile> deliverGrant(
+    String grantPath, {
+    required Directory directory,
+    String? preferredName,
+  }) async {
     await _loadCookie();
-    final response = await _client.get(
-      Uri.parse('$apiBase$grantPath'),
-      headers: _headers,
-    );
-    if (response.statusCode != 200) throw _failure(response);
-    return response.bodyBytes;
+    final headers = await _appHeaders();
+    final client = HttpClient();
+    try {
+      var request = await client.getUrl(Uri.parse('$apiBase$grantPath'));
+      request.followRedirects = false;
+      headers.forEach((key, value) => request.headers.set(key, value));
+      request.headers.set('Accept', 'application/octet-stream, application/json');
+      var response = await request.close();
+
+      Uri? finalUri;
+      if (_isRedirect(response.statusCode)) {
+        final location = response.headers.value('location');
+        if (location == null || location.isEmpty) {
+          throw ApiException(response.statusCode, 'missing-location');
+        }
+        await response.drain<void>();
+        final parsed = Uri.parse(location);
+        finalUri = parsed.hasScheme ? parsed : Uri.parse('$apiBase$location');
+        request = await client.getUrl(finalUri);
+        request.followRedirects = false;
+        response = await request.close();
+      }
+
+      if (response.statusCode != 200) {
+        final body = await _readErrorBody(response);
+        throw ApiException(response.statusCode, _errorCode(body));
+      }
+
+      final name = _safeFileName(
+        preferredName ??
+            _fileNameFromHeaders(response.headers) ??
+            _fileNameFromUri(finalUri) ??
+            'dordoc-file',
+      );
+      final path = '${directory.path}${Platform.pathSeparator}$name';
+      final sink = File(path).openWrite();
+      try {
+        await for (final chunk in response) {
+          sink.add(chunk);
+        }
+        await sink.flush();
+      } finally {
+        await sink.close();
+      }
+      return DownloadedFile(path: path, fileName: name);
+    } finally {
+      client.close();
+    }
+  }
+
+  static bool _isRedirect(int status) =>
+      status == 301 || status == 302 || status == 303 || status == 307 || status == 308;
+
+  static Future<String> _readErrorBody(HttpClientResponse response) async {
+    final chunks = <List<int>>[];
+    var length = 0;
+    await for (final chunk in response) {
+      chunks.add(chunk);
+      length += chunk.length;
+      if (length > 8192) break;
+    }
+    return utf8.decode(chunks.expand((chunk) => chunk).toList(), allowMalformed: true);
+  }
+
+  static String _errorCode(String body) {
+    try {
+      final data = jsonDecode(body);
+      if (data is Map && data['error'] is String) return data['error'] as String;
+    } catch (_) {
+      // Not a JSON error body.
+    }
+    return 'error';
+  }
+
+  static String? _fileNameFromHeaders(HttpHeaders headers) {
+    final value = headers.value('content-disposition');
+    if (value == null) return null;
+    final encoded = RegExp(r"filename\*\s*=\s*UTF-8''([^;]+)", caseSensitive: false)
+        .firstMatch(value);
+    if (encoded != null) {
+      try {
+        return Uri.decodeComponent(encoded.group(1)!.trim());
+      } catch (_) {
+        // Fall through to the plain filename.
+      }
+    }
+    final quoted = RegExp(r'filename\s*=\s*"([^"]+)"', caseSensitive: false)
+        .firstMatch(value);
+    final plain = RegExp(r'filename\s*=\s*([^;]+)', caseSensitive: false)
+        .firstMatch(value);
+    return (quoted ?? plain)?.group(1)?.trim();
+  }
+
+  static String? _fileNameFromUri(Uri? uri) {
+    if (uri == null || uri.pathSegments.isEmpty) return null;
+    final segment = uri.pathSegments.last;
+    if (segment.isEmpty || !segment.contains('.')) return null;
+    try {
+      return Uri.decodeComponent(segment);
+    } catch (_) {
+      return segment;
+    }
+  }
+
+  static String _safeFileName(String raw) {
+    var name = raw.replaceAll(RegExp(r'[\\/]'), '_');
+    name = name.replaceAll(RegExp(r'[<>:"|?*\x00-\x1F]'), '_').trim();
+    while (name.startsWith('.')) {
+      name = name.substring(1);
+    }
+    if (name.isEmpty) name = 'dordoc-file';
+    if (name.length > 120) {
+      final dot = name.lastIndexOf('.');
+      if (dot > 0 && name.length - dot < 12) {
+        name = '${name.substring(0, 120 - (name.length - dot))}${name.substring(dot)}';
+      } else {
+        name = name.substring(0, 120);
+      }
+    }
+    return name;
   }
 
   /// Returns the admin's welcome message the first time this account sees it.

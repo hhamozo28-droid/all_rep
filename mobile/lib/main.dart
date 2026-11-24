@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'api.dart';
+import 'deep_link.dart';
 import 'screens/home_screen.dart';
 import 'screens/login_screen.dart';
 import 'strings.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  DeepLinkService.instance.start();
   runApp(const DordocApp());
 }
 

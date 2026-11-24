@@ -11,8 +11,8 @@
 | --- | --- |
 | اسم التطبيق | منصة دروسي |
 | Package name | `com.hamzachoaib.dordoc` |
-| الإصدار | `1.2.0` (versionCode `3`) |
-| ملف الرفع | `dordoc-1.2.0.aab` (49.3 MB) |
+| الإصدار | `1.3.0` (versionCode `4`) |
+| ملف الرفع | `dordoc-1.3.0.aab` |
 | الحد الأدنى | Android 7.0 (API 24) |
 | الهدف | Android 16 (API 36) |
 | التوقيع | مفتاح إصدار محلي + Play App Signing |
@@ -21,7 +21,7 @@
 | صفحة حذف الحساب | <https://allrep-theta.vercel.app/delete-account> |
 | التوزيع المباشر (APK) | <https://allrep-theta.vercel.app/download> |
 
-> **مهم:** لا ترفع ملف `dordoc-1.2.0.aab` إلى مستودع GitHub العام. ارفعه من
+> **مهم:** لا ترفع ملف `dordoc-1.3.0.aab` إلى مستودع GitHub العام. ارفعه من
 > جهازك إلى Play Console فقط. الاحتفاظ بنسخة على سطح المكتب كافٍ.
 
 ---
@@ -71,8 +71,9 @@ https://allrep-theta.vercel.app/delete-account
 ### ملاحظات الإصدار (What's new)
 
 ```
-الإصدار 1.2.0: روابط تحميل لمرة واحدة للتخصصات والأدلة، وإزالة التسجيل العام،
-مع التخصصات ومخططات ومذكرات الدروس والدليل البيداغوجي وحذف الحساب.
+الإصدار 1.3.0: فتح روابط التحميل داخل التطبيق عبر deep link، وجلب ملفات
+التخصصات داخلياً دون عرض الرابط في المتصفح، مع روابط تحميل لمرة واحدة
+للتخصصات والأدلة، وإزالة التسجيل العام، وحذف الحساب.
 ```
 
 ---
@@ -160,7 +161,21 @@ Play Console → **App access**:
 
 ---
 
-## 7. خطوات الرفع
+## 7. الروابط العميقة (Deep links)
+
+التطبيق يستقبل روابط التحميل المشتركة عبر:
+
+- `dordoc://dl/<token>`
+- `https://allrep-theta.vercel.app/dl/<token>` (App Link مُتحقَّق منه عبر
+  `https://allrep-theta.vercel.app/.well-known/assetlinks.json`)
+
+عند فتح الرابط يُستهلك الرمز داخل التطبيق بنفس الجلسة، ولا يظهر أي رابط
+مؤقت في المتصفح. بوابة الخادم `APP_ONLY_DOWNLOADS` تُفعّل بعد نشر هذا الإصدار،
+فقبل ذلك يبقى التحميل من الويب/PWA متاحاً أثناء الانتقال.
+
+---
+
+## 8. خطوات الرفع
 
 1. أنشئ حساب Google Play Console (إن لم يكن موجوداً) وأكمل التحقق من الهوية.
 2. **Create app**: الاسم «منصة دروسي»، اللغة الافتراضية العربية، التطبيق مجاني،
@@ -176,7 +191,7 @@ Play Console → **App access**:
    - Privacy policy: `https://allrep-theta.vercel.app/privacy`
    - Account deletion: `https://allrep-theta.vercel.app/delete-account`
 4. أضف **Store listing** (القسم 2) والأصول (القسم 3).
-5. **Testing → Internal testing**: ارفع `dordoc-1.2.0.aab`، أضف بريدك كـ
+5. **Testing → Internal testing**: ارفع `dordoc-1.3.0.aab`، أضف بريدك كـ
    tester، ثبّت النسخة من Play وتحقق من الدخول والتحميل وحذف الحساب.
 6. **Production → Create new release**: ارفع نفس AAB (أو الترقية من Internal)،
    اكتب ملاحظات الإصدار، ثم **Send for review**.
@@ -195,7 +210,7 @@ Play Console → **App access**:
 
 ---
 
-## 8. أسئلة متوقعة من المراجعة
+## 9. أسئلة متوقعة من المراجعة
 
 | السؤال | الجواب |
 | --- | --- |
@@ -207,7 +222,7 @@ Play Console → **App access**:
 
 ---
 
-## 9. بعد النشر
+## 10. بعد النشر
 
 - حدّث `src/app/download/page.tsx` برابط Google Play بدل عبارة «قيد النشر».
 - أضف رابط Play في فوتر الموقع إن رغبت.

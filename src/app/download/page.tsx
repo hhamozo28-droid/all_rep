@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "حمّل تطبيق منصة دروسي لأندرويد: التخصصات والدليل البيداغوجي للمتربص، مع نفس حساب المنصة.",
 };
 
-const APK = "/downloads/dordoc-1.2.0.apk";
+const APK = "/downloads/dordoc-1.3.0.apk";
 
 export default function DownloadPage() {
   return (
@@ -34,7 +34,7 @@ export default function DownloadPage() {
       <div className="mt-6 rounded-lg border border-line bg-white p-5">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="text-sm font-bold text-ink">الإصدار 1.2.0</p>
+            <p className="text-sm font-bold text-ink">الإصدار 1.3.0</p>
             <p className="mt-1 text-xs text-soft">أندرويد 7.0 أو أحدث · ملف APK</p>
           </div>
           <a
@@ -66,6 +66,7 @@ export default function DownloadPage() {
           <li>تصفّح التخصصات ومخططات الدروس ومذكرات الدروس.</li>
           <li>تسجيل الدخول بنفس حساب المنصة (الحسابات تُنشأ من لوحة الإدارة).</li>
           <li>روابط تحميل لمرة واحدة للأدلة وملفات التخصصات — لا تُشارك الروابط.</li>
+          <li>فتح روابط التحميل داخل التطبيق تلقائياً عبر deep link عند مشاركتها.</li>
           <li>نفس حساب المنصة ونفس رصيد التحميل الذي يحدده المسؤول.</li>
           <li>حذف الحساب من داخل التطبيق (الحذف النهائي من لوحة الإدارة).</li>
         </ul>

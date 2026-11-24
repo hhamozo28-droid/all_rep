@@ -1,11 +1,9 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../api.dart';
+import '../deep_link.dart';
 import '../strings.dart';
 
 enum _AccountAction { logout, delete }
@@ -30,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen>
   void initState() {
     super.initState();
     Api.instance.onUnauthorized = _handleUnauthorized;
+    DeepLinkService.instance.register(_consumeDeepLink);
     _refreshStatus();
     _maybeShowWelcome();
   }
@@ -37,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void dispose() {
     Api.instance.onUnauthorized = null;
+    DeepLinkService.instance.unregister(_consumeDeepLink);
     _tabs.dispose();
     super.dispose();
   }
@@ -88,6 +88,44 @@ class _HomeScreenState extends State<HomeScreen>
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
       ..showSnackBar(const SnackBar(content: Text(limitReached)));
+  }
+
+  void _snack(String message) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  /// Opens a shared deep link inside the app with the signed-in session.
+  Future<void> _consumeDeepLink(String token) async {
+    try {
+      final directory = await getTemporaryDirectory();
+      final downloaded = await Api.instance.deliverGrant(
+        '/api/dl/$token',
+        directory: directory,
+      );
+      final result = await OpenFilex.open(downloaded.path);
+      if (!mounted) return;
+      if (result.type != ResultType.done) {
+        _snack('$saveFailed: ${result.message}');
+      }
+      await _refreshStatus();
+    } on ApiException catch (e) {
+      if (e.status == 401) {
+        widget.onSignedOut();
+        return;
+      }
+      if (!mounted) return;
+      if (e.status == 410) {
+        _snack(linkUsed);
+      } else {
+        _snack(networkError);
+      }
+      await _refreshStatus();
+    } catch (_) {
+      if (mounted) _snack(saveFailed);
+    }
   }
 
   Future<void> _logout() async {
@@ -331,10 +369,16 @@ class _SpecialtiesTabState extends State<_SpecialtiesTab> {
     try {
       final grantPath = await Api.instance.trackSpecialty(item.id, linkIndex);
       await widget.onConsumed();
-      final uri = Uri.parse(Api.absolute(grantPath));
-      final launched =
-          await launchUrl(uri, mode: LaunchMode.externalApplication);
-      if (!launched) _snack(error);
+      final directory = await getTemporaryDirectory();
+      final downloaded = await Api.instance.deliverGrant(
+        grantPath,
+        directory: directory,
+      );
+      final result = await OpenFilex.open(downloaded.path);
+      if (!mounted) return;
+      if (result.type != ResultType.done) {
+        _snack('$saveFailed: ${result.message}');
+      }
     } on ApiException catch (e) {
       if (e.status == 403) {
         widget.onLimit();
@@ -535,15 +579,15 @@ class _GuidesTabState extends State<_GuidesTab> {
     try {
       final grantPath = await Api.instance.trackGuide(guide.id, download: download);
       await widget.onConsumed();
-      final bytes = await Api.instance.guideFile(grantPath);
       final directory = download
           ? await getApplicationDocumentsDirectory()
           : await getTemporaryDirectory();
-      final file = File(
-        '${directory.path}${Platform.pathSeparator}${_fileNameFor(guide)}',
+      final downloaded = await Api.instance.deliverGrant(
+        grantPath,
+        directory: directory,
+        preferredName: _fileNameFor(guide),
       );
-      await file.writeAsBytes(bytes, flush: true);
-      final result = await OpenFilex.open(file.path);
+      final result = await OpenFilex.open(downloaded.path);
       if (!mounted) return;
       if (result.type == ResultType.done) {
         if (download) _snack(fileSaved);
