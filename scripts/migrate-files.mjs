@@ -40,7 +40,10 @@ const region = process.env.AWS_REGION?.trim();
 const bucket = process.env.S3_BUCKET?.trim();
 const accessKeyId = process.env.AWS_ACCESS_KEY_ID?.trim();
 const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY?.trim();
+const endpoint = process.env.S3_ENDPOINT?.trim() || null;
+const forcePathStyle = process.env.S3_FORCE_PATH_STYLE === "1";
 const prefix = (process.env.S3_KEY_PREFIX ?? "dordoc").replace(/^\/+|\/+$/g, "");
+const encryption = () => (endpoint ? {} : { ServerSideEncryption: "AES256" });
 
 if (!process.env.DATABASE_URL) {
   console.error("DATABASE_URL is required");
@@ -52,7 +55,12 @@ if (!probe && !template && (!region || !bucket || !accessKeyId || !secretAccessK
 }
 
 const s3 = region && bucket && accessKeyId && secretAccessKey
-  ? new S3Client({ region, credentials: { accessKeyId, secretAccessKey } })
+  ? new S3Client({
+      region,
+      ...(endpoint ? { endpoint } : {}),
+      forcePathStyle,
+      credentials: { accessKeyId, secretAccessKey },
+    })
   : null;
 const fullKey = (key) => (prefix ? `${prefix}/${key}` : key);
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -107,7 +115,7 @@ async function uploadLocalFile(key, file, contentType) {
       Key: fullKey(key),
       Body: createReadStream(file),
       ContentType: contentType,
-      ServerSideEncryption: "AES256",
+      ...encryption(),
     },
     queueSize: 4,
     partSize: 8 * 1024 * 1024,
@@ -191,7 +199,7 @@ async function main() {
             Key: fullKey(guide.path),
             Body: buffer,
             ContentType: "application/pdf",
-            ServerSideEncryption: "AES256",
+            ...encryption(),
           }),
         );
         await client.query(

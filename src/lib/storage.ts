@@ -25,8 +25,17 @@ function config() {
   const bucket = process.env.S3_BUCKET?.trim();
   const accessKeyId = process.env.AWS_ACCESS_KEY_ID?.trim();
   const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY?.trim();
+  const endpoint = process.env.S3_ENDPOINT?.trim() || null;
   if (!region || !bucket || !accessKeyId || !secretAccessKey) return null;
-  return { region, bucket, accessKeyId, secretAccessKey };
+  return { region, bucket, accessKeyId, secretAccessKey, endpoint };
+}
+
+/**
+ * SSE-S3 is an AWS feature. R2 encrypts at rest automatically and rejects
+ * the AWS header, so only send it for AWS endpoints.
+ */
+function encryption(): { ServerSideEncryption?: "AES256" } {
+  return config()!.endpoint ? {} : { ServerSideEncryption: "AES256" };
 }
 
 export function isS3Configured(): boolean {
@@ -39,6 +48,8 @@ function client(): S3Client {
   if (!cachedClient) {
     cachedClient = new S3Client({
       region: cfg.region,
+      ...(cfg.endpoint ? { endpoint: cfg.endpoint } : {}),
+      forcePathStyle: process.env.S3_FORCE_PATH_STYLE === "1",
       credentials: {
         accessKeyId: cfg.accessKeyId,
         secretAccessKey: cfg.secretAccessKey,
@@ -58,6 +69,14 @@ export function fileSha256(buffer: Buffer): string {
   return createHash("sha256").update(buffer).digest("hex");
 }
 
+/** Headers the browser must send with a presigned PUT. */
+export function uploadHeaders(contentType: string): Record<string, string> {
+  return {
+    "Content-Type": contentType,
+    ...(config()!.endpoint ? {} : { "x-amz-server-side-encryption": "AES256" }),
+  };
+}
+
 export async function putObject(
   key: string,
   body: Buffer,
@@ -69,7 +88,7 @@ export async function putObject(
       Key: fullKey(key),
       Body: body,
       ContentType: contentType,
-      ServerSideEncryption: "AES256",
+      ...encryption(),
     }),
   );
 }
@@ -87,7 +106,7 @@ export async function uploadFileToS3(
       Key: fullKey(key),
       Body: createReadStream(localPath),
       ContentType: contentType,
-      ServerSideEncryption: "AES256",
+      ...encryption(),
     },
     queueSize: 4,
     partSize: 8 * 1024 * 1024,
@@ -127,7 +146,7 @@ export async function presignedPutUrl(
       Bucket: config()!.bucket,
       Key: fullKey(key),
       ContentType: contentType,
-      ServerSideEncryption: "AES256",
+      ...encryption(),
     }),
     { expiresIn },
   );

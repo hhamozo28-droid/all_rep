@@ -7,7 +7,7 @@ import { adminResponseHeaders, rejectCrossOriginWrite } from "@/lib/admin-http";
 import { db } from "@/db";
 import { guides, hostedFiles, specialties } from "@/db/schema";
 import { ensureDownloadTables } from "@/lib/downloadGrants";
-import { isS3Configured, presignedPutUrl } from "@/lib/storage";
+import { isS3Configured, presignedPutUrl, uploadHeaders } from "@/lib/storage";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -96,10 +96,7 @@ export async function POST(request: Request) {
     {
       url,
       key,
-      headers: {
-        "Content-Type": contentType,
-        "x-amz-server-side-encryption": "AES256",
-      },
+      headers: uploadHeaders(contentType),
     },
     { headers: adminResponseHeaders },
   );
