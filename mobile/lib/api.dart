@@ -159,6 +159,17 @@ class Api {
     return 'error';
   }
 
+  /// Invoked when an authenticated request is rejected (expired session or the
+  /// account was opened from another device). The shell returns to login.
+  void Function()? onUnauthorized;
+
+  ApiException _failure(http.Response response) {
+    if (response.statusCode == 401) {
+      onUnauthorized?.call();
+    }
+    return ApiException(response.statusCode, _code(response));
+  }
+
   Future<void> login(String email, String password) async {
     await _loadCookie();
     final deviceId = await _loadDeviceId();
@@ -169,7 +180,6 @@ class Api {
         'email': email.trim(),
         'password': password,
         'deviceId': deviceId,
-        'language': 'ar',
       }),
     );
     if (response.statusCode != 200) {
@@ -215,7 +225,7 @@ class Api {
       headers: _headers,
     );
     if (response.statusCode != 200) {
-      throw ApiException(response.statusCode, _code(response));
+      throw _failure(response);
     }
     await _clearCookie();
   }
@@ -227,7 +237,7 @@ class Api {
       headers: _headers,
     );
     if (response.statusCode != 200) {
-      throw ApiException(response.statusCode, _code(response));
+      throw _failure(response);
     }
     final data = jsonDecode(response.body) as Map<String, dynamic>;
     return DownloadStatus(
@@ -243,7 +253,7 @@ class Api {
       headers: _headers,
     );
     if (response.statusCode != 200) {
-      throw ApiException(response.statusCode, _code(response));
+      throw _failure(response);
     }
     final data = jsonDecode(response.body) as Map<String, dynamic>;
     return ((data['items'] as List?) ?? const [])
@@ -259,7 +269,7 @@ class Api {
       headers: _headers,
     );
     if (response.statusCode != 200) {
-      throw ApiException(response.statusCode, _code(response));
+      throw _failure(response);
     }
     final data = jsonDecode(response.body) as Map<String, dynamic>;
     return ((data['guides'] as List?) ?? const [])
@@ -276,7 +286,7 @@ class Api {
       headers: _headers,
     );
     if (response.statusCode != 200) {
-      throw ApiException(response.statusCode, _code(response));
+      throw _failure(response);
     }
   }
 
@@ -289,7 +299,7 @@ class Api {
       body: jsonEncode({'specialtyId': specialtyId}),
     );
     if (response.statusCode != 200) {
-      throw ApiException(response.statusCode, _code(response));
+      throw _failure(response);
     }
   }
 
@@ -301,7 +311,7 @@ class Api {
       headers: _headers,
     );
     if (response.statusCode != 200) {
-      throw ApiException(response.statusCode, _code(response));
+      throw _failure(response);
     }
     return response.bodyBytes;
   }

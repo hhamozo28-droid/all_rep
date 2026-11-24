@@ -133,9 +133,15 @@ export default function AppShell({ children, user }: Props) {
       </header>
       <main className="mx-auto w-full max-w-2xl px-4 py-5">{children}</main>
       <footer className="mx-auto w-full max-w-2xl px-4 pb-4 text-center text-xs text-soft" dir="auto">
-        <Link href="/privacy" className="mb-1 inline-block hover:text-ink hover:underline">
-          {t("privacyPolicy")}
-        </Link>
+        <div className="mb-1 flex flex-wrap items-center justify-center gap-2">
+          <Link href="/download" className="hover:text-ink hover:underline">
+            {t("androidApp")}
+          </Link>
+          <span aria-hidden="true">·</span>
+          <Link href="/privacy" className="hover:text-ink hover:underline">
+            {t("privacyPolicy")}
+          </Link>
+        </div>
         <div>{t("footerByline")}</div>
       </footer>
       {deleteOpen && (

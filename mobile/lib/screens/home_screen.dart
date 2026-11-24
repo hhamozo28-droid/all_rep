@@ -29,14 +29,21 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
+    Api.instance.onUnauthorized = _handleUnauthorized;
     _refreshStatus();
     _maybeShowWelcome();
   }
 
   @override
   void dispose() {
+    Api.instance.onUnauthorized = null;
     _tabs.dispose();
     super.dispose();
+  }
+
+  void _handleUnauthorized() {
+    if (!mounted) return;
+    widget.onSignedOut();
   }
 
   Future<void> _refreshStatus() async {
