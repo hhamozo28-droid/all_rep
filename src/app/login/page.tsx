@@ -105,7 +105,7 @@ function LoginForm() {
             {busy ? t("loading") : t("login")}
           </button>
         </form>
-        <p className="mt-2 text-[11px] font-semibold text-soft" dir="auto">{t("developerName")}</p>        <span
+        <span
           aria-hidden="true"
           className="absolute -end-3 top-1/2 -translate-y-1/2 pointer-events-none text-black opacity-[0.12]"
         >
@@ -118,11 +118,13 @@ function LoginForm() {
       </section>
       <AdminLink className="mt-4 self-center" />
       <footer className="mt-6 text-center text-xs text-soft" dir="auto">
-        <div className="mb-1 flex flex-wrap items-center justify-center gap-2">
+        <div className="mb-2 text-[11px]">
+          {t("appPrompt")} {" "}
           <Link href="/download" className="font-semibold text-primary hover:underline">
-            {t("androidApp")}
+            {t("downloadApp")}
           </Link>
-          <span aria-hidden="true">·</span>
+        </div>
+        <div className="mb-1 flex flex-wrap items-center justify-center gap-2">
           <Link href="/privacy" className="font-semibold text-primary hover:underline">
             {t("privacyPolicy")}
           </Link>
