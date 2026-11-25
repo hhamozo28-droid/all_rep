@@ -239,6 +239,8 @@ const ar: Record<string, string> = {
   emailSent: "تم إرسال البريد",
   emailNotConfigured: "بريد المنصة غير مهيأ — أضف إعدادات SMTP في Vercel",
   resetQuotaAll: "تحديد رصيد الجميع بـ 3",
+  blockConfirm: "هل تريد حظر هذا الحساب؟",
+  unblockConfirm: "هل تريد إلغاء حظر هذا الحساب؟",
 };
 
 const en: Record<string, string> = {
@@ -467,6 +469,8 @@ const en: Record<string, string> = {
   emailSent: "Email sent",
   emailNotConfigured: "Platform email is not configured — add SMTP settings in Vercel",
   resetQuotaAll: "Set everyone's balance to 3",
+  blockConfirm: "Block this account?",
+  unblockConfirm: "Unblock this account?",
 };
 
 const fr: Record<string, string> = {
@@ -697,6 +701,8 @@ const fr: Record<string, string> = {
   emailSent: "E-mail envoyé",
   emailNotConfigured: "L'e-mail de la plateforme n'est pas configuré — ajoutez SMTP dans Vercel",
   resetQuotaAll: "Fixer le solde de tous à 3",
+  blockConfirm: "Bloquer ce compte ?",
+  unblockConfirm: "Débloquer ce compte ?",
 };
 
 const DICTS: Record<Locale, Record<string, string>> = { ar, en, fr };

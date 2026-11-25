@@ -71,6 +71,51 @@ const fileErrors: Record<string, string> = {
   "catalog-unavailable": "adminPublishUnavailable",
 };
 
+/** Small centered modal used for every destructive admin action. */
+function ConfirmDialog({
+  title,
+  body,
+  confirmLabel,
+  busy = false,
+  onCancel,
+  onConfirm,
+}: {
+  title: string;
+  body: string;
+  confirmLabel: string;
+  busy?: boolean;
+  onCancel: () => void;
+  onConfirm: () => void;
+}) {
+  const { t } = useI18n();
+  return (
+    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/40 p-4" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+      <div className="w-full max-w-xs rounded-lg border border-line bg-white p-4 shadow-xl">
+        <h3 id="confirm-title" className="text-sm font-bold text-ink">{title}</h3>
+        <p className="mt-2 text-xs leading-6 text-soft">{body}</p>
+        <div className="mt-4 flex justify-end gap-2">
+          <button
+            type="button"
+            onClick={onCancel}
+            disabled={busy}
+            className="rounded-md border border-line px-3 py-1.5 text-xs font-medium text-ink disabled:opacity-50"
+          >
+            {t("adminDeleteCancel")}
+          </button>
+          <button
+            type="button"
+            onClick={onConfirm}
+            disabled={busy}
+            className="rounded-md bg-danger px-3 py-1.5 text-xs font-semibold text-white disabled:opacity-50"
+          >
+            {confirmLabel}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function AdminPanel({ authorized, configured, showDemoHint, notice }: Props) {
   const { t, locale } = useI18n();
   const n = (value: number) => new Intl.NumberFormat(locale).format(value);
@@ -109,6 +154,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [addError, setAddError] = useState("");
   const [added, setAdded] = useState(false);
   const [blockBusy, setBlockBusy] = useState<string | null>(null);
+  const [blockTarget, setBlockTarget] = useState<{ id: string; blocked: boolean } | null>(null);
   const [approveBusy, setApproveBusy] = useState<string | null>(null);
   const [approvedMsg, setApprovedMsg] = useState(false);
   const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
@@ -832,20 +878,14 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
               </div>
             )}
             {guideDeleteTarget && (
-              <div className="mt-3 rounded-lg border border-line bg-card p-4" role="alertdialog" aria-modal="true" aria-labelledby="delete-guide-title" aria-describedby="delete-guide-body">
-                <h3 id="delete-guide-title" className="font-semibold text-ink">{t("adminGuidesDeleteTitle")}</h3>
-                <p id="delete-guide-body" className="mt-2 text-sm text-ink">{t("adminGuidesDeleteConfirm")}</p>
-                <div className="mt-4 flex justify-end gap-2">
-                  <button type="button" onClick={() => setGuideDeleteTarget(null)}
-                    className="rounded-md border border-line px-3 py-2 text-sm font-medium text-ink hover:bg-paper">
-                    {t("adminGuidesDeleteCancel")}
-                  </button>
-                  <button type="button" onClick={() => deleteGuideRow(guideDeleteTarget)} disabled={guideDeleteBusy}
-                    className="rounded-md bg-danger px-3 py-2 text-sm font-semibold text-white disabled:opacity-50">
-                    {t("adminGuidesDeleteOk")}
-                  </button>
-                </div>
-              </div>
+              <ConfirmDialog
+                title={t("adminGuidesDeleteTitle")}
+                body={t("adminGuidesDeleteConfirm")}
+                confirmLabel={t("adminGuidesDeleteOk")}
+                busy={guideDeleteBusy}
+                onCancel={() => setGuideDeleteTarget(null)}
+                onConfirm={() => void deleteGuideRow(guideDeleteTarget)}
+              />
             )}
           </section>
           )}
@@ -1088,7 +1128,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                             )}
                             <button
                               type="button"
-                              onClick={() => setBlocked(row.id, !row.blocked)}
+                              onClick={() => setBlockTarget({ id: row.id, blocked: !row.blocked })}
                               disabled={row.deletedAt !== null || blockBusy === row.id}
                               className="font-medium text-primary hover:underline disabled:opacity-50"
                             >
@@ -1117,27 +1157,28 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                 <p className="mt-3 text-sm text-success">{t("adminDeleted")}</p>
               )}
               {deleteTarget && (
-                <div className="mt-3 rounded-lg border border-line bg-card p-4" role="alertdialog" aria-modal="true" aria-labelledby="delete-account-title" aria-describedby="delete-account-body">
-                  <h3 id="delete-account-title" className="font-semibold text-ink">{t("adminDeleteTitle")}</h3>
-                  <p id="delete-account-body" className="mt-2 text-sm text-ink">{t("adminDeleteConfirm")}</p>
-                  <div className="mt-4 flex justify-end gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setDeleteTarget(null)}
-                      className="rounded-md border border-line px-3 py-2 text-sm font-medium text-ink hover:bg-paper"
-                    >
-                      {t("adminDeleteCancel")}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => removeAccount(deleteTarget)}
-                      disabled={deleteBusy}
-                      className="rounded-md bg-danger px-3 py-2 text-sm font-semibold text-white disabled:opacity-50"
-                    >
-                      {t("adminDelete")}
-                    </button>
-                  </div>
-                </div>
+                <ConfirmDialog
+                  title={t("adminDeleteTitle")}
+                  body={t("adminDeleteConfirm")}
+                  confirmLabel={t("adminDelete")}
+                  busy={deleteBusy}
+                  onCancel={() => setDeleteTarget(null)}
+                  onConfirm={() => void removeAccount(deleteTarget)}
+                />
+              )}
+              {blockTarget && (
+                <ConfirmDialog
+                  title={blockTarget.blocked ? t("adminBlock") : t("adminUnblock")}
+                  body={blockTarget.blocked ? t("blockConfirm") : t("unblockConfirm")}
+                  confirmLabel={blockTarget.blocked ? t("adminBlock") : t("adminUnblock")}
+                  busy={blockBusy === blockTarget.id}
+                  onCancel={() => setBlockTarget(null)}
+                  onConfirm={() => {
+                    const target = blockTarget;
+                    setBlockTarget(null);
+                    void setBlocked(target.id, target.blocked);
+                  }}
+                />
               )}
             </details>
           </section>
