@@ -3,7 +3,7 @@ import { and, eq } from "drizzle-orm";
 import { db } from "@/db";
 import { hostedFiles } from "@/db/schema";
 import { ensureDownloadTables } from "@/lib/downloadGrants";
-import { deleteGuide, uploadGuide } from "@/lib/githubGuides";
+import { deleteGuide, guideMimeType, uploadGuide } from "@/lib/githubGuides";
 import {
   deleteObject,
   isS3Configured,
@@ -11,14 +11,15 @@ import {
 } from "@/lib/storage";
 
 function safeFileName(name: string): string {
+  const ext = /\.docx$/i.test(name) ? "docx" : "pdf";
   const cleaned = name
-    .replace(/\.pdf$/i, "")
+    .replace(/\.(pdf|docx)$/i, "")
     .replace(/[<>:"/\\|?*\x00-\x1f]/g, "_")
     .replace(/[\s_]+/g, "_")
     .replace(/^_+|_+$/g, "")
     .slice(0, 60);
   const stem = cleaned || "guide";
-  return `${stem}.pdf`;
+  return `${stem}.${ext}`;
 }
 
 export async function storeGuideFile(
@@ -26,11 +27,13 @@ export async function storeGuideFile(
   buffer: Buffer,
 ): Promise<{ path: string; sha: string; size: number; fileName: string; storage: "s3" | "github" }> {
   const fileName = safeFileName(name);
-  const path = `guides/${randomUUID()}.pdf`;
+  const ext = /\.docx$/i.test(fileName) ? "docx" : "pdf";
+  const mimeType = guideMimeType(fileName);
+  const path = `guides/${randomUUID()}.${ext}`;
 
   if (isS3Configured()) {
     const sha = createHash("sha256").update(buffer).digest("hex");
-    await putObject(path, buffer, "application/pdf");
+    await putObject(path, buffer, mimeType);
     return { path, sha, size: buffer.length, fileName, storage: "s3" };
   }
 
@@ -52,7 +55,7 @@ export async function registerHostedGuide(input: {
     linkIndex: null,
     objectKey: input.objectKey,
     sizeBytes: input.size,
-    mimeType: "application/pdf",
+    mimeType: guideMimeType(input.fileName),
     sha256: input.sha,
     fileName: input.fileName,
   });

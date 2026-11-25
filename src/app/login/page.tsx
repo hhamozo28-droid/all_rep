@@ -35,6 +35,8 @@ function LoginForm() {
         setError(t("accountDeleted"));
       } else if (cause instanceof ApiError && cause.status === 401 && cause.body?.error === "blocked") {
         setError(t("blocked"));
+      } else if (cause instanceof ApiError && cause.status === 401 && cause.body?.error === "pending-approval") {
+        setError(t("pendingApproval"));
       } else {
         setError(cause instanceof ApiError && cause.status === 401 ? t("wrongCredentials") : t("error"));
       }
@@ -118,9 +120,9 @@ function LoginForm() {
       </section>
       <AdminLink className="mt-4 self-center" />
       <footer className="mt-6 text-center text-xs text-soft" dir="auto">
-        <div className="mb-2 text-[11px]">
+        <div className="mb-2 rounded-md bg-primary-soft px-3 py-2 text-xs font-bold text-primary-deep">
           {t("appPrompt")} {" "}
-          <Link href="/download" className="font-semibold text-primary hover:underline">
+          <Link href="/download" className="underline">
             {t("downloadApp")}
           </Link>
         </div>

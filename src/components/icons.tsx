@@ -65,6 +65,14 @@ export const IconChevron = (p: P) => (
   </svg>
 );
 
+export const IconHome = (p: P) => (
+  <svg {...base(p)}>
+    <path d="m3 10 9-7 9 7" />
+    <path d="M5 9v11h14V9" />
+    <path d="M9 20v-6h6v6" />
+  </svg>
+);
+
 export const IconGlobe = (p: P) => (
   <svg {...base(p)}>
     <circle cx="12" cy="12" r="9" />

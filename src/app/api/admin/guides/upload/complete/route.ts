@@ -6,7 +6,7 @@ import { adminResponseHeaders, rejectCrossOriginWrite } from "@/lib/admin-http";
 import { db } from "@/db";
 import { guides, guideUploadChunks } from "@/db/schema";
 import { ensureGuidesTable, ensureGuideUploadChunksTable } from "@/lib/specialtyStats";
-import { isPdfFile } from "@/lib/githubGuides";
+import { isGuideFile } from "@/lib/githubGuides";
 import { registerHostedGuide, storeGuideFile } from "@/lib/guideStorage";
 import { MAX_GUIDE_FILE_BYTES } from "@/lib/uploadLimits";
 
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
   } | null;
   const sessionId = String(body?.sessionId ?? "").trim();
   const fileName = String(body?.fileName ?? "").trim();
-  if (!UUID_RE.test(sessionId) || !fileName.toLowerCase().endsWith(".pdf")) {
+  if (!UUID_RE.test(sessionId) || !/\.(pdf|docx)$/i.test(fileName)) {
     return fail("bad-request", 400);
   }
 
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
     await clearSession();
     return fail("file-too-big", 413);
   }
-  if (!isPdfFile(fileName, buffer)) {
+  if (!isGuideFile(fileName, buffer)) {
     await clearSession();
     return fail("bad-file", 400);
   }
@@ -65,7 +65,7 @@ export async function POST(request: Request) {
         path: stored.path,
         sha: stored.sha,
         size: stored.size,
-        title: stored.fileName.replace(/\.pdf$/i, ""),
+        title: stored.fileName.replace(/\.(pdf|docx)$/i, ""),
         fileName: stored.fileName,
       })
       .returning();

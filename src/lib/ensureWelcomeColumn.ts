@@ -8,4 +8,5 @@ import { db } from "@/db";
 export async function ensureWelcomeColumn(): Promise<void> {
   await db.execute(sql`ALTER TABLE profiles ADD COLUMN IF NOT EXISTS welcome_shown boolean NOT NULL DEFAULT false`);
   await db.execute(sql`ALTER TABLE profiles ADD COLUMN IF NOT EXISTS deleted_at timestamptz`);
+  await db.execute(sql`ALTER TABLE profiles ADD COLUMN IF NOT EXISTS approved boolean NOT NULL DEFAULT true`);
 }

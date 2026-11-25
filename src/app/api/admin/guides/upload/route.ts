@@ -5,9 +5,10 @@ import { adminResponseHeaders, rejectCrossOriginWrite } from "@/lib/admin-http";
 import { db } from "@/db";
 import { guides } from "@/db/schema";
 import { ensureGuidesTable } from "@/lib/specialtyStats";
-import { isPdfFile } from "@/lib/githubGuides";
+import { isGuideFile } from "@/lib/githubGuides";
 import { registerHostedGuide, storeGuideFile } from "@/lib/guideStorage";
 import { MAX_DIRECT_UPLOAD } from "@/lib/uploadLimits";
+import { createNotification } from "@/lib/notifications";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -24,11 +25,11 @@ export async function POST(request: Request) {
   const form = await request.formData().catch(() => null);
   if (!form) return fail("bad-request", 400);
   const file = form.get("file");
-  if (!(file instanceof File) || !file.name.toLowerCase().endsWith(".pdf")) {
+  if (!(file instanceof File) || !/\.(pdf|docx)$/i.test(file.name)) {
     return fail("bad-file", 400);
   }
   const buffer = Buffer.from(await file.arrayBuffer());
-  if (!isPdfFile(file.name, buffer)) return fail("bad-file", 400);
+  if (!isGuideFile(file.name, buffer)) return fail("bad-file", 400);
   if (buffer.length > MAX_DIRECT_UPLOAD) return fail("file-too-big", 413);
 
   try {
@@ -40,11 +41,12 @@ export async function POST(request: Request) {
         path: stored.path,
         sha: stored.sha,
         size: stored.size,
-        title: stored.fileName.replace(/\.pdf$/i, ""),
+        title: stored.fileName.replace(/\.(pdf|docx)$/i, ""),
         fileName: stored.fileName,
       })
       .returning();
     if (!row) return fail("internal", 500);
+    await createNotification(`أُضيف دليل جديد: ${row.title}`);
     if (stored.storage === "s3") {
       await registerHostedGuide({
         guideId: row.id,

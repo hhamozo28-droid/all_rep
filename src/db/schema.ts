@@ -92,6 +92,8 @@ export const profiles = pgTable("profiles", {
   downloadLimit: integer("download_limit"),
   // Set when a user has seen the admin's welcome message at login (once per account).
   welcomeShown: boolean("welcome_shown").notNull().default(false),
+  // New self-registered accounts wait for admin approval before they can sign in.
+  approved: boolean("approved").notNull().default(true),
   // Self-deleted from the app: the row stays (admin keeps the credentials) but
   // the account can neither log in nor be re-registered. Only the admin can
   // permanently delete it from the panel.
@@ -100,6 +102,20 @@ export const profiles = pgTable("profiles", {
     .notNull()
     .defaultNow(),
 });
+
+/** Admin notifications shown to every signed-in user. */
+export const notifications = pgTable("notifications", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  message: text("message").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+/** Per-user read state for notifications. */
+export const notificationReads = pgTable("notification_reads", {
+  userId: uuid("user_id").notNull().references(() => profiles.id, { onDelete: "cascade" }),
+  notificationId: uuid("notification_id").notNull().references(() => notifications.id, { onDelete: "cascade" }),
+  readAt: timestamp("read_at", { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [primaryKey({ columns: [t.userId, t.notificationId] })]);
 
 /** Emails of permanently deleted accounts: they can never be registered again. */
 export const deletedAccounts = pgTable("deleted_accounts", {

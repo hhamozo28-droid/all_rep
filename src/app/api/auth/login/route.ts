@@ -40,6 +40,9 @@ export async function POST(req: Request) {
     if (p?.blocked) {
       return NextResponse.json({ error: "blocked" }, { status: 401 });
     }
+    if (p && !p.approved) {
+      return NextResponse.json({ error: "pending-approval" }, { status: 401 });
+    }
     if (!p || !verifyPassword(password, p.passwordHash)) {
       return NextResponse.json({ error: "bad-credentials" }, { status: 401 });
     }

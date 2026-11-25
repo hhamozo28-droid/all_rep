@@ -59,13 +59,32 @@ export function isPdfFile(name: string, buffer: Buffer): boolean {
   return buffer.subarray(0, 5).toString("latin1").startsWith("%PDF-");
 }
 
+/** Guides accept either PDF or Word, validated by file signature. */
+export function isGuideFile(name: string, buffer: Buffer): boolean {
+  const lower = name.toLowerCase();
+  const pdf = lower.endsWith(".pdf");
+  const word = lower.endsWith(".docx");
+  if (!pdf && !word) return false;
+  if (buffer.length === 0 || buffer.length > 15 * 1024 * 1024) return false;
+  if (pdf) return buffer.subarray(0, 5).toString("latin1").startsWith("%PDF-");
+  if (buffer.subarray(0, 2).toString("latin1") !== "PK") return false;
+  return buffer.includes(Buffer.from("word/document.xml", "utf8"));
+}
+
+export function guideMimeType(name: string): string {
+  return name.toLowerCase().endsWith(".docx")
+    ? "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    : "application/pdf";
+}
+
 export async function uploadGuide(
   name: string,
   file: Buffer,
 ): Promise<{ path: string; sha: string; size: number; fileName: string }> {
+  const ext = name.toLowerCase().endsWith(".docx") ? "docx" : "pdf";
   const safeName = sanitizeFileName(name);
-  const fileName = /\.pdf$/i.test(safeName) ? safeName : `${safeName}.pdf`;
-  const path = `${guidesDir}/${randomUUID()}.pdf`;
+  const fileName = new RegExp(`\\.(pdf|docx)$`, "i").test(safeName) ? safeName : `${safeName}.${ext}`;
+  const path = `${guidesDir}/${randomUUID()}.${ext}`;
   const payload = await gh<GitHubContentsResponse>("/contents/" + encPath(path), {
     method: "PUT",
     body: JSON.stringify({

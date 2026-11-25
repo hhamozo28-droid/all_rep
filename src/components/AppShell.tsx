@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -8,6 +8,7 @@ import AdminLink from "./AdminLink";
 import IdleLogout from "./IdleLogout";
 import LoginDialog from "./LoginDialog";
 import { isLocale, useI18n, type Locale } from "@/lib/i18n";
+import { IconHome, IconLogout, IconMail, IconTrash } from "./icons";
 import DownloadStatusProvider from "./DownloadStatusProvider";
 
 interface Props {
@@ -25,6 +26,8 @@ export default function AppShell({ children, user }: Props) {
   const { t, locale, setLocale } = useI18n();
   const [installPrompt, setInstallPrompt] = useState<InstallPromptEvent | null>(null);
   const [updateReady, setUpdateReady] = useState(false);
+  const [notifications, setNotifications] = useState<{ id: string; message: string; read: boolean; createdAt: string }[]>([]);
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [deleteBusy, setDeleteBusy] = useState(false);
   const syncedLanguage = useRef<string | null>(null);
@@ -40,6 +43,26 @@ export default function AppShell({ children, user }: Props) {
       setLocale(user.language);
     }
   }, [user, locale, setLocale]);
+
+  const loadNotifications = useCallback(async () => {
+    try {
+      const res = await fetch("/api/notifications", { credentials: "same-origin", cache: "no-store" });
+      if (!res.ok) return;
+      const data = await res.json();
+      setNotifications(Array.isArray(data?.notifications) ? data.notifications : []);
+    } catch { /* offline */ }
+  }, []);
+
+  useEffect(() => {
+    if (user) void loadNotifications();
+  }, [user, loadNotifications]);
+
+  const markNotificationsRead = async () => {
+    try {
+      await fetch("/api/notifications/read", { method: "POST", credentials: "same-origin" });
+      await loadNotifications();
+    } catch { /* offline */ }
+  };
 
   useEffect(() => {
     const onInstall = (event: Event) => {
@@ -104,16 +127,71 @@ export default function AppShell({ children, user }: Props) {
       <IdleLogout />
       <LoginDialog />
       <header className="border-b border-line bg-white">
-        <div className="mx-auto flex max-w-2xl flex-wrap items-center justify-between gap-3 px-4 py-3">
+        <div className="mx-auto flex max-w-2xl flex-wrap items-start justify-between gap-3 px-4 py-3">
           <div className="flex flex-col items-start gap-0.5">
-            <button type="button" onClick={() => router.push("/")} className="text-start">
-              <span className="block text-lg font-bold text-ink">{t("appName")}</span>
-              <span className="block text-xs text-soft">{t("appTagline")}</span>
-            </button>
-            <AdminLink compact className="mt-0.5" />
+            <div className="flex items-center gap-2">
+              <button type="button" onClick={() => router.push("/")} aria-label={t("home")} title={t("home")} className="rounded-md border border-line p-1.5 text-primary">
+                <IconHome width={16} height={16} aria-hidden="true" />
+              </button>
+              <button type="button" onClick={() => router.push("/")} className="text-start">
+                <span className="block text-lg font-bold text-ink">{t("appName")}</span>
+                <span className="block text-xs text-soft">{t("appTagline")}</span>
+              </button>
+            </div>
+            {!user && <AdminLink compact className="mt-0.5" />}
           </div>
-          <div className="flex flex-wrap items-center gap-2">
-            <LanguageSwitcher onLocalChange={changeLanguage} />
+          <div className="flex flex-wrap items-center justify-end gap-2">
+            {user && (
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setNotificationsOpen((v) => !v)}
+                  aria-label={t("notifications")}
+                  className="relative inline-flex items-center rounded-md border border-line px-2 py-1.5 text-xs text-ink"
+                >
+                  <IconMail width={13} height={13} aria-hidden="true" />
+                  {notifications.some((n) => !n.read) && (
+                    <span className="absolute -end-1 -top-1 rounded-full bg-danger px-1 text-[9px] font-bold text-white">
+                      {notifications.filter((n) => !n.read).length}
+                    </span>
+                  )}
+                </button>
+                {notificationsOpen && (
+                  <div className="absolute end-0 top-full z-50 mt-2 w-72 rounded-lg border border-line bg-white p-3 shadow-lg">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-sm font-semibold text-ink">{t("notifications")}</span>
+                      <button
+                        type="button"
+                        onClick={() => void markNotificationsRead()}
+                        className="text-xs font-medium text-primary hover:underline"
+                      >
+                        {t("markAllRead")}
+                      </button>
+                    </div>
+                    <div className="mt-2 max-h-60 space-y-2 overflow-y-auto">
+                      {notifications.length === 0 ? (
+                        <p className="text-xs text-soft">{t("noNotifications")}</p>
+                      ) : notifications.map((item) => (
+                        <div key={item.id} className={`rounded-md border p-2 text-xs ${item.read ? "border-line text-soft" : "border-primary bg-primary-soft text-ink"}`}>
+                          {item.message}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+            {user && (
+              <button
+                type="button"
+                onClick={() => setDeleteOpen(true)}
+                className="inline-flex items-center gap-1 rounded-md border border-danger px-2 py-1.5 text-xs font-semibold text-danger"
+              >
+                <IconTrash width={13} height={13} aria-hidden="true" />
+                {t("deleteAccount")}
+              </button>
+            )}
+            <LanguageSwitcher compact onLocalChange={changeLanguage} />
             {installPrompt && (
               <button
                 type="button"
@@ -121,28 +199,20 @@ export default function AppShell({ children, user }: Props) {
                   await installPrompt.prompt();
                   setInstallPrompt(null);
                 }}
-                className="rounded-md border border-line px-3 py-2 text-sm text-ink"
+                className="rounded-md border border-line px-2 py-1.5 text-xs text-ink"
               >
                 {t("install")}
               </button>
             )}
             {user && (
-              <>
-                <button
-                  type="button"
-                  onClick={() => void logout()}
-                  className="rounded-md border border-line px-3 py-2 text-sm text-ink"
-                >
-                  {t("logout")}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setDeleteOpen(true)}
-                  className="rounded-md border border-danger px-3 py-2 text-sm text-danger"
-                >
-                  {t("deleteAccount")}
-                </button>
-              </>
+              <button
+                type="button"
+                onClick={() => void logout()}
+                className="inline-flex items-center gap-1 rounded-md border border-line px-2 py-1.5 text-xs text-ink"
+              >
+                <IconLogout width={13} height={13} aria-hidden="true" />
+                {t("logout")}
+              </button>
             )}
           </div>
         </div>

@@ -24,6 +24,7 @@ type ProfileRow = {
   plainPassword: string | null;
   language: string;
   blocked: boolean;
+  approved: boolean;
   downloads: number;
   downloadLimit: number | null;
   deletedAt: string | null;
@@ -107,12 +108,17 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [addError, setAddError] = useState("");
   const [added, setAdded] = useState(false);
   const [blockBusy, setBlockBusy] = useState<string | null>(null);
+  const [approveBusy, setApproveBusy] = useState<string | null>(null);
+  const [approvedMsg, setApprovedMsg] = useState(false);
   const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
   const [deleteBusy, setDeleteBusy] = useState(false);
   const [deletedMsg, setDeletedMsg] = useState(false);
   const [limitBusy, setLimitBusy] = useState<string | null>(null);
   const [stats, setStats] = useState<AdminStats | null>(null);
   const [settings, setSettings] = useState<AdminSettings>({ theme: "default", fontStyle: "default", welcomeMessage: "" });
+  const [notifyMessage, setNotifyMessage] = useState("");
+  const [notifyBusy, setNotifyBusy] = useState(false);
+  const [notifySent, setNotifySent] = useState(false);
 
   useEffect(() => {
     if (!authorized) return;
@@ -191,6 +197,44 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       // keep the list as-is
     } finally {
       setBlockBusy(null);
+    }
+  }
+
+  async function approveAccount(id: string) {
+    setApproveBusy(id);
+    setApprovedMsg(false);
+    try {
+      await api("/api/admin/accounts/approve", {
+        method: "POST",
+        credentials: "same-origin",
+        body: JSON.stringify({ id }),
+      });
+      setUsers((rows) => rows?.map((row) => (row.id === id ? { ...row, approved: true } : row)) ?? null);
+      setApprovedMsg(true);
+    } catch {
+      // keep the list as-is
+    } finally {
+      setApproveBusy(null);
+    }
+  }
+
+  async function sendNotification(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!notifyMessage.trim() || notifyBusy) return;
+    setNotifyBusy(true);
+    setNotifySent(false);
+    try {
+      await api("/api/admin/notifications", {
+        method: "POST",
+        credentials: "same-origin",
+        body: JSON.stringify({ message: notifyMessage.trim() }),
+      });
+      setNotifyMessage("");
+      setNotifySent(true);
+    } catch {
+      // keep the message
+    } finally {
+      setNotifyBusy(false);
     }
   }
 
@@ -618,13 +662,12 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
           {uploadKind === "guide" && (
           <section className="rounded-lg border border-line bg-card p-4">
             <h2 className="font-semibold text-ink"><label htmlFor="guide-file">{t("adminGuidesSection")}</label></h2>
-            <p className="mt-1 text-sm text-soft">{t("adminGuidesUploadHint")}</p>
             <form onSubmit={(event) => { event.preventDefault(); void uploadGuide(); }} className="mt-3 flex items-center gap-2">
-              <input id="guide-file" name="file" type="file" accept=".pdf,application/pdf" required disabled={guideUploading}
+              <input id="guide-file" name="file" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required disabled={guideUploading}
                 onChange={(event) => {
                   const selected = event.target.files?.[0] || null;
                   const invalid = selected
-                    ? (!selected.name.toLowerCase().endsWith(".pdf")
+                    ? (!/\.(pdf|docx)$/i.test(selected.name)
                       ? "badPdfFile"
                       : selected.size > MAX_GUIDE_FILE_BYTES
                         ? "fileTooBig"
@@ -707,6 +750,98 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                 </p>
               )}
 
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <label className="block text-sm font-medium text-ink">
+                  {t("adminFontStyle")}
+                  <select
+                    value={settings.fontStyle}
+                    onChange={(event) => changeSetting("fontStyle", event.target.value)}
+                    aria-label={t("adminFontStyle")}
+                    className="mt-1 w-auto rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
+                  >
+                    <option value="default">{t("fontStyleDefault")}</option>
+                    <option value="compact">{t("fontStyleCompact")}</option>
+                    <option value="large">{t("fontStyleLarge")}</option>
+                    <option value="expanded">{t("fontStyleExpanded")}</option>
+                  </select>
+                </label>
+                <label className="block text-sm font-medium text-ink">
+                  {t("appTheme")}
+                  <select
+                    value={settings.theme}
+                    onChange={(event) => changeSetting("theme", event.target.value)}
+                    aria-label={t("appTheme")}
+                    className="mt-1 w-auto rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
+                  >
+                    <option value="default">{t("themeDefault")}</option>
+                    <option value="white-black">{t("themeWhiteBlack")}</option>
+                    <option value="red-purple">{t("themeRedPurple")}</option>
+                    <option value="brown-shiny">{t("themeBrownShiny")}</option>
+                  </select>
+                </label>
+              </div>
+              <label className="mt-3 block text-sm font-medium text-ink">
+                {t("adminWelcomeLabel")}
+                <textarea
+                  value={settings.welcomeMessage}
+                  maxLength={500}
+                  placeholder={t("adminWelcomePlaceholder")}
+                  onChange={(event) => changeSetting("welcomeMessage", event.target.value)}
+                  rows={2}
+                  className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                />
+              </label>
+
+              <form onSubmit={sendNotification} className="mt-3 space-y-2">
+                <label className="block text-sm font-medium text-ink">
+                  {t("sendNotification")}
+                  <textarea
+                    value={notifyMessage}
+                    maxLength={500}
+                    rows={2}
+                    required
+                    placeholder={t("notificationPlaceholder")}
+                    onChange={(event) => setNotifyMessage(event.target.value)}
+                    className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                  />
+                </label>
+                <button type="submit" disabled={notifyBusy || !notifyMessage.trim()} className={buttonClass}>
+                  {notifyBusy ? t("loading") : t("sendNotification")}
+                </button>
+                {notifySent && <p className="text-sm text-success">✓</p>}
+              </form>
+
+              <form onSubmit={addAccount} className="mt-3 space-y-3">
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <label className="block text-sm font-medium text-ink">
+                    {t("email")}
+                    <input
+                      type="email"
+                      dir="ltr"
+                      required
+                      value={addEmail}
+                      onChange={(event) => setAddEmail(event.target.value)}
+                      className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                    />
+                  </label>
+                  <label className="block text-sm font-medium text-ink">
+                    {t("password")}
+                    <input
+                      type="password"
+                      dir="ltr"
+                      minLength={6}
+                      required
+                      value={addPassword}
+                      onChange={(event) => setAddPassword(event.target.value)}
+                      className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                    />
+                  </label>
+                </div>
+                {addError && <p role="alert" className="text-sm text-danger">{addError}</p>}
+                {added && !addError && <p className="text-sm text-success">{t("adminAccountAdded")}</p>}
+                <button type="submit" className={buttonClass}>{t("adminAddAccount")}</button>
+              </form>
+
               {users === null ? (
                 <p className="mt-3 text-sm text-soft">{t("loading")}</p>
               ) : usersError ? (
@@ -756,6 +891,16 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                         </td>
                         <td className="py-2 pl-3 text-end">
                           <div className="flex items-center justify-end gap-2">
+                            {!row.approved && row.deletedAt === null && (
+                              <button
+                                type="button"
+                                onClick={() => void approveAccount(row.id)}
+                                disabled={approveBusy === row.id}
+                                className="font-semibold text-success hover:underline disabled:opacity-50"
+                              >
+                                {t("approveAccount")}
+                              </button>
+                            )}
                             <button
                               type="button"
                               onClick={() => setBlocked(row.id, !row.blocked)}
@@ -779,6 +924,9 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                   </tbody>
                 </table>
               </div>
+              )}
+              {approvedMsg && (
+                <p className="mt-3 text-sm text-success">{t("approveAccount")} ✓</p>
               )}
               {deletedMsg && (
                 <p className="mt-3 text-sm text-success">{t("adminDeleted")}</p>
@@ -806,78 +954,6 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                   </div>
                 </div>
               )}
-              <div className="mt-4 flex flex-wrap items-center gap-3">
-                <label className="block text-sm font-medium text-ink">
-                  {t("adminFontStyle")}
-                  <select
-                    value={settings.fontStyle}
-                    onChange={(event) => changeSetting("fontStyle", event.target.value)}
-                    aria-label={t("adminFontStyle")}
-                    className="mt-1 w-auto rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
-                  >
-                    <option value="default">{t("fontStyleDefault")}</option>
-                    <option value="compact">{t("fontStyleCompact")}</option>
-                    <option value="large">{t("fontStyleLarge")}</option>
-                    <option value="expanded">{t("fontStyleExpanded")}</option>
-                  </select>
-                </label>
-                <label className="block text-sm font-medium text-ink">
-                  {t("appTheme")}
-                  <select
-                    value={settings.theme}
-                    onChange={(event) => changeSetting("theme", event.target.value)}
-                    aria-label={t("appTheme")}
-                    className="mt-1 w-auto rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
-                  >
-                    <option value="default">{t("themeDefault")}</option>
-                    <option value="white-black">{t("themeWhiteBlack")}</option>
-                    <option value="red-purple">{t("themeRedPurple")}</option>
-                    <option value="brown-shiny">{t("themeBrownShiny")}</option>
-                  </select>
-                </label>
-              </div>
-              <label className="mt-3 block text-sm font-medium text-ink">
-                {t("adminWelcomeLabel")}
-                <textarea
-                  value={settings.welcomeMessage}
-                  maxLength={500}
-                  placeholder={t("adminWelcomePlaceholder")}
-                  onChange={(event) => changeSetting("welcomeMessage", event.target.value)}
-                  rows={2}
-                  className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
-                />
-              </label>
-
-              <form onSubmit={addAccount} className="mt-3 space-y-3">
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <label className="block text-sm font-medium text-ink">
-                    {t("email")}
-                    <input
-                      type="email"
-                      dir="ltr"
-                      required
-                      value={addEmail}
-                      onChange={(event) => setAddEmail(event.target.value)}
-                      className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
-                    />
-                  </label>
-                  <label className="block text-sm font-medium text-ink">
-                    {t("password")}
-                    <input
-                      type="password"
-                      dir="ltr"
-                      minLength={6}
-                      required
-                      value={addPassword}
-                      onChange={(event) => setAddPassword(event.target.value)}
-                      className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
-                    />
-                  </label>
-                </div>
-                {addError && <p role="alert" className="text-sm text-danger">{addError}</p>}
-                {added && !addError && <p className="text-sm text-success">{t("adminAccountAdded")}</p>}
-                <button type="submit" className={buttonClass}>{t("adminAddAccount")}</button>
-              </form>
             </details>
           </section>
         </div>

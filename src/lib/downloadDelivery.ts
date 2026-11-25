@@ -8,7 +8,7 @@ import {
   currentSessionHash,
   refundGrant,
 } from "@/lib/downloadGrants";
-import { fetchGuide, fetchLesson } from "@/lib/githubGuides";
+import { fetchGuide, fetchLesson, guideMimeType } from "@/lib/githubGuides";
 import {
   getObject,
   isS3Configured,
@@ -71,7 +71,7 @@ async function deliverGuide(grant: GrantRow): Promise<NextResponse> {
   return new NextResponse(new Uint8Array(buffer), {
     headers: {
       ...storageHeaders,
-      "Content-Type": "application/pdf",
+      "Content-Type": guideMimeType(guide.fileName),
       "Content-Length": String(buffer.length),
       "Content-Disposition": disposition,
     },
