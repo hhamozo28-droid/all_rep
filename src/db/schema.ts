@@ -55,6 +55,31 @@ export const guideUploadChunks = pgTable("guide_upload_chunks", {
   uploadedAt: timestamp("uploaded_at", { withTimezone: true }).notNull().defaultNow(),
 }, (t) => [primaryKey({ columns: [t.sessionId, t.partIndex] })]);
 
+/**
+ * PDF/Word lesson files. Attached to a specialty by its stable `code` (the
+ * catalog UUID changes whenever the Word catalog is republished).
+ */
+export const lessonFiles = pgTable("lesson_files", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  specialtyCode: text("specialty_code").notNull(),
+  title: text("title").notNull(),
+  fileName: text("file_name").notNull(),
+  mimeType: text("mime_type").notNull(),
+  size: integer("size").notNull(),
+  path: text("path").notNull().unique(),
+  sha: text("sha").notNull(),
+  downloads: integer("downloads").notNull().default(0),
+  uploadedAt: timestamp("uploaded_at", { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [index("lesson_files_code_idx").on(t.specialtyCode)]);
+
+/** Staging rows for chunked lesson-file uploads; reassembled server-side. */
+export const lessonUploadChunks = pgTable("lesson_upload_chunks", {
+  sessionId: text("session_id").notNull(),
+  partIndex: integer("part_index").notNull(),
+  data: text("data").notNull(),
+  uploadedAt: timestamp("uploaded_at", { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [primaryKey({ columns: [t.sessionId, t.partIndex] })]);
+
 export const profiles = pgTable("profiles", {
   id: uuid("id").primaryKey().defaultRandom(),
   email: text("email").notNull().unique(),

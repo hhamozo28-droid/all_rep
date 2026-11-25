@@ -6,6 +6,10 @@
 # from GitHub at runtime. Leading slash keeps src/app/api/guides deployed.
 /guides/
 
+# Local source lesson files; the API fetches them from GitHub or S3 at runtime.
+# Leading slash keeps src/app/api/lesson-files deployed.
+/lessons/
+
 # Local build artifacts
 /.next/
 /node_modules/

@@ -20,7 +20,7 @@ import { SESSION_COOKIE } from "@/lib/auth";
 
 export const GRANT_TTL_SECONDS = 60;
 
-export type GrantKind = "guide" | "specialty";
+export type GrantKind = "guide" | "specialty" | "lesson";
 export type GrantMode = "open" | "download";
 export type GrantRow = typeof downloadGrants.$inferSelect;
 

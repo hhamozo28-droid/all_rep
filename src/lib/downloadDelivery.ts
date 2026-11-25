@@ -1,14 +1,14 @@
 import { and, eq } from "drizzle-orm";
 import { NextResponse } from "next/server";
 import { db } from "@/db";
-import { guides, hostedFiles, specialties } from "@/db/schema";
+import { guides, hostedFiles, lessonFiles, specialties } from "@/db/schema";
 import {
   type GrantRow,
   consumeGrant,
   currentSessionHash,
   refundGrant,
 } from "@/lib/downloadGrants";
-import { fetchGuide } from "@/lib/githubGuides";
+import { fetchGuide, fetchLesson } from "@/lib/githubGuides";
 import {
   getObject,
   isS3Configured,
@@ -38,7 +38,9 @@ export async function deliverGrant(
   if (!sessionHash) return errorResponse(410, "link-used-or-expired");
   const grant = await consumeGrant(token, { sessionHash, itemId: options.itemId });
   if (!grant) return errorResponse(410, "link-used-or-expired");
-  return grant.kind === "guide" ? deliverGuide(grant) : deliverSpecialty(grant);
+  if (grant.kind === "guide") return deliverGuide(grant);
+  if (grant.kind === "lesson") return deliverLesson(grant);
+  return deliverSpecialty(grant);
 }
 
 async function deliverGuide(grant: GrantRow): Promise<NextResponse> {
@@ -70,6 +72,45 @@ async function deliverGuide(grant: GrantRow): Promise<NextResponse> {
     headers: {
       ...storageHeaders,
       "Content-Type": "application/pdf",
+      "Content-Length": String(buffer.length),
+      "Content-Disposition": disposition,
+    },
+  });
+}
+
+async function deliverLesson(grant: GrantRow): Promise<NextResponse> {
+  const [lesson] = await db
+    .select()
+    .from(lessonFiles)
+    .where(eq(lessonFiles.id, grant.itemId))
+    .limit(1);
+  if (!lesson) {
+    await refundGrant(grant);
+    return errorResponse(404, "not-found");
+  }
+
+  const [hosted] = await db
+    .select()
+    .from(hostedFiles)
+    .where(and(eq(hostedFiles.kind, "lesson"), eq(hostedFiles.itemId, grant.itemId)))
+    .limit(1);
+
+  let buffer: Buffer | null = null;
+  if (hosted && isS3Configured()) {
+    buffer = await getObject(hosted.objectKey);
+  } else {
+    buffer = await fetchLesson(hosted?.objectKey ?? lesson.path);
+  }
+  if (!buffer) {
+    await refundGrant(grant);
+    return errorResponse(502, "file-unavailable");
+  }
+
+  const disposition = `attachment; filename*=UTF-8''${encodeURIComponent(lesson.fileName)}`;
+  return new NextResponse(new Uint8Array(buffer), {
+    headers: {
+      ...storageHeaders,
+      "Content-Type": lesson.mimeType,
       "Content-Length": String(buffer.length),
       "Content-Disposition": disposition,
     },

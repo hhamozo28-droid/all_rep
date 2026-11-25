@@ -13,6 +13,7 @@ if (ownerRepoParts.length !== 2) throw new Error("GITHUB_REPO must be owner/repo
 const [owner, repo] = ownerRepoParts;
 const branch = process.env.GITHUB_BRANCH ?? "main";
 const guidesDir = (process.env.GUIDES_DIR ?? "guides").replace(/^\/+|\/+$/g, "");
+const lessonsDir = (process.env.LESSONS_DIR ?? "lessons").replace(/^\/+|\/+$/g, "");
 
 export const GITHUB_BASE = `https://api.github.com/repos/${ownerRepo}`;
 
@@ -86,6 +87,62 @@ export async function deleteGuide(path: string, sha: string): Promise<void> {
 }
 
 export async function fetchGuide(path: string): Promise<Buffer | null> {
+  const url = `https://raw.githubusercontent.com/${ownerRepo}/${branch}/${path}`;
+  const res = await fetch(url);
+  if (!res.ok) return null;
+  return Buffer.from(await res.arrayBuffer());
+}
+
+/** PDF or Word (OOXML) lesson files, validated by file signature. */
+export function isLessonFile(name: string, buffer: Buffer): boolean {
+  const lower = name.toLowerCase();
+  const pdf = lower.endsWith(".pdf");
+  const word = lower.endsWith(".docx");
+  if (!pdf && !word) return false;
+  if (buffer.length === 0 || buffer.length > 15 * 1024 * 1024) return false;
+  if (pdf) return buffer.subarray(0, 5).toString("latin1").startsWith("%PDF-");
+  if (buffer.subarray(0, 2).toString("latin1") !== "PK") return false;
+  // DOCX stores its entry names uncompressed in the archive directory.
+  return buffer.includes(Buffer.from("word/document.xml", "utf8"));
+}
+
+export function lessonMimeType(name: string): string {
+  return name.toLowerCase().endsWith(".pdf")
+    ? "application/pdf"
+    : "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+}
+
+export async function uploadLesson(
+  name: string,
+  file: Buffer,
+): Promise<{ path: string; sha: string; size: number; fileName: string }> {
+  const ext = name.toLowerCase().endsWith(".pdf") ? "pdf" : "docx";
+  const safeName = sanitizeFileName(name, "lesson");
+  const fileName = /\.docx$/i.test(safeName) || /\.pdf$/i.test(safeName)
+    ? safeName
+    : `${safeName}.${ext}`;
+  const path = `${lessonsDir}/${randomUUID()}.${ext}`;
+  const payload = await gh<GitHubContentsResponse>("/contents/" + encPath(path), {
+    method: "PUT",
+    body: JSON.stringify({
+      message: `add lesson file: ${safeName}`,
+      content: file.toString("base64"),
+      branch,
+    }),
+  });
+  const sha = payload?.content?.sha ?? "";
+  if (!sha) throw new Error("GitHub did not return a commit sha");
+  return { path, sha, size: file.length, fileName };
+}
+
+export async function deleteLesson(path: string, sha: string): Promise<void> {
+  await gh(`/contents/${encPath(path)}?branch=${encodeURIComponent(branch)}`, {
+    method: "DELETE",
+    body: JSON.stringify({ sha, message: `delete lesson file: ${path}` }),
+  });
+}
+
+export async function fetchLesson(path: string): Promise<Buffer | null> {
   const url = `https://raw.githubusercontent.com/${ownerRepo}/${branch}/${path}`;
   const res = await fetch(url);
   if (!res.ok) return null;

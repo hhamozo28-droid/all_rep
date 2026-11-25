@@ -13,3 +13,4 @@
 export const MAX_DIRECT_UPLOAD = 4_200_000;
 export const CHUNK_SIZE = 3_900_000;
 export const MAX_GUIDE_FILE_BYTES = 15 * 1024 * 1024;
+export const MAX_LESSON_FILE_BYTES = 15 * 1024 * 1024;

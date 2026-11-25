@@ -174,7 +174,7 @@ export default function Home({ published = false, welcome = false }: { published
       <div className="mb-3 flex flex-wrap gap-1.5 border-b border-line" role="tablist">
         <button type="button" role="tab" aria-selected={tab === "specialties"}
           className={`rounded-t-lg border-b-2 pb-2 text-sm font-medium ${tab === "specialties" ? "border-primary text-ink" : "border-transparent text-soft hover:text-ink"}`}
-          onClick={() => setTab("specialties")}>{t("specialties")}</button>
+          onClick={() => setTab("specialties")}>{t("lessonsTab")}</button>
         <button type="button" role="tab" aria-selected={tab === "guides"}
           className={`rounded-t-lg border-b-2 pb-2 text-sm font-medium ${tab === "guides" ? "border-primary text-ink" : "border-transparent text-soft hover:text-ink"}`}
           onClick={() => { setTab("guides"); location.hash = "#guides"; }}>{t("guidesTab")}</button>

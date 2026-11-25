@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import DownloadLink from "@/components/DownloadLink";
+import LessonFiles from "@/components/LessonFiles";
 import { useDownloadStatus } from "@/components/DownloadStatusProvider";
 import { formatDate, formatMb } from "@/lib/client";
 import { useI18n } from "@/lib/i18n";
@@ -87,6 +88,8 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
           <p className="mt-3 text-sm text-brown">{t("downloadsRemainingLabel").replace("%d", String(remaining))}</p>
         )}
       </section>
+
+      <LessonFiles code={item.code} />
     </div>
   );
 }
