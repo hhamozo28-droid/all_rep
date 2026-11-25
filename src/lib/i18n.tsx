@@ -226,6 +226,18 @@ const ar: Record<string, string> = {
   markAllRead: "تحديد الكل كمقروء",
   notifyNewGuide: "أُضيف دليل جديد",
   notifyAppUpdate: "تحديث جديد للتطبيق",
+  increaseQuotaAll: "زيادة رصيد الجميع",
+  increaseQuota: "زيادة رصيد",
+  quotaAmount: "مقدار الزيادة",
+  quotaAdded: "تمت زيادة الرصيد",
+  quotaNotifyAll: "تمت زيادة رصيد التحميل لديكم",
+  quotaNotifyUser: "تمت إضافة رصيد إضافي إلى حسابك",
+  emailBroadcast: "مراسلة جميع الحسابات",
+  emailSubject: "عنوان الرسالة",
+  emailBody: "نص الرسالة",
+  sendEmail: "إرسال البريد",
+  emailSent: "تم إرسال البريد",
+  emailNotConfigured: "بريد المنصة غير مهيأ — أضف إعدادات SMTP في Vercel",
 };
 
 const en: Record<string, string> = {
@@ -441,6 +453,18 @@ const en: Record<string, string> = {
   markAllRead: "Mark all as read",
   notifyNewGuide: "A new guide was added",
   notifyAppUpdate: "New app update available",
+  increaseQuotaAll: "Increase everyone's balance",
+  increaseQuota: "Increase balance",
+  quotaAmount: "Amount to add",
+  quotaAdded: "Balance increased",
+  quotaNotifyAll: "Your download balance has been increased",
+  quotaNotifyUser: "Extra download balance was added to your account",
+  emailBroadcast: "Email all accounts",
+  emailSubject: "Subject",
+  emailBody: "Message",
+  sendEmail: "Send email",
+  emailSent: "Email sent",
+  emailNotConfigured: "Platform email is not configured — add SMTP settings in Vercel",
 };
 
 const fr: Record<string, string> = {
@@ -658,6 +682,18 @@ const fr: Record<string, string> = {
   markAllRead: "Tout marquer comme lu",
   notifyNewGuide: "Un nouveau guide a été ajouté",
   notifyAppUpdate: "Nouvelle mise à jour de l'application",
+  increaseQuotaAll: "Augmenter le solde de tous",
+  increaseQuota: "Augmenter le solde",
+  quotaAmount: "Montant à ajouter",
+  quotaAdded: "Solde augmenté",
+  quotaNotifyAll: "Votre solde de téléchargement a été augmenté",
+  quotaNotifyUser: "Un solde supplémentaire a été ajouté à votre compte",
+  emailBroadcast: "Envoyer un e-mail à tous les comptes",
+  emailSubject: "Objet",
+  emailBody: "Message",
+  sendEmail: "Envoyer l'e-mail",
+  emailSent: "E-mail envoyé",
+  emailNotConfigured: "L'e-mail de la plateforme n'est pas configuré — ajoutez SMTP dans Vercel",
 };
 
 const DICTS: Record<Locale, Record<string, string>> = { ar, en, fr };

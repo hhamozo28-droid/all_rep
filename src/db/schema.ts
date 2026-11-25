@@ -107,6 +107,8 @@ export const profiles = pgTable("profiles", {
 export const notifications = pgTable("notifications", {
   id: uuid("id").primaryKey().defaultRandom(),
   message: text("message").notNull(),
+  // null = broadcast to all users; otherwise a message for one account only.
+  userId: uuid("user_id").references(() => profiles.id, { onDelete: "cascade" }),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 

@@ -1,5 +1,4 @@
-import { desc, eq } from "drizzle-orm";
-import { sql } from "drizzle-orm";
+import { desc, eq, isNull, or, sql } from "drizzle-orm";
 import { db } from "@/db";
 import { notificationReads, notifications } from "@/db/schema";
 
@@ -11,6 +10,7 @@ export async function ensureNotificationTables(): Promise<void> {
       created_at timestamptz NOT NULL DEFAULT now()
     )
   `);
+  await db.execute(sql`ALTER TABLE notifications ADD COLUMN IF NOT EXISTS user_id uuid REFERENCES profiles(id) ON DELETE CASCADE`);
   await db.execute(sql`
     CREATE TABLE IF NOT EXISTS notification_reads (
       user_id uuid NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
@@ -21,11 +21,12 @@ export async function ensureNotificationTables(): Promise<void> {
   `);
 }
 
-export async function createNotification(message: string): Promise<void> {
+/** userId omitted = broadcast; provided = private message for that account. */
+export async function createNotification(message: string, userId?: string | null): Promise<void> {
   const clean = String(message ?? "").trim().slice(0, 500);
   if (!clean) return;
   await ensureNotificationTables();
-  await db.insert(notifications).values({ message: clean });
+  await db.insert(notifications).values({ message: clean, userId: userId ?? null });
 }
 
 export type UserNotification = {
@@ -38,7 +39,10 @@ export type UserNotification = {
 export async function listNotifications(userId: string): Promise<UserNotification[]> {
   await ensureNotificationTables();
   const [rows, reads] = await Promise.all([
-    db.select().from(notifications).orderBy(desc(notifications.createdAt)).limit(50),
+    db.select().from(notifications)
+      .where(or(isNull(notifications.userId), eq(notifications.userId, userId)))
+      .orderBy(desc(notifications.createdAt))
+      .limit(50),
     db.select({ notificationId: notificationReads.notificationId })
       .from(notificationReads)
       .where(eq(notificationReads.userId, userId)),
@@ -54,7 +58,8 @@ export async function listNotifications(userId: string): Promise<UserNotificatio
 
 export async function markNotificationsRead(userId: string): Promise<void> {
   await ensureNotificationTables();
-  const rows = await db.select({ id: notifications.id }).from(notifications);
+  const rows = await db.select({ id: notifications.id }).from(notifications)
+    .where(or(isNull(notifications.userId), eq(notifications.userId, userId)));
   if (rows.length === 0) return;
   await db.insert(notificationReads).values(
     rows.map((row) => ({ userId, notificationId: row.id })),

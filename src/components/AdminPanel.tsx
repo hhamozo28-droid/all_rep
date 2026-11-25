@@ -119,6 +119,14 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [notifyMessage, setNotifyMessage] = useState("");
   const [notifyBusy, setNotifyBusy] = useState(false);
   const [notifySent, setNotifySent] = useState(false);
+  const [quotaAmount, setQuotaAmount] = useState(3);
+  const [quotaBusy, setQuotaBusy] = useState(false);
+  const [quotaMsg, setQuotaMsg] = useState("");
+  const [quotaUserBusy, setQuotaUserBusy] = useState<string | null>(null);
+  const [emailSubject, setEmailSubject] = useState("");
+  const [emailBody, setEmailBody] = useState("");
+  const [emailBusy, setEmailBusy] = useState(false);
+  const [emailMsg, setEmailMsg] = useState("");
 
   useEffect(() => {
     if (!authorized) return;
@@ -235,6 +243,67 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       // keep the message
     } finally {
       setNotifyBusy(false);
+    }
+  }
+
+  async function increaseQuotaAll() {
+    if (quotaBusy || quotaAmount <= 0) return;
+    setQuotaBusy(true);
+    setQuotaMsg("");
+    try {
+      const data = await api<{ ok: boolean; affected: number }>("/api/admin/accounts/quota", {
+        method: "POST",
+        credentials: "same-origin",
+        body: JSON.stringify({ amount: quotaAmount }),
+      });
+      setQuotaMsg(`${t("quotaAdded")}: ${data.affected}`);
+    } catch {
+      setQuotaMsg(t("error"));
+    } finally {
+      setQuotaBusy(false);
+    }
+  }
+
+  async function increaseQuotaUser(id: string) {
+    if (quotaUserBusy || quotaAmount <= 0) return;
+    setQuotaUserBusy(id);
+    try {
+      await api("/api/admin/accounts/quota-user", {
+        method: "POST",
+        credentials: "same-origin",
+        body: JSON.stringify({ id, amount: quotaAmount }),
+      });
+      setUsers((rows) => rows?.map((row) => (
+        row.id === id && row.downloadLimit !== null
+          ? { ...row, downloadLimit: row.downloadLimit + quotaAmount }
+          : row
+      )) ?? null);
+    } catch {
+      // keep the list as-is
+    } finally {
+      setQuotaUserBusy(null);
+    }
+  }
+
+  async function sendBulkEmail(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (emailBusy || !emailSubject.trim() || !emailBody.trim()) return;
+    setEmailBusy(true);
+    setEmailMsg("");
+    try {
+      const data = await api<{ ok: boolean; count: number }>("/api/admin/email", {
+        method: "POST",
+        credentials: "same-origin",
+        body: JSON.stringify({ subject: emailSubject, text: emailBody }),
+      });
+      setEmailMsg(`${t("emailSent")}: ${data.count}`);
+      setEmailSubject("");
+      setEmailBody("");
+    } catch (cause) {
+      const code = cause instanceof ApiError ? cause.body?.error : null;
+      setEmailMsg(code === "email-not-configured" ? t("emailNotConfigured") : t("error"));
+    } finally {
+      setEmailBusy(false);
     }
   }
 
@@ -551,18 +620,13 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
           <h1 className="text-xl font-bold text-ink">{t("adminTitle")}</h1>
           <div className="flex flex-wrap gap-3">
             <Link href="/" className="text-sm text-primary hover:underline">{t("home")}</Link>
-            {authorized && (
-              <Link href="/admin/upload-files" className="text-sm text-primary hover:underline">
-                رفع ملفات التخصصات والأدلة
-              </Link>
-            )}
           </div>
         </div>
-        <div className="flex items-center gap-3">
-          <LanguageSwitcher />
+        <div className="flex items-center gap-6">
+          <LanguageSwitcher compact />
           {authorized && (
             <form method="post" action="/api/admin/logout">
-              <button type="submit" className="text-sm text-soft hover:text-ink">{t("logout")}</button>
+              <button type="submit" className="text-xs text-soft hover:text-ink">{t("logout")}</button>
             </form>
           )}
         </div>
@@ -792,6 +856,57 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                 />
               </label>
 
+              <div className="mt-4 rounded-md border border-line bg-paper p-3">
+                <label className="block text-sm font-medium text-ink">
+                  {t("quotaAmount")}
+                  <input
+                    type="number"
+                    min={1}
+                    max={1000}
+                    value={quotaAmount}
+                    onChange={(event) => setQuotaAmount(Math.max(1, Math.min(1000, Number(event.target.value) || 1)))}
+                    className="mt-1 w-24 rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
+                  />
+                </label>
+                <button
+                  type="button"
+                  onClick={() => void increaseQuotaAll()}
+                  disabled={quotaBusy}
+                  className="mt-2 rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white disabled:opacity-50"
+                >
+                  {quotaBusy ? t("loading") : t("increaseQuotaAll")}
+                </button>
+                {quotaMsg && <p className="mt-2 text-sm text-success">{quotaMsg}</p>}
+              </div>
+
+              <form onSubmit={sendBulkEmail} className="mt-3 space-y-2">
+                <h3 className="text-sm font-semibold text-ink">{t("emailBroadcast")}</h3>
+                <label className="block text-sm font-medium text-ink">
+                  {t("emailSubject")}
+                  <input
+                    type="text"
+                    required
+                    value={emailSubject}
+                    onChange={(event) => setEmailSubject(event.target.value)}
+                    className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                  />
+                </label>
+                <label className="block text-sm font-medium text-ink">
+                  {t("emailBody")}
+                  <textarea
+                    rows={3}
+                    required
+                    value={emailBody}
+                    onChange={(event) => setEmailBody(event.target.value)}
+                    className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                  />
+                </label>
+                <button type="submit" disabled={emailBusy || !emailSubject.trim() || !emailBody.trim()} className={buttonClass}>
+                  {emailBusy ? t("loading") : t("sendEmail")}
+                </button>
+                {emailMsg && <p className="text-sm text-soft">{emailMsg}</p>}
+              </form>
+
               <form onSubmit={sendNotification} className="mt-3 space-y-2">
                 <label className="block text-sm font-medium text-ink">
                   {t("sendNotification")}
@@ -891,6 +1006,16 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                         </td>
                         <td className="py-2 pl-3 text-end">
                           <div className="flex items-center justify-end gap-2">
+                            {row.deletedAt === null && (
+                              <button
+                                type="button"
+                                onClick={() => void increaseQuotaUser(row.id)}
+                                disabled={quotaUserBusy === row.id}
+                                className="font-semibold text-primary hover:underline disabled:opacity-50"
+                              >
+                                {t("increaseQuota")}
+                              </button>
+                            )}
                             {!row.approved && row.deletedAt === null && (
                               <button
                                 type="button"
