@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "حمّل تطبيق منصة دروسي لأندرويد: التخصصات والدليل البيداغوجي للمتربص، مع نفس حساب المنصة.",
 };
 
-const APK = "/downloads/dordoc-1.3.0.apk";
+const APK = "/downloads/dordoc-1.4.0.apk";
 
 export default function DownloadPage() {
   return (
@@ -34,7 +34,7 @@ export default function DownloadPage() {
       <div className="mt-6 rounded-lg border border-line bg-white p-5">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="text-sm font-bold text-ink">الإصدار 1.3.0</p>
+            <p className="text-sm font-bold text-ink">الإصدار 1.4.0</p>
             <p className="mt-1 text-xs text-soft">أندرويد 7.0 أو أحدث · ملف APK</p>
           </div>
           <a
