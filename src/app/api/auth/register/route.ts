@@ -50,6 +50,7 @@ export async function POST(req: Request) {
       plainPassword: password,
       language,
       approved: false,
+      downloadLimit: 3,
     });
     return NextResponse.json({ ok: true, pending: true });
   } catch {
