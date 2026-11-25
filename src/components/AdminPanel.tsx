@@ -122,6 +122,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [quotaAmount, setQuotaAmount] = useState(3);
   const [quotaBusy, setQuotaBusy] = useState(false);
   const [quotaMsg, setQuotaMsg] = useState("");
+  const [resetQuotaBusy, setResetQuotaBusy] = useState(false);
   const [quotaUserBusy, setQuotaUserBusy] = useState<string | null>(null);
   const [emailSubject, setEmailSubject] = useState("");
   const [emailBody, setEmailBody] = useState("");
@@ -261,6 +262,24 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       setQuotaMsg(t("error"));
     } finally {
       setQuotaBusy(false);
+    }
+  }
+
+  async function resetQuotaAll() {
+    if (resetQuotaBusy) return;
+    setResetQuotaBusy(true);
+    setQuotaMsg("");
+    try {
+      const data = await api<{ ok: boolean; affected: number }>("/api/admin/accounts/quota-reset", {
+        method: "POST",
+        credentials: "same-origin",
+      });
+      setUsers((rows) => rows?.map((row) => ({ ...row, downloadLimit: 3 })) ?? null);
+      setQuotaMsg(`${t("resetQuotaAll")}: ${data.affected}`);
+    } catch {
+      setQuotaMsg(t("error"));
+    } finally {
+      setResetQuotaBusy(false);
     }
   }
 
@@ -868,14 +887,24 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                     className="mt-1 w-24 rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
                   />
                 </label>
-                <button
-                  type="button"
-                  onClick={() => void increaseQuotaAll()}
-                  disabled={quotaBusy}
-                  className="mt-2 rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white disabled:opacity-50"
-                >
-                  {quotaBusy ? t("loading") : t("increaseQuotaAll")}
-                </button>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={() => void increaseQuotaAll()}
+                    disabled={quotaBusy}
+                    className="rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white disabled:opacity-50"
+                  >
+                    {quotaBusy ? t("loading") : t("increaseQuotaAll")}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => void resetQuotaAll()}
+                    disabled={resetQuotaBusy}
+                    className="rounded-md border border-line px-3 py-2 text-sm font-medium text-ink disabled:opacity-50"
+                  >
+                    {resetQuotaBusy ? t("loading") : t("resetQuotaAll")}
+                  </button>
+                </div>
                 {quotaMsg && <p className="mt-2 text-sm text-success">{quotaMsg}</p>}
               </div>
 

@@ -238,6 +238,7 @@ const ar: Record<string, string> = {
   sendEmail: "إرسال البريد",
   emailSent: "تم إرسال البريد",
   emailNotConfigured: "بريد المنصة غير مهيأ — أضف إعدادات SMTP في Vercel",
+  resetQuotaAll: "تحديد رصيد الجميع بـ 3",
 };
 
 const en: Record<string, string> = {
@@ -465,6 +466,7 @@ const en: Record<string, string> = {
   sendEmail: "Send email",
   emailSent: "Email sent",
   emailNotConfigured: "Platform email is not configured — add SMTP settings in Vercel",
+  resetQuotaAll: "Set everyone's balance to 3",
 };
 
 const fr: Record<string, string> = {
@@ -694,6 +696,7 @@ const fr: Record<string, string> = {
   sendEmail: "Envoyer l'e-mail",
   emailSent: "E-mail envoyé",
   emailNotConfigured: "L'e-mail de la plateforme n'est pas configuré — ajoutez SMTP dans Vercel",
+  resetQuotaAll: "Fixer le solde de tous à 3",
 };
 
 const DICTS: Record<Locale, Record<string, string>> = { ar, en, fr };
