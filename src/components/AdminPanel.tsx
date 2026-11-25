@@ -84,7 +84,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [usersError, setUsersError] = useState(false);
   const [guides, setGuides] = useState<AdminGuideRow[] | null>(null);
   const [guideFile, setGuideFile] = useState<File | null>(null);
-  const [uploadKind, setUploadKind] = useState<"links" | "guide" | "lessons">("links");
+  const [uploadKind, setUploadKind] = useState<"links" | "guide">("links");
   const [guideUploading, setGuideUploading] = useState(false);
   const [guideAdded, setGuideAdded] = useState(false);
   const [guideError, setGuideError] = useState("");
@@ -481,7 +481,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       ]
     : [];
 
-  const switchUploadKind = (kind: "links" | "guide" | "lessons") => {
+  const switchUploadKind = (kind: "links" | "guide") => {
     setUploadKind(kind);
     setPublished(null);
     setErrorKey("");
@@ -586,16 +586,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
               >
                 {t("adminUploadKindGuide")}
               </button>
-              <button
-                type="button"
-                aria-pressed={uploadKind === "lessons"}
-                onClick={() => switchUploadKind("lessons")}
-                className={uploadKind === "lessons"
-                  ? "rounded-md bg-primary px-4 py-2.5 font-semibold text-white"
-                  : "rounded-md border border-line bg-card px-4 py-2.5 font-semibold text-primary hover:bg-paper"}
-              >
-                {t("adminUploadKindLessons")}
-              </button>
+
             </div>
           </section>
 
@@ -695,94 +686,6 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                   <button type="button" onClick={() => deleteGuideRow(guideDeleteTarget)} disabled={guideDeleteBusy}
                     className="rounded-md bg-danger px-3 py-2 text-sm font-semibold text-white disabled:opacity-50">
                     {t("adminGuidesDeleteOk")}
-                  </button>
-                </div>
-              </div>
-            )}
-          </section>
-          )}
-
-          {uploadKind === "lessons" && (
-          <section className="rounded-lg border border-line bg-card p-4">
-            <h2 className="font-semibold text-ink">{t("adminLessonsSection")}</h2>
-            <p className="mt-1 text-sm text-soft">{t("adminLessonsUploadHint")}</p>
-            <form onSubmit={(event) => { event.preventDefault(); void uploadLessonFile(); }} className="mt-3 space-y-3">
-              <label htmlFor="lesson-code" className="block text-sm font-medium text-ink">
-                {t("adminLessonsCode")}
-                <select id="lesson-code" dir="ltr" required value={lessonCode} disabled={lessonUploading || lessonCodes.length === 0}
-                  onChange={(event) => setLessonCode(event.target.value)}
-                  className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2.5 outline-none focus:border-primary">
-                  <option value="">{t("selectSpecialtyCode")}</option>
-                  {lessonCodes.map((code) => <option key={code} value={code}>{code}</option>)}
-                </select>
-              </label>
-              <input id="lesson-file" name="file" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                required disabled={lessonUploading}
-                onChange={(event) => {
-                  const selected = event.target.files?.[0] || null;
-                  const invalid = selected
-                    ? (!/\.(pdf|docx)$/i.test(selected.name)
-                      ? "badLessonFile"
-                      : selected.size > MAX_LESSON_FILE_BYTES
-                        ? "fileTooBig"
-                        : "")
-                    : "";
-                  setLessonError(invalid);
-                  setLessonFile(invalid ? null : selected);
-                }}
-                className="block w-full text-sm text-ink file:me-3 file:rounded-md file:border-0 file:bg-paper file:px-3 file:py-2 file:font-medium" />
-              <button type="submit" disabled={!lessonFile || !lessonCode || lessonUploading} className={buttonClass}>
-                {lessonUploading ? t("uploading") : t("upload")}
-              </button>
-            </form>
-            {lessonError && <p role="alert" className="mt-2 text-sm text-danger">{t(lessonError)}</p>}
-            {lessonAdded && !lessonError && <p className="text-sm text-success">{t("uploadSuccess")}</p>}
-            {lessonDeleted && <p className="mt-2 text-sm text-success">{t("adminLessonsDeleted")}</p>}
-            {lessons === null ? (
-              <p className="mt-3 text-sm text-soft">{t("loading")}</p>
-            ) : lessons.length === 0 ? (
-              <p className="mt-3 text-sm text-soft">{t("adminLessonsNoFiles")}</p>
-            ) : (
-              <div className="mt-3 overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-line text-right text-xs font-semibold text-soft">
-                      <th className="py-2 pl-3 font-medium">{t("code")}</th>
-                      <th className="py-2 text-center font-medium">{t("name")}</th>
-                      <th className="py-2 text-center font-medium">{t("size")}</th>
-                      <th className="py-2 pl-3 font-medium">{t("adminTableActions")}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {lessons.map((lesson) => (
-                      <tr key={lesson.id} className="border-t border-line">
-                        <td className="py-2 pl-3 text-ink" dir="ltr" title={lesson.path}>{lesson.specialtyCode}</td>
-                        <td className="py-2 text-center text-soft">{lesson.title}</td>
-                        <td className="py-2 text-center text-soft">{n(lesson.size)}</td>
-                        <td className="py-2 pl-3 text-end">
-                          <button type="button" onClick={() => setLessonDeleteTarget(lesson.id)} disabled={lessonDeleteBusy}
-                            className="font-medium text-danger hover:underline disabled:opacity-50">
-                            {t("adminLessonsDeleteOk")}
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-            {lessonDeleteTarget && (
-              <div className="mt-3 rounded-lg border border-line bg-card p-4" role="alertdialog" aria-modal="true" aria-labelledby="delete-lesson-title" aria-describedby="delete-lesson-body">
-                <h3 id="delete-lesson-title" className="font-semibold text-ink">{t("adminLessonsDeleteTitle")}</h3>
-                <p id="delete-lesson-body" className="mt-2 text-sm text-ink">{t("adminLessonsDeleteConfirm")}</p>
-                <div className="mt-4 flex justify-end gap-2">
-                  <button type="button" onClick={() => setLessonDeleteTarget(null)}
-                    className="rounded-md border border-line px-3 py-2 text-sm font-medium text-ink hover:bg-paper">
-                    {t("adminLessonsDeleteCancel")}
-                  </button>
-                  <button type="button" onClick={() => deleteLessonRow(lessonDeleteTarget)} disabled={lessonDeleteBusy}
-                    className="rounded-md bg-danger px-3 py-2 text-sm font-semibold text-white disabled:opacity-50">
-                    {t("adminLessonsDeleteOk")}
                   </button>
                 </div>
               </div>

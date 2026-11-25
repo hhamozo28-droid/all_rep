@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import DownloadLink from "@/components/DownloadLink";
-import LessonFiles from "@/components/LessonFiles";
 import { useDownloadStatus } from "@/components/DownloadStatusProvider";
 import { formatDate, formatMb } from "@/lib/client";
 import { useI18n } from "@/lib/i18n";
@@ -89,7 +88,6 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
         )}
       </section>
 
-      <LessonFiles code={item.code} />
     </div>
   );
 }
