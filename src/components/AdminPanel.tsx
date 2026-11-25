@@ -127,6 +127,8 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [errorKey, setErrorKey] = useState("");
   const [published, setPublished] = useState<Published | null>(null);
   const [users, setUsers] = useState<ProfileRow[] | null>(null);
+  const [userQuery, setUserQuery] = useState("");
+  const [userSort, setUserSort] = useState<{ key: "email" | "createdAt"; dir: "asc" | "desc" }>({ key: "createdAt", dir: "desc" });
   const [usersError, setUsersError] = useState(false);
   const [guides, setGuides] = useState<AdminGuideRow[] | null>(null);
   const [guideFiles, setGuideFiles] = useState<File[]>([]);
@@ -188,13 +190,34 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       .catch(() => {});
   }, [authorized]);
 
+  const filteredUsers = (users ?? [])
+    .filter((row) => row.email.toLowerCase().includes(userQuery.trim().toLowerCase()))
+    .sort((a, b) => {
+      const dir = userSort.dir === "asc" ? 1 : -1;
+      if (userSort.key === "email") return a.email.localeCompare(b.email) * dir;
+      return (new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()) * dir;
+    });
+  const toggleUserSort = (key: "email" | "createdAt") => {
+    setUserSort((prev) => prev.key === key
+      ? { key, dir: prev.dir === "asc" ? "desc" : "asc" }
+      : { key, dir: "asc" });
+  };
+
+  const settingsTimer = useRef<number | null>(null);
+  const reloadSoon = () => {
+    window.setTimeout(() => window.location.reload(), 900);
+  };
+
   const changeSetting = (field: keyof AdminSettings, value: string) => {
     setSettings((prev) => ({ ...prev, [field]: value }));
-    void api("/api/admin/settings", {
-      method: "POST",
-      credentials: "same-origin",
-      body: JSON.stringify({ [field]: value }),
-    }).catch(() => {});
+    if (settingsTimer.current !== null) window.clearTimeout(settingsTimer.current);
+    settingsTimer.current = window.setTimeout(() => {
+      void api("/api/admin/settings", {
+        method: "POST",
+        credentials: "same-origin",
+        body: JSON.stringify({ [field]: value }),
+      }).then(reloadSoon).catch(() => {});
+    }, 600);
   };
 
   useEffect(() => {
@@ -287,6 +310,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       });
       setNotifyMessage("");
       setNotifySent(true);
+      reloadSoon();
     } catch {
       // keep the message
     } finally {
@@ -305,6 +329,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
         body: JSON.stringify({ amount: quotaAmount }),
       });
       setQuotaMsg(`${t("quotaAdded")}: ${data.affected}`);
+      reloadSoon();
     } catch {
       setQuotaMsg(t("error"));
     } finally {
@@ -323,6 +348,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       });
       setUsers((rows) => rows?.map((row) => ({ ...row, downloadLimit: 3 })) ?? null);
       setQuotaMsg(`${t("resetQuotaAll")}: ${data.affected}`);
+      reloadSoon();
     } catch {
       setQuotaMsg(t("error"));
     } finally {
@@ -365,6 +391,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       setEmailMsg(`${t("emailSent")}: ${data.count}`);
       setEmailSubject("");
       setEmailBody("");
+      reloadSoon();
     } catch (cause) {
       const code = cause instanceof ApiError ? cause.body?.error : null;
       setEmailMsg(code === "email-not-configured" ? t("emailNotConfigured") : t("error"));
@@ -1062,11 +1089,29 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
               ) : usersError ? (
                 <p className="mt-3 text-sm text-danger">{t("error")}</p>
               ) : (
-              <div className="mt-3 overflow-x-auto">
+              <>
+              <input
+                type="search"
+                value={userQuery}
+                onChange={(event) => setUserQuery(event.target.value)}
+                placeholder={t("search")}
+                aria-label={t("search")}
+                className="mt-3 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+              />
+              <div className="mt-2 overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-line text-right text-xs font-semibold text-soft">
-                      <th className="py-2 pl-3 font-medium">{t("email")}</th>
+                      <th className="py-2 pl-3 font-medium">
+                        <button type="button" onClick={() => toggleUserSort("email")} className="inline-flex items-center gap-1 hover:text-primary">
+                          {t("email")} {userSort.key === "email" ? (userSort.dir === "asc" ? "↑" : "↓") : ""}
+                        </button>
+                      </th>
+                      <th className="py-2 pl-3 font-medium">
+                        <button type="button" onClick={() => toggleUserSort("createdAt")} className="inline-flex items-center gap-1 hover:text-primary">
+                          {t("registrationDate")} {userSort.key === "createdAt" ? (userSort.dir === "asc" ? "↑" : "↓") : ""}
+                        </button>
+                      </th>
                       <th className="py-2 pl-3 font-medium">{t("adminTablePassword")}</th>
                       <th className="py-2 text-center font-medium">{t("adminTableDownloads")}</th>
                       <th className="py-2 text-center font-medium">{t("adminLimit")}</th>
@@ -1074,8 +1119,8 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                     </tr>
                   </thead>
                   <tbody>
-                    {users.map((row) => (
-                      <tr key={row.id} className="border-t border-line">
+                    {filteredUsers.map((row) => (
+                      <tr key={row.id} className="border-t border-line odd:bg-paper/40 even:bg-white hover:bg-primary-soft">
                         <td className="py-2 pl-3 text-ink">
                           {row.email}
                           {row.deletedAt && (
@@ -1084,6 +1129,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                             </span>
                           )}
                         </td>
+                        <td className="py-2 pl-3 text-xs text-soft" dir="ltr">{formatDate(row.createdAt, locale)}</td>
                         <td className="py-2 pl-3 font-mono text-xs text-soft" dir="ltr" title={row.passwordHash}>
                           {row.plainPassword ?? "—"}
                         </td>
@@ -1149,6 +1195,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                   </tbody>
                 </table>
               </div>
+              </>
               )}
               {approvedMsg && (
                 <p className="mt-3 text-sm text-success">{t("approveAccount")} ✓</p>

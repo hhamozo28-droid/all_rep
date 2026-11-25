@@ -241,6 +241,7 @@ const ar: Record<string, string> = {
   resetQuotaAll: "تحديد رصيد الجميع بـ 3",
   blockConfirm: "هل تريد حظر هذا الحساب؟",
   unblockConfirm: "هل تريد إلغاء حظر هذا الحساب؟",
+  registrationDate: "تاريخ التسجيل",
 };
 
 const en: Record<string, string> = {
@@ -471,6 +472,7 @@ const en: Record<string, string> = {
   resetQuotaAll: "Set everyone's balance to 3",
   blockConfirm: "Block this account?",
   unblockConfirm: "Unblock this account?",
+  registrationDate: "Registration date",
 };
 
 const fr: Record<string, string> = {
@@ -703,6 +705,7 @@ const fr: Record<string, string> = {
   resetQuotaAll: "Fixer le solde de tous à 3",
   blockConfirm: "Bloquer ce compte ?",
   unblockConfirm: "Débloquer ce compte ?",
+  registrationDate: "Date d'inscription",
 };
 
 const DICTS: Record<Locale, Record<string, string>> = { ar, en, fr };
