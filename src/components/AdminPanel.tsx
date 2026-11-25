@@ -169,6 +169,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [notifyBusy, setNotifyBusy] = useState(false);
   const [notifySent, setNotifySent] = useState(false);
   const [quotaAmount, setQuotaAmount] = useState(3);
+  const [quotaSendEmail, setQuotaSendEmail] = useState(false);
   const [quotaBusy, setQuotaBusy] = useState(false);
   const [quotaMsg, setQuotaMsg] = useState("");
   const [resetQuotaBusy, setResetQuotaBusy] = useState(false);
@@ -326,7 +327,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       const data = await api<{ ok: boolean; affected: number }>("/api/admin/accounts/quota", {
         method: "POST",
         credentials: "same-origin",
-        body: JSON.stringify({ amount: quotaAmount }),
+        body: JSON.stringify({ amount: quotaAmount, sendEmail: quotaSendEmail }),
       });
       setQuotaMsg(`${t("quotaAdded")}: ${data.affected}`);
       reloadSoon();
@@ -363,7 +364,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       await api("/api/admin/accounts/quota-user", {
         method: "POST",
         credentials: "same-origin",
-        body: JSON.stringify({ id, amount: quotaAmount }),
+        body: JSON.stringify({ id, amount: quotaAmount, sendEmail: quotaSendEmail }),
       });
       setUsers((rows) => rows?.map((row) => (
         row.id === id && row.downloadLimit !== null
@@ -984,6 +985,15 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                     onChange={(event) => setQuotaAmount(Math.max(1, Math.min(1000, Number(event.target.value) || 1)))}
                     className="mt-1 w-24 rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
                   />
+                </label>
+                <label className="mt-2 flex items-center gap-2 text-xs text-ink">
+                  <input
+                    type="checkbox"
+                    checked={quotaSendEmail}
+                    onChange={(event) => setQuotaSendEmail(event.target.checked)}
+                    className="h-4 w-4 accent-primary"
+                  />
+                  {t("notifyByEmail")}
                 </label>
                 <div className="mt-2 flex flex-wrap gap-2">
                   <button

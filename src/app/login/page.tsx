@@ -115,7 +115,7 @@ function LoginForm() {
         </span>
         <p className="mt-4 text-sm text-soft" dir="auto">
           {t("noAccount")} {" "}
-          <span className="font-semibold text-primary">{t("contactAdmin")}</span>
+          <Link href="/register" className="font-semibold text-primary hover:underline">{t("register")}</Link>
         </p>
       </section>
       <AdminLink className="mt-4 self-center" />

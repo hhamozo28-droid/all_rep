@@ -8,7 +8,7 @@ import AdminLink from "./AdminLink";
 import IdleLogout from "./IdleLogout";
 import LoginDialog from "./LoginDialog";
 import { isLocale, useI18n, type Locale } from "@/lib/i18n";
-import { IconHome, IconLogout, IconMail, IconTrash } from "./icons";
+import { IconHome, IconLogout, IconMail, IconTrash, IconX } from "./icons";
 import DownloadStatusProvider from "./DownloadStatusProvider";
 
 interface Props {
@@ -28,6 +28,8 @@ export default function AppShell({ children, user }: Props) {
   const [updateReady, setUpdateReady] = useState(false);
   const [notifications, setNotifications] = useState<{ id: string; message: string; read: boolean; createdAt: string }[]>([]);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const [popupNotification, setPopupNotification] = useState<{ id: string; message: string } | null>(null);
+  const [dismissedNotification, setDismissedNotification] = useState<string | null>(null);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [deleteBusy, setDeleteBusy] = useState(false);
   const syncedLanguage = useRef<string | null>(null);
@@ -56,6 +58,20 @@ export default function AppShell({ children, user }: Props) {
   useEffect(() => {
     if (user) void loadNotifications();
   }, [user, loadNotifications]);
+
+  useEffect(() => {
+    const first = notifications.find((item) => !item.read);
+    if (first && first.id !== dismissedNotification) {
+      setPopupNotification({ id: first.id, message: first.message });
+    }
+  }, [notifications, dismissedNotification]);
+
+  const closeNotificationPopup = () => {
+    if (!popupNotification) return;
+    setDismissedNotification(popupNotification.id);
+    setPopupNotification(null);
+    void markNotificationsRead();
+  };
 
   const markNotificationsRead = async () => {
     try {
@@ -140,7 +156,7 @@ export default function AppShell({ children, user }: Props) {
             </div>
             {!user && <AdminLink compact className="mt-0.5" />}
           </div>
-          <div className="flex flex-wrap items-center justify-end gap-2">
+          <div className="flex flex-nowrap items-center justify-end gap-1">
             {user && (
               <div className="relative">
                 <button
@@ -185,10 +201,11 @@ export default function AppShell({ children, user }: Props) {
               <button
                 type="button"
                 onClick={() => setDeleteOpen(true)}
+                aria-label={t("deleteAccount")}
                 className="inline-flex items-center gap-1 rounded-md border border-danger px-2 py-1.5 text-xs font-semibold text-danger"
               >
                 <IconTrash width={13} height={13} aria-hidden="true" />
-                {t("deleteAccount")}
+                <span className="hidden sm:inline">{t("deleteAccount")}</span>
               </button>
             )}
             <LanguageSwitcher compact onLocalChange={changeLanguage} />
@@ -208,10 +225,11 @@ export default function AppShell({ children, user }: Props) {
               <button
                 type="button"
                 onClick={() => void logout()}
+                aria-label={t("logout")}
                 className="inline-flex items-center gap-1 rounded-md border border-line px-2 py-1.5 text-xs text-ink"
               >
                 <IconLogout width={13} height={13} aria-hidden="true" />
-                {t("logout")}
+                <span className="hidden sm:inline">{t("logout")}</span>
               </button>
             )}
           </div>
@@ -278,6 +296,31 @@ export default function AppShell({ children, user }: Props) {
                 {deleteBusy ? t("loading") : t("deleteAccount")}
               </button>
             </div>
+          </div>
+        </div>
+      )}
+      {popupNotification && (
+        <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black/40 p-4" role="alertdialog" aria-modal="true" aria-labelledby="notification-popup-title">
+          <div className="w-full max-w-xs rounded-lg border border-line bg-white p-5 shadow-xl">
+            <div className="flex items-center justify-between gap-2">
+              <h2 id="notification-popup-title" className="text-sm font-bold text-ink">{t("notifications")}</h2>
+              <button
+                type="button"
+                onClick={closeNotificationPopup}
+                aria-label={t("close")}
+                className="rounded-md p-1 text-soft hover:bg-paper hover:text-ink"
+              >
+                <IconX width={14} height={14} aria-hidden="true" />
+              </button>
+            </div>
+            <p className="mt-3 text-sm leading-7 text-ink">{popupNotification.message}</p>
+            <button
+              type="button"
+              onClick={closeNotificationPopup}
+              className="mt-4 w-full rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white"
+            >
+              {t("close")}
+            </button>
           </div>
         </div>
       )}

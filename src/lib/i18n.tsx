@@ -60,7 +60,7 @@ const ar: Record<string, string> = {
   loginBody:
     "سجّل الدخول لعرض التخصصات وروابط التحميل.\n يُسمح بجلسة واحدة لكل حساب. \nإذا لم تجد ملفاتك يمكنك التواصل معنا لتوفيرها على صفحتكم دروسي .",
   registerTitle: "حساب جديد",
-  registerBody: "أنشئ حسابك بالبريد وكلمة المرور للوصول إلى مكتبة التخصصات.",
+  registerBody: "أنشئ حسابك بالبريد وكلمة المرور — تحصل على 3 تحميلات مجانية بعد موافقة المسؤول.",
   noAccount: "ليس لديك حساب؟",
   registrationClosed: "التسجيل مغلق",
   registrationClosedBody:
@@ -242,6 +242,8 @@ const ar: Record<string, string> = {
   blockConfirm: "هل تريد حظر هذا الحساب؟",
   unblockConfirm: "هل تريد إلغاء حظر هذا الحساب؟",
   registrationDate: "تاريخ التسجيل",
+  notifyByEmail: "إرسال رسالة بريدية أيضاً",
+  close: "إغلاق",
 };
 
 const en: Record<string, string> = {
@@ -290,7 +292,7 @@ const en: Record<string, string> = {
   loginBody:
     "Sign in to browse specialties and download links. One active session per account. If you can't find your files, contact us so we can provide them.",
   registerTitle: "New account",
-  registerBody: "Create your account with email and password to access the catalog.",
+  registerBody: "Create your account with email and password — you get 3 free downloads after admin approval.",
   noAccount: "No account yet?",
   registrationClosed: "Registration is closed",
   registrationClosedBody:
@@ -473,6 +475,8 @@ const en: Record<string, string> = {
   blockConfirm: "Block this account?",
   unblockConfirm: "Unblock this account?",
   registrationDate: "Registration date",
+  notifyByEmail: "Also send an email",
+  close: "Close",
 };
 
 const fr: Record<string, string> = {
@@ -522,7 +526,7 @@ const fr: Record<string, string> = {
     "Connectez-vous pour parcourir les spécialités et les liens de téléchargement. Une seule session active par compte. Si vous ne trouvez pas vos fichiers, contactez-nous pour nous les fournir.",
   registerTitle: "Nouveau compte",
   registerBody:
-    "Créez votre compte avec e-mail et mot de passe pour accéder au catalogue.",
+    "Créez votre compte avec e-mail et mot de passe — vous recevez 3 téléchargements gratuits après approbation.",
   noAccount: "Pas encore de compte ?",
   registrationClosed: "Inscription fermée",
   registrationClosedBody:
@@ -706,6 +710,8 @@ const fr: Record<string, string> = {
   blockConfirm: "Bloquer ce compte ?",
   unblockConfirm: "Débloquer ce compte ?",
   registrationDate: "Date d'inscription",
+  notifyByEmail: "Envoyer aussi un e-mail",
+  close: "Fermer",
 };
 
 const DICTS: Record<Locale, Record<string, string>> = { ar, en, fr };

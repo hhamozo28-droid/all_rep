@@ -7,6 +7,7 @@ import { db } from "@/db";
 import { profiles } from "@/db/schema";
 import { ensureWelcomeColumn } from "@/lib/ensureWelcomeColumn";
 import { createNotification } from "@/lib/notifications";
+import { isEmailConfigured, sendUserEmail } from "@/lib/email";
 
 export const dynamic = "force-dynamic";
 
@@ -17,7 +18,7 @@ export async function POST(request: Request) {
   if (!isAuthorizedAdmin(cookie)) {
     return NextResponse.json({ ok: false }, { status: 401, headers: adminResponseHeaders });
   }
-  const body = (await request.json().catch(() => null)) as { id?: string; amount?: number } | null;
+  const body = (await request.json().catch(() => null)) as { id?: string; amount?: number; sendEmail?: boolean } | null;
   const amount = Number(body?.amount);
   if (!body?.id || !Number.isInteger(amount) || amount <= 0 || amount > 1000) {
     return NextResponse.json({ error: "bad-request" }, { status: 400, headers: adminResponseHeaders });
@@ -32,5 +33,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "not-found" }, { status: 404, headers: adminResponseHeaders });
   }
   await createNotification(`تمت إضافة ${amount} تحميلاً إضافياً إلى حسابك`, body.id);
+  if (body.sendEmail && isEmailConfigured()) {
+    const [target] = await db.select({ email: profiles.email }).from(profiles).where(eq(profiles.id, body.id)).limit(1);
+    if (target) {
+      await sendUserEmail(
+        target.email,
+        "زيادة رصيد التحميل — منصة دروسي",
+        `أضيف ${amount} تحميلاً إلى رصيد حسابك على منصة دروسي.`,
+      );
+    }
+  }
   return NextResponse.json({ ok: true }, { headers: adminResponseHeaders });
 }

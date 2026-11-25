@@ -7,6 +7,7 @@ import { db } from "@/db";
 import { profiles } from "@/db/schema";
 import { ensureWelcomeColumn } from "@/lib/ensureWelcomeColumn";
 import { createNotification } from "@/lib/notifications";
+import { isEmailConfigured, sendBroadcastEmail } from "@/lib/email";
 
 export const dynamic = "force-dynamic";
 
@@ -17,7 +18,7 @@ export async function POST(request: Request) {
   if (!isAuthorizedAdmin(cookie)) {
     return NextResponse.json({ ok: false }, { status: 401, headers: adminResponseHeaders });
   }
-  const body = (await request.json().catch(() => null)) as { amount?: number } | null;
+  const body = (await request.json().catch(() => null)) as { amount?: number; sendEmail?: boolean } | null;
   const amount = Number(body?.amount);
   if (!Number.isInteger(amount) || amount <= 0 || amount > 1000) {
     return NextResponse.json({ error: "bad-request" }, { status: 400, headers: adminResponseHeaders });
@@ -29,5 +30,11 @@ export async function POST(request: Request) {
     .where(and(isNull(profiles.deletedAt), sql`${profiles.downloadLimit} IS NOT NULL`))
     .returning({ id: profiles.id });
   await createNotification(`تمت زيادة رصيد التحميل بمقدار ${amount}`);
+  if (body?.sendEmail && isEmailConfigured()) {
+    await sendBroadcastEmail(
+      "زيادة رصيد التحميل — منصة دروسي",
+      `أضيف ${amount} تحميلاً إلى رصيد حسابك على منصة دروسي.`,
+    );
+  }
   return NextResponse.json({ ok: true, affected: updated.length }, { headers: adminResponseHeaders });
 }
