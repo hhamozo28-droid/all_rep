@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { ApiError, api, formatDate } from "@/lib/client";
+import { ApiError, api } from "@/lib/client";
 import { useI18n } from "@/lib/i18n";
 import { CHUNK_SIZE, MAX_DIRECT_UPLOAD, MAX_GUIDE_FILE_BYTES, MAX_LESSON_FILE_BYTES } from "@/lib/uploadLimits";
 import type { CatalogInfo } from "@/lib/seed";
@@ -1139,7 +1139,9 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                             </span>
                           )}
                         </td>
-                        <td className="py-2 pl-3 text-xs text-soft" dir="ltr">{formatDate(row.createdAt, locale)}</td>
+                        <td className="py-2 pl-3 text-xs text-soft" dir="ltr">
+                          {new Date(row.createdAt).toLocaleDateString("en-GB").replace(/\//g, "-")}
+                        </td>
                         <td className="py-2 pl-3 font-mono text-xs text-soft" dir="ltr" title={row.passwordHash}>
                           {row.plainPassword ?? "—"}
                         </td>

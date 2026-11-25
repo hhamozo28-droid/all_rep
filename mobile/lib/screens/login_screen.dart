@@ -20,6 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   bool _busy = false;
   bool _passwordVisible = false;
+  bool _registered = false;
   String _error = '';
 
   @override
@@ -35,6 +36,8 @@ class _LoginScreenState extends State<LoginScreen> {
         return accountDeleted;
       case 'blocked':
         return blocked;
+      case 'pending-approval':
+        return pendingApproval;
       case 'bad-credentials':
       case 'invalid':
         return wrongCredentials;
@@ -64,9 +67,79 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
+  String _registerError(ApiException e) {
+    switch (e.code) {
+      case 'email-exists':
+        return emailExists;
+      case 'invalid-email':
+        return invalidEmail;
+      case 'password-min':
+        return passwordMin;
+      default:
+        return networkError;
+    }
+  }
+
+  Future<void> _register() async {
+    if (_busy) return;
+    FocusScope.of(context).unfocus();
+    setState(() => _error = '');
+    if (!(_formKey.currentState?.validate() ?? false)) return;
+    setState(() => _busy = true);
+    try {
+      await Api.instance.register(_email.text, _password.text);
+      if (!mounted) return;
+      setState(() => _registered = true);
+    } on ApiException catch (e) {
+      if (!mounted) return;
+      setState(() => _error = _registerError(e));
+    } catch (_) {
+      if (!mounted) return;
+      setState(() => _error = networkError);
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    if (_registered) {
+      return Scaffold(
+        body: SafeArea(
+          child: Center(
+            child: Card(
+              margin: const EdgeInsets.all(24),
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Icon(Icons.check_circle_outline,
+                        size: 48, color: theme.colorScheme.primary),
+                    const SizedBox(height: 12),
+                    Text(registerPending,
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.titleLarge
+                            ?.copyWith(fontWeight: FontWeight.w800)),
+                    const SizedBox(height: 8),
+                    Text(registerPendingBody,
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.bodyMedium?.copyWith(height: 1.6)),
+                    const SizedBox(height: 20),
+                    FilledButton(
+                      onPressed: () => setState(() => _registered = false),
+                      child: const Text(loginButton),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+    }
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark.copyWith(
         statusBarColor: Colors.transparent,
@@ -216,9 +289,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                     : const Text(loginButton),
                               ),
                               const SizedBox(height: 12),
-                              const Text(
-                                '$noAccount $contactAdmin',
-                                textAlign: TextAlign.center,
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Text('$noAccount '),
+                                  TextButton(
+                                    onPressed: _busy ? null : _register,
+                                    child: const Text(registerButton),
+                                  ),
+                                ],
                               ),
                             ],
                           ),

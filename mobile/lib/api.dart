@@ -82,6 +82,20 @@ class Guide {
   final int downloads;
 }
 
+class AppNotification {
+  AppNotification({required this.id, required this.message, required this.read});
+
+  factory AppNotification.fromJson(Map<String, dynamic> json) => AppNotification(
+        id: json['id'] as String? ?? '',
+        message: json['message'] as String? ?? '',
+        read: json['read'] as bool? ?? false,
+      );
+
+  final String id;
+  final String message;
+  final bool read;
+}
+
 class DownloadStatus {
   DownloadStatus({required this.downloads, required this.limit});
 
@@ -214,9 +228,9 @@ class Api {
     await _saveCookie(response);
   }
 
-  /// Creates a new account using the same endpoint as the website and keeps
-  /// the returned session cookie so the app opens straight into the catalog.
-  Future<void> register(String email, String password) async {
+  /// Creates a pending account. No session is issued: the admin must approve
+  /// it first, then the account starts with 3 free downloads.
+  Future<bool> register(String email, String password) async {
     await _loadCookie();
     final deviceId = await _loadDeviceId();
     final response = await _client.post(
@@ -232,7 +246,31 @@ class Api {
     if (response.statusCode != 200) {
       throw ApiException(response.statusCode, _code(response));
     }
-    await _saveCookie(response);
+    return true;
+  }
+
+  Future<List<AppNotification>> notifications() async {
+    await _loadCookie();
+    final response = await _client.get(
+      Uri.parse('$apiBase/api/notifications'),
+      headers: _headers,
+    );
+    if (response.statusCode != 200) {
+      throw ApiException(response.statusCode, _code(response));
+    }
+    final data = jsonDecode(response.body) as Map<String, dynamic>;
+    return ((data['notifications'] as List?) ?? const [])
+        .whereType<Map<String, dynamic>>()
+        .map(AppNotification.fromJson)
+        .toList();
+  }
+
+  Future<void> markNotificationsRead() async {
+    await _loadCookie();
+    await _client.post(
+      Uri.parse('$apiBase/api/notifications/read'),
+      headers: _headers,
+    );
   }
 
   Future<bool> hasSession() async {

@@ -1,6 +1,6 @@
 /// Arabic UI strings for the mobile app (v1 is Arabic-first, like the web).
 const appName = 'منصة دروسي';
-const tagline = 'التخصصات والدليل البيداغوجي للمتربص';
+const tagline = 'رفيقكم الدائم ومساعدكم الذكي';
 
 const loginTitle = 'أهلا بك زميلي';
 const loginBody = 'سجّل الدخول لعرض التخصصات وروابط التحميل.\n'
@@ -11,6 +11,9 @@ const loginButton = 'تسجيل الدخول';
 
 const noAccount = 'ليس لديك حساب؟';
 const contactAdmin = 'تواصل مع مسؤول المنصة لإنشاء حسابك';
+const registerButton = 'إنشاء حساب';
+const registerPending = 'تم إرسال طلب التسجيل';
+const registerPendingBody = 'سيتم تفعيل حسابك بعد موافقة المسؤول.\nتحصل على 3 تحميلات مجانية.';
 const haveAccount = 'لديك حساب بالفعل؟';
 const emailExists = 'هذا البريد الإلكتروني مسجّل مسبقًا';
 const invalidEmail = 'أدخل بريدًا إلكترونيًا صالحًا';
@@ -50,6 +53,12 @@ const welcomeTitle = 'رسالة من المسؤول';
 const accountDeleted = 'هذا الحساب محذوف ولا يمكن تسجيل الدخول به';
 const wrongCredentials = 'البريد الإلكتروني أو كلمة المرور غير صحيحة';
 const blocked = 'الحساب محجوب';
+const pendingApproval = 'حسابك بانتظار موافقة المسؤول';
+
+const notifications = 'الإشعارات';
+const noNotifications = 'لا توجد إشعارات';
+const markAllRead = 'تحديد الكل كمقروء';
+const close = 'إغلاق';
 
 const modulesLabel = 'وحدات';
 const lessonsLabel = 'دروس';
@@ -57,5 +66,5 @@ const filesLabel = 'ملفات';
 const sheetsLink = 'مخططات الدروس';
 const notesLink = 'مذكرات الدروس';
 
-const developer = 'اسم مطور البرنامج : حمزة شعيب';
+const developer = '';
 const footer = 'حقوق التصميم و النشر والمشاركة للأستاذ حمزة شعيب';

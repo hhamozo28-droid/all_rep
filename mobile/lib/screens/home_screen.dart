@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen>
     Api.instance.onUnauthorized = _handleUnauthorized;
     DeepLinkService.instance.register(_consumeDeepLink);
     _refreshStatus();
-    _maybeShowWelcome();
+    _maybeShowWelcome().then((_) => _maybeShowNotification());
   }
 
   @override
@@ -80,6 +80,33 @@ class _HomeScreenState extends State<HomeScreen>
       await Api.instance.markWelcomeSeen();
     } catch (_) {
       // A welcome message is never worth blocking the app for.
+    }
+  }
+
+  Future<void> _maybeShowNotification() async {
+    try {
+      final items = await Api.instance.notifications();
+      for (final item in items) {
+        if (item.read) continue;
+        if (!mounted) return;
+        await showDialog<void>(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text(notifications),
+            content: Text(item.message, style: const TextStyle(height: 1.6)),
+            actions: [
+              FilledButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text(close),
+              ),
+            ],
+          ),
+        );
+        await Api.instance.markNotificationsRead();
+        break;
+      }
+    } catch (_) {
+      // Notifications must never block the catalog.
     }
   }
 
