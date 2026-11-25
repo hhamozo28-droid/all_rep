@@ -84,7 +84,8 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [users, setUsers] = useState<ProfileRow[] | null>(null);
   const [usersError, setUsersError] = useState(false);
   const [guides, setGuides] = useState<AdminGuideRow[] | null>(null);
-  const [guideFile, setGuideFile] = useState<File | null>(null);
+  const [guideFiles, setGuideFiles] = useState<File[]>([]);
+  const [guideProgress, setGuideProgress] = useState(0);
   const [uploadKind, setUploadKind] = useState<"links" | "guide">("links");
   const [guideUploading, setGuideUploading] = useState(false);
   const [guideAdded, setGuideAdded] = useState(false);
@@ -360,40 +361,53 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   }
 
   async function uploadGuide() {
-    const selected = guideFile;
-    if (!selected || guideUploading) return;
+    const files = guideFiles;
+    if (files.length === 0 || guideUploading) return;
     setGuideUploading(true);
+    setGuideProgress(0);
     setGuideError("");
     setGuideAdded(false);
     setGuideDeleted(false);
+    const units = files.map((file) => Math.max(1, Math.ceil(file.size / CHUNK_SIZE)));
+    const totalUnits = units.reduce((sum, value) => sum + value, 0);
+    let doneUnits = 0;
+    const bump = () => {
+      doneUnits += 1;
+      setGuideProgress(Math.round((doneUnits / totalUnits) * 100));
+    };
     try {
-      if (selected.size <= MAX_DIRECT_UPLOAD) {
-        const form = new FormData();
-        form.set("file", selected);
-        await api("/api/admin/guides/upload", {
-          method: "POST",
-          credentials: "same-origin",
-          body: form,
-        });
-      } else {
-        // Bigger PDFs go through small staging parts (< platform body limit),
-        // then the server reassembles them and uploads to GitHub.
-        const sessionId = crypto.randomUUID();
-        for (let index = 0, offset = 0; offset < selected.size; offset += CHUNK_SIZE, index += 1) {
-          const slice = selected.slice(offset, Math.min(offset + CHUNK_SIZE, selected.size));
-          await api(`/api/admin/guides/upload/chunk?sessionId=${sessionId}&index=${index}`, {
+      for (const selected of files) {
+        if (selected.size <= MAX_DIRECT_UPLOAD) {
+          const form = new FormData();
+          form.set("file", selected);
+          await api("/api/admin/guides/upload", {
             method: "POST",
             credentials: "same-origin",
-            body: slice,
+            body: form,
+          });
+          bump();
+        } else {
+          // Big files go through small staging parts (< platform body limit),
+          // then the server reassembles them and uploads to GitHub.
+          const sessionId = crypto.randomUUID();
+          for (let index = 0, offset = 0; offset < selected.size; offset += CHUNK_SIZE, index += 1) {
+            const slice = selected.slice(offset, Math.min(offset + CHUNK_SIZE, selected.size));
+            await api(`/api/admin/guides/upload/chunk?sessionId=${sessionId}&index=${index}`, {
+              method: "POST",
+              credentials: "same-origin",
+              body: slice,
+            });
+            bump();
+          }
+          await api("/api/admin/guides/upload/complete", {
+            method: "POST",
+            credentials: "same-origin",
+            body: JSON.stringify({ sessionId, fileName: selected.name, size: selected.size }),
           });
         }
-        await api("/api/admin/guides/upload/complete", {
-          method: "POST",
-          credentials: "same-origin",
-          body: JSON.stringify({ sessionId, fileName: selected.name, size: selected.size }),
-        });
       }
-      setGuideFile(null);
+      setGuideFiles([]);
+      setGuideProgress(100);
       setGuideAdded(true);
       void refreshGuides();
     } catch {
@@ -618,7 +632,8 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
     setPublished(null);
     setErrorKey("");
     setFile(null);
-    setGuideFile(null);
+    setGuideFiles([]);
+    setGuideProgress(0);
     setGuideError("");
     setGuideAdded(false);
     setGuideDeleted(false);
@@ -746,24 +761,40 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
           <section className="rounded-lg border border-line bg-card p-4">
             <h2 className="font-semibold text-ink"><label htmlFor="guide-file">{t("adminGuidesSection")}</label></h2>
             <form onSubmit={(event) => { event.preventDefault(); void uploadGuide(); }} className="mt-3 flex items-center gap-2">
-              <input id="guide-file" name="file" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required disabled={guideUploading}
+              <input id="guide-file" name="file" type="file" multiple accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required disabled={guideUploading}
                 onChange={(event) => {
-                  const selected = event.target.files?.[0] || null;
-                  const invalid = selected
-                    ? (!/\.(pdf|docx)$/i.test(selected.name)
-                      ? "badPdfFile"
-                      : selected.size > MAX_GUIDE_FILE_BYTES
-                        ? "fileTooBig"
-                        : "")
-                    : "";
-                  setGuideError(invalid);
-                  setGuideFile(invalid ? null : selected);
+                  const picked = Array.from(event.target.files ?? []);
+                  const invalid = picked.find((file) => !/\.(pdf|docx)$/i.test(file.name) || file.size > MAX_GUIDE_FILE_BYTES);
+                  if (invalid) {
+                    setGuideError(!/\.(pdf|docx)$/i.test(invalid.name) ? "badPdfFile" : "fileTooBig");
+                    setGuideFiles([]);
+                    return;
+                  }
+                  setGuideError("");
+                  setGuideFiles(picked);
                 }}
                 className="block min-w-0 flex-1 text-sm text-ink file:me-3 file:rounded-md file:border-0 file:bg-paper file:px-3 file:py-2 file:font-medium" />
-              <button type="submit" disabled={!guideFile || guideUploading} className={`shrink-0 ${buttonClass}`}>
+              <button type="submit" disabled={guideFiles.length === 0 || guideUploading} className={`shrink-0 ${buttonClass}`}>
                 {guideUploading ? t("uploading") : t("upload")}
               </button>
             </form>
+            {guideUploading && (
+              <div
+                className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-line"
+                role="progressbar"
+                aria-valuenow={guideProgress}
+                aria-valuemin={0}
+                aria-valuemax={100}
+              >
+                <div
+                  className="h-full rounded-full bg-success transition-all duration-200"
+                  style={{ width: `${guideProgress}%` }}
+                />
+              </div>
+            )}
+            {guideFiles.length > 0 && !guideUploading && (
+              <p className="mt-2 text-xs text-soft">{guideFiles.length} {t("files")}</p>
+            )}
             {guideError && <p role="alert" className="mt-2 text-sm text-danger">{t(guideError)}</p>}
             {guideAdded && !guideError && <p className="text-sm text-success">{t("uploadSuccess")}</p>}
             {guideDeleted && <p className="mt-2 text-sm text-success">{t("adminGuidesDeleted")}</p>}
