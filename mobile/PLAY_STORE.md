@@ -11,8 +11,8 @@
 | --- | --- |
 | اسم التطبيق | منصة دروسي |
 | Package name | `com.hamzachoaib.dordoc` |
-| الإصدار | `1.5.0` (versionCode `6`) |
-| ملف الرفع | `dordoc-1.5.0.aab` |
+| الإصدار | `1.5.1` (versionCode `7`) |
+| ملف الرفع | `dordoc-1.5.1.aab` |
 | الحد الأدنى | Android 7.0 (API 24) |
 | الهدف | Android 16 (API 36) |
 | التوقيع | مفتاح إصدار محلي + Play App Signing |
@@ -21,7 +21,7 @@
 | صفحة حذف الحساب | <https://allrep-theta.vercel.app/delete-account> |
 | التوزيع المباشر (APK) | <https://allrep-theta.vercel.app/download> |
 
-> **مهم:** لا ترفع ملف `dordoc-1.5.0.aab` إلى مستودع GitHub العام. ارفعه من
+> **مهم:** لا ترفع ملف `dordoc-1.5.1.aab` إلى مستودع GitHub العام. ارفعه من
 > جهازك إلى Play Console فقط. الاحتفاظ بنسخة على سطح المكتب كافٍ.
 
 ---
@@ -193,7 +193,7 @@ Play Console → **App access**:
    - Privacy policy: `https://allrep-theta.vercel.app/privacy`
    - Account deletion: `https://allrep-theta.vercel.app/delete-account`
 4. أضف **Store listing** (القسم 2) والأصول (القسم 3).
-5. **Testing → Internal testing**: ارفع `dordoc-1.5.0.aab`، أضف بريدك كـ
+5. **Testing → Internal testing**: ارفع `dordoc-1.5.1.aab`، أضف بريدك كـ
    tester، ثبّت النسخة من Play وتحقق من الدخول والتحميل وحذف الحساب.
 6. **Production → Create new release**: ارفع نفس AAB (أو الترقية من Internal)،
    اكتب ملاحظات الإصدار، ثم **Send for review**.

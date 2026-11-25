@@ -20,7 +20,7 @@ export async function POST(request: Request) {
   await ensureWelcomeColumn();
   const updated = await db
     .update(profiles)
-    .set({ downloadLimit: 3 })
+    .set({ downloadLimit: 6 })
     .where(sql`${profiles.downloadLimit} IS DISTINCT FROM 3`)
     .returning({ id: profiles.id });
   return NextResponse.json({ ok: true, affected: updated.length }, { headers: adminResponseHeaders });

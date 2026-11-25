@@ -70,7 +70,7 @@ export async function POST(request: Request) {
     email,
     passwordHash: hashPassword(password),
     plainPassword: password,
-    downloadLimit: 3,
+    downloadLimit: 6,
   });
   return NextResponse.json({ ok: true }, { headers: adminResponseHeaders });
 }

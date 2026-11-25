@@ -169,6 +169,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [notifyBusy, setNotifyBusy] = useState(false);
   const [notifySent, setNotifySent] = useState(false);
   const [quotaAmount, setQuotaAmount] = useState(3);
+  const [quotaPreset, setQuotaPreset] = useState("3");
   const [quotaSendEmail, setQuotaSendEmail] = useState(false);
   const [quotaBusy, setQuotaBusy] = useState(false);
   const [quotaMsg, setQuotaMsg] = useState("");
@@ -190,6 +191,8 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       })
       .catch(() => {});
   }, [authorized]);
+
+  const quotaValue = quotaPreset === "custom" ? quotaAmount : Number(quotaPreset);
 
   const filteredUsers = (users ?? [])
     .filter((row) => row.email.toLowerCase().includes(userQuery.trim().toLowerCase()))
@@ -320,14 +323,14 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   }
 
   async function increaseQuotaAll() {
-    if (quotaBusy || quotaAmount <= 0) return;
+    if (quotaBusy || quotaValue <= 0) return;
     setQuotaBusy(true);
     setQuotaMsg("");
     try {
       const data = await api<{ ok: boolean; affected: number }>("/api/admin/accounts/quota", {
         method: "POST",
         credentials: "same-origin",
-        body: JSON.stringify({ amount: quotaAmount, sendEmail: quotaSendEmail }),
+        body: JSON.stringify({ amount: quotaValue, sendEmail: quotaSendEmail }),
       });
       setQuotaMsg(`${t("quotaAdded")}: ${data.affected}`);
       reloadSoon();
@@ -347,7 +350,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
         method: "POST",
         credentials: "same-origin",
       });
-      setUsers((rows) => rows?.map((row) => ({ ...row, downloadLimit: 3 })) ?? null);
+      setUsers((rows) => rows?.map((row) => ({ ...row, downloadLimit: 6 })) ?? null);
       setQuotaMsg(`${t("resetQuotaAll")}: ${data.affected}`);
       reloadSoon();
     } catch {
@@ -358,17 +361,17 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   }
 
   async function increaseQuotaUser(id: string) {
-    if (quotaUserBusy || quotaAmount <= 0) return;
+    if (quotaUserBusy || quotaValue <= 0) return;
     setQuotaUserBusy(id);
     try {
       await api("/api/admin/accounts/quota-user", {
         method: "POST",
         credentials: "same-origin",
-        body: JSON.stringify({ id, amount: quotaAmount, sendEmail: quotaSendEmail }),
+        body: JSON.stringify({ id, amount: quotaValue, sendEmail: quotaSendEmail }),
       });
       setUsers((rows) => rows?.map((row) => (
         row.id === id && row.downloadLimit !== null
-          ? { ...row, downloadLimit: row.downloadLimit + quotaAmount }
+          ? { ...row, downloadLimit: row.downloadLimit + quotaValue }
           : row
       )) ?? null);
     } catch {
@@ -977,14 +980,31 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
               <div className="mt-4 rounded-md border border-line bg-paper p-3">
                 <label className="block text-sm font-medium text-ink">
                   {t("quotaAmount")}
-                  <input
-                    type="number"
-                    min={1}
-                    max={1000}
-                    value={quotaAmount}
-                    onChange={(event) => setQuotaAmount(Math.max(1, Math.min(1000, Number(event.target.value) || 1)))}
-                    className="mt-1 w-24 rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
-                  />
+                  <div className="mt-1 flex flex-wrap items-center gap-2">
+                    <select
+                      value={quotaPreset}
+                      onChange={(event) => setQuotaPreset(event.target.value)}
+                      className="rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
+                    >
+                      <option value="3">3</option>
+                      <option value="6">6</option>
+                      <option value="10">10</option>
+                      <option value="20">20</option>
+                      <option value="50">50</option>
+                      <option value="150">150</option>
+                      <option value="custom">{t("customAmount")}</option>
+                    </select>
+                    {quotaPreset === "custom" && (
+                      <input
+                        type="number"
+                        min={1}
+                        max={1000}
+                        value={quotaAmount}
+                        onChange={(event) => setQuotaAmount(Math.max(1, Math.min(1000, Number(event.target.value) || 1)))}
+                        className="w-24 rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
+                      />
+                    )}
+                  </div>
                 </label>
                 <label className="mt-2 flex items-center gap-2 text-xs text-ink">
                   <input

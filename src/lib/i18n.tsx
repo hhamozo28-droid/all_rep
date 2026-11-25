@@ -60,7 +60,7 @@ const ar: Record<string, string> = {
   loginBody:
     "سجّل الدخول لعرض التخصصات وروابط التحميل.\n يُسمح بجلسة واحدة لكل حساب. \nإذا لم تجد ملفاتك يمكنك التواصل معنا لتوفيرها على صفحتكم دروسي .",
   registerTitle: "حساب جديد",
-  registerBody: "أنشئ حسابك بالبريد وكلمة المرور — تحصل على 3 تحميلات مجانية بعد موافقة المسؤول.",
+  registerBody: "أنشئ حسابك بالبريد وكلمة المرور — تحصل على 6 تحميلات مجانية بعد موافقة المسؤول.",
   noAccount: "ليس لديك حساب؟",
   registrationClosed: "التسجيل مغلق",
   registrationClosedBody:
@@ -238,12 +238,13 @@ const ar: Record<string, string> = {
   sendEmail: "إرسال البريد",
   emailSent: "تم إرسال البريد",
   emailNotConfigured: "بريد المنصة غير مهيأ — أضف إعدادات SMTP في Vercel",
-  resetQuotaAll: "تحديد رصيد الجميع بـ 3",
+  resetQuotaAll: "تحديد رصيد الجميع بـ 6",
   blockConfirm: "هل تريد حظر هذا الحساب؟",
   unblockConfirm: "هل تريد إلغاء حظر هذا الحساب؟",
   registrationDate: "تاريخ التسجيل",
   notifyByEmail: "إرسال رسالة بريدية أيضاً",
   close: "إغلاق",
+  customAmount: "عدد مخصص",
 };
 
 const en: Record<string, string> = {
@@ -292,7 +293,7 @@ const en: Record<string, string> = {
   loginBody:
     "Sign in to browse specialties and download links. One active session per account. If you can't find your files, contact us so we can provide them.",
   registerTitle: "New account",
-  registerBody: "Create your account with email and password — you get 3 free downloads after admin approval.",
+  registerBody: "Create your account with email and password — you get 6 free downloads after admin approval.",
   noAccount: "No account yet?",
   registrationClosed: "Registration is closed",
   registrationClosedBody:
@@ -471,12 +472,13 @@ const en: Record<string, string> = {
   sendEmail: "Send email",
   emailSent: "Email sent",
   emailNotConfigured: "Platform email is not configured — add SMTP settings in Vercel",
-  resetQuotaAll: "Set everyone's balance to 3",
+  resetQuotaAll: "Set everyone's balance to 6",
   blockConfirm: "Block this account?",
   unblockConfirm: "Unblock this account?",
   registrationDate: "Registration date",
   notifyByEmail: "Also send an email",
   close: "Close",
+  customAmount: "Custom amount",
 };
 
 const fr: Record<string, string> = {
@@ -526,7 +528,7 @@ const fr: Record<string, string> = {
     "Connectez-vous pour parcourir les spécialités et les liens de téléchargement. Une seule session active par compte. Si vous ne trouvez pas vos fichiers, contactez-nous pour nous les fournir.",
   registerTitle: "Nouveau compte",
   registerBody:
-    "Créez votre compte avec e-mail et mot de passe — vous recevez 3 téléchargements gratuits après approbation.",
+    "Créez votre compte avec e-mail et mot de passe — vous recevez 6 téléchargements gratuits après approbation.",
   noAccount: "Pas encore de compte ?",
   registrationClosed: "Inscription fermée",
   registrationClosedBody:
@@ -706,12 +708,13 @@ const fr: Record<string, string> = {
   sendEmail: "Envoyer l'e-mail",
   emailSent: "E-mail envoyé",
   emailNotConfigured: "L'e-mail de la plateforme n'est pas configuré — ajoutez SMTP dans Vercel",
-  resetQuotaAll: "Fixer le solde de tous à 3",
+  resetQuotaAll: "Fixer le solde de tous à 6",
   blockConfirm: "Bloquer ce compte ?",
   unblockConfirm: "Débloquer ce compte ?",
   registrationDate: "Date d'inscription",
   notifyByEmail: "Envoyer aussi un e-mail",
   close: "Fermer",
+  customAmount: "Montant personnalisé",
 };
 
 const DICTS: Record<Locale, Record<string, string>> = { ar, en, fr };

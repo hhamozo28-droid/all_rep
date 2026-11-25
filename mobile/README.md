@@ -116,11 +116,11 @@ flutter build appbundle --release
 
 ## 4.1 ملفات جاهزة على هذا الجهاز
 
-- **APK موقّع** (للتوزيع المباشر): `public/downloads/dordoc-1.5.0.apk`
+- **APK موقّع** (للتوزيع المباشر): `public/downloads/dordoc-1.5.1.apk`
   ويُخدم عبر الصفحة `https://allrep-theta.vercel.app/download`.
 - **AAB موقّع** (لـ Google Play):
   `build/app/outputs/bundle/release/app-release.aab`
-  ونسخة جاهزة على سطح المكتب: `dordoc-1.5.0.aab`.
+  ونسخة جاهزة على سطح المكتب: `dordoc-1.5.1.aab`.
 - **مفتاح التوقيع**: `%USERPROFILE%\dordoc-keys\dordoc-release.jks`.
 - **كلمات المفتاح**: `android/key.properties` (مستثنى من git — لا ترفعه).
 - **بصمة الشهادة SHA-256**:

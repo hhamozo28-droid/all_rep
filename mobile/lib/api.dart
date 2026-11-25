@@ -229,7 +229,7 @@ class Api {
   }
 
   /// Creates a pending account. No session is issued: the admin must approve
-  /// it first, then the account starts with 3 free downloads.
+  /// it first, then the account starts with 6 free downloads.
   Future<bool> register(String email, String password) async {
     await _loadCookie();
     final deviceId = await _loadDeviceId();
