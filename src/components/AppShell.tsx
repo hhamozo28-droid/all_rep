@@ -24,6 +24,7 @@ export default function AppShell({ children, user }: Props) {
   const router = useRouter();
   const { t, locale, setLocale } = useI18n();
   const [installPrompt, setInstallPrompt] = useState<InstallPromptEvent | null>(null);
+  const [updateReady, setUpdateReady] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [deleteBusy, setDeleteBusy] = useState(false);
   const syncedLanguage = useRef<string | null>(null);
@@ -45,11 +46,26 @@ export default function AppShell({ children, user }: Props) {
       event.preventDefault();
       setInstallPrompt(event as InstallPromptEvent);
     };
+    const onInstalled = () => setInstallPrompt(null);
     window.addEventListener("beforeinstallprompt", onInstall);
+    window.addEventListener("appinstalled", onInstalled);
     if ("serviceWorker" in navigator && process.env.NODE_ENV === "production") {
-      navigator.serviceWorker.register("/sw.js").catch(() => {});
+      navigator.serviceWorker.register("/sw.js").then((registration) => {
+        registration.addEventListener("updatefound", () => {
+          const worker = registration.installing;
+          if (!worker) return;
+          worker.addEventListener("statechange", () => {
+            if (worker.state === "installed" && navigator.serviceWorker.controller) {
+              setUpdateReady(true);
+            }
+          });
+        });
+      }).catch(() => {});
     }
-    return () => window.removeEventListener("beforeinstallprompt", onInstall);
+    return () => {
+      window.removeEventListener("beforeinstallprompt", onInstall);
+      window.removeEventListener("appinstalled", onInstalled);
+    };
   }, []);
 
   const changeLanguage = (next: Locale) => {
@@ -148,6 +164,27 @@ export default function AppShell({ children, user }: Props) {
         </div>
         <div>{t("footerByline")}</div>
       </footer>
+      {updateReady && (
+        <div className="fixed inset-x-0 bottom-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-sm rounded-lg border border-line bg-white p-4 shadow-lg" role="status">
+          <p className="text-sm font-semibold text-ink">{t("newVersionAvailable")}</p>
+          <div className="mt-3 flex justify-end gap-2">
+            <button
+              type="button"
+              onClick={() => setUpdateReady(false)}
+              className="rounded-md border border-line px-3 py-2 text-sm text-ink"
+            >
+              {t("adminDeleteCancel")}
+            </button>
+            <button
+              type="button"
+              onClick={() => window.location.reload()}
+              className="rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white"
+            >
+              {t("reload")}
+            </button>
+          </div>
+        </div>
+      )}
       {deleteOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" role="dialog" aria-modal="true" aria-labelledby="delete-account-title">
           <div className="w-full max-w-sm rounded-lg border border-line bg-white p-5">
