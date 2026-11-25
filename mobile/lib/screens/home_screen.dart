@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -124,6 +125,17 @@ class _HomeScreenState extends State<HomeScreen>
       ..showSnackBar(SnackBar(content: Text(message)));
   }
 
+  /// A specialty link can resolve to a share page (gofile) instead of a file.
+  /// Open it in the browser so the user can download there.
+  Future<void> _openExternal(String url) async {
+    final uri = Uri.tryParse(url);
+    if (uri == null || !(await canLaunchUrl(uri))) {
+      if (mounted) _snack(saveFailed);
+      return;
+    }
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+
   /// Opens a shared deep link inside the app with the signed-in session.
   Future<void> _consumeDeepLink(String token) async {
     try {
@@ -137,6 +149,9 @@ class _HomeScreenState extends State<HomeScreen>
       if (result.type != ResultType.done) {
         _snack('$saveFailed: ${result.message}');
       }
+      await _refreshStatus();
+    } on ExternalLinkException catch (e) {
+      await _openExternal(e.url);
       await _refreshStatus();
     } on ApiException catch (e) {
       if (e.status == 401) {
@@ -390,6 +405,15 @@ class _SpecialtiesTabState extends State<_SpecialtiesTab> {
       ..showSnackBar(SnackBar(content: Text(message)));
   }
 
+  Future<void> _openExternal(String url) async {
+    final uri = Uri.tryParse(url);
+    if (uri == null || !(await canLaunchUrl(uri))) {
+      if (mounted) _snack(saveFailed);
+      return;
+    }
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+
   Future<void> _openLink(Specialty item, int linkIndex) async {
     if (_busy) return;
     setState(() => _busy = true);
@@ -406,6 +430,8 @@ class _SpecialtiesTabState extends State<_SpecialtiesTab> {
       if (result.type != ResultType.done) {
         _snack('$saveFailed: ${result.message}');
       }
+    } on ExternalLinkException catch (e) {
+      await _openExternal(e.url);
     } on ApiException catch (e) {
       if (e.status == 403) {
         widget.onLimit();
@@ -587,6 +613,15 @@ class _GuidesTabState extends State<_GuidesTab> {
       ..showSnackBar(SnackBar(content: Text(message)));
   }
 
+  Future<void> _openExternal(String url) async {
+    final uri = Uri.tryParse(url);
+    if (uri == null || !(await canLaunchUrl(uri))) {
+      if (mounted) _snack(saveFailed);
+      return;
+    }
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+
   String _fileNameFor(Guide guide) {
     var stem = guide.fileName.trim();
     if (stem.toLowerCase().endsWith('.pdf')) {
@@ -621,6 +656,8 @@ class _GuidesTabState extends State<_GuidesTab> {
       } else {
         _snack('$saveFailed: ${result.message}');
       }
+    } on ExternalLinkException catch (e) {
+      await _openExternal(e.url);
     } on ApiException catch (e) {
       if (!mounted) return;
       if (e.status == 403) {

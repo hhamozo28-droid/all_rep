@@ -23,6 +23,18 @@ class ApiException implements Exception {
   String toString() => 'ApiException($status, $code)';
 }
 
+/// The grant resolved to an external web page (e.g. a gofile share page), not
+/// a downloadable file. The app must hand it to the browser instead of saving
+/// the HTML response as if it were a document.
+class ExternalLinkException implements Exception {
+  ExternalLinkException(this.url);
+
+  final String url;
+
+  @override
+  String toString() => 'ExternalLinkException($url)';
+}
+
 class Specialty {
   Specialty({
     required this.id,
@@ -435,6 +447,12 @@ class Api {
       if (response.statusCode != 200) {
         final body = await _readErrorBody(response);
         throw ApiException(response.statusCode, _errorCode(body));
+      }
+
+      final contentType = response.headers.contentType?.mimeType ?? '';
+      if ((contentType.contains('html') || contentType.isEmpty) && finalUri != null) {
+        await response.drain<void>();
+        throw ExternalLinkException(finalUri.toString());
       }
 
       final name = _safeFileName(
