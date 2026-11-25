@@ -6,6 +6,7 @@ import { adminResponseHeaders, rejectCrossOriginWrite } from "@/lib/admin-http";
 import { db } from "@/db";
 import { lessonUploadChunks } from "@/db/schema";
 import { persistLessonFile } from "@/lib/lessonAdmin";
+import { validateLessonFile } from "@/lib/lessonStorage";
 import { ensureLessonUploadChunksTable } from "@/lib/specialtyStats";
 import { MAX_LESSON_FILE_BYTES } from "@/lib/uploadLimits";
 
@@ -55,6 +56,10 @@ export async function POST(request: Request) {
   if (buffer.length > MAX_LESSON_FILE_BYTES) {
     await clearSession();
     return fail("file-too-big", 413);
+  }
+  if (!validateLessonFile(fileName, buffer)) {
+    await clearSession();
+    return fail("bad-file", 400);
   }
 
   try {
