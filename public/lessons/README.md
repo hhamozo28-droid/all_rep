@@ -40,5 +40,5 @@ https://allrep-theta.vercel.app/lessons/<CODE>/
 ## المزامنة مع قاعدة البيانات
 استخدم `scripts/sync-lessons-db.mjs` (وضع `replace` افتراضياً) لاستبدال روابط ZIP بروابط الملفات. راجع `--dry-run` و`--scan-only` و`--input-manifest`.
 
-## التخزين (Backblaze B2 / Cloudflare R2)
-الملفات النهائية (حوالي 13 GB لـ 54 تخصصًا) تُخزَّن في Backblaze B2 (أو R2 كبديل). Vercel يعيد توجيه `/lessons/:code/:file` إلى الرابط العام عبر `LESSONS_PUBLIC_BASE`، لذا يبقى الرابط العام على `https://allrep-theta.vercel.app/lessons/...`.
+## التخزين (Internet Archive / B2 / R2)
+الملفات النهائية (حوالي 13 GB لـ 54 تخصصًا) تُخزَّن في Internet Archive عبر واجهته المتوافقة مع S3 (روابط دائمة، مجانية، بدون بطاقة)، أو في B2/R2 كبدائل. Vercel يعيد توجيه `/lessons/:code/:file` إلى الرابط العام عبر `LESSONS_PUBLIC_BASE`، لذا يبقى الرابط العام على `https://allrep-theta.vercel.app/lessons/...`.

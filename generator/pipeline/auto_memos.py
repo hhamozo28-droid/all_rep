@@ -69,6 +69,9 @@ def build():
     log("memos built")
     # 3) upload individual files to object storage (B2 or R2)
     import urllib.parse
+    archive_key = os.environ.get("ARCHIVE_ACCESS_KEY_ID")
+    archive_secret = os.environ.get("ARCHIVE_SECRET_ACCESS_KEY")
+    archive_base = (os.environ.get("ARCHIVE_PUBLIC_BASE") or "https://archive.org/download").rstrip("/")
     b2_key_id = os.environ.get("B2_KEY_ID")
     b2_app_key = os.environ.get("B2_APPLICATION_KEY")
     b2_bucket = os.environ.get("B2_BUCKET")
@@ -78,14 +81,17 @@ def build():
     r2_secret = os.environ.get("R2_SECRET_ACCESS_KEY")
     r2_bucket = os.environ.get("R2_BUCKET")
     r2_base = (os.environ.get("R2_PUBLIC_BASE") or "").rstrip("/")
+    use_archive = all([archive_key, archive_secret])
     use_b2 = all([b2_key_id, b2_app_key, b2_bucket, b2_region])
     use_r2 = all([r2_account, r2_key, r2_secret, r2_bucket])
-    if use_b2:
+    if use_archive:
+        provider = "archive"
+    elif use_b2:
         provider = "b2"
     elif use_r2:
         provider = "r2"
     else:
-        raise SystemExit("Missing storage env: set B2_KEY_ID/B2_APPLICATION_KEY/B2_BUCKET/B2_REGION or R2_*")
+        raise SystemExit("Missing storage env: set ARCHIVE_ACCESS_KEY_ID/ARCHIVE_SECRET_ACCESS_KEY or B2_* or R2_*")
     files = sorted(f for f in os.listdir(OUT) if f.lower().endswith((".pdf", ".docx")))
     if not files:
         raise SystemExit(f"No PDF/DOCX files found in {OUT}")
@@ -95,7 +101,13 @@ def build():
         local = os.path.join(OUT, f)
         key = f"{CODE}/{f}"
         quoted = urllib.parse.quote(key, safe='/')
-        if provider == "b2":
+        if provider == "archive":
+            item = CODE
+            endpoint = f"https://s3.us.archive.org/{item}/{quoted}"
+            public_base = archive_base
+            sigv4 = "aws:amz:us-east-1:s3"
+            user = f"{archive_key}:{archive_secret}"
+        elif provider == "b2":
             endpoint = f"https://s3.{b2_region}.backblazeb2.com/{b2_bucket}/{quoted}"
             public_base = (os.environ.get("B2_PUBLIC_BASE") or f"https://{b2_bucket}.s3.{b2_region}.backblazeb2.com").rstrip("/")
             sigv4 = f"aws:amz:{b2_region}:s3"
