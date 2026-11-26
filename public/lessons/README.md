@@ -42,3 +42,6 @@ https://allrep-theta.vercel.app/lessons/<CODE>/
 
 ## التخزين (Internet Archive / B2 / R2)
 الملفات النهائية (حوالي 13 GB لـ 54 تخصصًا) تُخزَّن في Internet Archive عبر واجهته المتوافقة مع S3 (روابط دائمة، مجانية، بدون بطاقة)، أو في B2/R2 كبدائل. Vercel يعيد توجيه `/lessons/:code/:file` إلى الرابط العام عبر `LESSONS_PUBLIC_BASE`، لذا يبقى الرابط العام على `https://allrep-theta.vercel.app/lessons/...`.
+
+## روابط مباشرة
+الملفات المرفوعة هنا متاحة برابط مباشر عبر نطاق المنصة أو عبر raw GitHub.
