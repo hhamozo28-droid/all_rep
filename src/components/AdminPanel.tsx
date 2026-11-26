@@ -128,8 +128,10 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [published, setPublished] = useState<Published | null>(null);
   const [users, setUsers] = useState<ProfileRow[] | null>(null);
   const [userQuery, setUserQuery] = useState("");
-  const [userSort, setUserSort] = useState<{ key: "email" | "createdAt"; dir: "asc" | "desc" }>({ key: "createdAt", dir: "desc" });
+  const [userSort, setUserSort] = useState<{ key: "email" | "createdAt" | "downloads"; dir: "asc" | "desc" }>({ key: "createdAt", dir: "desc" });
   const [usersError, setUsersError] = useState(false);
+  const [accountsTab, setAccountsTab] = useState<"accounts" | "requests">("accounts");
+  const [selectedUser, setSelectedUser] = useState<string | null>(null);
   const [guides, setGuides] = useState<AdminGuideRow[] | null>(null);
   const [guideFiles, setGuideFiles] = useState<File[]>([]);
   const [guideProgress, setGuideProgress] = useState(0);
@@ -171,7 +173,6 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [quotaAmount, setQuotaAmount] = useState(3);
   const [quotaPreset, setQuotaPreset] = useState("3");
   const [quotaSendEmail, setQuotaSendEmail] = useState(false);
-  const [quotaBusy, setQuotaBusy] = useState(false);
   const [quotaMsg, setQuotaMsg] = useState("");
   const [resetQuotaBusy, setResetQuotaBusy] = useState(false);
   const [quotaUserBusy, setQuotaUserBusy] = useState<string | null>(null);
@@ -194,14 +195,19 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
 
   const quotaValue = quotaPreset === "custom" ? quotaAmount : Number(quotaPreset);
 
-  const filteredUsers = (users ?? [])
+  const pendingUsers = (users ?? []).filter((row) => !row.approved && row.deletedAt === null);
+  const tabUsers = accountsTab === "requests"
+    ? pendingUsers
+    : (users ?? []).filter((row) => row.approved);
+  const filteredUsers = tabUsers
     .filter((row) => row.email.toLowerCase().includes(userQuery.trim().toLowerCase()))
     .sort((a, b) => {
       const dir = userSort.dir === "asc" ? 1 : -1;
       if (userSort.key === "email") return a.email.localeCompare(b.email) * dir;
+      if (userSort.key === "downloads") return (a.downloads - b.downloads) * dir;
       return (new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()) * dir;
     });
-  const toggleUserSort = (key: "email" | "createdAt") => {
+  const toggleUserSort = (key: "email" | "createdAt" | "downloads") => {
     setUserSort((prev) => prev.key === key
       ? { key, dir: prev.dir === "asc" ? "desc" : "asc" }
       : { key, dir: "asc" });
@@ -319,25 +325,6 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       // keep the message
     } finally {
       setNotifyBusy(false);
-    }
-  }
-
-  async function increaseQuotaAll() {
-    if (quotaBusy || quotaValue <= 0) return;
-    setQuotaBusy(true);
-    setQuotaMsg("");
-    try {
-      const data = await api<{ ok: boolean; affected: number }>("/api/admin/accounts/quota", {
-        method: "POST",
-        credentials: "same-origin",
-        body: JSON.stringify({ amount: quotaValue, sendEmail: quotaSendEmail }),
-      });
-      setQuotaMsg(`${t("quotaAdded")}: ${data.affected}`);
-      reloadSoon();
-    } catch {
-      setQuotaMsg(t("error"));
-    } finally {
-      setQuotaBusy(false);
     }
   }
 
@@ -935,14 +922,14 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                 </p>
               )}
 
-              <div className="mt-4 flex flex-wrap items-center gap-3">
-                <label className="block text-sm font-medium text-ink">
+              <div className="mt-4 flex flex-nowrap items-center gap-3 overflow-x-auto pb-1">
+                <label className="flex shrink-0 items-center gap-2 whitespace-nowrap text-xs font-medium text-ink">
                   {t("adminFontStyle")}
                   <select
                     value={settings.fontStyle}
                     onChange={(event) => changeSetting("fontStyle", event.target.value)}
                     aria-label={t("adminFontStyle")}
-                    className="mt-1 w-auto rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
+                    className="w-auto rounded-md border border-line bg-white px-2 py-1 text-xs text-ink outline-none focus:border-primary"
                   >
                     <option value="default">{t("fontStyleDefault")}</option>
                     <option value="compact">{t("fontStyleCompact")}</option>
@@ -950,13 +937,13 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                     <option value="expanded">{t("fontStyleExpanded")}</option>
                   </select>
                 </label>
-                <label className="block text-sm font-medium text-ink">
+                <label className="flex shrink-0 items-center gap-2 whitespace-nowrap text-xs font-medium text-ink">
                   {t("appTheme")}
                   <select
                     value={settings.theme}
                     onChange={(event) => changeSetting("theme", event.target.value)}
                     aria-label={t("appTheme")}
-                    className="mt-1 w-auto rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
+                    className="w-auto rounded-md border border-line bg-white px-2 py-1 text-xs text-ink outline-none focus:border-primary"
                   >
                     <option value="default">{t("themeDefault")}</option>
                     <option value="white-black">{t("themeWhiteBlack")}</option>
@@ -1016,14 +1003,6 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                   {t("notifyByEmail")}
                 </label>
                 <div className="mt-2 flex flex-wrap gap-2">
-                  <button
-                    type="button"
-                    onClick={() => void increaseQuotaAll()}
-                    disabled={quotaBusy}
-                    className="rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white disabled:opacity-50"
-                  >
-                    {quotaBusy ? t("loading") : t("increaseQuotaAll")}
-                  </button>
                   <button
                     type="button"
                     onClick={() => void resetQuotaAll()}
@@ -1120,6 +1099,27 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                 <p className="mt-3 text-sm text-danger">{t("error")}</p>
               ) : (
               <>
+              <div className="mt-4 flex gap-2 border-b border-line" role="tablist" aria-label={t("adminAccounts")}>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={accountsTab === "accounts"}
+                  onClick={() => setAccountsTab("accounts")}
+                  className={`border-b-2 px-3 py-2 text-xs font-semibold ${accountsTab === "accounts" ? "border-primary text-primary" : "border-transparent text-soft hover:text-ink"}`}
+                >
+                  {t("adminAccounts")}
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={accountsTab === "requests"}
+                  onClick={() => setAccountsTab("requests")}
+                  className={`border-b-2 px-3 py-2 text-xs font-semibold ${accountsTab === "requests" ? "border-primary text-primary" : "border-transparent text-soft hover:text-ink"}`}
+                >
+                  {t("adminRequests")}
+                  <span className="ms-1 rounded-full bg-primary-soft px-1.5 py-0.5 text-[10px] text-primary">{pendingUsers.length}</span>
+                </button>
+              </div>
               <input
                 type="search"
                 value={userQuery}
@@ -1129,29 +1129,37 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                 className="mt-3 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
               />
               <div className="mt-2 overflow-x-auto">
-                <table className="w-full text-sm">
+                <table className="w-full table-auto text-sm">
                   <thead>
-                    <tr className="border-b border-line text-right text-xs font-semibold text-soft">
-                      <th className="py-2 pl-3 font-medium">
-                        <button type="button" onClick={() => toggleUserSort("email")} className="inline-flex items-center gap-1 hover:text-primary">
+                    <tr className="border-b border-line text-center text-xs font-semibold text-soft">
+                      <th className="px-2 py-2 font-medium">
+                        <button type="button" onClick={() => toggleUserSort("email")} className="inline-flex items-center justify-center gap-1 hover:text-primary">
                           {t("email")} {userSort.key === "email" ? (userSort.dir === "asc" ? "↑" : "↓") : ""}
                         </button>
                       </th>
-                      <th className="py-2 pl-3 font-medium">
-                        <button type="button" onClick={() => toggleUserSort("createdAt")} className="inline-flex items-center gap-1 hover:text-primary">
+                      <th className="px-2 py-2 font-medium">
+                        <button type="button" onClick={() => toggleUserSort("createdAt")} className="inline-flex items-center justify-center gap-1 hover:text-primary">
                           {t("registrationDate")} {userSort.key === "createdAt" ? (userSort.dir === "asc" ? "↑" : "↓") : ""}
                         </button>
                       </th>
-                      <th className="py-2 pl-3 font-medium">{t("adminTablePassword")}</th>
-                      <th className="py-2 text-center font-medium">{t("adminTableDownloads")}</th>
-                      <th className="py-2 text-center font-medium">{t("adminLimit")}</th>
-                      <th className="py-2 pl-3 font-medium">{t("adminTableActions")}</th>
+                      <th className="px-2 py-2 font-medium">{t("adminTablePassword")}</th>
+                      <th className="px-2 py-2 font-medium">
+                        <button type="button" onClick={() => toggleUserSort("downloads")} className="inline-flex items-center justify-center gap-1 hover:text-primary">
+                          {t("adminTableDownloads")} {userSort.key === "downloads" ? (userSort.dir === "asc" ? "↑" : "↓") : ""}
+                        </button>
+                      </th>
+                      <th className="px-2 py-2 font-medium">{t("adminLimit")}</th>
+                      <th className="px-2 py-2 font-medium">{t("adminTableActions")}</th>
                     </tr>
                   </thead>
                   <tbody>
                     {filteredUsers.map((row) => (
-                      <tr key={row.id} className="border-t border-line odd:bg-paper/40 even:bg-white hover:bg-primary-soft">
-                        <td className="py-2 pl-3 text-ink">
+                      <tr
+                        key={row.id}
+                        onClick={() => setSelectedUser(row.id)}
+                        className={`cursor-pointer border-t border-line ${selectedUser === row.id ? "bg-primary-soft font-medium" : "odd:bg-paper/40 even:bg-white hover:bg-primary-soft"}`}
+                      >
+                        <td className="max-w-[16rem] break-words px-2 py-2 text-center text-ink">
                           {row.email}
                           {row.deletedAt && (
                             <span className="ms-2 rounded-full bg-danger-soft px-2 py-0.5 text-[10px] font-semibold text-danger">
@@ -1159,10 +1167,10 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                             </span>
                           )}
                         </td>
-                        <td className="py-2 pl-3 text-xs text-soft" dir="ltr">
+                        <td className="break-all px-2 py-2 text-center text-xs text-soft" dir="ltr">
                           {new Date(row.createdAt).toLocaleDateString("en-GB").replace(/\//g, "-")}
                         </td>
-                        <td className="py-2 pl-3 font-mono text-xs text-soft" dir="ltr" title={row.passwordHash}>
+                        <td className="break-all px-2 py-2 text-center font-mono text-xs text-soft" dir="ltr" title={row.passwordHash}>
                           {row.plainPassword ?? "—"}
                         </td>
                         <td className="py-2 text-center text-soft">{n(row.downloads)}</td>
@@ -1182,8 +1190,8 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                             <option value="150">{t("adminLimit150")}</option>
                           </select>
                         </td>
-                        <td className="py-2 pl-3 text-end">
-                          <div className="flex items-center justify-end gap-2">
+                        <td className="px-2 py-2">
+                          <div className="flex flex-wrap items-center justify-center gap-2">
                             {row.deletedAt === null && (
                               <button
                                 type="button"
@@ -1226,6 +1234,9 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                     ))}
                   </tbody>
                 </table>
+                {filteredUsers.length === 0 && accountsTab === "requests" && (
+                  <p className="mt-2 text-sm text-soft">{t("adminNoRequests")}</p>
+                )}
               </div>
               </>
               )}

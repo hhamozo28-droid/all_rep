@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import AdminLink from "@/components/AdminLink";
@@ -13,6 +13,21 @@ export default function RegisterPage() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [sent, setSent] = useState(false);
+  const [notFound, setNotFound] = useState(false);
+
+  useEffect(() => {
+    // Registration always uses a theme different from the login screen.
+    const root = document.documentElement;
+    const previous = root.dataset.theme ?? "default";
+    root.dataset.theme = previous === "red-purple" ? "default" : "red-purple";
+    if (sessionStorage.getItem("dl_not_found") === "1") {
+      setNotFound(true);
+      sessionStorage.removeItem("dl_not_found");
+    }
+    return () => {
+      root.dataset.theme = previous;
+    };
+  }, []);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -44,6 +59,9 @@ export default function RegisterPage() {
         <Link href="/" className="text-lg font-bold text-ink">{t("appName")}</Link>
         <LanguageSwitcher />
       </div>
+      {notFound && (
+        <p className="mb-3 rounded-md bg-danger-soft p-3 text-sm text-danger" role="alert">{t("accountNotFound")}</p>
+      )}
       <section className="rounded-lg border border-line bg-white p-5">
         {sent ? (
           <>

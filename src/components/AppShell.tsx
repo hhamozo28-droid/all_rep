@@ -32,6 +32,8 @@ export default function AppShell({ children, user }: Props) {
   const [dismissedNotification, setDismissedNotification] = useState<string | null>(null);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [deleteBusy, setDeleteBusy] = useState(false);
+  const [logoutOpen, setLogoutOpen] = useState(false);
+  const [installHint, setInstallHint] = useState("");
   const syncedLanguage = useRef<string | null>(null);
 
   useEffect(() => {
@@ -123,6 +125,16 @@ export default function AppShell({ children, user }: Props) {
     router.replace("/");
   };
 
+  const installDesktop = async () => {
+    if (!installPrompt) {
+      setInstallHint(t("installDesktopHint"));
+      return;
+    }
+    setInstallHint("");
+    await installPrompt.prompt();
+    setInstallPrompt(null);
+  };
+
   const deleteAccount = async () => {
     if (deleteBusy) return;
     setDeleteBusy(true);
@@ -142,26 +154,29 @@ export default function AppShell({ children, user }: Props) {
     <div className="min-h-dvh">
       <IdleLogout />
       <LoginDialog />
-      <header className="border-b border-line bg-white">
-        <div className="mx-auto flex max-w-2xl flex-wrap items-start justify-between gap-3 px-4 py-3">
-          <div className="flex flex-col items-start gap-0.5">
-            <div className="flex items-center gap-2">
-              <button type="button" onClick={() => router.push("/")} aria-label={t("home")} title={t("home")} className="rounded-md border border-line p-1.5 text-primary">
-                <IconHome width={16} height={16} aria-hidden="true" />
-              </button>
-              <button type="button" onClick={() => router.push("/")} className="text-start">
-                <span className="block text-lg font-bold text-ink">{t("appName")}</span>
-                <span className="block text-xs text-soft">{t("appTagline")}</span>
-              </button>
-            </div>
-            {!user && <AdminLink compact className="mt-0.5" />}
+      <header className="bg-paper">
+        <div className="flex w-full flex-wrap items-center justify-between gap-2 px-2 py-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <button type="button" onClick={() => router.push("/")} aria-label={t("home")} title={t("home")} className="rounded-md border border-line p-1.5 text-primary">
+              <IconHome width={16} height={16} aria-hidden="true" />
+            </button>
+            <button type="button" onClick={() => router.push("/")} className="text-start">
+              <span className="block text-base font-bold leading-tight text-ink">{t("appName")}</span>
+              <span className="block text-[11px] leading-tight text-soft">{t("appTagline")}</span>
+            </button>
+            <LanguageSwitcher compact onLocalChange={changeLanguage} />
+            {!user && <AdminLink compact />}
           </div>
           <div className="flex flex-nowrap items-center justify-end gap-1">
             {user && (
               <div className="relative">
                 <button
                   type="button"
-                  onClick={() => setNotificationsOpen((v) => !v)}
+                  onClick={() => {
+                    setPopupNotification(null);
+                    setDismissedNotification(notifications.find((item) => !item.read)?.id ?? null);
+                    setNotificationsOpen((v) => !v);
+                  }}
                   aria-label={t("notifications")}
                   className="relative inline-flex items-center rounded-md border border-line px-2 py-1.5 text-xs text-ink"
                 >
@@ -173,25 +188,33 @@ export default function AppShell({ children, user }: Props) {
                   )}
                 </button>
                 {notificationsOpen && (
-                  <div className="absolute end-0 top-full z-50 mt-2 w-72 rounded-lg border border-line bg-white p-3 shadow-lg">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-sm font-semibold text-ink">{t("notifications")}</span>
-                      <button
-                        type="button"
-                        onClick={() => void markNotificationsRead()}
-                        className="text-xs font-medium text-primary hover:underline"
-                      >
-                        {t("markAllRead")}
-                      </button>
-                    </div>
-                    <div className="mt-2 max-h-60 space-y-2 overflow-y-auto">
-                      {notifications.length === 0 ? (
-                        <p className="text-xs text-soft">{t("noNotifications")}</p>
-                      ) : notifications.map((item) => (
-                        <div key={item.id} className={`rounded-md border p-2 text-xs ${item.read ? "border-line text-soft" : "border-primary bg-primary-soft text-ink"}`}>
-                          {item.message}
+                  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" role="dialog" aria-modal="true" aria-labelledby="notifications-list-title">
+                    <div className="w-full max-w-sm rounded-lg border border-line bg-white p-4 shadow-xl">
+                      <div className="flex items-center justify-between gap-2">
+                        <span id="notifications-list-title" className="text-sm font-semibold text-ink">{t("notifications")}</span>
+                        <div className="flex items-center gap-2">
+                          <button type="button" onClick={() => void markNotificationsRead()} className="text-xs font-medium text-primary hover:underline">
+                            {t("markAllRead")}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setNotificationsOpen(false)}
+                            aria-label={t("close")}
+                            className="rounded-md p-1 text-soft hover:bg-paper hover:text-ink"
+                          >
+                            <IconX width={14} height={14} aria-hidden="true" />
+                          </button>
                         </div>
-                      ))}
+                      </div>
+                      <div className="mt-2 max-h-72 space-y-2 overflow-y-auto">
+                        {notifications.length === 0 ? (
+                          <p className="text-xs text-soft">{t("noNotifications")}</p>
+                        ) : notifications.map((item) => (
+                          <div key={item.id} className={`rounded-md border p-2 text-xs ${item.read ? "border-line text-soft" : "border-primary bg-primary-soft text-ink"}`}>
+                            {item.message}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
@@ -208,23 +231,10 @@ export default function AppShell({ children, user }: Props) {
                 <span className="hidden sm:inline">{t("deleteAccount")}</span>
               </button>
             )}
-            <LanguageSwitcher compact onLocalChange={changeLanguage} />
-            {installPrompt && (
-              <button
-                type="button"
-                onClick={async () => {
-                  await installPrompt.prompt();
-                  setInstallPrompt(null);
-                }}
-                className="rounded-md border border-line px-2 py-1.5 text-xs text-ink"
-              >
-                {t("install")}
-              </button>
-            )}
             {user && (
               <button
                 type="button"
-                onClick={() => void logout()}
+                onClick={() => setLogoutOpen(true)}
                 aria-label={t("logout")}
                 className="inline-flex items-center gap-1 rounded-md border border-line px-2 py-1.5 text-xs text-ink"
               >
@@ -235,8 +245,24 @@ export default function AppShell({ children, user }: Props) {
           </div>
         </div>
       </header>
-      <main className="mx-auto w-full max-w-2xl px-4 py-5">{children}</main>
-      <footer className="mx-auto w-full max-w-2xl px-4 pb-4 text-center text-xs text-soft" dir="auto">
+      <div className="w-full bg-primary-soft px-2 py-2 text-center">
+        <p className="text-xs font-semibold text-primary-deep">{t("install")}</p>
+        <div className="mt-1 flex flex-wrap items-center justify-center gap-2">
+          <Link href="/download" className="rounded-md bg-primary px-3 py-1.5 text-xs font-semibold text-white">
+            {t("installPhone")}
+          </Link>
+          <button
+            type="button"
+            onClick={() => void installDesktop()}
+            className="rounded-md border border-primary px-3 py-1.5 text-xs font-semibold text-primary-deep"
+          >
+            {t("installDesktop")}
+          </button>
+        </div>
+        {installHint && <p className="mt-1 text-[11px] text-soft">{installHint}</p>}
+      </div>
+      <main className="w-full px-2 py-4">{children}</main>
+      <footer className="w-full px-2 pb-3 text-center text-xs text-soft" dir="auto">
         <div className="mb-1 flex flex-wrap items-center justify-center gap-2">
           <Link href="/download" className="hover:text-ink hover:underline">
             {t("androidApp")}
@@ -276,8 +302,19 @@ export default function AppShell({ children, user }: Props) {
       {deleteOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" role="dialog" aria-modal="true" aria-labelledby="delete-account-title">
           <div className="w-full max-w-sm rounded-lg border border-line bg-white p-5">
-            <h2 id="delete-account-title" className="text-lg font-bold text-ink">{t("deleteAccount")}</h2>
-            <p className="mt-2 text-sm text-soft">{t("deleteAccountConfirm")}</p>
+            <div className="flex items-center justify-between gap-2">
+              <h2 id="delete-account-title" className="text-lg font-bold text-ink">{t("deleteAccount")}</h2>
+              <button
+                type="button"
+                onClick={() => setDeleteOpen(false)}
+                disabled={deleteBusy}
+                aria-label={t("close")}
+                className="rounded-md p-1 text-soft hover:bg-paper hover:text-ink disabled:opacity-50"
+              >
+                <IconX width={14} height={14} aria-hidden="true" />
+              </button>
+            </div>
+            <p className="mt-2 text-center text-sm leading-7 text-ink">{t("deleteAccountConfirm")}</p>
             <div className="mt-4 flex items-center justify-end gap-2">
               <button
                 type="button"
@@ -294,6 +331,42 @@ export default function AppShell({ children, user }: Props) {
                 className="rounded-md bg-danger px-3 py-2 text-sm font-semibold text-white disabled:opacity-50"
               >
                 {deleteBusy ? t("loading") : t("deleteAccount")}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {logoutOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" role="dialog" aria-modal="true" aria-labelledby="logout-title">
+          <div className="w-full max-w-xs rounded-lg border border-line bg-white p-5">
+            <div className="flex items-center justify-between gap-2">
+              <h2 id="logout-title" className="text-base font-bold text-ink">{t("exitConfirm")}</h2>
+              <button
+                type="button"
+                onClick={() => setLogoutOpen(false)}
+                aria-label={t("close")}
+                className="rounded-md p-1 text-soft hover:bg-paper hover:text-ink"
+              >
+                <IconX width={14} height={14} aria-hidden="true" />
+              </button>
+            </div>
+            <div className="mt-4 flex items-center justify-end gap-2">
+              <button
+                type="button"
+                onClick={() => setLogoutOpen(false)}
+                className="rounded-md border border-line px-3 py-2 text-sm text-ink"
+              >
+                {t("adminDeleteCancel")}
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setLogoutOpen(false);
+                  void logout();
+                }}
+                className="rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white"
+              >
+                {t("logout")}
               </button>
             </div>
           </div>

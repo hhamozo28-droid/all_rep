@@ -167,11 +167,13 @@ const ar: Record<string, string> = {
   blocked: "الحساب محجوب",
   accountDeleted: "هذا الحساب محذوف ولا يمكن تسجيل الدخول به",
   deleteAccount: "حذف الحساب",
-  deleteAccountConfirm: "سيتم تعطيل حسابك نهائياً ومنع تسجيل الدخول به. سيبقى بإمكان المسؤول حذف بياناته من لوحة الإدارة. هل أنت متأكد؟",
+  deleteAccountConfirm: "أنت بصدد حذف حسابك نهائيا ولا يمكنك اعادة التسجيل به هل انت متأكد ؟",
   adminDeletedSelf: "محذوف ذاتياً",
   allSectors: "الكل",
   sectorFilter: "الشعبة المهنية",
   adminAccounts: "الحسابات",
+  adminRequests: "طلبات التسجيل",
+  adminNoRequests: "لا توجد طلبات تسجيل بانتظار الموافقة",
   adminTablePassword: "كلمة السر",
   adminTableDownloads: "عدد التحميلات",
   adminTableActions: "الإجراءات",
@@ -226,7 +228,6 @@ const ar: Record<string, string> = {
   markAllRead: "تحديد الكل كمقروء",
   notifyNewGuide: "أُضيف دليل جديد",
   notifyAppUpdate: "تحديث جديد للتطبيق",
-  increaseQuotaAll: "زيادة رصيد الجميع",
   increaseQuota: "زيادة رصيد",
   quotaAmount: "مقدار الزيادة",
   quotaAdded: "تمت زيادة الرصيد",
@@ -245,6 +246,11 @@ const ar: Record<string, string> = {
   notifyByEmail: "إرسال رسالة بريدية أيضاً",
   close: "إغلاق",
   customAmount: "عدد مخصص",
+  accountNotFound: "هذا الحساب غير مسجل",
+  exitConfirm: "إغلاق ؟",
+  installPhone: "تثبيت برنامج الهاتف",
+  installDesktop: "تثبيت برنامج الحاسوب",
+  installDesktopHint: "من قائمة المتصفح اختر تثبيت التطبيق",
 };
 
 const en: Record<string, string> = {
@@ -406,6 +412,8 @@ const en: Record<string, string> = {
   allSectors: "All",
   sectorFilter: "Specialty sector",
   adminAccounts: "Accounts",
+  adminRequests: "Registration requests",
+  adminNoRequests: "No pending registration requests",
   adminTablePassword: "Password",
   adminTableDownloads: "Downloads",
   adminTableActions: "Actions",
@@ -460,7 +468,6 @@ const en: Record<string, string> = {
   markAllRead: "Mark all as read",
   notifyNewGuide: "A new guide was added",
   notifyAppUpdate: "New app update available",
-  increaseQuotaAll: "Increase everyone's balance",
   increaseQuota: "Increase balance",
   quotaAmount: "Amount to add",
   quotaAdded: "Balance increased",
@@ -479,6 +486,11 @@ const en: Record<string, string> = {
   notifyByEmail: "Also send an email",
   close: "Close",
   customAmount: "Custom amount",
+  accountNotFound: "This account is not registered",
+  exitConfirm: "Close?",
+  installPhone: "Install phone app",
+  installDesktop: "Install desktop app",
+  installDesktopHint: "Use your browser menu to install the app",
 };
 
 const fr: Record<string, string> = {
@@ -642,6 +654,8 @@ const fr: Record<string, string> = {
   allSectors: "Tous",
   sectorFilter: "Secteur professionnel",
   adminAccounts: "Comptes",
+  adminRequests: "Demandes d'inscription",
+  adminNoRequests: "Aucune demande d'inscription en attente",
   adminTablePassword: "Mot de passe",
   adminTableDownloads: "Téléchargements",
   adminTableActions: "Actions",
@@ -696,7 +710,6 @@ const fr: Record<string, string> = {
   markAllRead: "Tout marquer comme lu",
   notifyNewGuide: "Un nouveau guide a été ajouté",
   notifyAppUpdate: "Nouvelle mise à jour de l'application",
-  increaseQuotaAll: "Augmenter le solde de tous",
   increaseQuota: "Augmenter le solde",
   quotaAmount: "Montant à ajouter",
   quotaAdded: "Solde augmenté",
@@ -715,6 +728,11 @@ const fr: Record<string, string> = {
   notifyByEmail: "Envoyer aussi un e-mail",
   close: "Fermer",
   customAmount: "Montant personnalisé",
+  accountNotFound: "Ce compte n'est pas enregistré",
+  exitConfirm: "Fermer ?",
+  installPhone: "Installer l'application téléphone",
+  installDesktop: "Installer l'application ordinateur",
+  installDesktopHint: "Utilisez le menu du navigateur pour installer l'application",
 };
 
 const DICTS: Record<Locale, Record<string, string>> = { ar, en, fr };
