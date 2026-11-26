@@ -99,14 +99,20 @@ def build():
                 "generatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "files": []}
     for f in files:
         local = os.path.join(OUT, f)
-        key = f"{CODE}/{f}"
+        key = f"{(CODE.lower() if provider == 'archive' else CODE)}/{f}"
         quoted = urllib.parse.quote(key, safe='/')
         if provider == "archive":
-            item = CODE
+            item = CODE.lower()
             endpoint = f"https://s3.us.archive.org/{item}/{quoted}"
             public_base = archive_base
             sigv4 = "aws:amz:us-east-1:s3"
             user = f"{archive_key}:{archive_secret}"
+            auth_args = ["-H", f"authorization: LOW {archive_key}:{archive_secret}",
+                         "-H", "x-amz-auto-make-bucket:1",
+                         "-H", "x-archive-meta01-collection:opensource",
+                         "-H", "x-archive-meta-mediatype:texts",
+                         "-H", f"x-archive-meta-title:{CODE} lessons",
+                         "-H", "x-archive-interactive-priority:1"]
         elif provider == "b2":
             endpoint = f"https://s3.{b2_region}.backblazeb2.com/{b2_bucket}/{quoted}"
             public_base = (os.environ.get("B2_PUBLIC_BASE") or f"https://{b2_bucket}.s3.{b2_region}.backblazeb2.com").rstrip("/")
@@ -117,10 +123,15 @@ def build():
             public_base = r2_base
             sigv4 = "aws:amz:auto:s3"
             user = f"{r2_key}:{r2_secret}"
-        cmd = ["curl", "-sS", "-X", "PUT", "--aws-sigv4", sigv4,
-               "--user", user,
-               "-T", local, "-H", "Content-Type: application/octet-stream",
-               "-w", "\\n%{http_code}", endpoint]
+        if provider == "archive":
+            cmd = ["curl", "-sS", "-L", "--location-trusted", "-X", "PUT",
+                   *auth_args, "-T", local, "-H", "Content-Type: application/octet-stream",
+                   "-w", "\\n%{http_code}", endpoint]
+        else:
+            cmd = ["curl", "-sS", "-X", "PUT", "--aws-sigv4", sigv4,
+                   "--user", user,
+                   "-T", local, "-H", "Content-Type: application/octet-stream",
+                   "-w", "\\n%{http_code}", endpoint]
         r = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
         status = r.stdout.strip().splitlines()[-1] if r.stdout.strip() else ""
         if r.returncode != 0 or status not in ("200", "201"):
