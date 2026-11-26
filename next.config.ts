@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
-const r2Base = process.env.R2_PUBLIC_BASE?.replace(/\/$/, "");
+const publicBase = (process.env.LESSONS_PUBLIC_BASE
+  || process.env.B2_PUBLIC_BASE
+  || process.env.R2_PUBLIC_BASE
+  || "").replace(/\/$/, "");
 
 const nextConfig: NextConfig = {
   async headers() {
@@ -14,9 +17,9 @@ const nextConfig: NextConfig = {
     ];
   },
   async rewrites() {
-    if (!r2Base) return [];
+    if (!publicBase) return [];
     return [
-      { source: "/lessons/:code/:file", destination: `${r2Base}/:code/:file` },
+      { source: "/lessons/:code/:file", destination: `${publicBase}/:code/:file` },
     ];
   },
 };

@@ -67,33 +67,54 @@ def build():
     # 2) memos
     run(f"python3 {PIPE}/make_memos_gen.py {CODE} {SUBJ_F} {SPEC_F} {FLOWDIR}", timeout=1800)
     log("memos built")
-    # 3) upload individual files to R2
+    # 3) upload individual files to object storage (B2 or R2)
     import urllib.parse
+    b2_key_id = os.environ.get("B2_KEY_ID")
+    b2_app_key = os.environ.get("B2_APPLICATION_KEY")
+    b2_bucket = os.environ.get("B2_BUCKET")
+    b2_region = os.environ.get("B2_REGION")
     r2_account = os.environ.get("R2_ACCOUNT_ID")
     r2_key = os.environ.get("R2_ACCESS_KEY_ID")
     r2_secret = os.environ.get("R2_SECRET_ACCESS_KEY")
     r2_bucket = os.environ.get("R2_BUCKET")
     r2_base = (os.environ.get("R2_PUBLIC_BASE") or "").rstrip("/")
-    if not all([r2_account, r2_key, r2_secret, r2_bucket, r2_base]):
-        raise SystemExit("Missing R2 environment variables (R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET, R2_PUBLIC_BASE)")
+    use_b2 = all([b2_key_id, b2_app_key, b2_bucket, b2_region])
+    use_r2 = all([r2_account, r2_key, r2_secret, r2_bucket])
+    if use_b2:
+        provider = "b2"
+    elif use_r2:
+        provider = "r2"
+    else:
+        raise SystemExit("Missing storage env: set B2_KEY_ID/B2_APPLICATION_KEY/B2_BUCKET/B2_REGION or R2_*")
     files = sorted(f for f in os.listdir(OUT) if f.lower().endswith((".pdf", ".docx")))
     if not files:
         raise SystemExit(f"No PDF/DOCX files found in {OUT}")
-    manifest = {"code": CODE, "generatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "files": []}
+    manifest = {"code": CODE, "provider": provider,
+                "generatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "files": []}
     for f in files:
         local = os.path.join(OUT, f)
         key = f"{CODE}/{f}"
-        url = f"https://{r2_account}.r2.cloudflarestorage.com/{r2_bucket}/{urllib.parse.quote(key, safe='/')}"
-        cmd = ["curl", "-sS", "-X", "PUT", "--aws-sigv4", "aws:amz:auto:s3",
-               "--user", f"{r2_key}:{r2_secret}",
+        quoted = urllib.parse.quote(key, safe='/')
+        if provider == "b2":
+            endpoint = f"https://s3.{b2_region}.backblazeb2.com/{b2_bucket}/{quoted}"
+            public_base = (os.environ.get("B2_PUBLIC_BASE") or f"https://{b2_bucket}.s3.{b2_region}.backblazeb2.com").rstrip("/")
+            sigv4 = f"aws:amz:{b2_region}:s3"
+            user = f"{b2_key_id}:{b2_app_key}"
+        else:
+            endpoint = f"https://{r2_account}.r2.cloudflarestorage.com/{r2_bucket}/{quoted}"
+            public_base = r2_base
+            sigv4 = "aws:amz:auto:s3"
+            user = f"{r2_key}:{r2_secret}"
+        cmd = ["curl", "-sS", "-X", "PUT", "--aws-sigv4", sigv4,
+               "--user", user,
                "-T", local, "-H", "Content-Type: application/octet-stream",
-               "-w", "\\n%{http_code}", url]
+               "-w", "\\n%{http_code}", endpoint]
         r = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
         status = r.stdout.strip().splitlines()[-1] if r.stdout.strip() else ""
         if r.returncode != 0 or status not in ("200", "201"):
-            log(f"R2 upload failed for {f}: rc={r.returncode} status={status} stderr={r.stderr[-500:]}")
+            log(f"{provider} upload failed for {f}: rc={r.returncode} status={status} stderr={r.stderr[-500:]}")
             raise SystemExit(1)
-        public_url = f"{r2_base}/{urllib.parse.quote(key, safe='/')}"
+        public_url = f"{public_base}/{quoted}"
         manifest["files"].append({"name": f, "url": public_url})
         log(f"uploaded {f} -> {public_url}")
     manifest_path = os.environ.get("MANIFEST_PATH", f"/home/user/manifest_{CODE}.json")

@@ -67,7 +67,60 @@ def build():
     # 2) memos
     run(f"python3 {PIPE}/make_memos_gen.py {CODE} {SUBJ_F} {SPEC_F} {FLOWDIR}", timeout=1800)
     log("memos built")
-    # 3) zip
+    # 3) upload individual files to object storage (B2 or R2)
+    import urllib.parse
+    b2_key_id = os.environ.get("B2_KEY_ID")
+    b2_app_key = os.environ.get("B2_APPLICATION_KEY")
+    b2_bucket = os.environ.get("B2_BUCKET")
+    b2_region = os.environ.get("B2_REGION")
+    r2_account = os.environ.get("R2_ACCOUNT_ID")
+    r2_key = os.environ.get("R2_ACCESS_KEY_ID")
+    r2_secret = os.environ.get("R2_SECRET_ACCESS_KEY")
+    r2_bucket = os.environ.get("R2_BUCKET")
+    r2_base = (os.environ.get("R2_PUBLIC_BASE") or "").rstrip("/")
+    use_b2 = all([b2_key_id, b2_app_key, b2_bucket, b2_region])
+    use_r2 = all([r2_account, r2_key, r2_secret, r2_bucket])
+    if use_b2:
+        provider = "b2"
+    elif use_r2:
+        provider = "r2"
+    else:
+        raise SystemExit("Missing storage env: set B2_KEY_ID/B2_APPLICATION_KEY/B2_BUCKET/B2_REGION or R2_*")
+    files = sorted(f for f in os.listdir(OUT) if f.lower().endswith((".pdf", ".docx")))
+    if not files:
+        raise SystemExit(f"No PDF/DOCX files found in {OUT}")
+    manifest = {"code": CODE, "provider": provider,
+                "generatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "files": []}
+    for f in files:
+        local = os.path.join(OUT, f)
+        key = f"{CODE}/{f}"
+        quoted = urllib.parse.quote(key, safe='/')
+        if provider == "b2":
+            endpoint = f"https://s3.{b2_region}.backblazeb2.com/{b2_bucket}/{quoted}"
+            public_base = (os.environ.get("B2_PUBLIC_BASE") or f"https://{b2_bucket}.s3.{b2_region}.backblazeb2.com").rstrip("/")
+            sigv4 = f"aws:amz:{b2_region}:s3"
+            user = f"{b2_key_id}:{b2_app_key}"
+        else:
+            endpoint = f"https://{r2_account}.r2.cloudflarestorage.com/{r2_bucket}/{quoted}"
+            public_base = r2_base
+            sigv4 = "aws:amz:auto:s3"
+            user = f"{r2_key}:{r2_secret}"
+        cmd = ["curl", "-sS", "-X", "PUT", "--aws-sigv4", sigv4,
+               "--user", user,
+               "-T", local, "-H", "Content-Type: application/octet-stream",
+               "-w", "\\n%{http_code}", endpoint]
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
+        status = r.stdout.strip().splitlines()[-1] if r.stdout.strip() else ""
+        if r.returncode != 0 or status not in ("200", "201"):
+            log(f"{provider} upload failed for {f}: rc={r.returncode} status={status} stderr={r.stderr[-500:]}")
+            raise SystemExit(1)
+        public_url = f"{public_base}/{quoted}"
+        manifest["files"].append({"name": f, "url": public_url})
+        log(f"uploaded {f} -> {public_url}")
+    manifest_path = os.environ.get("MANIFEST_PATH", f"/home/user/manifest_{CODE}.json")
+    json.dump(manifest, open(manifest_path, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    log(f"manifest: {manifest_path} ({len(files)} files)")
+    # 4) keep zip for archival (optional)
     zst = f"/home/user/zipstage_{CODE}"
     shutil.rmtree(zst, ignore_errors=True)
     os.makedirs(f"{zst}/خطوط", exist_ok=True)
@@ -75,7 +128,8 @@ def build():
     for f in os.listdir(OUT):
         shutil.copy(os.path.join(OUT, f), zst)
     for f in ["IBMPlexSansArabic-Regular.ttf", "IBMPlexSansArabic-Bold.ttf", "IBMPlexSansArabic-SemiBold.ttf"]:
-        shutil.copy(f"{PIPE}/fonts2/{f}", f"{zst}/خطوط/")
+        if os.path.exists(f"{PIPE}/fonts2/{f}"):
+            shutil.copy(f"{PIPE}/fonts2/{f}", f"{zst}/خطوط/")
     open(f"{zst}/خطوط/اقرأني.txt", "w", encoding="utf-8").write(
         "ثبّت هذه الخطوط على حاسوبك (زر يمين > Install) لعرض الملفات بنفس الخط الاحترافي IBM Plex Sans Arabic.\n")
     mmd_src = os.path.join(FLOWDIR, "mmd")
@@ -87,38 +141,8 @@ def build():
     if os.path.exists(zip_path):
         os.remove(zip_path)
     subprocess.run(f'cd "{zst}" && zip -q -r "{zip_path}" .', shell=True, check=True)
-    size_mb = os.path.getsize(zip_path) / 1e6
-    log(f"zip: {size_mb:.1f} MB")
-    # 4) upload
-    srv = json.load(urllib.request.urlopen("https://api.gofile.io/servers"))["data"]["servers"][0]["name"]
-    import subprocess as sp
-    up = sp.run(['curl', '-s', '-F', f'file=@{zip_path}', f'https://{srv}.gofile.io/contents/uploadfile'],
-                capture_output=True, text=True, timeout=1800)
-    link = json.loads(up.stdout)["data"]["downloadPage"]
-    assert link.startswith("https://gofile.io/"), f"bad link: {up.stdout[:200]}"
-    log(f"LINK: {link}")
-    # 5) update links table
-    txt = open(LINKS, encoding="utf-8").read()
-    lines = txt.split("\n")
-    done = False
-    for i, ln in enumerate(lines):
-        if f"**{CODE} " in ln and "المذكرات" not in ln:
-            n_mod = len(subs)
-            files = n_mod * 2
-            ln = ln.replace("| مخططات |", "| مخططات + مذكرات |")
-            ln = re.sub(r"\| (\d+) ملفًا \|", f"| \\1 + {files} ملفًا |", ln)
-            if ln.rstrip().endswith("|"):
-                ln = ln.rstrip()[:-1].rstrip() + f"<br>[⬇️ المذكرات]({link}) |"
-            lines[i] = ln
-            done = True
-            break
-    if done:
-        open(LINKS, "w", encoding="utf-8").write("\n".join(lines))
-        log("links table updated")
-    else:
-        log("WARN: row not found or already has memo link")
-    run(f"python3 {PIPE}/make_links_docx.py", timeout=300)
-    # 6) clean
+    log(f"zip: {os.path.getsize(zip_path)/1e6:.1f} MB (archival)")
+    # 5) clean
     shutil.rmtree(OUT, ignore_errors=True)
     shutil.rmtree(zst, ignore_errors=True)
     os.remove(zip_path)
