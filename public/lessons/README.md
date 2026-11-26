@@ -29,7 +29,7 @@ https://allrep-theta.vercel.app/lessons/<CODE>/
 
 ## التخصصات المنشورة حالياً
 - `TAV0701` — 32 ملف (PDF/DOCX) — https://allrep-theta.vercel.app/lessons/TAV0701/
-- `TAV06Q`, `THC0701`, `THC0702` — قيد التنزيل (روابط GoFile مباشرة في ` generator`/تقرير روابط الحزم).
+- `TAV06Q`, `THC0701`, `THC0702` — قيد التنزيل (روابط GoFile مباشرة).
 
 ## تفضيلات التسمية
 استخدم أسماء عربية/لاتينية واضحة. إن احتوى الاسم مسافات أو أحرف عربية، انسخ الرابط من شريط المتصفح بعد فتح الملف (سيكون مُرمّزاً تلقائياً).
@@ -38,4 +38,7 @@ https://allrep-theta.vercel.app/lessons/<CODE>/
 ضع **رابط التحميل المباشر** في حقل رابط الدرس داخل التخصص (لوحة الإدارة / `specialties.links`). عند ضغط الرابط من التطبيق أو الموقع يُحمّل الملف مباشرة (بدون صفحة مشاركة مثل gofile).
 
 ## المزامنة مع قاعدة البيانات
-استخدم `scripts/sync-lessons-db.mjs` (وضع `replace` افتراضياً) لاستبدال روابط ZIP بروابط الملفات. راجع `--dry-run` و`--scan-only`.
+استخدم `scripts/sync-lessons-db.mjs` (وضع `replace` افتراضياً) لاستبدال روابط ZIP بروابط الملفات. راجع `--dry-run` و`--scan-only` و`--input-manifest`.
+
+## التخزين (R2)
+الملفات النهائية (حوالي 13 GB لـ 54 تخصصًا) تُخزَّن في Cloudflare R2. Vercel يعيد توجيه `/lessons/:code/:file` إلى R2، لذا يبقى الرابط العام على `https://allrep-theta.vercel.app/lessons/...`.

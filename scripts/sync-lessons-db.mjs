@@ -74,6 +74,7 @@ const backupPath = args.backup
   ? path.resolve(String(args.backup))
   : path.resolve(`lessons-links-backup-${new Date().toISOString().replace(/[:.]/g, "-")}.json`);
 const manifestPath = args.manifest ? path.resolve(String(args.manifest)) : null;
+const inputManifestPath = args["input-manifest"] ? path.resolve(String(args["input-manifest"])) : null;
 
 if (!["replace", "append"].includes(mode)) {
   console.error("--mode must be replace or append");
@@ -175,9 +176,25 @@ async function main() {
     process.exit(1);
   }
 
-  const codes = requestedCodes ?? (await discoverCodes());
+  let inputManifest = null;
+  if (inputManifestPath) {
+    try {
+      inputManifest = JSON.parse(await fs.readFile(inputManifestPath, "utf8"));
+    } catch (error) {
+      console.error(`Cannot read input manifest: ${error?.message ?? error}`);
+      process.exit(1);
+    }
+  }
+
+  const manifestCodes = inputManifest
+    ? Object.keys(inputManifest.codes ?? inputManifest)
+        .map((c) => String(c).toUpperCase())
+        .filter((c) => Array.isArray(inputManifest.codes ? inputManifest.codes[c] : inputManifest[c]))
+    : null;
+
+  const codes = requestedCodes ?? manifestCodes ?? (await discoverCodes());
   if (codes.length === 0) {
-    console.error(`No specialty folders found in ${dir}`);
+    console.error(`No specialty codes found (directory or manifest)`);
     process.exit(1);
   }
 
@@ -242,13 +259,30 @@ async function main() {
     const rows = [];
     for (const code of codes) {
       const specialty = byCode.get(code)[0];
-      const codeDir = path.join(dir, code);
-      const dirExists = await fs.stat(codeDir).catch(() => null);
-      if (!dirExists?.isDirectory()) {
-        console.error(`Missing folder for ${code}: ${codeDir}`);
-        process.exit(1);
+      let files;
+      if (inputManifest) {
+        const raw = inputManifest.codes ? inputManifest.codes[code] : inputManifest[code];
+        const names = Array.isArray(raw) ? raw : [];
+        files = names.map((entry) => {
+          const name = typeof entry === "string" ? entry : String(entry?.name ?? entry?.filename ?? "");
+          const bytes = typeof entry === "object" && entry ? Number(entry.bytes ?? entry.size ?? 0) : 0;
+          return {
+            relativePath: `${code}/${name}`,
+            name,
+            ext: path.extname(name).toLowerCase(),
+            bytes: Number.isFinite(bytes) ? bytes : 0,
+            url: `${baseUrl}/${encodeURIComponent(code)}/${encodeURIComponent(name)}`,
+          };
+        }).filter((f) => f.name);
+      } else {
+        const codeDir = path.join(dir, code);
+        const dirExists = await fs.stat(codeDir).catch(() => null);
+        if (!dirExists?.isDirectory()) {
+          console.error(`Missing folder for ${code}: ${codeDir}`);
+          process.exit(1);
+        }
+        files = await collectFiles(codeDir, `${baseUrl}/${encodeURIComponent(code)}`);
       }
-      const files = await collectFiles(codeDir, `${baseUrl}/${encodeURIComponent(code)}`);
       if (files.length === 0 && !allowEmpty) {
         console.error(`No ${[...extensions].join("/")} files found in ${codeDir} (use --allow-empty to skip)`);
         process.exit(1);
