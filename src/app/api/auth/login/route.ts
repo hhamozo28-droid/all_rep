@@ -43,7 +43,10 @@ export async function POST(req: Request) {
     if (p && !p.approved) {
       return NextResponse.json({ error: "pending-approval" }, { status: 401 });
     }
-    if (!p || !verifyPassword(password, p.passwordHash)) {
+    if (!p) {
+      return NextResponse.json({ error: "account-not-found" }, { status: 401 });
+    }
+    if (!verifyPassword(password, p.passwordHash)) {
       return NextResponse.json({ error: "bad-credentials" }, { status: 401 });
     }
 

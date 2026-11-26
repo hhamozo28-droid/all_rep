@@ -167,7 +167,7 @@ const ar: Record<string, string> = {
   blocked: "الحساب محجوب",
   accountDeleted: "هذا الحساب محذوف ولا يمكن تسجيل الدخول به",
   deleteAccount: "حذف الحساب",
-  deleteAccountConfirm: "سيتم تعطيل حسابك نهائياً ومنع تسجيل الدخول به. سيبقى بإمكان المسؤول حذف بياناته من لوحة الإدارة. هل أنت متأكد؟",
+  deleteAccountConfirm: "أنت بصدد حذف حسابك نهائيا ولا يمكنك اعادة التسجيل به هل انت متأكد ؟",
   adminDeletedSelf: "محذوف ذاتياً",
   allSectors: "الكل",
   sectorFilter: "الشعبة المهنية",
@@ -246,6 +246,11 @@ const ar: Record<string, string> = {
   notifyByEmail: "إرسال رسالة بريدية أيضاً",
   close: "إغلاق",
   customAmount: "عدد مخصص",
+  accountNotFound: "هذا الحساب غير مسجل",
+  exitConfirm: "إغلاق ؟",
+  installPhone: "تثبيت برنامج الهاتف",
+  installDesktop: "تثبيت برنامج الحاسوب",
+  installDesktopHint: "من قائمة المتصفح اختر تثبيت التطبيق",
 };
 
 const en: Record<string, string> = {
@@ -481,6 +486,11 @@ const en: Record<string, string> = {
   notifyByEmail: "Also send an email",
   close: "Close",
   customAmount: "Custom amount",
+  accountNotFound: "This account is not registered",
+  exitConfirm: "Close?",
+  installPhone: "Install phone app",
+  installDesktop: "Install desktop app",
+  installDesktopHint: "Use your browser menu to install the app",
 };
 
 const fr: Record<string, string> = {
@@ -718,6 +728,11 @@ const fr: Record<string, string> = {
   notifyByEmail: "Envoyer aussi un e-mail",
   close: "Fermer",
   customAmount: "Montant personnalisé",
+  accountNotFound: "Ce compte n'est pas enregistré",
+  exitConfirm: "Fermer ?",
+  installPhone: "Installer l'application téléphone",
+  installDesktop: "Installer l'application ordinateur",
+  installDesktopHint: "Utilisez le menu du navigateur pour installer l'application",
 };
 
 const DICTS: Record<Locale, Record<string, string>> = { ar, en, fr };

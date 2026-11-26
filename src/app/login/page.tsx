@@ -35,6 +35,10 @@ function LoginForm() {
         setError(t("accountDeleted"));
       } else if (cause instanceof ApiError && cause.status === 401 && cause.body?.error === "blocked") {
         setError(t("blocked"));
+      } else if (cause instanceof ApiError && cause.status === 401 && cause.body?.error === "account-not-found") {
+        setError(t("accountNotFound"));
+        sessionStorage.setItem("dl_not_found", "1");
+        window.setTimeout(() => router.replace("/register"), 1200);
       } else if (cause instanceof ApiError && cause.status === 401 && cause.body?.error === "pending-approval") {
         setError(t("pendingApproval"));
       } else {
