@@ -1,0 +1,15 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"IBM Plex Sans Arabic, DejaVu Sans","fontSize":"22px","primaryColor":"#F2EFE7","primaryTextColor":"#222B33","primaryBorderColor":"#22414A","lineColor":"#B5733A","tertiaryColor":"#FCF0E4"},"flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42}}}%%
+flowchart TD
+  S(["بداية"]) --> A["درس: تطبيق موجه: قراءة مخطط التركيبة وتفسيره"]
+  A --> B1["تحديد العطل بالاختبار"]
+  B1 --> B2["تتبّع الضفيرة والوصلات"]
+  B2 --> B3["استبدال المحرّك أو المفتاح"]
+  B3 --> B4["اختبار الوظيفة كاملة"]
+  B4 --> B5["تنظيف وتنظيم الضفيرة"]
+  B5 --> Z(["نهاية"])
+classDef start fill:#1F4E79,color:#ffffff,stroke:#14375A;
+classDef proc fill:#F2F6FB,color:#222B33,stroke:#22414A;
+classDef dec fill:#FDE7CE,color:#7A4A00,stroke:#B5733A;
+classDef io fill:#FCF0E4,color:#222B33,stroke:#B5733A;
+class S,Z start;
+class A,B1,B2,B3,B4,B5 proc;

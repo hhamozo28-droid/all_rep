@@ -172,8 +172,20 @@ export function serializeSpecialty(row: {
     sizeMb: Number(row.sizeMb) || 0,
     // Raw external URLs never leave the server. Clients receive opaque
     // indexes and must request a one-attempt grant before downloading.
-    links: Array.isArray(row.links) ? row.links.map((_, index) => ({ index })) : [],
+    // The base name is safe to expose and makes long file lists readable.
+    links: Array.isArray(row.links)
+      ? row.links.map((url, index) => ({ index, name: visibleLinkName(url) }))
+      : [],
     version: row.version,
     publishedAt: row.publishedAt.toISOString(),
   };
+}
+
+function visibleLinkName(url: string): string | undefined {
+  try {
+    const last = decodeURIComponent(new URL(url).pathname.split("/").filter(Boolean).pop() ?? "");
+    return /\.(pdf|docx?|pptx?|xlsx?|zip|rar|7z)$/i.test(last) ? last : undefined;
+  } catch {
+    return undefined;
+  }
 }

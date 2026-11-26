@@ -9,7 +9,7 @@ export interface SpecialtyItem {
   filesCount: number;
   sizeMb: number;
   /** Opaque link descriptors; the real URL requires a one-attempt grant. */
-  links: { index: number }[];
+  links: { index: number; name?: string }[];
   version: number;
   publishedAt: string;
 }

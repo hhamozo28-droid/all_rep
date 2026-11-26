@@ -71,7 +71,7 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
             {item.links.map((link) => (
               <li key={link.index} className="flex items-center justify-between gap-3 py-3">
                 <span className="min-w-0 truncate text-sm text-soft">
-                  {link.index + 1}. {t("hostedFile")}
+                  {link.index + 1}. {link.name ?? t("hostedFile")}
                 </span>
                 <DownloadLink
                   specialtyId={item.id}

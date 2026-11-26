@@ -1,0 +1,21 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"IBM Plex Sans Arabic, DejaVu Sans","fontSize":"22px","primaryColor":"#F2EFE7","primaryTextColor":"#222B33","primaryBorderColor":"#22414A","lineColor":"#B5733A","tertiaryColor":"#FCF0E4"},"flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42}}}%%
+flowchart TD
+  S(["بداية"]) --> A["وضعية: تقييم ختامي للمقياس"]
+  A --> B["فحص بصري وتتبع الدائرة"]
+  B --> C{"المقاومة 11–17Ω؟"}
+  C -- نعم --> D["إنهاء الفحص والتوثيق"]
+  C -- لا --> E["تنظيف الحاقن أو تغييره"]
+  E --> F{"العطل اختفى؟"}
+  F -- نعم --> G["اختبار التحمل والتسليم"]
+  F -- لا --> H["إعادة التشخيص"]
+  H --> B
+  D --> Z(["نهاية"])
+  G --> Z
+classDef start fill:#1F4E79,color:#ffffff,stroke:#14375A;
+classDef proc fill:#F2F6FB,color:#222B33,stroke:#22414A;
+classDef dec fill:#FDE7CE,color:#7A4A00,stroke:#B5733A;
+classDef io fill:#FCF0E4,color:#222B33,stroke:#B5733A;
+class S,Z start;
+class A,B,E,G,H proc;
+class C,F dec;
+class D io;

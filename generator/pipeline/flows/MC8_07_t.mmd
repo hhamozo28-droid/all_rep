@@ -1,0 +1,15 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"IBM Plex Sans Arabic, DejaVu Sans","fontSize":"22px","primaryColor":"#F2EFE7","primaryTextColor":"#222B33","primaryBorderColor":"#22414A","lineColor":"#B5733A","tertiaryColor":"#FCF0E4"},"flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42}}}%%
+flowchart TD
+  S(["بداية"]) --> A["درس: تقييم ختامي للمقياس"]
+  A --> B1["تهيئة جهاز التشخيص"]
+  B1 --> B2["قراءة الأكواد وتفكيكها"]
+  B2 --> B3["البحث في قاعدة البيانات"]
+  B3 --> B4["توثيق التقرير وحفظه"]
+  B4 --> B5["مسح الأكواد بعد الإصلاح"]
+  B5 --> Z(["نهاية"])
+classDef start fill:#1F4E79,color:#ffffff,stroke:#14375A;
+classDef proc fill:#F2F6FB,color:#222B33,stroke:#22414A;
+classDef dec fill:#FDE7CE,color:#7A4A00,stroke:#B5733A;
+classDef io fill:#FCF0E4,color:#222B33,stroke:#B5733A;
+class S,Z start;
+class A,B1,B2,B3,B4,B5 proc;
