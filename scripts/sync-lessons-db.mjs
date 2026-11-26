@@ -248,7 +248,7 @@ async function main() {
     );
     const byCode = new Map();
     for (const row of specialtyRows) {
-      const key = String(row.code).toUpperCase();
+      const key = String(row.code).toUpperCase().split(/\s+/)[0];
       if (!byCode.has(key)) byCode.set(key, []);
       byCode.get(key).push(row);
     }
@@ -305,10 +305,11 @@ async function main() {
           ? newLinks
           : [...oldLinks, ...newLinks.filter((url) => !oldLinks.includes(url))];
       const totalBytes = files.reduce((sum, f) => sum + f.bytes, 0);
-      const newSizeMb =
-        mode === "replace"
-          ? formatMb(totalBytes)
-          : Math.round((Number(specialty.size_mb || 0) + formatMb(totalBytes)) * 100) / 100;
+      const newSizeMb = totalBytes > 0
+        ? (mode === "replace"
+            ? formatMb(totalBytes)
+            : Math.round((Number(specialty.size_mb || 0) + formatMb(totalBytes)) * 100) / 100)
+        : Number(specialty.size_mb || 0);
 
       rows.push({
         id: specialty.id,
