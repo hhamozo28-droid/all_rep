@@ -42,7 +42,7 @@ type AdminStats = {
   topAccount: { email: string; downloads: number } | null;
 };
 
-type AdminSettings = { theme: string; fontStyle: string; welcomeMessage: string };
+type AdminSettings = { theme: string; fontStyle: string; welcomeMessage: string; downloadsPaused: boolean };
 type AdminLessonRow = {
   id: string;
   specialtyCode: string;
@@ -166,16 +166,10 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [deletedMsg, setDeletedMsg] = useState(false);
   const [limitBusy, setLimitBusy] = useState<string | null>(null);
   const [stats, setStats] = useState<AdminStats | null>(null);
-  const [settings, setSettings] = useState<AdminSettings>({ theme: "default", fontStyle: "default", welcomeMessage: "" });
+  const [settings, setSettings] = useState<AdminSettings>({ theme: "default", fontStyle: "default", welcomeMessage: "", downloadsPaused: false });
   const [notifyMessage, setNotifyMessage] = useState("");
   const [notifyBusy, setNotifyBusy] = useState(false);
   const [notifySent, setNotifySent] = useState(false);
-  const [quotaAmount, setQuotaAmount] = useState(3);
-  const [quotaPreset, setQuotaPreset] = useState("3");
-  const [quotaSendEmail, setQuotaSendEmail] = useState(false);
-  const [quotaMsg, setQuotaMsg] = useState("");
-  const [resetQuotaBusy, setResetQuotaBusy] = useState(false);
-  const [quotaUserBusy, setQuotaUserBusy] = useState<string | null>(null);
   const [emailSubject, setEmailSubject] = useState("");
   const [emailBody, setEmailBody] = useState("");
   const [emailBusy, setEmailBusy] = useState(false);
@@ -192,8 +186,6 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       })
       .catch(() => {});
   }, [authorized]);
-
-  const quotaValue = quotaPreset === "custom" ? quotaAmount : Number(quotaPreset);
 
   const pendingUsers = (users ?? []).filter((row) => !row.approved && row.deletedAt === null);
   const tabUsers = accountsTab === "requests"
@@ -218,7 +210,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
     window.setTimeout(() => window.location.reload(), 900);
   };
 
-  const changeSetting = (field: keyof AdminSettings, value: string) => {
+  const changeSetting = (field: keyof AdminSettings, value: string | boolean) => {
     setSettings((prev) => ({ ...prev, [field]: value }));
     if (settingsTimer.current !== null) window.clearTimeout(settingsTimer.current);
     settingsTimer.current = window.setTimeout(() => {
@@ -325,46 +317,6 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       // keep the message
     } finally {
       setNotifyBusy(false);
-    }
-  }
-
-  async function resetQuotaAll() {
-    if (resetQuotaBusy) return;
-    setResetQuotaBusy(true);
-    setQuotaMsg("");
-    try {
-      const data = await api<{ ok: boolean; affected: number }>("/api/admin/accounts/quota-reset", {
-        method: "POST",
-        credentials: "same-origin",
-      });
-      setUsers((rows) => rows?.map((row) => ({ ...row, downloadLimit: 6 })) ?? null);
-      setQuotaMsg(`${t("resetQuotaAll")}: ${data.affected}`);
-      reloadSoon();
-    } catch {
-      setQuotaMsg(t("error"));
-    } finally {
-      setResetQuotaBusy(false);
-    }
-  }
-
-  async function increaseQuotaUser(id: string) {
-    if (quotaUserBusy || quotaValue <= 0) return;
-    setQuotaUserBusy(id);
-    try {
-      await api("/api/admin/accounts/quota-user", {
-        method: "POST",
-        credentials: "same-origin",
-        body: JSON.stringify({ id, amount: quotaValue, sendEmail: quotaSendEmail }),
-      });
-      setUsers((rows) => rows?.map((row) => (
-        row.id === id && row.downloadLimit !== null
-          ? { ...row, downloadLimit: row.downloadLimit + quotaValue }
-          : row
-      )) ?? null);
-    } catch {
-      // keep the list as-is
-    } finally {
-      setQuotaUserBusy(null);
     }
   }
 
@@ -964,56 +916,18 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                 />
               </label>
 
-              <div className="mt-4 rounded-md border border-line bg-paper p-3">
-                <label className="block text-sm font-medium text-ink">
-                  {t("quotaAmount")}
-                  <div className="mt-1 flex flex-wrap items-center gap-2">
-                    <select
-                      value={quotaPreset}
-                      onChange={(event) => setQuotaPreset(event.target.value)}
-                      className="rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
-                    >
-                      <option value="3">3</option>
-                      <option value="6">6</option>
-                      <option value="10">10</option>
-                      <option value="20">20</option>
-                      <option value="50">50</option>
-                      <option value="150">150</option>
-                      <option value="custom">{t("customAmount")}</option>
-                    </select>
-                    {quotaPreset === "custom" && (
-                      <input
-                        type="number"
-                        min={1}
-                        max={1000}
-                        value={quotaAmount}
-                        onChange={(event) => setQuotaAmount(Math.max(1, Math.min(1000, Number(event.target.value) || 1)))}
-                        className="w-24 rounded-md border border-line bg-white px-2 py-1.5 text-sm text-ink outline-none focus:border-primary"
-                      />
-                    )}
-                  </div>
-                </label>
-                <label className="mt-2 flex items-center gap-2 text-xs text-ink">
-                  <input
-                    type="checkbox"
-                    checked={quotaSendEmail}
-                    onChange={(event) => setQuotaSendEmail(event.target.checked)}
-                    className="h-4 w-4 accent-primary"
-                  />
-                  {t("notifyByEmail")}
-                </label>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  <button
-                    type="button"
-                    onClick={() => void resetQuotaAll()}
-                    disabled={resetQuotaBusy}
-                    className="rounded-md border border-line px-3 py-2 text-sm font-medium text-ink disabled:opacity-50"
-                  >
-                    {resetQuotaBusy ? t("loading") : t("resetQuotaAll")}
-                  </button>
-                </div>
-                {quotaMsg && <p className="mt-2 text-sm text-success">{quotaMsg}</p>}
-              </div>
+              <label className="mt-3 flex items-center gap-2 text-sm font-medium text-ink">
+                <input
+                  type="checkbox"
+                  checked={settings.downloadsPaused}
+                  onChange={(event) => changeSetting("downloadsPaused", event.target.checked)}
+                  className="h-4 w-4 accent-danger"
+                />
+                {t("pauseDownloads")}
+              </label>
+              {settings.downloadsPaused && (
+                <p className="mt-1 text-xs text-danger">{t("maintenanceMessage")}</p>
+              )}
 
               <form onSubmit={sendBulkEmail} className="mt-3 space-y-2">
                 <h3 className="text-sm font-semibold text-ink">{t("emailBroadcast")}</h3>
@@ -1192,16 +1106,6 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                         </td>
                         <td className="px-2 py-2">
                           <div className="flex flex-wrap items-center justify-center gap-2">
-                            {row.deletedAt === null && (
-                              <button
-                                type="button"
-                                onClick={() => void increaseQuotaUser(row.id)}
-                                disabled={quotaUserBusy === row.id}
-                                className="font-semibold text-primary hover:underline disabled:opacity-50"
-                              >
-                                {t("increaseQuota")}
-                              </button>
-                            )}
                             {!row.approved && row.deletedAt === null && (
                               <button
                                 type="button"

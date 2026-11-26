@@ -73,7 +73,8 @@ export default function GuideTab() {
         window.setTimeout(() => URL.revokeObjectURL(objectUrl), 5 * 60_000);
       }
     } catch (cause) {
-      if (cause instanceof ApiError && cause.status === 403) setLimitMsg(true);
+      if (cause instanceof ApiError && cause.body?.error === "maintenance") setLinkMsg(t("maintenanceMessage"));
+      else if (cause instanceof ApiError && cause.status === 403) setLimitMsg(true);
       else if (cause instanceof ApiError && cause.status === 410) setLinkMsg(t("linkUsed"));
       else setLinkMsg(t("error"));
     } finally {

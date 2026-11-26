@@ -65,7 +65,9 @@ export default function LessonFiles({ code }: { code: string }) {
       window.setTimeout(() => URL.revokeObjectURL(objectUrl), 60_000);
       await refresh();
     } catch (cause) {
-      if (cause instanceof ApiError && cause.status === 403) {
+      if (cause instanceof ApiError && cause.body?.error === "maintenance") {
+        setMessage(t("maintenanceMessage"));
+      } else if (cause instanceof ApiError && cause.status === 403) {
         setMessage(t("downloadLimitMessage"));
       } else if (cause instanceof ApiError && cause.status === 410) {
         setMessage(t("linkUsed"));

@@ -6,6 +6,7 @@ import { getSessionState } from "@/lib/auth";
 import { appOnlyGate } from "@/lib/appOnly";
 import { consumeUserDownload } from "@/lib/consumeDownload";
 import { createGrant, ensureDownloadTables } from "@/lib/downloadGrants";
+import { downloadsPaused } from "@/lib/maintenance";
 import { recordSpecialtyDownload } from "@/lib/specialtyStats";
 import { storageHeaders } from "@/lib/storage";
 
@@ -27,6 +28,7 @@ export async function POST(request: Request) {
     if (s.status !== "ok") return fail("unauthorized", 401);
     const blocked = await appOnlyGate(request);
     if (blocked) return blocked;
+    if (await downloadsPaused()) return fail("maintenance", 503);
 
     const specialtyId = body?.specialtyId;
     const linkIndex = body?.linkIndex;

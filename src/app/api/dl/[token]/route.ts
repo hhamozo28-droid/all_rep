@@ -1,5 +1,6 @@
 import { appOnlyGate } from "@/lib/appOnly";
 import { deliverGrant } from "@/lib/downloadDelivery";
+import { downloadsPaused } from "@/lib/maintenance";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -12,6 +13,12 @@ export async function GET(
 ) {
   const blocked = await appOnlyGate(request);
   if (blocked) return blocked;
+  if (await downloadsPaused()) {
+    return new Response(JSON.stringify({ error: "maintenance" }), {
+      status: 503,
+      headers: { "Content-Type": "application/json", "Cache-Control": "private, no-store", "Referrer-Policy": "no-referrer" },
+    });
+  }
   const { token } = await params;
   if (!TOKEN_RE.test(token)) {
     return new Response(JSON.stringify({ error: "invalid-link" }), {

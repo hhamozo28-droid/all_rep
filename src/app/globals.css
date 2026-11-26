@@ -102,6 +102,16 @@ html[data-theme="brown-shiny"] {
 
 body {
   -webkit-tap-highlight-color: transparent;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Keep the whole interface proportional to small phone screens. */
+@media (max-width: 640px) {
+  html { font-size: 15px; }
+}
+@media (max-width: 380px) {
+  html { font-size: 14px; }
 }
 
 /* Admin-chosen font styles (data-font-style). */

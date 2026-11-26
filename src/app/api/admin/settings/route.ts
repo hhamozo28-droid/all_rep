@@ -16,10 +16,11 @@ export async function GET() {
     return NextResponse.json({ ok: false }, { status: 401, headers: adminResponseHeaders });
   }
   await ensureWelcomeColumn();
-  const [themeRow, fontRow, msgRow] = await Promise.all([
+  const [themeRow, fontRow, msgRow, pauseRow] = await Promise.all([
     db.select().from(meta).where(eq(meta.key, "theme")).limit(1),
     db.select().from(meta).where(eq(meta.key, "fontStyle")).limit(1),
     db.select().from(meta).where(eq(meta.key, "welcomeMessage")).limit(1),
+    db.select().from(meta).where(eq(meta.key, "downloadsPaused")).limit(1),
   ]);
   return NextResponse.json(
     {
@@ -27,6 +28,7 @@ export async function GET() {
       theme: isTheme(themeRow[0]?.value) ? themeRow[0].value : "default",
       fontStyle: isFontStyle(fontRow[0]?.value) ? fontRow[0].value : "default",
       welcomeMessage: msgRow[0]?.value ?? "",
+      downloadsPaused: pauseRow[0]?.value === "1",
     },
     { headers: adminResponseHeaders },
   );
@@ -44,6 +46,7 @@ export async function POST(request: Request) {
     theme?: string;
     fontStyle?: string;
     welcomeMessage?: string;
+    downloadsPaused?: boolean;
   } | null;
 
   if (body?.theme !== undefined && !isTheme(body.theme)) {
@@ -58,11 +61,17 @@ export async function POST(request: Request) {
   ) {
     return NextResponse.json({ error: "invalid-welcome-message" }, { status: 400, headers: adminResponseHeaders });
   }
+  if (body?.downloadsPaused !== undefined && typeof body.downloadsPaused !== "boolean") {
+    return NextResponse.json({ error: "invalid-downloads-paused" }, { status: 400, headers: adminResponseHeaders });
+  }
 
   const updates: Array<[string, string]> = [];
   if (isTheme(body?.theme)) updates.push(["theme", body.theme]);
   if (isFontStyle(body?.fontStyle)) updates.push(["fontStyle", body.fontStyle]);
   if (typeof body?.welcomeMessage === "string") updates.push(["welcomeMessage", body.welcomeMessage]);
+  if (typeof body?.downloadsPaused === "boolean") {
+    updates.push(["downloadsPaused", body.downloadsPaused ? "1" : "0"]);
+  }
   if (updates.length > 0) {
     await Promise.all(
       updates.map(([key, value]) =>

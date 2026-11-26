@@ -6,6 +6,7 @@ import { appOnlyGate } from "@/lib/appOnly";
 import { getSessionState } from "@/lib/auth";
 import { consumeUserDownload } from "@/lib/consumeDownload";
 import { createGrant } from "@/lib/downloadGrants";
+import { downloadsPaused } from "@/lib/maintenance";
 import { ensureLessonFilesTable } from "@/lib/specialtyStats";
 import { storageHeaders } from "@/lib/storage";
 
@@ -24,6 +25,7 @@ export async function POST(
   if (s.status !== "ok") return fail("unauthorized", 401);
   const blocked = await appOnlyGate(request);
   if (blocked) return blocked;
+  if (await downloadsPaused()) return fail("maintenance", 503);
   await ensureLessonFilesTable();
   const [row] = await db.select().from(lessonFiles).where(eq(lessonFiles.id, id)).limit(1);
   if (!row) return fail("not-found", 404);

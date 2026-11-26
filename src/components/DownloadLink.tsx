@@ -47,7 +47,8 @@ export default function DownloadLink({ specialtyId, linkIndex, label, className 
       await refresh();
     } catch (cause) {
       tab?.close();
-      if (cause instanceof ApiError && cause.status === 403) setError(t("downloadLimitMessage"));
+      if (cause instanceof ApiError && cause.body?.error === "maintenance") setError(t("maintenanceMessage"));
+      else if (cause instanceof ApiError && cause.status === 403) setError(t("downloadLimitMessage"));
       else if (cause instanceof ApiError && cause.status === 410) setError(t("linkUsed"));
       else setError(t("error"));
     } finally {
