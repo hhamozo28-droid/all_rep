@@ -280,7 +280,7 @@ async function main() {
             name,
             ext: path.extname(name).toLowerCase(),
             bytes: Number.isFinite(bytes) ? bytes : 0,
-            url: `${baseUrl}/${encodeURIComponent(code)}/${encodeURIComponent(name)}`,
+            url: `${baseUrl}/${encodeURIComponent(code)}/${name.split("/").map(encodeURIComponent).join("/")}`,
           };
         }).filter((f) => f.name);
       } else {
