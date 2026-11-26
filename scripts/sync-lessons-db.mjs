@@ -186,10 +186,18 @@ async function main() {
     }
   }
 
-  const manifestCodes = inputManifest
-    ? Object.keys(inputManifest.codes ?? inputManifest)
+  const manifestMap = inputManifest
+    ? (inputManifest.codes && typeof inputManifest.codes === "object"
+        ? inputManifest.codes
+        : inputManifest.code && Array.isArray(inputManifest.files)
+          ? { [String(inputManifest.code).toUpperCase()]: inputManifest.files }
+          : inputManifest)
+    : null;
+
+  const manifestCodes = manifestMap
+    ? Object.keys(manifestMap)
         .map((c) => String(c).toUpperCase())
-        .filter((c) => Array.isArray(inputManifest.codes ? inputManifest.codes[c] : inputManifest[c]))
+        .filter((c) => Array.isArray(manifestMap[Object.keys(manifestMap).find(k => k.toUpperCase() === c)]))
     : null;
 
   const codes = requestedCodes ?? manifestCodes ?? (await discoverCodes());
@@ -260,8 +268,9 @@ async function main() {
     for (const code of codes) {
       const specialty = byCode.get(code)[0];
       let files;
-      if (inputManifest) {
-        const raw = inputManifest.codes ? inputManifest.codes[code] : inputManifest[code];
+      if (manifestMap) {
+        const key = Object.keys(manifestMap).find(k => k.toUpperCase() === code);
+        const raw = key ? manifestMap[key] : [];
         const names = Array.isArray(raw) ? raw : [];
         files = names.map((entry) => {
           const name = typeof entry === "string" ? entry : String(entry?.name ?? entry?.filename ?? "");
