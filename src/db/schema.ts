@@ -11,6 +11,7 @@ import {
   timestamp,
   uuid,
 } from "drizzle-orm/pg-core";
+import type { SpecialtyOtherLink } from "@/types/specialty";
 
 export const specialties = pgTable(
   "specialties",
@@ -27,6 +28,8 @@ export const specialties = pgTable(
       .notNull()
       .default("0"),
     links: jsonb("links").$type<string[]>().notNull().default([]),
+    /** Public Archive.org mirrors, shown under the "other links" tab. */
+    otherLinks: jsonb("other_links").$type<SpecialtyOtherLink[]>().notNull().default([]),
     version: integer("version").notNull().default(1),
     publishedAt: timestamp("published_at", { withTimezone: true })
       .notNull()

@@ -15,7 +15,7 @@ export async function GET() {
       .orderBy(asc(specialties.idx), asc(specialties.id));
     const latest = rows[0];
     return NextResponse.json({
-      items: rows.map(serializeSpecialty),
+      items: rows.map((row) => serializeSpecialty(row)),
       version: latest?.version ?? 0,
       publishedAt: latest?.publishedAt.toISOString() ?? null,
       updatedAt: Date.now(),

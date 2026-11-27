@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
- * Sync the lesson files on disk into `specialties.links`.
+ * Sync Archive.org lesson files into `specialties.other_links`.
  *
- * The site serves `public/lessons/**` directly (Vercel) and uses
- * `specialties.links` as the list of downloadable URLs for a specialty.
- * This script replaces the old ZIP/GoFile links with one link per file.
+ * `specialties.links` keeps the original GoFile share links. Every file
+ * uploaded to Archive.org is stored in `other_links` and shown on the site
+ * under the "other links" tab. No middleware or Vercel rewrite is involved.
  *
  * Usage (from the repository root):
  *   node scripts/sync-lessons-db.mjs --dry-run
@@ -100,6 +100,24 @@ function encodePath(relativePath) {
     .join("/");
 }
 
+function folderOf(name, url) {
+  const value = String(name ?? "");
+  if (/مخططات/.test(value)) return "المخططات";
+  if (/مذكرات/.test(value)) return "المذكرات";
+  try {
+    const first = decodeURIComponent(new URL(String(url)).pathname.split("/")[3] ?? "");
+    if (first === "المخططات" || first === "المذكرات") return first;
+  } catch {
+    /* ignore */
+  }
+  return "المذكرات";
+}
+
+function fileNameOf(name) {
+  const value = String(name ?? "");
+  return value.includes("/") ? value.split("/").pop() ?? value : value;
+}
+
 async function collectFiles(root, urlPrefix) {
   const files = [];
   async function walk(current, relative) {
@@ -162,8 +180,8 @@ function summarize(rows) {
     name: row.name,
     files: row.files.length,
     totalBytes: row.totalBytes,
-    oldLinks: row.oldLinks.length,
-    newLinks: row.finalLinks.length,
+    gofileLinks: row.oldLinks.length,
+    archiveLinks: row.finalOtherLinks.length,
     sizeMb: row.newSizeMb,
     examples: row.files.slice(0, 3).map((f) => f.name),
   }));
@@ -244,7 +262,8 @@ async function main() {
   await client.connect();
   try {
     const { rows: specialtyRows } = await client.query(
-      "SELECT id, code, name, links, files_count, size_mb, version FROM specialties ORDER BY idx",
+      `SELECT id, code, name, links, other_links, files_count, size_mb, version
+         FROM specialties ORDER BY idx`,
     );
     const byCode = new Map();
     for (const row of specialtyRows) {
@@ -303,11 +322,19 @@ async function main() {
       const oldLinks = Array.isArray(specialty.links)
         ? specialty.links.filter((url) => typeof url === "string" && /^https?:\/\//i.test(url))
         : [];
-      const newLinks = files.map((f) => f.url);
-      const finalLinks =
+      const oldOtherLinks = Array.isArray(specialty.other_links) ? specialty.other_links : [];
+      const newOtherLinks = files.map((f) => ({
+        name: fileNameOf(f.name),
+        folder: folderOf(f.name, f.url),
+        url: f.url,
+      }));
+      const finalOtherLinks =
         mode === "replace"
-          ? newLinks
-          : [...oldLinks, ...newLinks.filter((url) => !oldLinks.includes(url))];
+          ? newOtherLinks
+          : [
+              ...oldOtherLinks,
+              ...newOtherLinks.filter((link) => !oldOtherLinks.some((old) => old.url === link.url)),
+            ];
       const totalBytes = files.reduce((sum, f) => sum + f.bytes, 0);
       const newSizeMb = totalBytes > 0
         ? (mode === "replace"
@@ -322,7 +349,9 @@ async function main() {
         oldLinks,
         files,
         totalBytes,
-        finalLinks,
+        finalLinks: oldLinks,
+        finalOtherLinks,
+        oldOtherLinks,
         newSizeMb,
         newVersion: Number(specialty.version || 1) + 1,
       });
@@ -365,6 +394,8 @@ async function main() {
         code: row.code,
         oldLinks: row.oldLinks,
         newLinks: row.finalLinks,
+        oldOtherLinks: row.oldOtherLinks,
+        newOtherLinks: row.finalOtherLinks,
         oldSizeMb: null,
         newSizeMb: row.newSizeMb,
       })),
@@ -396,13 +427,19 @@ async function main() {
       for (const row of rows) {
         await client.query(
           `UPDATE specialties
-              SET links = $1::jsonb,
+              SET other_links = $1::jsonb,
                   files_count = $2,
                   size_mb = $3,
                   version = $4,
                   published_at = now()
             WHERE id = $5`,
-          [JSON.stringify(row.finalLinks), row.finalLinks.length, String(row.newSizeMb), row.newVersion, row.id],
+          [
+            JSON.stringify(row.finalOtherLinks),
+            row.finalOtherLinks.length,
+            String(row.newSizeMb),
+            row.newVersion,
+            row.id,
+          ],
         );
         if (mode === "replace" && deleteHosted) {
           const deleted = await client.query(
@@ -433,7 +470,9 @@ async function main() {
     }
 
     const verify = await client.query(
-      `SELECT code, files_count, size_mb, version, jsonb_array_length(links) AS links
+      `SELECT code, files_count, size_mb, version,
+              jsonb_array_length(links) AS gofile_links,
+              jsonb_array_length(other_links) AS archive_links
          FROM specialties WHERE id = ANY($1::uuid[]) ORDER BY code`,
       [rows.map((row) => row.id)],
     );

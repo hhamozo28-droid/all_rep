@@ -2,6 +2,7 @@ import { desc, eq, sql } from "drizzle-orm";
 import { db } from "@/db";
 import { meta, specialties } from "@/db/schema";
 import type { ParsedRow } from "./parseDocx";
+import type { SpecialtyOtherLink } from "@/types/specialty";
 
 type Db = Pick<typeof db, "select" | "insert" | "delete">;
 
@@ -157,9 +158,13 @@ export function serializeSpecialty(row: {
   filesCount: number;
   sizeMb: string | number;
   links: string[];
+  otherLinks?: SpecialtyOtherLink[] | null;
   version: number;
   publishedAt: Date;
-}) {
+}, options?: { includeOtherLinks?: boolean }) {
+  const otherLinks = Array.isArray(row.otherLinks)
+    ? row.otherLinks.filter(isArchiveLink)
+    : [];
   return {
     id: row.id,
     idx: row.idx,
@@ -176,9 +181,21 @@ export function serializeSpecialty(row: {
     links: Array.isArray(row.links)
       ? row.links.map((url, index) => ({ index, name: visibleLinkName(url) }))
       : [],
+    otherLinksCount: otherLinks.length,
+    ...(options?.includeOtherLinks ? { otherLinks } : {}),
     version: row.version,
     publishedAt: row.publishedAt.toISOString(),
   };
+}
+
+function isArchiveLink(link: unknown): link is SpecialtyOtherLink {
+  if (!link || typeof link !== "object") return false;
+  const value = link as { url?: unknown; name?: unknown; folder?: unknown };
+  return (
+    typeof value.url === "string" &&
+    value.url.startsWith("https://archive.org/download/") &&
+    typeof value.name === "string"
+  );
 }
 
 function visibleLinkName(url: string): string | undefined {

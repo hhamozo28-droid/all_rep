@@ -28,5 +28,8 @@ export async function GET(
   if (rows.length === 0) {
     return NextResponse.json({ error: "not-found" }, { status: 404, headers: storageHeaders });
   }
-  return NextResponse.json(serializeSpecialty(rows[0]), { headers: storageHeaders });
+  return NextResponse.json(
+    serializeSpecialty(rows[0], { includeOtherLinks: true }),
+    { headers: storageHeaders },
+  );
 }

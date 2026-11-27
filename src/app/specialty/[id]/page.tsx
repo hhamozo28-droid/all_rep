@@ -38,7 +38,7 @@ export default async function SpecialtyPage({
         downloadLimit: s.user.downloadLimit,
       }}
     >
-      <SpecialtyDetail item={serializeSpecialty(rows[0])} />
+      <SpecialtyDetail item={serializeSpecialty(rows[0], { includeOtherLinks: true })} />
     </AppShell>
   );
 }

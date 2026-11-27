@@ -1,47 +1,44 @@
-# ملفات الدروس — رابط مباشر
+# ملفات الدروس — التخزين النهائي على Internet Archive
 
-هذا المجلد يحتوي ملفات الدروس (PDF / Word) للتخصصات. الملفات تُخدَم مباشرة على نطاق المنصة، ويمكن نسخ رابطها وإضافته إلى `specialties.links`.
+هذا المجلد مخصص لتنزيل/فك ضغط ملفات الدروس (PDF / DOCX) قبل رفعها. **التخزين النهائي على Internet Archive**، وليس على Vercel.
 
-## رابط الرفع
-https://github.com/hhamozo28-droid/all_rep/upload/main?path=public/lessons
+## مخطط الروابط في قاعدة البيانات
 
-المستودع: https://github.com/hhamozo28-droid/all_rep — الفرع: `main`
+| الحقل | المحتوى | الظهور في المنصة |
+|---|---|---|
+| `specialties.links` | روابط GoFile الأصلية (مخططات / مذكرات) | قسم «روابط التحميل» |
+| `specialties.other_links` | روابط الملفات المرفوعة على Archive | تبويب «روابط أخرى» أسفل قسم GoFile |
 
-## رابط التحميل المباشر
-بعد رفع الملف على `main` (ينتظر النشر التلقائي على Vercel دقائق):
-
+الروابط في `other_links` عامة ومباشرة:
 ```
-https://allrep-theta.vercel.app/lessons/<CODE>/<اسم-الملف>
+https://archive.org/download/<code-lower>/<المجلد>/<اسم-الملف>
 ```
+لا يوجد `middleware` ولا إعادة توجيه عبر Vercel؛ Vercel يستضيف الواجهة والـ API فقط.
 
-أو فوراً من GitHub بدون انتظار النشر:
+## رفع ملف جديد
 
-```
-https://raw.githubusercontent.com/hhamozo28-droid/all_rep/main/public/lessons/<CODE>/<اسم-الملف>
-```
-
-## صفحات فهرس المجلد (للتمرير)
-لكل تخصص توجد صفحة `index.html` داخل `public/lessons/<CODE>/`، ويمكن مشاركة رابط المجلد نفسه:
-
-```
-https://allrep-theta.vercel.app/lessons/<CODE>/
-```
+1. ضع الملفات داخل `public/lessons/<CODE>/المخططات/` و`public/lessons/<CODE>/المذكرات/`.
+2. ارفعها إلى Internet Archive عبر `D:\allrep\tools\upload-archive.mjs` (المفتاح: `<code-lower>/<المجلد>/<الملف>`).
+3. حدّث `manifests/all.json` ثم شغّل:
+   ```
+   node scripts/sync-lessons-db.mjs --input-manifest=manifests/all.json --codes=<CODE> --dry-run
+   node scripts/sync-lessons-db.mjs --input-manifest=manifests/all.json --codes=<CODE> --yes --backup=<file>
+   ```
+   السكربت يكتب في `other_links` ولا يمس `links`.
 
 ## التخصصات المنشورة حالياً
-- `TAV0701` — 32 ملف (PDF/DOCX) — https://allrep-theta.vercel.app/lessons/TAV0701/
-- `TAV06Q`, `THC0701`, `THC0702` — قيد التنزيل (روابط GoFile مباشرة).
+
+- `AGR0703` — https://archive.org/details/agr0703
+- `AGR0713` — https://archive.org/details/agr0713
+- `INT0701P` — https://archive.org/details/int0701p
+- `TAV06Q` — https://archive.org/details/tav06q
+- `TAV0701` — https://archive.org/details/tav0701
+- `THC0701` — https://archive.org/details/thc0701
 
 ## تفضيلات التسمية
-استخدم أسماء عربية/لاتينية واضحة. إن احتوى الاسم مسافات أو أحرف عربية، انسخ الرابط من شريط المتصفح بعد فتح الملف (سيكون مُرمّزاً تلقائياً).
 
-## الاستخدام
-ضع **رابط التحميل المباشر** في حقل رابط الدرس داخل التخصص (لوحة الإدارة / `specialties.links`). عند ضغط الرابط من التطبيق أو الموقع يُحمّل الملف مباشرة (بدون صفحة مشاركة مثل gofile).
+استخدم أسماء عربية/لاتينية واضحة. تبقى الأسماء العربية كما هي في Archive، والروابط مُرمّزة UTF-8 تلقائياً.
 
-## المزامنة مع قاعدة البيانات
-استخدم `scripts/sync-lessons-db.mjs` (وضع `replace` افتراضياً) لاستبدال روابط ZIP بروابط الملفات. راجع `--dry-run` و`--scan-only` و`--input-manifest`.
+## ملاحظة
 
-## التخزين (Internet Archive)
-الملفات النهائية تُخزَّن مباشرة في Internet Archive، وروابطها مكتوبة في `specialties.links`، فيحمّل تطبيق «دروسي» من Archive مباشرة دون المرور بـ Vercel. Vercel يبقى لاستضافة الواجهة والـ API فقط.
-
-## روابط مباشرة
-الملفات المرفوعة هنا متاحة برابط مباشر عبر نطاق المنصة أو عبر raw GitHub.
+الروابط المباشرة على Archive يمكن نسخها ومشاركتها، لذا لا تمر عبر نظام التحميل لمرة واحدة الخاص بـ GoFile.
