@@ -116,7 +116,7 @@ flutter build appbundle --release
 
 ## 4.1 ملفات جاهزة على هذا الجهاز
 
-- **APK موقّع** (للتوزيع المباشر): `public/downloads/dordoc-1.5.2.apk`
+- **APK موقّع** (للتوزيع المباشر): `public/downloads/dordoc-1.5.3.apk`
   ويُخدم عبر الصفحة `https://allrep-theta.vercel.app/download`.
 - **AAB موقّع** (لـ Google Play):
   `build/app/outputs/bundle/release/app-release.aab`
