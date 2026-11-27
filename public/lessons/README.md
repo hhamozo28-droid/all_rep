@@ -36,6 +36,11 @@ https://archive.org/download/<code-lower>/<المجلد>/<اسم-الملف>
 - `ART0702` — https://archive.org/details/art0702
 - `ART0711` — https://archive.org/details/art0711
 - `BTP0701` — https://archive.org/details/btp0701
+- `BTP0703` — https://archive.org/details/btp0703
+- `BTP0705` — https://archive.org/details/btp0705
+- `BTP0715` — https://archive.org/details/btp0715
+- `BTP0722` — https://archive.org/details/btp0722
+- `BTP1214` — https://archive.org/details/btp1214
 - `INT0701P` — https://archive.org/details/int0701p
 - `TAV06Q` — https://archive.org/details/tav06q
 - `TAV0701` — https://archive.org/details/tav0701
