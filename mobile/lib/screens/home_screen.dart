@@ -7,8 +7,9 @@ import '../api.dart';
 import '../deep_link.dart';
 import '../strings.dart';
 import '../theme.dart';
+import 'admin_settings_screen.dart';
 
-enum _AccountAction { logout, delete }
+enum _AccountAction { adminSettings, logout, delete }
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.onSignedOut});
@@ -34,7 +35,10 @@ class _HomeScreenState extends State<HomeScreen>
     DeepLinkService.instance.register(_consumeDeepLink);
     _refreshStatus();
     _loadNotifications();
-    _maybeShowWelcome().then((_) => _maybeShowNotification());
+    _maybeShowWelcome().then((_) async {
+      await _maybeShowNotification();
+      await _maybeShowUpdate();
+    });
   }
 
   @override
@@ -111,6 +115,46 @@ class _HomeScreenState extends State<HomeScreen>
       }
     } catch (_) {
       // Notifications must never block the catalog.
+    }
+  }
+
+  Future<void> _maybeShowUpdate() async {
+    try {
+      final info = await Api.instance.latestVersion();
+      final latest = (info['version'] as String?)?.trim() ?? '';
+      if (latest.isEmpty || latest == appVersion || !mounted) return;
+      final page = (info['page'] as String?) ?? '/download';
+      await showDialog<void>(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Row(
+            children: [
+              Icon(Icons.system_update_rounded, color: AppTheme.primary),
+              SizedBox(width: 8),
+              Text(updateAvailable),
+            ],
+          ),
+          content: Text('$updateAvailableBody\n\n$appVersion → $latest', style: const TextStyle(height: 1.6)),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text(close),
+            ),
+            FilledButton(
+              onPressed: () async {
+                final uri = Uri.parse(Api.absolute(page));
+                Navigator.of(context).pop();
+                if (await canLaunchUrl(uri)) {
+                  await launchUrl(uri, mode: LaunchMode.externalApplication);
+                }
+              },
+              child: const Text(updateNow),
+            ),
+          ],
+        ),
+      );
+    } catch (_) {
+      // Update checks are advisory and must never block the catalog.
     }
   }
 
@@ -327,6 +371,13 @@ class _HomeScreenState extends State<HomeScreen>
             icon: const Icon(Icons.account_circle_outlined),
             onSelected: (action) {
               switch (action) {
+                case _AccountAction.adminSettings:
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => const AdminSettingsScreen(),
+                    ),
+                  );
+                  break;
                 case _AccountAction.logout:
                   _logout();
                   break;
@@ -336,6 +387,10 @@ class _HomeScreenState extends State<HomeScreen>
               }
             },
             itemBuilder: (context) => [
+              const PopupMenuItem(
+                value: _AccountAction.adminSettings,
+                child: Text(adminSettings),
+              ),
               const PopupMenuItem(
                 value: _AccountAction.logout,
                 child: Text(logout),
@@ -437,9 +492,18 @@ class _HomeScreenState extends State<HomeScreen>
                   style: theme.textTheme.titleLarge?.copyWith(color: Colors.white),
                 ),
               ),
-              Text(
-                tagline,
-                style: theme.textTheme.bodySmall?.copyWith(color: Colors.white70),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    tagline,
+                    style: theme.textTheme.bodySmall?.copyWith(color: Colors.white70),
+                  ),
+                  Text(
+                    'v$appVersion',
+                    style: theme.textTheme.bodySmall?.copyWith(color: Colors.white70),
+                  ),
+                ],
               ),
             ],
           ),

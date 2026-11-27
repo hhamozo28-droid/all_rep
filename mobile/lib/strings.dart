@@ -1,6 +1,7 @@
 /// Arabic UI strings for the mobile app (v1 is Arabic-first, like the web).
 const appName = 'منصة دروسي';
 const tagline = 'رفيقكم الدائم ومساعدكم الذكي';
+const appVersion = '1.5.5';
 
 const loginTitle = 'أهلا بك زميلي';
 const loginBody = 'سجّل الدخول لعرض التخصصات وروابط التحميل.\n'
@@ -71,6 +72,34 @@ const searchHint = 'ابحث برمز التخصص…';
 const noResults = 'لا توجد نتائج مطابقة لبحثك';
 const notificationTitle = 'رسالة من المنصة';
 const exitConfirm = 'إغلاق ؟';
+
+const adminSettings = 'إعدادات المسؤول';
+const adminPassword = 'كلمة مرور المسؤول';
+const adminSignIn = 'دخول المسؤول';
+const adminSettingsTitle = 'إعدادات المنصة';
+const pauseDownloads = 'إيقاف التحميل للتحديثات';
+const autoApprove = 'الموافقة التلقائية عند غياب المسؤول';
+const autoApproveHours = 'ساعات الغياب قبل الموافقة التلقائية';
+const bulkLimitLabel = 'حد التحميلات لجميع الحسابات';
+const bulkLimitApply = 'تطبيق على الجميع';
+const themeLabel = 'الموضوع';
+const fontLabel = 'نمط الخط';
+const welcomeLabel = 'رسالة الترحيب';
+const saveSettings = 'حفظ الإعدادات';
+const settingsSaved = 'تم حفظ الإعدادات';
+const bulkLimitDone = 'تم تحديد رصيد';
+const adminOnlyHint = 'هذه الإعدادات متاحة للمسؤول فقط.';
+const themeDefault = 'افتراضي';
+const themeWhiteBlack = 'أبيض وأسود';
+const themeRedPurple = 'أحمر ارجواني';
+const themeBrownShiny = 'بني لامع';
+const fontDefault = 'متوسط';
+const fontCompact = 'صغير';
+const fontLarge = 'كبير';
+const fontExpanded = 'موسع';
+const updateAvailable = 'تحديث متوفر';
+const updateAvailableBody = 'تتوفر نسخة جديدة من تطبيق دروسي. هل تريد تحميلها؟';
+const updateNow = 'تحميل التحديث';
 
 const developer = '';
 const footer = 'حقوق التصميم و النشر والمشاركة للأستاذ حمزة شعيب';

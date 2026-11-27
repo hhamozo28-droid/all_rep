@@ -138,9 +138,11 @@ class Api {
   static String absolute(String path) => '$apiBase$path';
 
   static const _cookieKey = 'dl_session_cookie';
+  static const _adminCookieKey = 'dl_admin_cookie';
   static const _deviceKey = 'dl_device_id';
   final http.Client _client = http.Client();
   String? _cookie;
+  String? _adminCookie;
   String? _deviceId;
 
   Future<void> _loadCookie() async {
@@ -581,5 +583,93 @@ class Api {
       Uri.parse('$apiBase/api/auth/welcome'),
       headers: _headers,
     );
+  }
+
+  // ---------------------------------------------------------------------------
+  // Public release metadata + administrator settings
+  // ---------------------------------------------------------------------------
+
+  Future<Map<String, dynamic>> latestVersion() async {
+    final response = await _client.get(Uri.parse('$apiBase/version.json'));
+    if (response.statusCode != 200) {
+      throw ApiException(response.statusCode, 'version-unavailable');
+    }
+    return jsonDecode(response.body) as Map<String, dynamic>;
+  }
+
+  Future<void> _loadAdminCookie() async {
+    if (_adminCookie != null) return;
+    final prefs = await SharedPreferences.getInstance();
+    _adminCookie = prefs.getString(_adminCookieKey);
+  }
+
+  Future<Map<String, String>> _adminHeaders() async {
+    await _loadAdminCookie();
+    return {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      if (_adminCookie != null) 'Cookie': _adminCookie!,
+    };
+  }
+
+  void _saveAdminCookie(http.Response response) {
+    final values = response.headersSplitValues['set-cookie'];
+    if (values == null) return;
+    for (final value in values) {
+      final match = RegExp(r'(?:^|,\s*)(dl_admin=[^;]+)').firstMatch(value);
+      if (match != null) {
+        _adminCookie = match.group(1);
+        SharedPreferences.getInstance()
+            .then((prefs) => prefs.setString(_adminCookieKey, _adminCookie!));
+        return;
+      }
+    }
+  }
+
+  Future<void> adminLogin(String password) async {
+    final response = await _client.post(
+      Uri.parse('$apiBase/api/admin/login'),
+      headers: _headers,
+      body: jsonEncode({'password': password}),
+    );
+    if (response.statusCode != 200) {
+      throw ApiException(response.statusCode, _code(response));
+    }
+    _saveAdminCookie(response);
+  }
+
+  Future<Map<String, dynamic>> adminSettings() async {
+    final response = await _client.get(
+      Uri.parse('$apiBase/api/admin/settings'),
+      headers: await _adminHeaders(),
+    );
+    if (response.statusCode != 200) {
+      throw ApiException(response.statusCode, _code(response));
+    }
+    return jsonDecode(response.body) as Map<String, dynamic>;
+  }
+
+  Future<void> saveAdminSettings(Map<String, dynamic> values) async {
+    final response = await _client.post(
+      Uri.parse('$apiBase/api/admin/settings'),
+      headers: await _adminHeaders(),
+      body: jsonEncode(values),
+    );
+    if (response.statusCode != 200) {
+      throw ApiException(response.statusCode, _code(response));
+    }
+  }
+
+  Future<int> applyAdminBulkLimit(int limit) async {
+    final response = await _client.post(
+      Uri.parse('$apiBase/api/admin/accounts/quota-reset'),
+      headers: await _adminHeaders(),
+      body: jsonEncode({'limit': limit}),
+    );
+    if (response.statusCode != 200) {
+      throw ApiException(response.statusCode, _code(response));
+    }
+    final data = jsonDecode(response.body) as Map<String, dynamic>;
+    return (data['affected'] as num?)?.toInt() ?? 0;
   }
 }
