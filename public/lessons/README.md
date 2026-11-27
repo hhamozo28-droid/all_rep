@@ -31,6 +31,11 @@ https://archive.org/download/<code-lower>/<المجلد>/<اسم-الملف>
 - `AGR0703` — https://archive.org/details/agr0703
 - `AGR0713` — https://archive.org/details/agr0713
 - `AGR0716` — https://archive.org/details/agr0716
+- `AGR09Q` — https://archive.org/details/agr09q
+- `AGR33Q` — https://archive.org/details/agr33q
+- `ART0702` — https://archive.org/details/art0702
+- `ART0711` — https://archive.org/details/art0711
+- `BTP0701` — https://archive.org/details/btp0701
 - `INT0701P` — https://archive.org/details/int0701p
 - `TAV06Q` — https://archive.org/details/tav06q
 - `TAV0701` — https://archive.org/details/tav0701

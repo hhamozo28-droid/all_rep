@@ -10,6 +10,26 @@
 ├── المخططات/   https://archive.org/download/agr0716/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
 └── المذكرات/   https://archive.org/download/agr0716/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
 
+مخططات الدروس/AGR09Q/
+├── المخططات/   https://archive.org/download/agr09q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/agr09q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
+مخططات + مذكرات/AGR33Q/
+├── المخططات/   https://archive.org/download/agr33q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/agr33q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
+مخططات + مذكرات/ART0702/
+├── المخططات/   https://archive.org/download/art0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/art0702/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
+مخططات + مذكرات/ART0711/
+├── المخططات/   https://archive.org/download/art0711/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/art0711/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
+مخططات + مذكرات/BTP0701/
+├── المخططات/   https://archive.org/download/btp0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/btp0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
 مخططات + مذكرات/INT0701P/
 ├── المخططات/   https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
 └── المذكرات/   https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
