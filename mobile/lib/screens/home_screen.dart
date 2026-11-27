@@ -6,6 +6,7 @@ import 'package:path_provider/path_provider.dart';
 import '../api.dart';
 import '../deep_link.dart';
 import '../strings.dart';
+import '../theme.dart';
 
 enum _AccountAction { logout, delete }
 
@@ -24,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   DownloadStatus? _status;
   bool _statusError = false;
+  List<AppNotification> _notifications = const [];
 
   @override
   void initState() {
@@ -31,6 +33,7 @@ class _HomeScreenState extends State<HomeScreen>
     Api.instance.onUnauthorized = _handleUnauthorized;
     DeepLinkService.instance.register(_consumeDeepLink);
     _refreshStatus();
+    _loadNotifications();
     _maybeShowWelcome().then((_) => _maybeShowNotification());
   }
 
@@ -111,6 +114,87 @@ class _HomeScreenState extends State<HomeScreen>
     }
   }
 
+  Future<void> _loadNotifications() async {
+    try {
+      final items = await Api.instance.notifications();
+      if (!mounted) return;
+      setState(() => _notifications = items);
+    } catch (_) {
+      // Offline: keep the last known list.
+    }
+  }
+
+  Future<void> _showNotifications() async {
+    await _loadNotifications();
+    if (!mounted) return;
+    await showDialog<void>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Row(
+          children: [
+            const Icon(Icons.notifications_none_rounded, size: 22),
+            const SizedBox(width: 8),
+            const Text(notifications),
+            const Spacer(),
+            IconButton(
+              tooltip: close,
+              onPressed: () => Navigator.of(context).pop(),
+              icon: const Icon(Icons.close, size: 20),
+            ),
+          ],
+        ),
+        content: SizedBox(
+          width: double.maxFinite,
+          child: _notifications.isEmpty
+              ? const Text(noNotifications)
+              : ListView.separated(
+                  shrinkWrap: true,
+                  itemCount: _notifications.length,
+                  separatorBuilder: (_, __) => const Divider(height: 12),
+                  itemBuilder: (context, index) {
+                    final item = _notifications[index];
+                    return Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(
+                          item.read ? Icons.mail_outline : Icons.mail,
+                          size: 18,
+                          color: item.read ? AppTheme.muted : AppTheme.primary,
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Text(
+                            item.message,
+                            style: TextStyle(
+                              height: 1.5,
+                              fontWeight: item.read ? FontWeight.normal : FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text(close),
+          ),
+          FilledButton(
+            onPressed: () async {
+              await Api.instance.markNotificationsRead();
+              if (!context.mounted) return;
+              Navigator.of(context).pop();
+              await _loadNotifications();
+            },
+            child: const Text(markAllRead),
+          ),
+        ],
+      ),
+    );
+  }
+
   void _showLimit() {
     if (!mounted) return;
     ScaffoldMessenger.of(context)
@@ -154,6 +238,11 @@ class _HomeScreenState extends State<HomeScreen>
       await _openExternal(e.url);
       await _refreshStatus();
     } on ApiException catch (e) {
+      if (e.code == 'maintenance' || e.status == 503) {
+        if (mounted) _snack(maintenanceMessage);
+        await _refreshStatus();
+        return;
+      }
       if (e.status == 401) {
         widget.onSignedOut();
         return;
@@ -224,6 +313,15 @@ class _HomeScreenState extends State<HomeScreen>
       appBar: AppBar(
         title: const Text(appName),
         actions: [
+          IconButton(
+            tooltip: notifications,
+            onPressed: () => _showNotifications(),
+            icon: Badge(
+              isLabelVisible: _notifications.any((n) => !n.read),
+              label: Text('${_notifications.where((n) => !n.read).length}'),
+              child: const Icon(Icons.notifications_none_rounded),
+            ),
+          ),
           PopupMenuButton<_AccountAction>(
             tooltip: appName,
             icon: const Icon(Icons.account_circle_outlined),
@@ -264,8 +362,8 @@ class _HomeScreenState extends State<HomeScreen>
               unselectedLabelColor: theme.colorScheme.onSurfaceVariant,
               indicatorColor: theme.colorScheme.primary,
               tabs: const [
-                Tab(text: specialtiesTab),
-                Tab(text: guidesTab),
+                Tab(icon: Icon(Icons.grid_view_rounded), text: specialtiesTab),
+                Tab(icon: Icon(Icons.menu_book_rounded), text: guidesTab),
               ],
             ),
           ),
@@ -305,48 +403,90 @@ class _HomeScreenState extends State<HomeScreen>
       label = '$downloadsLeft: ${left < 0 ? 0 : left} / ${status.limit}';
     }
 
-    return Material(
-      color: Colors.white,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
-        child: Row(
-          children: [
-            Icon(
-              Icons.account_balance_wallet_outlined,
-              size: 18,
-              color: theme.colorScheme.primary,
-            ),
-            const SizedBox(width: 8),
-            Expanded(
-              child: Text(
-                label,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  fontWeight: FontWeight.w700,
-                  color: exhausted
-                      ? theme.colorScheme.error
-                      : theme.colorScheme.onSurface,
+    return Container(
+      width: double.infinity,
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [AppTheme.primaryDark, AppTheme.primary],
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+        ),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(26),
+          bottomRight: Radius.circular(26),
+        ),
+      ),
+      padding: const EdgeInsets.fromLTRB(18, 16, 18, 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(9),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.16),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Icon(Icons.menu_book_rounded, color: Colors.white, size: 24),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  appName,
+                  style: theme.textTheme.titleLarge?.copyWith(color: Colors.white),
                 ),
               ),
+              Text(
+                tagline,
+                style: theme.textTheme.bodySmall?.copyWith(color: Colors.white70),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.08),
+                  blurRadius: 12,
+                  offset: const Offset(0, 4),
+                ),
+              ],
             ),
-            if (exhausted)
-              Flexible(
-                child: Text(
-                  limitReached,
-                  textAlign: TextAlign.end,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.error,
-                    fontWeight: FontWeight.w600,
+            child: Row(
+              children: [
+                Icon(
+                  Icons.account_balance_wallet_outlined,
+                  color: exhausted ? AppTheme.danger : AppTheme.primary,
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    label,
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      color: exhausted ? AppTheme.danger : AppTheme.ink,
+                    ),
                   ),
                 ),
-              ),
-            IconButton(
-              tooltip: retry,
-              visualDensity: VisualDensity.compact,
-              onPressed: _refreshStatus,
-              icon: const Icon(Icons.refresh, size: 20),
+                if (exhausted)
+                  Text(
+                    limitReached,
+                    style: theme.textTheme.bodySmall?.copyWith(color: AppTheme.danger),
+                  ),
+                IconButton(
+                  tooltip: retry,
+                  visualDensity: VisualDensity.compact,
+                  onPressed: _refreshStatus,
+                  icon: const Icon(Icons.refresh, size: 20, color: AppTheme.primary),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -368,6 +508,7 @@ class _SpecialtiesTab extends StatefulWidget {
 }
 
 class _SpecialtiesTabState extends State<_SpecialtiesTab> {
+  final _search = TextEditingController();
   List<Specialty>? _items;
   bool _error = false;
   bool _busy = false;
@@ -376,6 +517,12 @@ class _SpecialtiesTabState extends State<_SpecialtiesTab> {
   void initState() {
     super.initState();
     _load();
+  }
+
+  @override
+  void dispose() {
+    _search.dispose();
+    super.dispose();
   }
 
   Future<void> _load({bool keepList = false}) async {
@@ -433,7 +580,9 @@ class _SpecialtiesTabState extends State<_SpecialtiesTab> {
     } on ExternalLinkException catch (e) {
       await _openExternal(e.url);
     } on ApiException catch (e) {
-      if (e.status == 403) {
+      if (e.code == 'maintenance' || e.status == 503) {
+        _snack(maintenanceMessage);
+      } else if (e.status == 403) {
         widget.onLimit();
         await widget.onConsumed();
       } else if (e.status == 410) {
@@ -461,15 +610,49 @@ class _SpecialtiesTabState extends State<_SpecialtiesTab> {
     if (items.isEmpty) {
       return _EmptyView(text: emptySpecialties, onRefresh: () => _load());
     }
-    return RefreshIndicator(
-      onRefresh: () => _load(keepList: true),
-      child: ListView.separated(
-        padding: const EdgeInsets.all(12),
-        physics: const AlwaysScrollableScrollPhysics(),
-        itemCount: items.length,
-        separatorBuilder: (_, __) => const SizedBox(height: 10),
-        itemBuilder: (context, index) => _specialtyCard(items[index]),
-      ),
+    final query = _search.text.trim().toLowerCase();
+    final visible = query.isEmpty
+        ? items
+        : items
+            .where((s) =>
+                s.code.toLowerCase().contains(query) ||
+                s.name.toLowerCase().contains(query))
+            .toList();
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(12, 12, 12, 4),
+          child: TextField(
+            controller: _search,
+            onChanged: (_) => setState(() {}),
+            decoration: InputDecoration(
+              hintText: searchHint,
+              prefixIcon: const Icon(Icons.search_rounded),
+              suffixIcon: _search.text.isEmpty
+                  ? null
+                  : IconButton(
+                      tooltip: close,
+                      onPressed: () => setState(() => _search.clear()),
+                      icon: const Icon(Icons.close, size: 18),
+                    ),
+            ),
+          ),
+        ),
+        Expanded(
+          child: visible.isEmpty
+              ? const Center(child: Text(noResults, style: TextStyle(color: AppTheme.muted)))
+              : RefreshIndicator(
+                  onRefresh: () => _load(keepList: true),
+                  child: ListView.separated(
+                    padding: const EdgeInsets.all(12),
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    itemCount: visible.length,
+                    separatorBuilder: (_, __) => const SizedBox(height: 10),
+                    itemBuilder: (context, index) => _specialtyCard(visible[index]),
+                  ),
+                ),
+        ),
+      ],
     );
   }
 
@@ -477,27 +660,34 @@ class _SpecialtiesTabState extends State<_SpecialtiesTab> {
     final theme = Theme.of(context);
     final links = item.links;
     return Card(
-      elevation: 0,
-      color: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(14),
-        side: BorderSide(color: theme.dividerColor),
-      ),
       child: Padding(
-        padding: const EdgeInsets.all(14),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              item.code,
-              textDirection: TextDirection.ltr,
-              style: theme.textTheme.labelMedium?.copyWith(
-                fontWeight: FontWeight.w700,
-                color: theme.colorScheme.primary,
-                letterSpacing: 0.5,
-              ),
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  decoration: BoxDecoration(
+                    color: AppTheme.primarySoft,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                    item.code,
+                    textDirection: TextDirection.ltr,
+                    style: theme.textTheme.labelMedium?.copyWith(
+                      fontWeight: FontWeight.w800,
+                      color: AppTheme.primaryDark,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                const Icon(Icons.folder_open_rounded, color: AppTheme.accent, size: 22),
+              ],
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 8),
             Text(
               item.name,
               style: theme.textTheme.titleMedium?.copyWith(
@@ -535,14 +725,15 @@ class _SpecialtiesTabState extends State<_SpecialtiesTab> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
-        color: const Color(0xFFE8F1EE),
+        color: AppTheme.primarySoft,
         borderRadius: BorderRadius.circular(999),
+        border: Border.all(color: AppTheme.line),
       ),
       child: Text(
         label,
         style: theme.textTheme.labelSmall?.copyWith(
-          fontWeight: FontWeight.w600,
-          color: theme.colorScheme.onSurfaceVariant,
+          fontWeight: FontWeight.w700,
+          color: AppTheme.primaryDark,
         ),
       ),
     );
@@ -660,7 +851,9 @@ class _GuidesTabState extends State<_GuidesTab> {
       await _openExternal(e.url);
     } on ApiException catch (e) {
       if (!mounted) return;
-      if (e.status == 403) {
+      if (e.code == 'maintenance' || e.status == 503) {
+        _snack(maintenanceMessage);
+      } else if (e.status == 403) {
         widget.onLimit();
         await widget.onConsumed();
       } else if (e.status == 410) {
