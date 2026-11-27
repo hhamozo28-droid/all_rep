@@ -431,7 +431,11 @@ class Api {
       var response = await request.close();
 
       Uri? finalUri;
-      if (_isRedirect(response.statusCode)) {
+      // A grant can point at another signed hop (e.g. /lessons/... rewritten
+      // to an external file host). Follow the short chain manually so the
+      // final URL is never exposed to the browser or copied by the user.
+      var hops = 0;
+      while (_isRedirect(response.statusCode) && hops < 6) {
         final location = response.headers.value('location');
         if (location == null || location.isEmpty) {
           throw ApiException(response.statusCode, 'missing-location');
@@ -441,7 +445,14 @@ class Api {
         finalUri = parsed.hasScheme ? parsed : Uri.parse('$apiBase$location');
         request = await client.getUrl(finalUri);
         request.followRedirects = false;
+        headers.forEach((key, value) => request.headers.set(key, value));
+        request.headers.set('Accept', 'application/octet-stream, application/json');
         response = await request.close();
+        hops += 1;
+      }
+      if (_isRedirect(response.statusCode)) {
+        await response.drain<void>();
+        throw ApiException(response.statusCode, 'too-many-redirects');
       }
 
       if (response.statusCode != 200) {

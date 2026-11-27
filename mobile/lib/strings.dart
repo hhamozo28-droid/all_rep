@@ -12,6 +12,7 @@ const loginButton = 'تسجيل الدخول';
 const noAccount = 'ليس لديك حساب؟';
 const contactAdmin = 'تواصل مع مسؤول المنصة لإنشاء حسابك';
 const registerButton = 'إنشاء حساب';
+const registerIntro = 'أنشئ حسابك بالبريد وكلمة المرور — تحصل على 6 تحميلات مجانية بعد موافقة المسؤول.';
 const registerPending = 'تم إرسال طلب التسجيل';
 const registerPendingBody = 'سيتم تفعيل حسابك بعد موافقة المسؤول.\nتحصل على 6 تحميلات مجانية.';
 const haveAccount = 'لديك حساب بالفعل؟';
@@ -22,8 +23,7 @@ const passwordMin = 'كلمة المرور يجب أن تكون 6 أحرف عل�
 const logout = 'تسجيل الخروج';
 const deleteAccount = 'حذف الحساب';
 const deleteAccountConfirm =
-    'سيتم تعطيل حسابك نهائياً ومنع تسجيل الدخول به. سيبقى بإمكان المسؤول '
-    'حذف بياناته من لوحة الإدارة. هل أنت متأكد؟';
+    'أنت بصدد حذف حسابك نهائيا ولا يمكنك اعادة التسجيل به هل انت متأكد ؟';
 const cancel = 'إلغاء';
 const confirm = 'تأكيد';
 
@@ -51,6 +51,7 @@ const networkError =
 const ok = 'حسناً';
 const welcomeTitle = 'رسالة من المسؤول';
 
+const accountNotFound = 'هذا الحساب غير مسجل';
 const accountDeleted = 'هذا الحساب محذوف ولا يمكن تسجيل الدخول به';
 const wrongCredentials = 'البريد الإلكتروني أو كلمة المرور غير صحيحة';
 const blocked = 'الحساب محجوب';
@@ -66,6 +67,10 @@ const lessonsLabel = 'دروس';
 const filesLabel = 'ملفات';
 const sheetsLink = 'مخططات الدروس';
 const notesLink = 'مذكرات الدروس';
+const searchHint = 'ابحث برمز التخصص…';
+const noResults = 'لا توجد نتائج مطابقة لبحثك';
+const notificationTitle = 'رسالة من المنصة';
+const exitConfirm = 'إغلاق ؟';
 
 const developer = '';
 const footer = 'حقوق التصميم و النشر والمشاركة للأستاذ حمزة شعيب';

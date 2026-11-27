@@ -6,6 +6,7 @@ import 'deep_link.dart';
 import 'screens/home_screen.dart';
 import 'screens/login_screen.dart';
 import 'strings.dart';
+import 'theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,8 +16,6 @@ void main() {
 
 class DordocApp extends StatelessWidget {
   const DordocApp({super.key});
-
-  static const _seed = Color(0xFF0E6F5C);
 
   @override
   Widget build(BuildContext context) {
@@ -30,30 +29,7 @@ class DordocApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: _seed),
-        scaffoldBackgroundColor: const Color(0xFFF4F2EC),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: _seed,
-          foregroundColor: Colors.white,
-          centerTitle: true,
-        ),
-        inputDecorationTheme: const InputDecorationTheme(
-          border: OutlineInputBorder(),
-          filled: true,
-          fillColor: Colors.white,
-        ),
-        filledButtonTheme: FilledButtonThemeData(
-          style: FilledButton.styleFrom(
-            minimumSize: const Size(64, 48),
-            textStyle: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-        ),
-      ),
+      theme: AppTheme.data,
       builder: (context, child) => Directionality(
         textDirection: TextDirection.rtl,
         child: child ?? const SizedBox.shrink(),

@@ -21,6 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _busy = false;
   bool _passwordVisible = false;
   bool _registered = false;
+  bool _registerMode = false;
   String _error = '';
 
   @override
@@ -58,6 +59,13 @@ class _LoginScreenState extends State<LoginScreen> {
       widget.onSignedIn();
     } on ApiException catch (e) {
       if (!mounted) return;
+      if (e.code == 'account-not-found') {
+        setState(() {
+          _error = accountNotFound;
+          _registerMode = true;
+        });
+        return;
+      }
       setState(() => _error = _messageFor(e));
     } catch (_) {
       if (!mounted) return;
@@ -198,14 +206,14 @@ class _LoginScreenState extends State<LoginScreen> {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               Text(
-                                loginTitle,
+                                _registerMode ? registerButton : loginTitle,
                                 style: theme.textTheme.titleLarge?.copyWith(
                                   fontWeight: FontWeight.w800,
                                 ),
                               ),
                               const SizedBox(height: 6),
                               Text(
-                                loginBody,
+                                _registerMode ? registerIntro : loginBody,
                                 style: theme.textTheme.bodySmall?.copyWith(
                                   color: theme.colorScheme.onSurfaceVariant,
                                   height: 1.6,
@@ -276,7 +284,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ],
                               const SizedBox(height: 20),
                               FilledButton(
-                                onPressed: _busy ? null : _submit,
+                                onPressed: _busy ? null : (_registerMode ? _register : _submit),
                                 child: _busy
                                     ? const SizedBox(
                                         height: 22,
@@ -286,16 +294,21 @@ class _LoginScreenState extends State<LoginScreen> {
                                           color: Colors.white,
                                         ),
                                       )
-                                    : const Text(loginButton),
+                                    : Text(_registerMode ? registerButton : loginButton),
                               ),
                               const SizedBox(height: 12),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const Text('$noAccount '),
+                                  Text(_registerMode ? '$haveAccount ' : '$noAccount '),
                                   TextButton(
-                                    onPressed: _busy ? null : _register,
-                                    child: const Text(registerButton),
+                                    onPressed: _busy
+                                        ? null
+                                        : () => setState(() {
+                                              _registerMode = !_registerMode;
+                                              _error = '';
+                                            }),
+                                    child: Text(_registerMode ? loginButton : registerButton),
                                   ),
                                 ],
                               ),
