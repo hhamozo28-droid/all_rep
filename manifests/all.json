@@ -1,237 +1,983 @@
 {
-  "generatedAt": "2026-11-26T18:46:38.763Z",
+  "generatedAt": "2026-11-27T06:00:29.475Z",
   "codes": {
+    "TAV06Q": [
+      {
+        "name": "المخططات/MC1 النظافة والبيئة - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC1 النظافة والبيئة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC2 النصوص - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2%20%D8%A7%D9%84%D9%86%D8%B5%D9%88%D8%B5%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC2 النصوص - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2%20%D8%A7%D9%84%D9%86%D8%B5%D9%88%D8%B5%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ1 مكان العمل - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1%20%D9%85%D9%83%D8%A7%D9%86%20%D8%A7%D9%84%D8%B9%D9%85%D9%84%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ1 مكان العمل - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1%20%D9%85%D9%83%D8%A7%D9%86%20%D8%A7%D9%84%D8%B9%D9%85%D9%84%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ2 الكتيبات - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2%20%D8%A7%D9%84%D9%83%D8%AA%D9%8A%D8%A8%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ2 الكتيبات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2%20%D8%A7%D9%84%D9%83%D8%AA%D9%8A%D8%A8%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ3 المصطلحات - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ3%20%D8%A7%D9%84%D9%85%D8%B5%D8%B7%D9%84%D8%AD%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ3 المصطلحات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ3%20%D8%A7%D9%84%D9%85%D8%B5%D8%B7%D9%84%D8%AD%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ4 الواجهات - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ4%20%D8%A7%D9%84%D9%88%D8%A7%D8%AC%D9%87%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ4 الواجهات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ4%20%D8%A7%D9%84%D9%88%D8%A7%D8%AC%D9%87%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ5 المحادثات - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ5%20%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%AF%D8%AB%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ5 المحادثات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ5%20%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%AF%D8%AB%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المذكرات/TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MC1 النظافة والبيئة.docx",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9.docx"
+      },
+      {
+        "name": "المذكرات/TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MC1 النظافة والبيئة.pdf",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9.pdf"
+      },
+      {
+        "name": "المذكرات/TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MC2 النصوص.docx",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%86%D8%B5%D9%88%D8%B5.docx"
+      },
+      {
+        "name": "المذكرات/TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MC2 النصوص.pdf",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%86%D8%B5%D9%88%D8%B5.pdf"
+      },
+      {
+        "name": "المذكرات/TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ1 مكان العمل.docx",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D9%85%D9%83%D8%A7%D9%86%20%D8%A7%D9%84%D8%B9%D9%85%D9%84.docx"
+      },
+      {
+        "name": "المذكرات/TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ1 مكان العمل.pdf",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D9%85%D9%83%D8%A7%D9%86%20%D8%A7%D9%84%D8%B9%D9%85%D9%84.pdf"
+      },
+      {
+        "name": "المذكرات/TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ2 الكتيبات.docx",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D9%84%D9%83%D8%AA%D9%8A%D8%A8%D8%A7%D8%AA.docx"
+      },
+      {
+        "name": "المذكرات/TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ2 الكتيبات.pdf",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D9%84%D9%83%D8%AA%D9%8A%D8%A8%D8%A7%D8%AA.pdf"
+      },
+      {
+        "name": "المذكرات/TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ3 المصطلحات.docx",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D9%84%D9%85%D8%B5%D8%B7%D9%84%D8%AD%D8%A7%D8%AA.docx"
+      },
+      {
+        "name": "المذكرات/TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ3 المصطلحات.pdf",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D9%84%D9%85%D8%B5%D8%B7%D9%84%D8%AD%D8%A7%D8%AA.pdf"
+      },
+      {
+        "name": "المذكرات/TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ4 الواجهات.docx",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D8%A7%D9%84%D9%88%D8%A7%D8%AC%D9%87%D8%A7%D8%AA.docx"
+      },
+      {
+        "name": "المذكرات/TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ4 الواجهات.pdf",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D8%A7%D9%84%D9%88%D8%A7%D8%AC%D9%87%D8%A7%D8%AA.pdf"
+      },
+      {
+        "name": "المذكرات/TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ5 المحادثات.docx",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%AF%D8%AB%D8%A7%D8%AA.docx"
+      },
+      {
+        "name": "المذكرات/TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ5 المحادثات.pdf",
+        "url": "https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%AF%D8%AB%D8%A7%D8%AA.pdf"
+      }
+    ],
     "TAV0701": [
       {
-        "name": "TAV0701 التصوير - مذكرات - MC1 التموقع.docx",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%82%D8%B9.docx",
+        "name": "المخططات/MC1 التموقع - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1%20%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%82%D8%B9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC1 التموقع - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1%20%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%82%D8%B9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC10 الكيمياء - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC10%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC10 الكيمياء - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC10%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC11 القانون - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC11%20%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC11 القانون - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC11%20%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC2 النظافة والسلامة - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC2 النظافة والسلامة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC3 الكاميرات - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC3%20%D8%A7%D9%84%D9%83%D8%A7%D9%85%D9%8A%D8%B1%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC3 الكاميرات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC3%20%D8%A7%D9%84%D9%83%D8%A7%D9%85%D9%8A%D8%B1%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC4 الاضاءة - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC4%20%D8%A7%D9%84%D8%A7%D8%B6%D8%A7%D8%A1%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC4 الاضاءة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC4%20%D8%A7%D9%84%D8%A7%D8%B6%D8%A7%D8%A1%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC5 البصريات - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC5%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC5 البصريات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC5%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC6 التواصل - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC6%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC6 التواصل - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC6%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC7 الفواتير - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC7%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D8%AA%D9%8A%D8%B1%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC7 الفواتير - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC7%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D8%AA%D9%8A%D8%B1%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC8 الحاسوب - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC8%20%D8%A7%D9%84%D8%AD%D8%A7%D8%B3%D9%88%D8%A8%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC8 الحاسوب - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC8%20%D8%A7%D9%84%D8%AD%D8%A7%D8%B3%D9%88%D8%A8%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC9 تاريخ التصوير - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC9%20%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC9 تاريخ التصوير - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC9%20%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ1 التصوير الموضوعي - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D9%88%D8%B6%D9%88%D8%B9%D9%8A%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ1 التصوير الموضوعي - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D9%88%D8%B6%D9%88%D8%B9%D9%8A%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ2 التقارير المصورة - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2%20%D8%A7%D9%84%D8%AA%D9%82%D8%A7%D8%B1%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D8%B5%D9%88%D8%B1%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ2 التقارير المصورة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2%20%D8%A7%D9%84%D8%AA%D9%82%D8%A7%D8%B1%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D8%B5%D9%88%D8%B1%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ3 الافلام التناظرية - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ3%20%D8%A7%D9%84%D8%A7%D9%81%D9%84%D8%A7%D9%85%20%D8%A7%D9%84%D8%AA%D9%86%D8%A7%D8%B8%D8%B1%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ3 الافلام التناظرية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ3%20%D8%A7%D9%84%D8%A7%D9%81%D9%84%D8%A7%D9%85%20%D8%A7%D9%84%D8%AA%D9%86%D8%A7%D8%B8%D8%B1%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ4 الصورة الرقمية - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ4%20%D8%A7%D9%84%D8%B5%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ4 الصورة الرقمية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ4%20%D8%A7%D9%84%D8%B5%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ5 المعالجة والارشفة - مخططات الدروس.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ5%20%D8%A7%D9%84%D9%85%D8%B9%D8%A7%D9%84%D8%AC%D8%A9%20%D9%88%D8%A7%D9%84%D8%A7%D8%B1%D8%B4%D9%81%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ5 المعالجة والارشفة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ5%20%D8%A7%D9%84%D9%85%D8%B9%D8%A7%D9%84%D8%AC%D8%A9%20%D9%88%D8%A7%D9%84%D8%A7%D8%B1%D8%B4%D9%81%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC1 التموقع.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%82%D8%B9.docx"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC1 التموقع.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%82%D8%B9.pdf"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC10 الكيمياء.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC10%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1.docx"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC10 الكيمياء.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC10%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1.pdf"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC11 القانون.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC11%20%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86.docx"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC11 القانون.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC11%20%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86.pdf"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC2 النظافة والسلامة.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9.docx"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC2 النظافة والسلامة.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9.pdf"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC3 الكاميرات.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D8%A7%D9%84%D9%83%D8%A7%D9%85%D9%8A%D8%B1%D8%A7%D8%AA.docx"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC3 الكاميرات.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D8%A7%D9%84%D9%83%D8%A7%D9%85%D9%8A%D8%B1%D8%A7%D8%AA.pdf"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC4 الاضاءة.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D8%A7%D9%84%D8%A7%D8%B6%D8%A7%D8%A1%D8%A9.docx"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC4 الاضاءة.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D8%A7%D9%84%D8%A7%D8%B6%D8%A7%D8%A1%D8%A9.pdf"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC5 البصريات.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%D8%A7%D8%AA.docx"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC5 البصريات.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%D8%A7%D8%AA.pdf"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC6 التواصل.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC6%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84.docx"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC6 التواصل.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC6%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84.pdf"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC7 الفواتير.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC7%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D8%AA%D9%8A%D8%B1.docx"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC7 الفواتير.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC7%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D8%AA%D9%8A%D8%B1.pdf"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC8 الحاسوب.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC8%20%D8%A7%D9%84%D8%AD%D8%A7%D8%B3%D9%88%D8%A8.docx"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC8 الحاسوب.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC8%20%D8%A7%D9%84%D8%AD%D8%A7%D8%B3%D9%88%D8%A8.pdf"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC9 تاريخ التصوير.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC9%20%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1.docx"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MC9 تاريخ التصوير.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC9%20%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1.pdf"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MQ1 التصوير الموضوعي.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D9%88%D8%B6%D9%88%D8%B9%D9%8A.docx"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MQ1 التصوير الموضوعي.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D9%88%D8%B6%D9%88%D8%B9%D9%8A.pdf"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MQ2 التقارير المصورة.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D9%84%D8%AA%D9%82%D8%A7%D8%B1%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D8%B5%D9%88%D8%B1%D8%A9.docx"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MQ2 التقارير المصورة.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D9%84%D8%AA%D9%82%D8%A7%D8%B1%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D8%B5%D9%88%D8%B1%D8%A9.pdf"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MQ3 الافلام التناظرية.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D9%84%D8%A7%D9%81%D9%84%D8%A7%D9%85%20%D8%A7%D9%84%D8%AA%D9%86%D8%A7%D8%B8%D8%B1%D9%8A%D8%A9.docx"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MQ3 الافلام التناظرية.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D9%84%D8%A7%D9%81%D9%84%D8%A7%D9%85%20%D8%A7%D9%84%D8%AA%D9%86%D8%A7%D8%B8%D8%B1%D9%8A%D8%A9.pdf"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MQ4 الصورة الرقمية.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D8%A7%D9%84%D8%B5%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9.docx"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MQ4 الصورة الرقمية.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D8%A7%D9%84%D8%B5%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9.pdf"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MQ5 المعالجة والارشفة.docx",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%A7%D9%84%D9%85%D8%B9%D8%A7%D9%84%D8%AC%D8%A9%20%D9%88%D8%A7%D9%84%D8%A7%D8%B1%D8%B4%D9%81%D8%A9.docx"
+      },
+      {
+        "name": "المذكرات/TAV0701 التصوير - مذكرات - MQ5 المعالجة والارشفة.pdf",
+        "url": "https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%A7%D9%84%D9%85%D8%B9%D8%A7%D9%84%D8%AC%D8%A9%20%D9%88%D8%A7%D9%84%D8%A7%D8%B1%D8%B4%D9%81%D8%A9.pdf"
+      }
+    ],
+    "INT0701P": [
+      {
+        "name": "المخططات/MC1 الرياضيات - مخططات الدروس.docx",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC1 الرياضيات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC2 المبادئ - مخططات الدروس.docx",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2%20%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%AF%D8%A6%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC2 المبادئ - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2%20%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%AF%D8%A6%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ1 تركيب الحواسيب - مخططات الدروس.docx",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1%20%D8%AA%D8%B1%D9%83%D9%8A%D8%A8%20%D8%A7%D9%84%D8%AD%D9%88%D8%A7%D8%B3%D9%8A%D8%A8%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ1 تركيب الحواسيب - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1%20%D8%AA%D8%B1%D9%83%D9%8A%D8%A8%20%D8%A7%D9%84%D8%AD%D9%88%D8%A7%D8%B3%D9%8A%D8%A8%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ2 الشبكة - مخططات الدروس.docx",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2%20%D8%A7%D9%84%D8%B4%D8%A8%D9%83%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ2 الشبكة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2%20%D8%A7%D9%84%D8%B4%D8%A8%D9%83%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ3 الصيانة - مخططات الدروس.docx",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ3%20%D8%A7%D9%84%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ3 الصيانة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ3%20%D8%A7%D9%84%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ4 قواعد البيانات - مخططات الدروس.docx",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ4%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ4 قواعد البيانات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ4%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ5 المكونات - مخططات الدروس.docx",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ5%20%D8%A7%D9%84%D9%85%D9%83%D9%88%D9%86%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ5 المكونات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ5%20%D8%A7%D9%84%D9%85%D9%83%D9%88%D9%86%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المذكرات/INT0701P مستغل المعلوماتية - مذكرات - MC1 الرياضيات.docx",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/INT0701P%20%D9%85%D8%B3%D8%AA%D8%BA%D9%84%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA.docx"
+      },
+      {
+        "name": "المذكرات/INT0701P مستغل المعلوماتية - مذكرات - MC1 الرياضيات.pdf",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/INT0701P%20%D9%85%D8%B3%D8%AA%D8%BA%D9%84%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA.pdf"
+      },
+      {
+        "name": "المذكرات/INT0701P مستغل المعلوماتية - مذكرات - MC2 المبادئ.docx",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/INT0701P%20%D9%85%D8%B3%D8%AA%D8%BA%D9%84%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%AF%D8%A6.docx"
+      },
+      {
+        "name": "المذكرات/INT0701P مستغل المعلوماتية - مذكرات - MC2 المبادئ.pdf",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/INT0701P%20%D9%85%D8%B3%D8%AA%D8%BA%D9%84%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%AF%D8%A6.pdf"
+      },
+      {
+        "name": "المذكرات/INT0701P مستغل المعلوماتية - مذكرات - MQ1 تركيب الحواسيب.docx",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/INT0701P%20%D9%85%D8%B3%D8%AA%D8%BA%D9%84%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%AA%D8%B1%D9%83%D9%8A%D8%A8%20%D8%A7%D9%84%D8%AD%D9%88%D8%A7%D8%B3%D9%8A%D8%A8.docx"
+      },
+      {
+        "name": "المذكرات/INT0701P مستغل المعلوماتية - مذكرات - MQ1 تركيب الحواسيب.pdf",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/INT0701P%20%D9%85%D8%B3%D8%AA%D8%BA%D9%84%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%AA%D8%B1%D9%83%D9%8A%D8%A8%20%D8%A7%D9%84%D8%AD%D9%88%D8%A7%D8%B3%D9%8A%D8%A8.pdf"
+      },
+      {
+        "name": "المذكرات/INT0701P مستغل المعلوماتية - مذكرات - MQ2 الشبكة.docx",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/INT0701P%20%D9%85%D8%B3%D8%AA%D8%BA%D9%84%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D9%84%D8%B4%D8%A8%D9%83%D8%A9.docx"
+      },
+      {
+        "name": "المذكرات/INT0701P مستغل المعلوماتية - مذكرات - MQ2 الشبكة.pdf",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/INT0701P%20%D9%85%D8%B3%D8%AA%D8%BA%D9%84%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D9%84%D8%B4%D8%A8%D9%83%D8%A9.pdf"
+      },
+      {
+        "name": "المذكرات/INT0701P مستغل المعلوماتية - مذكرات - MQ3 الصيانة.docx",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/INT0701P%20%D9%85%D8%B3%D8%AA%D8%BA%D9%84%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D9%84%D8%B5%D9%8A%D8%A7%D9%86%D8%A9.docx"
+      },
+      {
+        "name": "المذكرات/INT0701P مستغل المعلوماتية - مذكرات - MQ3 الصيانة.pdf",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/INT0701P%20%D9%85%D8%B3%D8%AA%D8%BA%D9%84%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D9%84%D8%B5%D9%8A%D8%A7%D9%86%D8%A9.pdf"
+      },
+      {
+        "name": "المذكرات/INT0701P مستغل المعلوماتية - مذكرات - MQ4 قواعد البيانات.docx",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/INT0701P%20%D9%85%D8%B3%D8%AA%D8%BA%D9%84%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA.docx"
+      },
+      {
+        "name": "المذكرات/INT0701P مستغل المعلوماتية - مذكرات - MQ4 قواعد البيانات.pdf",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/INT0701P%20%D9%85%D8%B3%D8%AA%D8%BA%D9%84%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA.pdf"
+      },
+      {
+        "name": "المذكرات/INT0701P مستغل المعلوماتية - مذكرات - MQ5 المكونات.docx",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/INT0701P%20%D9%85%D8%B3%D8%AA%D8%BA%D9%84%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%A7%D9%84%D9%85%D9%83%D9%88%D9%86%D8%A7%D8%AA.docx"
+      },
+      {
+        "name": "المذكرات/INT0701P مستغل المعلوماتية - مذكرات - MQ5 المكونات.pdf",
+        "url": "https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/INT0701P%20%D9%85%D8%B3%D8%AA%D8%BA%D9%84%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%A7%D9%84%D9%85%D9%83%D9%88%D9%86%D8%A7%D8%AA.pdf"
+      }
+    ],
+    "THC0701": [
+      {
+        "name": "المخططات/MC1 الآلات - مخططات الدروس.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1%20%D8%A7%D9%84%D8%A2%D9%84%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC1 الآلات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1%20%D8%A7%D9%84%D8%A2%D9%84%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC2 النسيج - مخططات الدروس.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2%20%D8%A7%D9%84%D9%86%D8%B3%D9%8A%D8%AC%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC2 النسيج - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2%20%D8%A7%D9%84%D9%86%D8%B3%D9%8A%D8%AC%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC3 الرياضيات - مخططات الدروس.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC3%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC3 الرياضيات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC3%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC4 الرسم - مخططات الدروس.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC4%20%D8%A7%D9%84%D8%B1%D8%B3%D9%85%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC4 الرسم - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC4%20%D8%A7%D9%84%D8%B1%D8%B3%D9%85%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC5 المستهلك - مخططات الدروس.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC5%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC5 المستهلك - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC5%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC6 الإعلام الآلي - مخططات الدروس.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC6%20%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%85%20%D8%A7%D9%84%D8%A2%D9%84%D9%8A%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC6 الإعلام الآلي - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC6%20%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%85%20%D8%A7%D9%84%D8%A2%D9%84%D9%8A%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MC7 الأمن - مخططات الدروس.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC7%20%D8%A7%D9%84%D8%A3%D9%85%D9%86%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MC7 الأمن - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC7%20%D8%A7%D9%84%D8%A3%D9%85%D9%86%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ1 التنورات - مخططات الدروس.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1%20%D8%A7%D9%84%D8%AA%D9%86%D9%88%D8%B1%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ1 التنورات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1%20%D8%A7%D9%84%D8%AA%D9%86%D9%88%D8%B1%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ2 السراويل - مخططات الدروس.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2%20%D8%A7%D9%84%D8%B3%D8%B1%D8%A7%D9%88%D9%8A%D9%84%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ2 السراويل - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2%20%D8%A7%D9%84%D8%B3%D8%B1%D8%A7%D9%88%D9%8A%D9%84%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ3 القميص - مخططات الدروس.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ3%20%D8%A7%D9%84%D9%82%D9%85%D9%8A%D8%B5%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ3 القميص - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ3%20%D8%A7%D9%84%D9%82%D9%85%D9%8A%D8%B5%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ4 الفستان - مخططات الدروس.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ4%20%D8%A7%D9%84%D9%81%D8%B3%D8%AA%D8%A7%D9%86%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ4 الفستان - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ4%20%D8%A7%D9%84%D9%81%D8%B3%D8%AA%D8%A7%D9%86%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ5 قطع الدراسة - مخططات الدروس.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ5%20%D9%82%D8%B7%D8%B9%20%D8%A7%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ5 قطع الدراسة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ5%20%D9%82%D8%B7%D8%B9%20%D8%A7%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المخططات/MQ6 تركيب اللباس - مخططات الدروس.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ6%20%D8%AA%D8%B1%D9%83%D9%8A%D8%A8%20%D8%A7%D9%84%D9%84%D8%A8%D8%A7%D8%B3%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.docx"
+      },
+      {
+        "name": "المخططات/MQ6 تركيب اللباس - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ6%20%D8%AA%D8%B1%D9%83%D9%8A%D8%A8%20%D8%A7%D9%84%D9%84%D8%A8%D8%A7%D8%B3%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MC1 الآلات.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%A7%D9%84%D8%A2%D9%84%D8%A7%D8%AA.docx"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MC1 الآلات.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%A7%D9%84%D8%A2%D9%84%D8%A7%D8%AA.pdf"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MC2 النسيج.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%86%D8%B3%D9%8A%D8%AC.docx"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MC2 النسيج.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%86%D8%B3%D9%8A%D8%AC.pdf"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MC3 الرياضيات.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA.docx"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MC3 الرياضيات.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA.pdf"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MC4 الرسم.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D8%A7%D9%84%D8%B1%D8%B3%D9%85.docx"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MC4 الرسم.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D8%A7%D9%84%D8%B1%D8%B3%D9%85.pdf"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MC5 المستهلك.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83.docx"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MC5 المستهلك.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83.pdf"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MC6 الإعلام الآلي.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC6%20%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%85%20%D8%A7%D9%84%D8%A2%D9%84%D9%8A.docx"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MC6 الإعلام الآلي.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC6%20%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%85%20%D8%A7%D9%84%D8%A2%D9%84%D9%8A.pdf"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MC7 الأمن.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC7%20%D8%A7%D9%84%D8%A3%D9%85%D9%86.docx"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MC7 الأمن.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC7%20%D8%A7%D9%84%D8%A3%D9%85%D9%86.pdf"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MQ1 التنورات.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%A7%D9%84%D8%AA%D9%86%D9%88%D8%B1%D8%A7%D8%AA.docx"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MQ1 التنورات.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%A7%D9%84%D8%AA%D9%86%D9%88%D8%B1%D8%A7%D8%AA.pdf"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MQ2 السراويل.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D9%84%D8%B3%D8%B1%D8%A7%D9%88%D9%8A%D9%84.docx"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MQ2 السراويل.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D9%84%D8%B3%D8%B1%D8%A7%D9%88%D9%8A%D9%84.pdf"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MQ3 القميص.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D9%84%D9%82%D9%85%D9%8A%D8%B5.docx"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MQ3 القميص.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D9%84%D9%82%D9%85%D9%8A%D8%B5.pdf"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MQ4 الفستان.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D8%A7%D9%84%D9%81%D8%B3%D8%AA%D8%A7%D9%86.docx"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MQ4 الفستان.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D8%A7%D9%84%D9%81%D8%B3%D8%AA%D8%A7%D9%86.pdf"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MQ5 قطع الدراسة.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D9%82%D8%B7%D8%B9%20%D8%A7%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9.docx"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MQ5 قطع الدراسة.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D9%82%D8%B7%D8%B9%20%D8%A7%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9.pdf"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MQ6 تركيب اللباس.docx",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ6%20%D8%AA%D8%B1%D9%83%D9%8A%D8%A8%20%D8%A7%D9%84%D9%84%D8%A8%D8%A7%D8%B3.docx"
+      },
+      {
+        "name": "المذكرات/THC0701 الخياطة - مذكرات - MQ6 تركيب اللباس.pdf",
+        "url": "https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/THC0701%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B7%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ6%20%D8%AA%D8%B1%D9%83%D9%8A%D8%A8%20%D8%A7%D9%84%D9%84%D8%A8%D8%A7%D8%B3.pdf"
+      }
+    ],
+    "AGR0703": [
+      {
+        "name": "AGR0703 البستنة - مذكرات - MC1 يطبق المفاهيم الأساسية في الكمياء.docx",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D9%8A%D8%B7%D8%A8%D9%82%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85%20%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%83%D9%85%D9%8A%D8%A7%D8%A1.docx",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC1 التموقع.pdf",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%82%D8%B9.pdf",
+        "name": "AGR0703 البستنة - مذكرات - MC1 يطبق المفاهيم الأساسية في الكمياء.pdf",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D9%8A%D8%B7%D8%A8%D9%82%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85%20%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%83%D9%85%D9%8A%D8%A7%D8%A1.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC10 الكيمياء.docx",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC10%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1.docx",
+        "name": "AGR0703 البستنة - مذكرات - MC2 يطبق المفاهيم الأساسية في البيولوجيا النباتية.docx",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D9%8A%D8%B7%D8%A8%D9%82%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85%20%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A8%D9%8A%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7%20%D8%A7%D9%84%D9%86%D8%A8%D8%A7%D8%AA%D9%8A%D8%A9.docx",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC10 الكيمياء.pdf",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC10%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1.pdf",
+        "name": "AGR0703 البستنة - مذكرات - MC2 يطبق المفاهيم الأساسية في البيولوجيا النباتية.pdf",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D9%8A%D8%B7%D8%A8%D9%82%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85%20%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A8%D9%8A%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7%20%D8%A7%D9%84%D9%86%D8%A8%D8%A7%D8%AA%D9%8A%D8%A9.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC11 القانون.docx",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC11%20%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86.docx",
+        "name": "AGR0703 البستنة - مذكرات - MC3 يطبق المفاهيم الأساسية في الهندسة.docx",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D9%8A%D8%B7%D8%A8%D9%82%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85%20%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%87%D9%86%D8%AF%D8%B3%D8%A9.docx",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC11 القانون.pdf",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC11%20%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86.pdf",
+        "name": "AGR0703 البستنة - مذكرات - MC3 يطبق المفاهيم الأساسية في الهندسة.pdf",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D9%8A%D8%B7%D8%A8%D9%82%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85%20%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%87%D9%86%D8%AF%D8%B3%D8%A9.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC2 النظافة والسلامة.docx",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9.docx",
+        "name": "AGR0703 البستنة - مذكرات - MC4 يطبق تقنيات التعبير.docx",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D9%8A%D8%B7%D8%A8%D9%82%20%D8%AA%D9%82%D9%86%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D8%B9%D8%A8%D9%8A%D8%B1.docx",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC2 النظافة والسلامة.pdf",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9.pdf",
+        "name": "AGR0703 البستنة - مذكرات - MC4 يطبق تقنيات التعبير.pdf",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D9%8A%D8%B7%D8%A8%D9%82%20%D8%AA%D9%82%D9%86%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D8%B9%D8%A8%D9%8A%D8%B1.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC3 الكاميرات.docx",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D8%A7%D9%84%D9%83%D8%A7%D9%85%D9%8A%D8%B1%D8%A7%D8%AA.docx",
+        "name": "AGR0703 البستنة - مذكرات - MC5 يطبق قواعد الامن و السلامة في العمل.docx",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D9%8A%D8%B7%D8%A8%D9%82%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D9%86%20%D9%88%20%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B9%D9%85%D9%84.docx",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC3 الكاميرات.pdf",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D8%A7%D9%84%D9%83%D8%A7%D9%85%D9%8A%D8%B1%D8%A7%D8%AA.pdf",
+        "name": "AGR0703 البستنة - مذكرات - MC5 يطبق قواعد الامن و السلامة في العمل.pdf",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D9%8A%D8%B7%D8%A8%D9%82%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D9%86%20%D9%88%20%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B9%D9%85%D9%84.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC4 الاضاءة.docx",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D8%A7%D9%84%D8%A7%D8%B6%D8%A7%D8%A1%D8%A9.docx",
+        "name": "AGR0703 البستنة - مذكرات - MQ1 يقوم بتهيئة الأرضية.docx",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D9%8A%D9%82%D9%88%D9%85%20%D8%A8%D8%AA%D9%87%D9%8A%D8%A6%D8%A9%20%D8%A7%D9%84%D8%A3%D8%B1%D8%B6%D9%8A%D8%A9.docx",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC4 الاضاءة.pdf",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D8%A7%D9%84%D8%A7%D8%B6%D8%A7%D8%A1%D8%A9.pdf",
+        "name": "AGR0703 البستنة - مذكرات - MQ1 يقوم بتهيئة الأرضية.pdf",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D9%8A%D9%82%D9%88%D9%85%20%D8%A8%D8%AA%D9%87%D9%8A%D8%A6%D8%A9%20%D8%A7%D9%84%D8%A3%D8%B1%D8%B6%D9%8A%D8%A9.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC5 البصريات.docx",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%D8%A7%D8%AA.docx",
+        "name": "AGR0703 البستنة - مذكرات - MQ10 يضمن صيانة العناصر المنجزة.docx",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ10%20%D9%8A%D8%B6%D9%85%D9%86%20%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20%D8%A7%D9%84%D8%B9%D9%86%D8%A7%D8%B5%D8%B1%20%D8%A7%D9%84%D9%85%D9%86%D8%AC%D8%B2%D8%A9.docx",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC5 البصريات.pdf",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%D8%A7%D8%AA.pdf",
+        "name": "AGR0703 البستنة - مذكرات - MQ10 يضمن صيانة العناصر المنجزة.pdf",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ10%20%D9%8A%D8%B6%D9%85%D9%86%20%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20%D8%A7%D9%84%D8%B9%D9%86%D8%A7%D8%B5%D8%B1%20%D8%A7%D9%84%D9%85%D9%86%D8%AC%D8%B2%D8%A9.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC6 التواصل.docx",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC6%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84.docx",
+        "name": "AGR0703 البستنة - مذكرات - MQ2 عالج التربةَ و يحسن خصائصها.docx",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%B9%D8%A7%D9%84%D8%AC%20%D8%A7%D9%84%D8%AA%D8%B1%D8%A8%D8%A9%D9%8E%20%D9%88%20%D9%8A%D8%AD%D8%B3%D9%86%20%D8%AE%D8%B5%D8%A7%D8%A6%D8%B5%D9%87%D8%A7.docx",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC6 التواصل.pdf",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC6%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84.pdf",
+        "name": "AGR0703 البستنة - مذكرات - MQ2 عالج التربةَ و يحسن خصائصها.pdf",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%B9%D8%A7%D9%84%D8%AC%20%D8%A7%D9%84%D8%AA%D8%B1%D8%A8%D8%A9%D9%8E%20%D9%88%20%D9%8A%D8%AD%D8%B3%D9%86%20%D8%AE%D8%B5%D8%A7%D8%A6%D8%B5%D9%87%D8%A7.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC7 الفواتير.docx",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC7%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D8%AA%D9%8A%D8%B1.docx",
+        "name": "AGR0703 البستنة - مذكرات - MQ3 يقوم بتركيب مشتلة.docx",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D9%8A%D9%82%D9%88%D9%85%20%D8%A8%D8%AA%D8%B1%D9%83%D9%8A%D8%A8%20%D9%85%D8%B4%D8%AA%D9%84%D8%A9.docx",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC7 الفواتير.pdf",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC7%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D8%AA%D9%8A%D8%B1.pdf",
+        "name": "AGR0703 البستنة - مذكرات - MQ3 يقوم بتركيب مشتلة.pdf",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D9%8A%D9%82%D9%88%D9%85%20%D8%A8%D8%AA%D8%B1%D9%83%D9%8A%D8%A8%20%D9%85%D8%B4%D8%AA%D9%84%D8%A9.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC8 الحاسوب.docx",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC8%20%D8%A7%D9%84%D8%AD%D8%A7%D8%B3%D9%88%D8%A8.docx",
+        "name": "AGR0703 البستنة - مذكرات - MQ4 يقوم بغرس الأشجار المثمرة.docx",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D9%8A%D9%82%D9%88%D9%85%20%D8%A8%D8%BA%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A3%D8%B4%D8%AC%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%AB%D9%85%D8%B1%D8%A9.docx",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC8 الحاسوب.pdf",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC8%20%D8%A7%D9%84%D8%AD%D8%A7%D8%B3%D9%88%D8%A8.pdf",
+        "name": "AGR0703 البستنة - مذكرات - MQ4 يقوم بغرس الأشجار المثمرة.pdf",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D9%8A%D9%82%D9%88%D9%85%20%D8%A8%D8%BA%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A3%D8%B4%D8%AC%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%AB%D9%85%D8%B1%D8%A9.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC9 تاريخ التصوير.docx",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC9%20%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1.docx",
+        "name": "AGR0703 البستنة - مذكرات - MQ5 ينجز عناصر المنشأة.docx",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D9%8A%D9%86%D8%AC%D8%B2%20%D8%B9%D9%86%D8%A7%D8%B5%D8%B1%20%D8%A7%D9%84%D9%85%D9%86%D8%B4%D8%A3%D8%A9.docx",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MC9 تاريخ التصوير.pdf",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC9%20%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1.pdf",
+        "name": "AGR0703 البستنة - مذكرات - MQ5 ينجز عناصر المنشأة.pdf",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D9%8A%D9%86%D8%AC%D8%B2%20%D8%B9%D9%86%D8%A7%D8%B5%D8%B1%20%D8%A7%D9%84%D9%85%D9%86%D8%B4%D8%A3%D8%A9.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MQ1 التصوير الموضوعي.docx",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D9%88%D8%B6%D9%88%D8%B9%D9%8A.docx",
+        "name": "AGR0703 البستنة - مذكرات - MQ6 ينشئ الديكور النباتي.docx",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ6%20%D9%8A%D9%86%D8%B4%D8%A6%20%D8%A7%D9%84%D8%AF%D9%8A%D9%83%D9%88%D8%B1%20%D8%A7%D9%84%D9%86%D8%A8%D8%A7%D8%AA%D9%8A.docx",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MQ1 التصوير الموضوعي.pdf",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D9%88%D8%B6%D9%88%D8%B9%D9%8A.pdf",
+        "name": "AGR0703 البستنة - مذكرات - MQ6 ينشئ الديكور النباتي.pdf",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ6%20%D9%8A%D9%86%D8%B4%D8%A6%20%D8%A7%D9%84%D8%AF%D9%8A%D9%83%D9%88%D8%B1%20%D8%A7%D9%84%D9%86%D8%A8%D8%A7%D8%AA%D9%8A.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MQ2 التقارير المصورة.docx",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D9%84%D8%AA%D9%82%D8%A7%D8%B1%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D8%B5%D9%88%D8%B1%D8%A9.docx",
+        "name": "AGR0703 البستنة - مذكرات - MQ7 يزرع العشب.docx",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ7%20%D9%8A%D8%B2%D8%B1%D8%B9%20%D8%A7%D9%84%D8%B9%D8%B4%D8%A8.docx",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MQ2 التقارير المصورة.pdf",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D9%84%D8%AA%D9%82%D8%A7%D8%B1%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D8%B5%D9%88%D8%B1%D8%A9.pdf",
+        "name": "AGR0703 البستنة - مذكرات - MQ7 يزرع العشب.pdf",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ7%20%D9%8A%D8%B2%D8%B1%D8%B9%20%D8%A7%D9%84%D8%B9%D8%B4%D8%A8.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MQ3 الافلام التناظرية.docx",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D9%84%D8%A7%D9%81%D9%84%D8%A7%D9%85%20%D8%A7%D9%84%D8%AA%D9%86%D8%A7%D8%B8%D8%B1%D9%8A%D8%A9.docx",
+        "name": "AGR0703 البستنة - مذكرات - MQ8 يضمن صيانة الأماكن المزروعة.docx",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ8%20%D9%8A%D8%B6%D9%85%D9%86%20%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20%D8%A7%D9%84%D8%A3%D9%85%D8%A7%D9%83%D9%86%20%D8%A7%D9%84%D9%85%D8%B2%D8%B1%D9%88%D8%B9%D8%A9.docx",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MQ3 الافلام التناظرية.pdf",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D9%84%D8%A7%D9%81%D9%84%D8%A7%D9%85%20%D8%A7%D9%84%D8%AA%D9%86%D8%A7%D8%B8%D8%B1%D9%8A%D8%A9.pdf",
+        "name": "AGR0703 البستنة - مذكرات - MQ8 يضمن صيانة الأماكن المزروعة.pdf",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ8%20%D9%8A%D8%B6%D9%85%D9%86%20%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20%D8%A7%D9%84%D8%A3%D9%85%D8%A7%D9%83%D9%86%20%D8%A7%D9%84%D9%85%D8%B2%D8%B1%D9%88%D8%B9%D8%A9.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MQ4 الصورة الرقمية.docx",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D8%A7%D9%84%D8%B5%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9.docx",
+        "name": "AGR0703 البستنة - مذكرات - MQ9 يضمن صيانة العشب.docx",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ9%20%D9%8A%D8%B6%D9%85%D9%86%20%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20%D8%A7%D9%84%D8%B9%D8%B4%D8%A8.docx",
         "bytes": 0
       },
       {
-        "name": "TAV0701 التصوير - مذكرات - MQ4 الصورة الرقمية.pdf",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D8%A7%D9%84%D8%B5%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9.pdf",
-        "bytes": 0
-      },
-      {
-        "name": "TAV0701 التصوير - مذكرات - MQ5 المعالجة والارشفة.docx",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%A7%D9%84%D9%85%D8%B9%D8%A7%D9%84%D8%AC%D8%A9%20%D9%88%D8%A7%D9%84%D8%A7%D8%B1%D8%B4%D9%81%D8%A9.docx",
-        "bytes": 0
-      },
-      {
-        "name": "TAV0701 التصوير - مذكرات - MQ5 المعالجة والارشفة.pdf",
-        "url": "https://archive.org/download/tav0701/TAV0701%20%D8%A7%D9%84%D8%AA%D8%B5%D9%88%D9%8A%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%A7%D9%84%D9%85%D8%B9%D8%A7%D9%84%D8%AC%D8%A9%20%D9%88%D8%A7%D9%84%D8%A7%D8%B1%D8%B4%D9%81%D8%A9.pdf",
+        "name": "AGR0703 البستنة - مذكرات - MQ9 يضمن صيانة العشب.pdf",
+        "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ9%20%D9%8A%D8%B6%D9%85%D9%86%20%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20%D8%A7%D9%84%D8%B9%D8%B4%D8%A8.pdf",
         "bytes": 0
       }
     ],
-    "TAV06Q": [
+    "AGR0713": [
       {
-        "name": "TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MC1 النظافة والبيئة.docx",
-        "url": "https://archive.org/download/tav06q/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9.docx",
+        "name": "AGR0713 تربية النحل - مذكرات - MC1 يضمن الاتصال.docx",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D9%8A%D8%B6%D9%85%D9%86%20%D8%A7%D9%84%D8%A7%D8%AA%D8%B5%D8%A7%D9%84.docx",
         "bytes": 0
       },
       {
-        "name": "TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MC1 النظافة والبيئة.pdf",
-        "url": "https://archive.org/download/tav06q/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9.pdf",
+        "name": "AGR0713 تربية النحل - مذكرات - MC1 يضمن الاتصال.pdf",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D9%8A%D8%B6%D9%85%D9%86%20%D8%A7%D9%84%D8%A7%D8%AA%D8%B5%D8%A7%D9%84.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MC2 النصوص.docx",
-        "url": "https://archive.org/download/tav06q/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%86%D8%B5%D9%88%D8%B5.docx",
+        "name": "AGR0713 تربية النحل - مذكرات - MC2 يستغل وسائل الاعلام الالي.docx",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D9%8A%D8%B3%D8%AA%D8%BA%D9%84%20%D9%88%D8%B3%D8%A7%D8%A6%D9%84%20%D8%A7%D9%84%D8%A7%D8%B9%D9%84%D8%A7%D9%85%20%D8%A7%D9%84%D8%A7%D9%84%D9%8A.docx",
         "bytes": 0
       },
       {
-        "name": "TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MC2 النصوص.pdf",
-        "url": "https://archive.org/download/tav06q/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%86%D8%B5%D9%88%D8%B5.pdf",
+        "name": "AGR0713 تربية النحل - مذكرات - MC2 يستغل وسائل الاعلام الالي.pdf",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D9%8A%D8%B3%D8%AA%D8%BA%D9%84%20%D9%88%D8%B3%D8%A7%D8%A6%D9%84%20%D8%A7%D9%84%D8%A7%D8%B9%D9%84%D8%A7%D9%85%20%D8%A7%D9%84%D8%A7%D9%84%D9%8A.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ1 مكان العمل.docx",
-        "url": "https://archive.org/download/tav06q/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D9%85%D9%83%D8%A7%D9%86%20%D8%A7%D9%84%D8%B9%D9%85%D9%84.docx",
+        "name": "AGR0713 تربية النحل - مذكرات - MC3 يطبق قواعد الامن و السلامة.docx",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D9%8A%D8%B7%D8%A8%D9%82%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D9%86%20%D9%88%20%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9.docx",
         "bytes": 0
       },
       {
-        "name": "TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ1 مكان العمل.pdf",
-        "url": "https://archive.org/download/tav06q/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D9%85%D9%83%D8%A7%D9%86%20%D8%A7%D9%84%D8%B9%D9%85%D9%84.pdf",
+        "name": "AGR0713 تربية النحل - مذكرات - MC3 يطبق قواعد الامن و السلامة.pdf",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D9%8A%D8%B7%D8%A8%D9%82%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D9%86%20%D9%88%20%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ2 الكتيبات.docx",
-        "url": "https://archive.org/download/tav06q/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D9%84%D9%83%D8%AA%D9%8A%D8%A8%D8%A7%D8%AA.docx",
+        "name": "AGR0713 تربية النحل - مذكرات - MC4 يَستَخدِم المفاهيم الأساسية في الجبر.docx",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D9%8A%D9%8E%D8%B3%D8%AA%D9%8E%D8%AE%D8%AF%D9%90%D9%85%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85%20%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AC%D8%A8%D8%B1.docx",
         "bytes": 0
       },
       {
-        "name": "TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ2 الكتيبات.pdf",
-        "url": "https://archive.org/download/tav06q/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D9%84%D9%83%D8%AA%D9%8A%D8%A8%D8%A7%D8%AA.pdf",
+        "name": "AGR0713 تربية النحل - مذكرات - MC4 يَستَخدِم المفاهيم الأساسية في الجبر.pdf",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D9%8A%D9%8E%D8%B3%D8%AA%D9%8E%D8%AE%D8%AF%D9%90%D9%85%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85%20%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AC%D8%A8%D8%B1.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ3 المصطلحات.docx",
-        "url": "https://archive.org/download/tav06q/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D9%84%D9%85%D8%B5%D8%B7%D9%84%D8%AD%D8%A7%D8%AA.docx",
+        "name": "AGR0713 تربية النحل - مذكرات - MC5 يَستَخدِم مفاهيم التغليف والتعبئة.docx",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D9%8A%D9%8E%D8%B3%D8%AA%D9%8E%D8%AE%D8%AF%D9%90%D9%85%20%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85%20%D8%A7%D9%84%D8%AA%D8%BA%D9%84%D9%8A%D9%81%20%D9%88%D8%A7%D9%84%D8%AA%D8%B9%D8%A8%D8%A6%D8%A9.docx",
         "bytes": 0
       },
       {
-        "name": "TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ3 المصطلحات.pdf",
-        "url": "https://archive.org/download/tav06q/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D9%84%D9%85%D8%B5%D8%B7%D9%84%D8%AD%D8%A7%D8%AA.pdf",
+        "name": "AGR0713 تربية النحل - مذكرات - MC5 يَستَخدِم مفاهيم التغليف والتعبئة.pdf",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D9%8A%D9%8E%D8%B3%D8%AA%D9%8E%D8%AE%D8%AF%D9%90%D9%85%20%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85%20%D8%A7%D9%84%D8%AA%D8%BA%D9%84%D9%8A%D9%81%20%D9%88%D8%A7%D9%84%D8%AA%D8%B9%D8%A8%D8%A6%D8%A9.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ4 الواجهات.docx",
-        "url": "https://archive.org/download/tav06q/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D8%A7%D9%84%D9%88%D8%A7%D8%AC%D9%87%D8%A7%D8%AA.docx",
+        "name": "AGR0713 تربية النحل - مذكرات - MC6 ينجز أعمال الصيف.docx",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC6%20%D9%8A%D9%86%D8%AC%D8%B2%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%B5%D9%8A%D9%81.docx",
         "bytes": 0
       },
       {
-        "name": "TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ4 الواجهات.pdf",
-        "url": "https://archive.org/download/tav06q/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D8%A7%D9%84%D9%88%D8%A7%D8%AC%D9%87%D8%A7%D8%AA.pdf",
+        "name": "AGR0713 تربية النحل - مذكرات - MC6 ينجز أعمال الصيف.pdf",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC6%20%D9%8A%D9%86%D8%AC%D8%B2%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%B5%D9%8A%D9%81.pdf",
         "bytes": 0
       },
       {
-        "name": "TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ5 المحادثات.docx",
-        "url": "https://archive.org/download/tav06q/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%AF%D8%AB%D8%A7%D8%AA.docx",
+        "name": "AGR0713 تربية النحل - مذكرات - MQ1 يُحضّر المعدات لتربية النحل و يختار النحل.docx",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D9%8A%D9%8F%D8%AD%D8%B6%D9%91%D8%B1%20%D8%A7%D9%84%D9%85%D8%B9%D8%AF%D8%A7%D8%AA%20%D9%84%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20%D9%88%20%D9%8A%D8%AE%D8%AA%D8%A7%D8%B1%20%D8%A7%D9%84%D9%86%D8%AD%D9%84.docx",
         "bytes": 0
       },
       {
-        "name": "TAV06Q الإنجليزية التقنية للسمعي البصري - مذكرات - MQ5 المحادثات.pdf",
-        "url": "https://archive.org/download/tav06q/TAV06Q%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D9%84%D9%84%D8%B3%D9%85%D8%B9%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%AF%D8%AB%D8%A7%D8%AA.pdf",
+        "name": "AGR0713 تربية النحل - مذكرات - MQ1 يُحضّر المعدات لتربية النحل و يختار النحل.pdf",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D9%8A%D9%8F%D8%AD%D8%B6%D9%91%D8%B1%20%D8%A7%D9%84%D9%85%D8%B9%D8%AF%D8%A7%D8%AA%20%D9%84%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20%D9%88%20%D9%8A%D8%AE%D8%AA%D8%A7%D8%B1%20%D8%A7%D9%84%D9%86%D8%AD%D9%84.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "AGR0713 تربية النحل - مذكرات - MQ2 يختار و يهيئ موقع انشاء المنحل.docx",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D9%8A%D8%AE%D8%AA%D8%A7%D8%B1%20%D9%88%20%D9%8A%D9%87%D9%8A%D8%A6%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A7%D9%86%D8%B4%D8%A7%D8%A1%20%D8%A7%D9%84%D9%85%D9%86%D8%AD%D9%84.docx",
+        "bytes": 0
+      },
+      {
+        "name": "AGR0713 تربية النحل - مذكرات - MQ2 يختار و يهيئ موقع انشاء المنحل.pdf",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D9%8A%D8%AE%D8%AA%D8%A7%D8%B1%20%D9%88%20%D9%8A%D9%87%D9%8A%D8%A6%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A7%D9%86%D8%B4%D8%A7%D8%A1%20%D8%A7%D9%84%D9%85%D9%86%D8%AD%D9%84.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "AGR0713 تربية النحل - مذكرات - MQ3 يضع الخلايا.docx",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D9%8A%D8%B6%D8%B9%20%D8%A7%D9%84%D8%AE%D9%84%D8%A7%D9%8A%D8%A7.docx",
+        "bytes": 0
+      },
+      {
+        "name": "AGR0713 تربية النحل - مذكرات - MQ3 يضع الخلايا.pdf",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D9%8A%D8%B6%D8%B9%20%D8%A7%D9%84%D8%AE%D9%84%D8%A7%D9%8A%D8%A7.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "AGR0713 تربية النحل - مذكرات - MQ4 ينجز أعمال الخريف.docx",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D9%8A%D9%86%D8%AC%D8%B2%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%AE%D8%B1%D9%8A%D9%81.docx",
+        "bytes": 0
+      },
+      {
+        "name": "AGR0713 تربية النحل - مذكرات - MQ4 ينجز أعمال الخريف.pdf",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D9%8A%D9%86%D8%AC%D8%B2%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%AE%D8%B1%D9%8A%D9%81.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "AGR0713 تربية النحل - مذكرات - MQ5 ينجز أعمال الشتاء.docx",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D9%8A%D9%86%D8%AC%D8%B2%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%B4%D8%AA%D8%A7%D8%A1.docx",
+        "bytes": 0
+      },
+      {
+        "name": "AGR0713 تربية النحل - مذكرات - MQ5 ينجز أعمال الشتاء.pdf",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D9%8A%D9%86%D8%AC%D8%B2%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%B4%D8%AA%D8%A7%D8%A1.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "AGR0713 تربية النحل - مذكرات - MQ6 ينجز أعمال الربيع.docx",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ6%20%D9%8A%D9%86%D8%AC%D8%B2%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%B1%D8%A8%D9%8A%D8%B9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "AGR0713 تربية النحل - مذكرات - MQ6 ينجز أعمال الربيع.pdf",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ6%20%D9%8A%D9%86%D8%AC%D8%B2%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%B1%D8%A8%D9%8A%D8%B9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "AGR0713 تربية النحل - مذكرات - MQ7 ينجز عملية جني العسل والتعبئة والتغليف.docx",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ7%20%D9%8A%D9%86%D8%AC%D8%B2%20%D8%B9%D9%85%D9%84%D9%8A%D8%A9%20%D8%AC%D9%86%D9%8A%20%D8%A7%D9%84%D8%B9%D8%B3%D9%84%20%D9%88%D8%A7%D9%84%D8%AA%D8%B9%D8%A8%D8%A6%D8%A9%20%D9%88%D8%A7%D9%84%D8%AA%D8%BA%D9%84%D9%8A%D9%81.docx",
+        "bytes": 0
+      },
+      {
+        "name": "AGR0713 تربية النحل - مذكرات - MQ7 ينجز عملية جني العسل والتعبئة والتغليف.pdf",
+        "url": "https://archive.org/download/agr0713/AGR0713%20%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%86%D8%AD%D9%84%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ7%20%D9%8A%D9%86%D8%AC%D8%B2%20%D8%B9%D9%85%D9%84%D9%8A%D8%A9%20%D8%AC%D9%86%D9%8A%20%D8%A7%D9%84%D8%B9%D8%B3%D9%84%20%D9%88%D8%A7%D9%84%D8%AA%D8%B9%D8%A8%D8%A6%D8%A9%20%D9%88%D8%A7%D9%84%D8%AA%D8%BA%D9%84%D9%8A%D9%81.pdf",
         "bytes": 0
       }
     ]

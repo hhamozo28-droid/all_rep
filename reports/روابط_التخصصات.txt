@@ -1,0 +1,23 @@
+مخططات + مذكرات/AGR0703/
+├── المخططات/   https://allrep-theta.vercel.app/lessons/AGR0703/المخططات/
+└── المذكرات/   https://allrep-theta.vercel.app/lessons/AGR0703/المذكرات/
+
+مخططات + مذكرات/AGR0713/
+├── المخططات/   https://allrep-theta.vercel.app/lessons/AGR0713/المخططات/
+└── المذكرات/   https://allrep-theta.vercel.app/lessons/AGR0713/المذكرات/
+
+مخططات + مذكرات/INT0701P/
+├── المخططات/   https://allrep-theta.vercel.app/lessons/INT0701P/المخططات/
+└── المذكرات/   https://allrep-theta.vercel.app/lessons/INT0701P/المذكرات/
+
+مخططات + مذكرات/TAV06Q/
+├── المخططات/   https://allrep-theta.vercel.app/lessons/TAV06Q/المخططات/
+└── المذكرات/   https://allrep-theta.vercel.app/lessons/TAV06Q/المذكرات/
+
+مخططات + مذكرات/TAV0701/
+├── المخططات/   https://allrep-theta.vercel.app/lessons/TAV0701/المخططات/
+└── المذكرات/   https://allrep-theta.vercel.app/lessons/TAV0701/المذكرات/
+
+مخططات + مذكرات/THC0701/
+├── المخططات/   https://allrep-theta.vercel.app/lessons/THC0701/المخططات/
+└── المذكرات/   https://allrep-theta.vercel.app/lessons/THC0701/المذكرات/
