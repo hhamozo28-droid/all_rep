@@ -1,23 +1,23 @@
 مخططات + مذكرات/AGR0703/
-├── المخططات/   https://allrep-theta.vercel.app/lessons/AGR0703/المخططات/
-└── المذكرات/   https://allrep-theta.vercel.app/lessons/AGR0703/المذكرات/
+├── المخططات/   https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
 
 مخططات + مذكرات/AGR0713/
-├── المخططات/   https://allrep-theta.vercel.app/lessons/AGR0713/المخططات/
-└── المذكرات/   https://allrep-theta.vercel.app/lessons/AGR0713/المذكرات/
+├── المخططات/   https://archive.org/download/agr0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/agr0713/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
 
 مخططات + مذكرات/INT0701P/
-├── المخططات/   https://allrep-theta.vercel.app/lessons/INT0701P/المخططات/
-└── المذكرات/   https://allrep-theta.vercel.app/lessons/INT0701P/المذكرات/
+├── المخططات/   https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
 
 مخططات + مذكرات/TAV06Q/
-├── المخططات/   https://allrep-theta.vercel.app/lessons/TAV06Q/المخططات/
-└── المذكرات/   https://allrep-theta.vercel.app/lessons/TAV06Q/المذكرات/
+├── المخططات/   https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
 
 مخططات + مذكرات/TAV0701/
-├── المخططات/   https://allrep-theta.vercel.app/lessons/TAV0701/المخططات/
-└── المذكرات/   https://allrep-theta.vercel.app/lessons/TAV0701/المذكرات/
+├── المخططات/   https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/tav0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
 
 مخططات + مذكرات/THC0701/
-├── المخططات/   https://allrep-theta.vercel.app/lessons/THC0701/المخططات/
-└── المذكرات/   https://allrep-theta.vercel.app/lessons/THC0701/المذكرات/
+├── المخططات/   https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/thc0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/

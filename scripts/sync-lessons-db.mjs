@@ -275,12 +275,16 @@ async function main() {
         files = names.map((entry) => {
           const name = typeof entry === "string" ? entry : String(entry?.name ?? entry?.filename ?? "");
           const bytes = typeof entry === "object" && entry ? Number(entry.bytes ?? entry.size ?? 0) : 0;
+          const rawUrl = typeof entry === "object" ? entry.url : "";
+          const url = typeof rawUrl === "string" && /^https:\/\/archive\.org\/download\//.test(rawUrl)
+            ? rawUrl
+            : `${baseUrl}/${encodeURIComponent(code)}/${name.split("/").map(encodeURIComponent).join("/")}`;
           return {
             relativePath: `${code}/${name}`,
             name,
             ext: path.extname(name).toLowerCase(),
             bytes: Number.isFinite(bytes) ? bytes : 0,
-            url: `${baseUrl}/${encodeURIComponent(code)}/${name.split("/").map(encodeURIComponent).join("/")}`,
+            url,
           };
         }).filter((f) => f.name);
       } else {
