@@ -50,6 +50,26 @@
 ├── المخططات/   https://archive.org/download/btp1214/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
 └── المذكرات/   https://archive.org/download/btp1214/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
 
+مخططات + مذكرات/CIP1201/
+├── المخططات/   https://archive.org/download/cip1201/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/cip1201/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
+مخططات + مذكرات/CML0701/
+├── المخططات/   https://archive.org/download/cml0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/cml0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
+مخططات + مذكرات/CML0704/
+├── المخططات/   https://archive.org/download/cml0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/cml0704/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
+مخططات + مذكرات/ELE01Q/
+├── المخططات/   https://archive.org/download/ele01q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/ele01q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
+مخططات + مذكرات/ELE0702/
+├── المخططات/   https://archive.org/download/ele0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/ele0702/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
 مخططات + مذكرات/INT0701P/
 ├── المخططات/   https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
 └── المذكرات/   https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/

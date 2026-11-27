@@ -41,6 +41,11 @@ https://archive.org/download/<code-lower>/<المجلد>/<اسم-الملف>
 - `BTP0715` — https://archive.org/details/btp0715
 - `BTP0722` — https://archive.org/details/btp0722
 - `BTP1214` — https://archive.org/details/btp1214
+- `CIP1201` — https://archive.org/details/cip1201
+- `CML0701` — https://archive.org/details/cml0701
+- `CML0704` — https://archive.org/details/cml0704
+- `ELE01Q` — https://archive.org/details/ele01q
+- `ELE0702` — https://archive.org/details/ele0702
 - `INT0701P` — https://archive.org/details/int0701p
 - `TAV06Q` — https://archive.org/details/tav06q
 - `TAV0701` — https://archive.org/details/tav0701
