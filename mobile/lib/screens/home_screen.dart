@@ -154,6 +154,11 @@ class _HomeScreenState extends State<HomeScreen>
       await _openExternal(e.url);
       await _refreshStatus();
     } on ApiException catch (e) {
+      if (e.code == 'maintenance' || e.status == 503) {
+        if (mounted) _snack(maintenanceMessage);
+        await _refreshStatus();
+        return;
+      }
       if (e.status == 401) {
         widget.onSignedOut();
         return;
@@ -433,7 +438,9 @@ class _SpecialtiesTabState extends State<_SpecialtiesTab> {
     } on ExternalLinkException catch (e) {
       await _openExternal(e.url);
     } on ApiException catch (e) {
-      if (e.status == 403) {
+      if (e.code == 'maintenance' || e.status == 503) {
+        _snack(maintenanceMessage);
+      } else if (e.status == 403) {
         widget.onLimit();
         await widget.onConsumed();
       } else if (e.status == 410) {
@@ -660,7 +667,9 @@ class _GuidesTabState extends State<_GuidesTab> {
       await _openExternal(e.url);
     } on ApiException catch (e) {
       if (!mounted) return;
-      if (e.status == 403) {
+      if (e.code == 'maintenance' || e.status == 503) {
+        _snack(maintenanceMessage);
+      } else if (e.status == 403) {
         widget.onLimit();
         await widget.onConsumed();
       } else if (e.status == 410) {

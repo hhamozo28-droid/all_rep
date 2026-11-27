@@ -42,6 +42,7 @@ const saveFailed = 'تعذّر حفظ الملف';
 const preparingFile = 'جارٍ تجهيز الملف…';
 
 const limitReached = 'التحميل محدود من المسؤول';
+const maintenanceMessage = 'المنصة قيد التحديث اعذرونا ...';
 const linkUsed = 'انتهت صلاحية رابط التحميل أو تم استخدامه. اضغط مجدداً للحصول على رابط جديد.';
 const downloadsLeft = 'رصيد التحميل';
 const unlimited = 'غير محدود';
