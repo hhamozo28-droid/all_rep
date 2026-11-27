@@ -123,3 +123,19 @@ input,
 textarea {
   caret-color: var(--color-primary);
 }
+
+/* Text/number boxes that accept template variables or admin-tunable values. */
+.variable-input {
+  border-style: dashed !important;
+  border-color: var(--color-yellow) !important;
+  background: #fffcf3 !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.95em !important;
+}
+
+.variable-hint {
+  margin-top: 0.35rem;
+  font-size: 0.7rem;
+  color: var(--color-soft);
+  font-family: var(--font-mono);
+}

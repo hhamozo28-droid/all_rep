@@ -16,11 +16,14 @@ export async function GET() {
     return NextResponse.json({ ok: false }, { status: 401, headers: adminResponseHeaders });
   }
   await ensureWelcomeColumn();
-  const [themeRow, fontRow, msgRow, pauseRow] = await Promise.all([
+  const [themeRow, fontRow, msgRow, pauseRow, autoRow, hoursRow, lastAdminRow] = await Promise.all([
     db.select().from(meta).where(eq(meta.key, "theme")).limit(1),
     db.select().from(meta).where(eq(meta.key, "fontStyle")).limit(1),
     db.select().from(meta).where(eq(meta.key, "welcomeMessage")).limit(1),
     db.select().from(meta).where(eq(meta.key, "downloadsPaused")).limit(1),
+    db.select().from(meta).where(eq(meta.key, "autoApprove")).limit(1),
+    db.select().from(meta).where(eq(meta.key, "autoApproveAfterHours")).limit(1),
+    db.select().from(meta).where(eq(meta.key, "lastAdminSeenAt")).limit(1),
   ]);
   return NextResponse.json(
     {
@@ -29,6 +32,9 @@ export async function GET() {
       fontStyle: isFontStyle(fontRow[0]?.value) ? fontRow[0].value : "default",
       welcomeMessage: msgRow[0]?.value ?? "",
       downloadsPaused: pauseRow[0]?.value === "1",
+      autoApprove: autoRow[0]?.value === "1",
+      autoApproveAfterHours: Number(hoursRow[0]?.value ?? 24) || 24,
+      lastAdminSeenAt: lastAdminRow[0]?.value ?? null,
     },
     { headers: adminResponseHeaders },
   );
@@ -47,6 +53,8 @@ export async function POST(request: Request) {
     fontStyle?: string;
     welcomeMessage?: string;
     downloadsPaused?: boolean;
+    autoApprove?: boolean;
+    autoApproveAfterHours?: number;
   } | null;
 
   if (body?.theme !== undefined && !isTheme(body.theme)) {
@@ -64,6 +72,17 @@ export async function POST(request: Request) {
   if (body?.downloadsPaused !== undefined && typeof body.downloadsPaused !== "boolean") {
     return NextResponse.json({ error: "invalid-downloads-paused" }, { status: 400, headers: adminResponseHeaders });
   }
+  if (body?.autoApprove !== undefined && typeof body.autoApprove !== "boolean") {
+    return NextResponse.json({ error: "invalid-auto-approve" }, { status: 400, headers: adminResponseHeaders });
+  }
+  if (
+    body?.autoApproveAfterHours !== undefined &&
+    (!Number.isInteger(body.autoApproveAfterHours) ||
+      body.autoApproveAfterHours < 1 ||
+      body.autoApproveAfterHours > 720)
+  ) {
+    return NextResponse.json({ error: "invalid-auto-approve-hours" }, { status: 400, headers: adminResponseHeaders });
+  }
 
   const updates: Array<[string, string]> = [];
   if (isTheme(body?.theme)) updates.push(["theme", body.theme]);
@@ -71,6 +90,12 @@ export async function POST(request: Request) {
   if (typeof body?.welcomeMessage === "string") updates.push(["welcomeMessage", body.welcomeMessage]);
   if (typeof body?.downloadsPaused === "boolean") {
     updates.push(["downloadsPaused", body.downloadsPaused ? "1" : "0"]);
+  }
+  if (typeof body?.autoApprove === "boolean") {
+    updates.push(["autoApprove", body.autoApprove ? "1" : "0"]);
+  }
+  if (typeof body?.autoApproveAfterHours === "number") {
+    updates.push(["autoApproveAfterHours", String(body.autoApproveAfterHours)]);
   }
   if (updates.length > 0) {
     await Promise.all(

@@ -10,6 +10,7 @@ import {
 } from "@/lib/auth";
 import { isLocale } from "@/lib/locales";
 import { ensureWelcomeColumn } from "@/lib/ensureWelcomeColumn";
+import { maybeAutoApprove } from "@/lib/autoApprove";
 
 export const dynamic = "force-dynamic";
 
@@ -27,6 +28,8 @@ export async function POST(req: Request) {
     if (!email || !password) {
       return NextResponse.json({ error: "invalid" }, { status: 400 });
     }
+
+    await maybeAutoApprove();
 
     const profs = await db
       .select()

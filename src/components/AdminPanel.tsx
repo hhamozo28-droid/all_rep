@@ -42,7 +42,15 @@ type AdminStats = {
   topAccount: { email: string; downloads: number } | null;
 };
 
-type AdminSettings = { theme: string; fontStyle: string; welcomeMessage: string; downloadsPaused: boolean };
+type AdminSettings = {
+  theme: string;
+  fontStyle: string;
+  welcomeMessage: string;
+  downloadsPaused: boolean;
+  autoApprove: boolean;
+  autoApproveAfterHours: number;
+  lastAdminSeenAt: string | null;
+};
 type AdminLessonRow = {
   id: string;
   specialtyCode: string;
@@ -130,7 +138,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [userQuery, setUserQuery] = useState("");
   const [userSort, setUserSort] = useState<{ key: "email" | "createdAt" | "downloads"; dir: "asc" | "desc" }>({ key: "createdAt", dir: "desc" });
   const [usersError, setUsersError] = useState(false);
-  const [accountsTab, setAccountsTab] = useState<"accounts" | "requests">("accounts");
+  const [accountsTab, setAccountsTab] = useState<"accounts" | "requests" | "archived">("accounts");
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
   const [guides, setGuides] = useState<AdminGuideRow[] | null>(null);
   const [guideFiles, setGuideFiles] = useState<File[]>([]);
@@ -166,7 +174,13 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   const [deletedMsg, setDeletedMsg] = useState(false);
   const [limitBusy, setLimitBusy] = useState<string | null>(null);
   const [stats, setStats] = useState<AdminStats | null>(null);
-  const [settings, setSettings] = useState<AdminSettings>({ theme: "default", fontStyle: "default", welcomeMessage: "", downloadsPaused: false });
+  const [settings, setSettings] = useState<AdminSettings>({
+    theme: "default", fontStyle: "default", welcomeMessage: "", downloadsPaused: false,
+    autoApprove: false, autoApproveAfterHours: 24, lastAdminSeenAt: null,
+  });
+  const [bulkLimit, setBulkLimit] = useState(6);
+  const [bulkLimitBusy, setBulkLimitBusy] = useState(false);
+  const [bulkLimitMsg, setBulkLimitMsg] = useState("");
   const [notifyMessage, setNotifyMessage] = useState("");
   const [notifyBusy, setNotifyBusy] = useState(false);
   const [notifySent, setNotifySent] = useState(false);
@@ -188,9 +202,12 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
   }, [authorized]);
 
   const pendingUsers = (users ?? []).filter((row) => !row.approved && row.deletedAt === null);
+  const archivedUsers = (users ?? []).filter((row) => row.blocked || row.deletedAt !== null);
   const tabUsers = accountsTab === "requests"
     ? pendingUsers
-    : (users ?? []).filter((row) => row.approved);
+    : accountsTab === "archived"
+      ? archivedUsers
+      : (users ?? []).filter((row) => row.approved && !row.blocked && row.deletedAt === null);
   const filteredUsers = tabUsers
     .filter((row) => row.email.toLowerCase().includes(userQuery.trim().toLowerCase()))
     .sort((a, b) => {
@@ -210,7 +227,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
     window.setTimeout(() => window.location.reload(), 900);
   };
 
-  const changeSetting = (field: keyof AdminSettings, value: string | boolean) => {
+  const changeSetting = (field: keyof AdminSettings, value: string | boolean | number) => {
     setSettings((prev) => ({ ...prev, [field]: value }));
     if (settingsTimer.current !== null) window.clearTimeout(settingsTimer.current);
     settingsTimer.current = window.setTimeout(() => {
@@ -317,6 +334,25 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
       // keep the message
     } finally {
       setNotifyBusy(false);
+    }
+  }
+
+  async function applyBulkLimit() {
+    if (bulkLimitBusy || bulkLimit < 0 || bulkLimit > 1000) return;
+    setBulkLimitBusy(true);
+    setBulkLimitMsg("");
+    try {
+      const data = await api<{ ok: boolean; affected: number }>("/api/admin/accounts/quota-reset", {
+        method: "POST",
+        credentials: "same-origin",
+        body: JSON.stringify({ limit: bulkLimit }),
+      });
+      setUsers((rows) => rows?.map((row) => ({ ...row, downloadLimit: bulkLimit })) ?? null);
+      setBulkLimitMsg(`${t("bulkLimitDone")}: ${data.affected}`);
+    } catch {
+      setBulkLimitMsg(t("error"));
+    } finally {
+      setBulkLimitBusy(false);
     }
   }
 
@@ -912,9 +948,10 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                   placeholder={t("adminWelcomePlaceholder")}
                   onChange={(event) => changeSetting("welcomeMessage", event.target.value)}
                   rows={2}
-                  className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                  className="variable-input mt-1 w-full rounded-md border border-line px-3 py-2 text-sm outline-none focus:border-primary"
                 />
               </label>
+              <p className="variable-hint">{t("variableHint")}: {'{email}'} · {'{limit}'}</p>
 
               <label className="mt-3 flex items-center gap-2 text-sm font-medium text-ink">
                 <input
@@ -929,6 +966,57 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                 <p className="mt-1 text-xs text-danger">{t("maintenanceMessage")}</p>
               )}
 
+              <div className="mt-4 rounded-md border border-line bg-paper p-3">
+                <label className="block text-sm font-medium text-ink">
+                  {t("bulkLimitLabel")}
+                  <input
+                    type="number"
+                    min={0}
+                    max={1000}
+                    value={bulkLimit}
+                    onChange={(event) => setBulkLimit(Math.max(0, Math.min(1000, Number(event.target.value) || 0)))}
+                    className="variable-input mt-1 w-28 rounded-md border border-line px-2 py-1.5 text-sm outline-none focus:border-primary"
+                  />
+                </label>
+                <p className="variable-hint">{t("bulkLimitHint")}</p>
+                <button
+                  type="button"
+                  onClick={() => void applyBulkLimit()}
+                  disabled={bulkLimitBusy}
+                  className="mt-2 rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white disabled:opacity-50"
+                >
+                  {bulkLimitBusy ? t("loading") : t("bulkLimitApply")}
+                </button>
+                {bulkLimitMsg && <p className="mt-2 text-sm text-success">{bulkLimitMsg}</p>}
+              </div>
+
+              <div className="mt-4 rounded-md border border-line bg-paper p-3">
+                <label className="flex items-center gap-2 text-sm font-medium text-ink">
+                  <input
+                    type="checkbox"
+                    checked={settings.autoApprove}
+                    onChange={(event) => changeSetting("autoApprove", event.target.checked)}
+                    className="h-4 w-4 accent-primary"
+                  />
+                  {t("autoApproveLabel")}
+                </label>
+                <label className="mt-2 block text-sm font-medium text-ink">
+                  {t("autoApproveHours")}
+                  <input
+                    type="number"
+                    min={1}
+                    max={720}
+                    value={settings.autoApproveAfterHours}
+                    onChange={(event) => changeSetting("autoApproveAfterHours", Math.max(1, Math.min(720, Number(event.target.value) || 1)))}
+                    className="variable-input mt-1 w-24 rounded-md border border-line px-2 py-1.5 text-sm outline-none focus:border-primary"
+                  />
+                </label>
+                <p className="variable-hint">
+                  {t("autoApproveHint")}
+                  {settings.lastAdminSeenAt ? ` ${new Date(settings.lastAdminSeenAt).toLocaleString("en-GB").replace(/\//g, "-")}` : ""}
+                </p>
+              </div>
+
               <form onSubmit={sendBulkEmail} className="mt-3 space-y-2">
                 <h3 className="text-sm font-semibold text-ink">{t("emailBroadcast")}</h3>
                 <label className="block text-sm font-medium text-ink">
@@ -938,7 +1026,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                     required
                     value={emailSubject}
                     onChange={(event) => setEmailSubject(event.target.value)}
-                    className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                    className="variable-input mt-1 w-full rounded-md border border-line px-3 py-2 text-sm outline-none focus:border-primary"
                   />
                 </label>
                 <label className="block text-sm font-medium text-ink">
@@ -948,9 +1036,10 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                     required
                     value={emailBody}
                     onChange={(event) => setEmailBody(event.target.value)}
-                    className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                    className="variable-input mt-1 w-full rounded-md border border-line px-3 py-2 text-sm outline-none focus:border-primary"
                   />
                 </label>
+                <p className="variable-hint">{t("variableHint")}: {'{email}'}</p>
                 <button type="submit" disabled={emailBusy || !emailSubject.trim() || !emailBody.trim()} className={buttonClass}>
                   {emailBusy ? t("loading") : t("sendEmail")}
                 </button>
@@ -967,7 +1056,7 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                     required
                     placeholder={t("notificationPlaceholder")}
                     onChange={(event) => setNotifyMessage(event.target.value)}
-                    className="mt-1 w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:border-primary"
+                    className="variable-input mt-1 w-full rounded-md border border-line px-3 py-2 text-sm outline-none focus:border-primary"
                   />
                 </label>
                 <button type="submit" disabled={notifyBusy || !notifyMessage.trim()} className={buttonClass}>
@@ -1032,6 +1121,16 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                 >
                   {t("adminRequests")}
                   <span className="ms-1 rounded-full bg-primary-soft px-1.5 py-0.5 text-[10px] text-primary">{pendingUsers.length}</span>
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={accountsTab === "archived"}
+                  onClick={() => setAccountsTab("archived")}
+                  className={`border-b-2 px-3 py-2 text-xs font-semibold ${accountsTab === "archived" ? "border-danger text-danger" : "border-transparent text-soft hover:text-ink"}`}
+                >
+                  {t("adminArchived")}
+                  <span className="ms-1 rounded-full bg-danger-soft px-1.5 py-0.5 text-[10px] text-danger">{archivedUsers.length}</span>
                 </button>
               </div>
               <input
@@ -1140,6 +1239,9 @@ export default function AdminPanel({ authorized, configured, showDemoHint, notic
                 </table>
                 {filteredUsers.length === 0 && accountsTab === "requests" && (
                   <p className="mt-2 text-sm text-soft">{t("adminNoRequests")}</p>
+                )}
+                {filteredUsers.length === 0 && accountsTab === "archived" && (
+                  <p className="mt-2 text-sm text-soft">{t("adminNoArchived")}</p>
                 )}
               </div>
               </>

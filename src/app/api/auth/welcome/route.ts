@@ -9,6 +9,18 @@ export const dynamic = "force-dynamic";
 
 const KEY = "welcomeMessage";
 
+function fillVariables(
+  text: string,
+  user: { email: string; downloads: number; downloadLimit: number | null },
+): string {
+  const remaining = user.downloadLimit === null
+    ? "غير محدود"
+    : String(Math.max(0, user.downloadLimit - user.downloads));
+  return text
+    .replace(/\{email\}/g, user.email)
+    .replace(/\{limit\}/g, remaining);
+}
+
 export async function GET() {
   const s = await getSessionState();
   if (s.status !== "ok") {
@@ -21,7 +33,7 @@ export async function GET() {
     .where(eq(profiles.id, s.user.id))
     .limit(1);
   const [msgRow] = await db.select().from(meta).where(eq(meta.key, KEY)).limit(1);
-  const message = msgRow?.value ?? "";
+  const message = fillVariables(msgRow?.value ?? "", s.user);
   return NextResponse.json({ ok: true, message, shown: profile?.welcomeShown ?? false });
 }
 
@@ -37,7 +49,7 @@ export async function POST() {
     .where(eq(profiles.id, s.user.id))
     .limit(1);
   const [msgRow] = await db.select().from(meta).where(eq(meta.key, KEY)).limit(1);
-  const message = msgRow?.value ?? "";
+  const message = fillVariables(msgRow?.value ?? "", s.user);
   const wasShown = profile?.welcomeShown ?? false;
   // Mark as seen once, so the message is shown at most once per account.
   if (message && !wasShown) {
