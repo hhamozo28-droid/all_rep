@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
   const parts = request.nextUrl.pathname.split("/").filter(Boolean);
   if (parts[0] !== "lessons" || parts.length < 3) return NextResponse.next();
   const code = parts[1].toLowerCase();
-  const rest = parts.slice(2).map(p => encodeURIComponent(p)).join("/");
+  const rest = parts.slice(2).join("/");
   const target = `${base}/${encodeURIComponent(code)}/${rest}`;
   return NextResponse.rewrite(new URL(target, request.url));
 }
