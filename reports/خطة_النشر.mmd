@@ -1,0 +1,33 @@
+flowchart TD
+    A["ملف روابط التحميل.docx / قائمة روابط GoFile<br/>لكل تخصص: مخططات + مذكرات"] --> B{"رابط ZIP صالح؟"}
+    B -- نعم --> C["تنزيل ZIP<br/>curl + accountToken + تعدد مضيفين"]
+    B -- لا --> C2["إعادة التوليد في Arena<br/>generate_all_specialties.py<br/>make_flows_gen + make_memos_gen"]
+
+    C --> D["فك الضغط بمحرف عربي<br/>unzip-filter.mjs"]
+    C2 --> D2["مخرجات PDF/DOCX جاهزة في /home/user"]
+
+    D --> E["public/lessons/&lt;CODE&gt;/<br/>├── المخططات/<br/>└── المذكرات/"]
+    D2 --> E
+
+    E --> F["بناء index.html<br/>build-lessons-index.mjs"]
+    E --> G["رفع كل ملف إلى Internet Archive S3<br/>upload-archive.mjs<br/>المفتاح: code-lower/المجلد/الملف"]
+
+    G --> H["manifest_&lt;CODE&gt;.json<br/>→ manifests/all.json"]
+    F --> I["Commit/push أجزاء صغيرة إلى GitHub main"]
+    H --> I
+
+    I --> J["Vercel ينشر تلقائيًا<br/>environment: LESSONS_PUBLIC_BASE"]
+    I --> K["sync-lessons-db.mjs<br/>--input-manifest --dry-run --yes"]
+    K --> L["تحديث specialties.links<br/>روابط ملفات فردية بدل ZIP<br/>حذف hosted_files + رفع catalog_version"]
+
+    J --> M["middleware.ts<br/>/lessons/&lt;CODE&gt;/&lt;folder&gt;/&lt;file&gt;<br/>→ archive.org/download/&lt;code-lower&gt;/..."]
+
+    L --> N["تطبيق دروسي<br/>يقرأ specialties.links عبر API<br/>يعرض اسم الملف الحقيقي"]
+    N --> O["ضغط الرابط → Vercel → rewrite → Archive<br/>تحميل مباشر PDF/DOCX"]
+
+    H --> P["تقرير Word/Numeric<br/>خلاصة الملفات + الروابط"]
+
+    style A fill:#eef2ff,stroke:#3730a3
+    style G fill:#fce7f3,stroke:#9d174d
+    style L fill:#dcfce7,stroke:#166534
+    style O fill:#fef3c7,stroke:#92400e
