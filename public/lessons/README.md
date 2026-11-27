@@ -30,6 +30,7 @@ https://archive.org/download/<code-lower>/<المجلد>/<اسم-الملف>
 
 - `AGR0703` — https://archive.org/details/agr0703
 - `AGR0713` — https://archive.org/details/agr0713
+- `AGR0716` — https://archive.org/details/agr0716
 - `INT0701P` — https://archive.org/details/int0701p
 - `TAV06Q` — https://archive.org/details/tav06q
 - `TAV0701` — https://archive.org/details/tav0701
