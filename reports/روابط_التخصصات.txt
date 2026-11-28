@@ -90,6 +90,26 @@
 ├── المخططات/   https://archive.org/download/hrt0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
 └── المذكرات/   https://archive.org/download/hrt0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
 
+مخططات + مذكرات/HRT0702/
+├── المخططات/   https://archive.org/download/hrt0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/hrt0702/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
+مخططات + مذكرات/HRT0704/
+├── المخططات/   https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
+مخططات + مذكرات/HRT0708/
+├── المخططات/   https://archive.org/download/hrt0708/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/hrt0708/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
+مخططات + مذكرات/IAA0713/
+├── المخططات/   https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
+مخططات + مذكرات/INT0701/
+├── المخططات/   https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
 مخططات + مذكرات/INT0701P/
 ├── المخططات/   https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
 └── المذكرات/   https://archive.org/download/int0701p/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/

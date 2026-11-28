@@ -51,6 +51,11 @@ https://archive.org/download/<code-lower>/<المجلد>/<اسم-الملف>
 - `ELE0705` — https://archive.org/details/ele0705
 - `ELE0713` — https://archive.org/details/ele0713
 - `HRT0701` — https://archive.org/details/hrt0701
+- `HRT0702` — https://archive.org/details/hrt0702
+- `HRT0704` — https://archive.org/details/hrt0704
+- `HRT0708` — https://archive.org/details/hrt0708
+- `IAA0713` — https://archive.org/details/iaa0713
+- `INT0701` — https://archive.org/details/int0701
 - `INT0701P` — https://archive.org/details/int0701p
 - `TAV06Q` — https://archive.org/details/tav06q
 - `TAV0701` — https://archive.org/details/tav0701
