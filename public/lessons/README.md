@@ -46,6 +46,11 @@ https://archive.org/download/<code-lower>/<المجلد>/<اسم-الملف>
 - `CML0704` — https://archive.org/details/cml0704
 - `ELE01Q` — https://archive.org/details/ele01q
 - `ELE0702` — https://archive.org/details/ele0702
+- `ELE0703` — https://archive.org/details/ele0703
+- `ELE0704` — https://archive.org/details/ele0704
+- `ELE0705` — https://archive.org/details/ele0705
+- `ELE0713` — https://archive.org/details/ele0713
+- `HRT0701` — https://archive.org/details/hrt0701
 - `INT0701P` — https://archive.org/details/int0701p
 - `TAV06Q` — https://archive.org/details/tav06q
 - `TAV0701` — https://archive.org/details/tav0701
