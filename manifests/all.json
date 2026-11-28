@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T11:56:13.441Z",
+  "generatedAt": "2026-11-28T12:39:44.550Z",
   "codes": {
     "TAV06Q": [
       {
@@ -846,6 +846,81 @@
       {
         "name": "AGR0703 البستنة - مذكرات - MQ9 يضمن صيانة العشب.pdf",
         "url": "https://archive.org/download/agr0703/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ9%20%D9%8A%D8%B6%D9%85%D9%86%20%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20%D8%A7%D9%84%D8%B9%D8%B4%D8%A8.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/AGR0703 البستنة - مخططات - MC1.pdf",
+        "url": "https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20-%20MC1.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/AGR0703 البستنة - مخططات - MC2.pdf",
+        "url": "https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20-%20MC2.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/AGR0703 البستنة - مخططات - MC3.pdf",
+        "url": "https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20-%20MC3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/AGR0703 البستنة - مخططات - MC4.pdf",
+        "url": "https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20-%20MC4.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/AGR0703 البستنة - مخططات - MC5.pdf",
+        "url": "https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20-%20MC5.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/AGR0703 البستنة - مخططات - MQ1.pdf",
+        "url": "https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20-%20MQ1.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/AGR0703 البستنة - مخططات - MQ2.pdf",
+        "url": "https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20-%20MQ2.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/AGR0703 البستنة - مخططات - MQ3.pdf",
+        "url": "https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20-%20MQ3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/AGR0703 البستنة - مخططات - MQ4.pdf",
+        "url": "https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20-%20MQ4.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/AGR0703 البستنة - مخططات - MQ5.pdf",
+        "url": "https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20-%20MQ5.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/AGR0703 البستنة - مخططات - MQ6.pdf",
+        "url": "https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20-%20MQ6.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/AGR0703 البستنة - مخططات - MQ7.pdf",
+        "url": "https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20-%20MQ7.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/AGR0703 البستنة - مخططات - MQ8.pdf",
+        "url": "https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20-%20MQ8.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/AGR0703 البستنة - مخططات - MQ9.pdf",
+        "url": "https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20-%20MQ9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/AGR0703 البستنة - مخططات - MQ10.pdf",
+        "url": "https://archive.org/download/agr0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/AGR0703%20%D8%A7%D9%84%D8%A8%D8%B3%D8%AA%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20-%20MQ10.pdf",
         "bytes": 0
       }
     ],
