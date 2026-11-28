@@ -77,6 +77,14 @@ export default function SpecialtyCard({ item }: { item: SpecialtyItem }) {
               label={t("linkNotes")}
             />
           )}
+          <button
+            type="button"
+            onClick={() => router.push(`/specialty/${item.id}#other-links`)}
+            title={t("otherLinksHint")}
+            className="whitespace-nowrap font-semibold text-primary hover:underline"
+          >
+            {t("otherLinksTitle")} ({number.format(item.otherLinksCount ?? 0)})
+          </button>
         </div>
         {!canDownload ? (
           <p className="mt-2 text-[10px] font-medium text-danger">{t("downloadLimitMessage")}</p>

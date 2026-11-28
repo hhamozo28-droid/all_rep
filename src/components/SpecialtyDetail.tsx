@@ -107,7 +107,7 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
         )}
       </section>
 
-      <section className="rounded-lg border border-line bg-white p-5">
+      <section id="other-links" className="scroll-mt-4 rounded-lg border border-line bg-white p-5">
         <h2 className="font-semibold text-ink">{t("otherLinksTitle")}</h2>
         <p className="mt-1 text-sm text-soft">{t("otherLinksHint")}</p>
         {otherLinks.length === 0 ? (
