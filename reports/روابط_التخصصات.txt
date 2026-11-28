@@ -154,6 +154,26 @@
 ├── المخططات/   https://archive.org/download/tag0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
 └── المذكرات/   https://archive.org/download/tag0702/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
 
+مخططات + مذكرات/TAG0704/
+├── المخططات/   https://archive.org/download/tag0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/tag0704/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
+مخططات + مذكرات/TAG0705/
+├── المخططات/   https://archive.org/download/tag0705/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/tag0705/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
+مخططات + مذكرات/TAG0709/
+├── المخططات/   https://archive.org/download/tag0709/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/tag0709/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
+مخططات + مذكرات/TAG0710/
+├── المخططات/   https://archive.org/download/tag0710/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/tag0710/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
+مخططات + مذكرات/TAG0711/
+├── المخططات/   https://archive.org/download/tag0711/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
+└── المذكرات/   https://archive.org/download/tag0711/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/
+
 مخططات + مذكرات/TAV06Q/
 ├── المخططات/   https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/
 └── المذكرات/   https://archive.org/download/tav06q/%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA/

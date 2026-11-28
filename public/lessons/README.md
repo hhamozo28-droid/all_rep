@@ -66,6 +66,11 @@ https://archive.org/download/<code-lower>/<المجلد>/<اسم-الملف>
 - `MME0709` — https://archive.org/details/mme0709
 - `TAG0701` — https://archive.org/details/tag0701
 - `TAG0702` — https://archive.org/details/tag0702
+- `TAG0704` — https://archive.org/details/tag0704
+- `TAG0705` — https://archive.org/details/tag0705
+- `TAG0709` — https://archive.org/details/tag0709
+- `TAG0710` — https://archive.org/details/tag0710
+- `TAG0711` — https://archive.org/details/tag0711
 - `INT0701P` — https://archive.org/details/int0701p
 - `TAV06Q` — https://archive.org/details/tav06q
 - `TAV0701` — https://archive.org/details/tav0701
