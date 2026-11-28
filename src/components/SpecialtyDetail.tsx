@@ -17,14 +17,16 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
   const { canDownload, remaining } = useDownloadStatus();
   const showCount = (value: number) => (value > 0 ? number.format(value) : "/");
   const otherLinks = item.otherLinks ?? [];
-  const folders = [...new Set(otherLinks.map((link) => link.folder))].sort((a, b) => {
-    const order = ["المخططات", "المذكرات"];
-    const ai = order.indexOf(a);
-    const bi = order.indexOf(b);
-    return (ai < 0 ? 99 : ai) - (bi < 0 ? 99 : bi);
-  });
-  const [activeFolder, setActiveFolder] = useState(folders[0] ?? "");
-  const currentFolder = folders.includes(activeFolder) ? activeFolder : folders[0] ?? "";
+  const coreFolders = ["المخططات", "المذكرات"];
+  const foundFolders = [...new Set(otherLinks.map((link) => link.folder))];
+  const folders = [
+    ...coreFolders,
+    ...foundFolders.filter((folder) => !coreFolders.includes(folder)),
+  ];
+  const defaultFolder =
+    coreFolders.find((folder) => foundFolders.includes(folder)) ?? folders[0] ?? "";
+  const [activeFolder, setActiveFolder] = useState(defaultFolder);
+  const currentFolder = folders.includes(activeFolder) ? activeFolder : defaultFolder;
   const shownLinks = otherLinks.filter((link) => link.folder === currentFolder);
   const details = [
     [`${t("modules")}`, showCount(item.modules)],
@@ -105,50 +107,54 @@ export default function SpecialtyDetail({ item }: { item: SpecialtyItem }) {
         )}
       </section>
 
-      {otherLinks.length > 0 && (
-        <section className="rounded-lg border border-line bg-white p-5">
-          <h2 className="font-semibold text-ink">{t("otherLinksTitle")}</h2>
-          <p className="mt-1 text-sm text-soft">{t("otherLinksHint")}</p>
-          <div className="mt-3 flex flex-wrap gap-1.5 border-b border-line" role="tablist">
-            {folders.map((folder) => (
-              <button
-                key={folder}
-                type="button"
-                role="tab"
-                aria-selected={currentFolder === folder}
-                onClick={() => setActiveFolder(folder)}
-                className={`rounded-t-lg border-b-2 pb-2 text-sm font-medium ${
-                  currentFolder === folder
-                    ? "border-primary text-ink"
-                    : "border-transparent text-soft hover:text-ink"
-                }`}
-              >
-                {folder} ({number.format(otherLinks.filter((link) => link.folder === folder).length)})
-              </button>
-            ))}
-          </div>
-          <ol className="mt-3 divide-y divide-line">
-            {shownLinks.map((link) => (
-              <li key={link.url} className="flex items-center justify-between gap-3 py-3">
-                <span className="min-w-0 truncate text-sm text-soft" dir="auto">
-                  {link.name.includes("/") ? link.name.split("/").pop() : link.name}
-                </span>
-                <a
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 rounded-md border border-line px-3 py-2 text-sm font-semibold text-primary hover:bg-paper"
+      <section className="rounded-lg border border-line bg-white p-5">
+        <h2 className="font-semibold text-ink">{t("otherLinksTitle")}</h2>
+        <p className="mt-1 text-sm text-soft">{t("otherLinksHint")}</p>
+        {otherLinks.length === 0 ? (
+          <p className="mt-3 text-sm text-soft">{t("otherLinksEmpty")}</p>
+        ) : (
+          <>
+            <div className="mt-3 flex flex-wrap gap-1.5 border-b border-line" role="tablist">
+              {folders.map((folder) => (
+                <button
+                  key={folder}
+                  type="button"
+                  role="tab"
+                  aria-selected={currentFolder === folder}
+                  onClick={() => setActiveFolder(folder)}
+                  className={`rounded-t-lg border-b-2 pb-2 text-sm font-medium ${
+                    currentFolder === folder
+                      ? "border-primary text-ink"
+                      : "border-transparent text-soft hover:text-ink"
+                  }`}
                 >
-                  {t("download")}
-                </a>
-              </li>
-            ))}
-          </ol>
-          {shownLinks.length === 0 && (
-            <p className="mt-3 text-sm text-soft">{t("noResults")}</p>
-          )}
-        </section>
-      )}
+                  {folder} ({number.format(otherLinks.filter((link) => link.folder === folder).length)})
+                </button>
+              ))}
+            </div>
+            <ol className="mt-3 divide-y divide-line">
+              {shownLinks.map((link) => (
+                <li key={link.url} className="flex items-center justify-between gap-3 py-3">
+                  <span className="min-w-0 truncate text-sm text-soft" dir="auto">
+                    {link.name.includes("/") ? link.name.split("/").pop() : link.name}
+                  </span>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0 rounded-md border border-line px-3 py-2 text-sm font-semibold text-primary hover:bg-paper"
+                  >
+                    {t("download")}
+                  </a>
+                </li>
+              ))}
+            </ol>
+            {shownLinks.length === 0 && (
+              <p className="mt-3 text-sm text-soft">{t("noFilesInFolder")}</p>
+            )}
+          </>
+        )}
+      </section>
     </div>
   );
 }
