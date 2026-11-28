@@ -71,6 +71,11 @@ https://archive.org/download/<code-lower>/<المجلد>/<اسم-الملف>
 - `TAG0709` — https://archive.org/details/tag0709
 - `TAG0710` — https://archive.org/details/tag0710
 - `TAG0711` — https://archive.org/details/tag0711
+- `TAG0713` — https://archive.org/details/tag0713
+- `TAG0714` — https://archive.org/details/tag0714
+- `TAG0717` — https://archive.org/details/tag0717
+- `TAG1205` — https://archive.org/details/tag1205
+- `TAG1206` — https://archive.org/details/tag1206
 - `INT0701P` — https://archive.org/details/int0701p
 - `TAV06Q` — https://archive.org/details/tav06q
 - `TAV0701` — https://archive.org/details/tav0701
