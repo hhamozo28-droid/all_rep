@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T17:35:21.620Z",
+  "generatedAt": "2026-11-28T18:19:16.343Z",
   "codes": {
     "TAV06Q": [
       {
@@ -4441,6 +4441,61 @@
         "name": "ELE0702 الكهرباء الصناعية - مذكرات - MQ2.2 الصيانة.pdf",
         "url": "https://archive.org/download/ele0702/ELE0702%20%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A1%20%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2.2%20%D8%A7%D9%84%D8%B5%D9%8A%D8%A7%D9%86%D8%A9.pdf",
         "bytes": 0
+      },
+      {
+        "name": "المخططات/MC1.1 الحساب - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/ele0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1.1%20%D8%A7%D9%84%D8%AD%D8%B3%D8%A7%D8%A8%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC1.2 مبادئ الكهرباء - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/ele0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1.2%20%D9%85%D8%A8%D8%A7%D8%AF%D8%A6%20%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A1%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC1.3 الأجهزة والمواد - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/ele0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1.3%20%D8%A7%D9%84%D8%A3%D8%AC%D9%87%D8%B2%D8%A9%20%D9%88%D8%A7%D9%84%D9%85%D9%88%D8%A7%D8%AF%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC1.4 الصحة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/ele0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1.4%20%D8%A7%D9%84%D8%B5%D8%AD%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC2.1 الحاسوب - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/ele0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2.1%20%D8%A7%D9%84%D8%AD%D8%A7%D8%B3%D9%88%D8%A8%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC2.2 التواصل - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/ele0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2.2%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ1.1 توزيع الطاقة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/ele0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1.1%20%D8%AA%D9%88%D8%B2%D9%8A%D8%B9%20%D8%A7%D9%84%D8%B7%D8%A7%D9%82%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ1.2 الخزانات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/ele0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1.2%20%D8%A7%D9%84%D8%AE%D8%B2%D8%A7%D9%86%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ1.3 منشآت الآلات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/ele0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1.3%20%D9%85%D9%86%D8%B4%D8%A2%D8%AA%20%D8%A7%D9%84%D8%A2%D9%84%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ2.1 إطلاق المحركات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/ele0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2.1%20%D8%A5%D8%B7%D9%84%D8%A7%D9%82%20%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%83%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ2.2 الصيانة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/ele0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2.2%20%D8%A7%D9%84%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
       }
     ],
     "ELE0703": [
@@ -5851,6 +5906,76 @@
         "name": "HRT0701 صناعة الحلويات - مذكرات - MQ8 الحلويات.pdf",
         "url": "https://archive.org/download/hrt0701/HRT0701%20%D8%B5%D9%86%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D8%AD%D9%84%D9%88%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ8%20%D8%A7%D9%84%D8%AD%D9%84%D9%88%D9%8A%D8%A7%D8%AA.pdf",
         "bytes": 0
+      },
+      {
+        "name": "المخططات/MC1 التكنولوجيا - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1%20%D8%A7%D9%84%D8%AA%D9%83%D9%86%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC2 النظافة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC3 الحساب - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC3%20%D8%A7%D9%84%D8%AD%D8%B3%D8%A7%D8%A8%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC4 التعبير - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC4%20%D8%A7%D9%84%D8%AA%D8%B9%D8%A8%D9%8A%D8%B1%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC5 الإعلام الآلي - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC5%20%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%85%20%D8%A7%D9%84%D8%A2%D9%84%D9%8A%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC6 المشروع - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC6%20%D8%A7%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ1 العجينة الهشة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1%20%D8%A7%D9%84%D8%B9%D8%AC%D9%8A%D9%86%D8%A9%20%D8%A7%D9%84%D9%87%D8%B4%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ2 العجينة اللينة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2%20%D8%A7%D9%84%D8%B9%D8%AC%D9%8A%D9%86%D8%A9%20%D8%A7%D9%84%D9%84%D9%8A%D9%86%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ3 المورقة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ3%20%D8%A7%D9%84%D9%85%D9%88%D8%B1%D9%82%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ4 المخمرة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ4%20%D8%A7%D9%84%D9%85%D8%AE%D9%85%D8%B1%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ5 الكريمات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ5%20%D8%A7%D9%84%D9%83%D8%B1%D9%8A%D9%85%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ6 السكريات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ6%20%D8%A7%D9%84%D8%B3%D9%83%D8%B1%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ7 التحليات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ7%20%D8%A7%D9%84%D8%AA%D8%AD%D9%84%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ8 الحلويات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ8%20%D8%A7%D9%84%D8%AD%D9%84%D9%88%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
       }
     ],
     "HRT0702": [
@@ -5972,6 +6097,66 @@
       {
         "name": "HRT0702 الخبازة الفطائر - مذكرات - MQ6 يصنع منتجات مصنوعة بالعجينة المورقة.pdf",
         "url": "https://archive.org/download/hrt0702/HRT0702%20%D8%A7%D9%84%D8%AE%D8%A8%D8%A7%D8%B2%D8%A9%20%D8%A7%D9%84%D9%81%D8%B7%D8%A7%D8%A6%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ6%20%D9%8A%D8%B5%D9%86%D8%B9%20%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA%20%D9%85%D8%B5%D9%86%D9%88%D8%B9%D8%A9%20%D8%A8%D8%A7%D9%84%D8%B9%D8%AC%D9%8A%D9%86%D8%A9%20%D8%A7%D9%84%D9%85%D9%88%D8%B1%D9%82%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC1 يوظف المعارف المتعلقة بالثقافة العامة في المخبزة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1%20%D9%8A%D9%88%D8%B8%D9%81%20%D8%A7%D9%84%D9%85%D8%B9%D8%A7%D8%B1%D9%81%20%D8%A7%D9%84%D9%85%D8%AA%D8%B9%D9%84%D9%82%D8%A9%20%D8%A8%D8%A7%D9%84%D8%AB%D9%82%D8%A7%D9%81%D8%A9%20%D8%A7%D9%84%D8%B9%D8%A7%D9%85%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D8%AE%D8%A8%D8%B2%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC2 يطبق القواعد الأساسية للحساب المهني - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2%20%D9%8A%D8%B7%D8%A8%D9%82%20%D8%A7%D9%84%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9%20%D9%84%D9%84%D8%AD%D8%B3%D8%A7%D8%A8%20%D8%A7%D9%84%D9%85%D9%87%D9%86%D9%8A%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC3 يتواصل شفهيًا وكتابيًا - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC3%20%D9%8A%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%B4%D9%81%D9%87%D9%8A%D9%8B%D8%A7%20%D9%88%D9%83%D8%AA%D8%A7%D8%A8%D9%8A%D9%8B%D8%A7%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC4 يستعمل الأدوات والآلات الموكلة اليه - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC4%20%D9%8A%D8%B3%D8%AA%D8%B9%D9%85%D9%84%20%D8%A7%D9%84%D8%A3%D8%AF%D9%88%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A2%D9%84%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D9%88%D9%83%D9%84%D8%A9%20%D8%A7%D9%84%D9%8A%D9%87%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC5 يطبق القواعد الأساسية للنظافة و السلامة و البيئة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC5%20%D9%8A%D8%B7%D8%A8%D9%82%20%D8%A7%D9%84%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9%20%D9%84%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%20%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9%20%D9%88%20%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC6 يستخدم الحاسوب - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC6%20%D9%8A%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A7%D9%84%D8%AD%D8%A7%D8%B3%D9%88%D8%A8%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ1 يتعرف على مختلف المنتجات التي تدخل في صناعة العجائن - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1%20%D9%8A%D8%AA%D8%B9%D8%B1%D9%81%20%D8%B9%D9%84%D9%89%20%D9%85%D8%AE%D8%AA%D9%84%D9%81%20%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%8A%20%D8%AA%D8%AF%D8%AE%D9%84%20%D9%81%D9%8A%20%D8%B5%D9%86%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AC%D8%A7%D8%A6%D9%86%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ2 يصنع الخبز العادي - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2%20%D9%8A%D8%B5%D9%86%D8%B9%20%D8%A7%D9%84%D8%AE%D8%A8%D8%B2%20%D8%A7%D9%84%D8%B9%D8%A7%D8%AF%D9%8A%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ3 يصنع الخبز المحسّن - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ3%20%D9%8A%D8%B5%D9%86%D8%B9%20%D8%A7%D9%84%D8%AE%D8%A8%D8%B2%20%D8%A7%D9%84%D9%85%D8%AD%D8%B3%D9%91%D9%86%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ4 يصنع منتجات مصنوعة بالعجينة المخمّرة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ4%20%D9%8A%D8%B5%D9%86%D8%B9%20%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA%20%D9%85%D8%B5%D9%86%D9%88%D8%B9%D8%A9%20%D8%A8%D8%A7%D9%84%D8%B9%D8%AC%D9%8A%D9%86%D8%A9%20%D8%A7%D9%84%D9%85%D8%AE%D9%85%D9%91%D8%B1%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ5 يصنع منتجات مصنوعة بالعجينة المخمَّرة المُورَّقة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ5%20%D9%8A%D8%B5%D9%86%D8%B9%20%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA%20%D9%85%D8%B5%D9%86%D9%88%D8%B9%D8%A9%20%D8%A8%D8%A7%D9%84%D8%B9%D8%AC%D9%8A%D9%86%D8%A9%20%D8%A7%D9%84%D9%85%D8%AE%D9%85%D9%91%D9%8E%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D9%8F%D9%88%D8%B1%D9%91%D9%8E%D9%82%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ6 يصنع منتجات مصنوعة بالعجينة المورقة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0702/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ6%20%D9%8A%D8%B5%D9%86%D8%B9%20%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA%20%D9%85%D8%B5%D9%86%D9%88%D8%B9%D8%A9%20%D8%A8%D8%A7%D9%84%D8%B9%D8%AC%D9%8A%D9%86%D8%A9%20%D8%A7%D9%84%D9%85%D9%88%D8%B1%D9%82%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
         "bytes": 0
       }
     ],
@@ -6144,6 +6329,91 @@
       {
         "name": "HRT0704 الإطعام خيار الطبخ الجماعي - مذكرات - MQ8 الخدمة.pdf",
         "url": "https://archive.org/download/hrt0704/HRT0704%20%D8%A7%D9%84%D8%A5%D8%B7%D8%B9%D8%A7%D9%85%20%D8%AE%D9%8A%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B7%D8%A8%D8%AE%20%D8%A7%D9%84%D8%AC%D9%85%D8%A7%D8%B9%D9%8A%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ8%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC1 التموقع - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1%20%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%82%D8%B9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC2 النظافة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC2.1 المعلوماتية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2.1%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC3 اللغة والحساب - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC3%20%D8%A7%D9%84%D9%84%D8%BA%D8%A9%20%D9%88%D8%A7%D9%84%D8%AD%D8%B3%D8%A7%D8%A8%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC4 التشريع - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC4%20%D8%A7%D9%84%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC4.1 المستهلك - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC4.1%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC6 الانجليزية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC6%20%D8%A7%D9%84%D8%A7%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC7 التنظيم - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC7%20%D8%A7%D9%84%D8%AA%D9%86%D8%B8%D9%8A%D9%85%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC9 الادماج - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC9%20%D8%A7%D9%84%D8%A7%D8%AF%D9%85%D8%A7%D8%AC%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ1 معدات المطبخ - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1%20%D9%85%D8%B9%D8%AF%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%B7%D8%A8%D8%AE%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ2 تحضير السلع - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2%20%D8%AA%D8%AD%D8%B6%D9%8A%D8%B1%20%D8%A7%D9%84%D8%B3%D9%84%D8%B9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ3 التحضيرات الاساسية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ3%20%D8%A7%D9%84%D8%AA%D8%AD%D8%B6%D9%8A%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A7%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ4 المقبلات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ4%20%D8%A7%D9%84%D9%85%D9%82%D8%A8%D9%84%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ5 الاطباق الرئيسية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ5%20%D8%A7%D9%84%D8%A7%D8%B7%D8%A8%D8%A7%D9%82%20%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ6 العجائن والكريمات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ6%20%D8%A7%D9%84%D8%B9%D8%AC%D8%A7%D8%A6%D9%86%20%D9%88%D8%A7%D9%84%D9%83%D8%B1%D9%8A%D9%85%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ7 الحفظ والتخزين - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ7%20%D8%A7%D9%84%D8%AD%D9%81%D8%B8%20%D9%88%D8%A7%D9%84%D8%AA%D8%AE%D8%B2%D9%8A%D9%86%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ8 الخدمة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/hrt0704/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ8%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
         "bytes": 0
       }
     ],
@@ -6449,6 +6719,101 @@
         "name": "IAA0713 مراقبة النوعية في الصناعات الغذائية - مذكرات - MQ9 ينفذ مراقبة الجودة في صناعة السكر.pdf",
         "url": "https://archive.org/download/iaa0713/IAA0713%20%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9%20%D8%A7%D9%84%D9%86%D9%88%D8%B9%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A7%D8%AA%20%D8%A7%D9%84%D8%BA%D8%B0%D8%A7%D8%A6%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ9%20%D9%8A%D9%86%D9%81%D8%B0%20%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9%20%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9%20%D9%81%D9%8A%20%D8%B5%D9%86%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D8%B3%D9%83%D8%B1.pdf",
         "bytes": 0
+      },
+      {
+        "name": "المخططات/MC1 يطبق معايير وأدوات مراقبة الجودة في الصناعات الغذائية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1%20%D9%8A%D8%B7%D8%A8%D9%82%20%D9%85%D8%B9%D8%A7%D9%8A%D9%8A%D8%B1%20%D9%88%D8%A3%D8%AF%D9%88%D8%A7%D8%AA%20%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9%20%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A7%D8%AA%20%D8%A7%D9%84%D8%BA%D8%B0%D8%A7%D8%A6%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC10 يحدد التغيرات الفيزيائية والكيميائية التي تطرأ على مكوّنات ا - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC10%20%D9%8A%D8%AD%D8%AF%D8%AF%20%D8%A7%D9%84%D8%AA%D8%BA%D9%8A%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D9%81%D9%8A%D8%B2%D9%8A%D8%A7%D8%A6%D9%8A%D8%A9%20%D9%88%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A6%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D9%8A%20%D8%AA%D8%B7%D8%B1%D8%A3%20%D8%B9%D9%84%D9%89%20%D9%85%D9%83%D9%88%D9%91%D9%86%D8%A7%D8%AA%20%D8%A7%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC2 يتواصل في بيئة العمل - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2%20%D9%8A%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%81%D9%8A%20%D8%A8%D9%8A%D8%A6%D8%A9%20%D8%A7%D9%84%D8%B9%D9%85%D9%84%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC3 يعزز ممارسات النظافة والصحة والسلامة في بيئة العمل - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC3%20%D9%8A%D8%B9%D8%B2%D8%B2%20%D9%85%D9%85%D8%A7%D8%B1%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%B5%D8%AD%D8%A9%20%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9%20%D9%81%D9%8A%20%D8%A8%D9%8A%D8%A6%D8%A9%20%D8%A7%D9%84%D8%B9%D9%85%D9%84%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC4 يستخدم الحاسوب و برامجه التطبيقية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC4%20%D9%8A%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A7%D9%84%D8%AD%D8%A7%D8%B3%D9%88%D8%A8%20%D9%88%20%D8%A8%D8%B1%D8%A7%D9%85%D8%AC%D9%87%20%D8%A7%D9%84%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC5 يستخدم المفاهيم الأساسية للتحليل الإحصائي للبيانات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC5%20%D9%8A%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85%20%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9%20%D9%84%D9%84%D8%AA%D8%AD%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D8%A5%D8%AD%D8%B5%D8%A7%D8%A6%D9%8A%20%D9%84%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC6 يستخدم المفاهيم الأساسية في الكيمياء العامة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC6%20%D9%8A%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85%20%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1%20%D8%A7%D9%84%D8%B9%D8%A7%D9%85%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC7 يستخدم المفاهيم الأساسية في البصريات والكهرباء - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC7%20%D9%8A%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85%20%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A8%D8%B5%D8%B1%D9%8A%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A1%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC8 يستخدم المفاهيم الأساسية في الميكروبيولوجيا العامة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC8%20%D9%8A%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85%20%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%D8%A8%D9%8A%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7%20%D8%A7%D9%84%D8%B9%D8%A7%D9%85%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC9 يحدد خصائص الكائنات الحية الدقيقة الموجودة في الأغذية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC9%20%D9%8A%D8%AD%D8%AF%D8%AF%20%D8%AE%D8%B5%D8%A7%D8%A6%D8%B5%20%D8%A7%D9%84%D9%83%D8%A7%D8%A6%D9%86%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AD%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AF%D9%82%D9%8A%D9%82%D8%A9%20%D8%A7%D9%84%D9%85%D9%88%D8%AC%D9%88%D8%AF%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A3%D8%BA%D8%B0%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ1 يستعمل تقنيات التحاليل الفيزيائية والكيميائية للمنتجات الغذا - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1%20%D9%8A%D8%B3%D8%AA%D8%B9%D9%85%D9%84%20%D8%AA%D9%82%D9%86%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D8%AD%D8%A7%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D9%81%D9%8A%D8%B2%D9%8A%D8%A7%D8%A6%D9%8A%D8%A9%20%D9%88%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A6%D9%8A%D8%A9%20%D9%84%D9%84%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA%20%D8%A7%D9%84%D8%BA%D8%B0%D8%A7%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ2 يقيس مكونات الأغذية البيوكيميائية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2%20%D9%8A%D9%82%D9%8A%D8%B3%20%D9%85%D9%83%D9%88%D9%86%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A3%D8%BA%D8%B0%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A8%D9%8A%D9%88%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A6%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ3 ينفذ مراقبة الجودة في صناعة الألبان - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ3%20%D9%8A%D9%86%D9%81%D8%B0%20%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9%20%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9%20%D9%81%D9%8A%20%D8%B5%D9%86%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D8%A3%D9%84%D8%A8%D8%A7%D9%86%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ4 ينفذ مراقبة الجودة في صناعة الحبوب ومنتجاتها الثانوية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ4%20%D9%8A%D9%86%D9%81%D8%B0%20%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9%20%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9%20%D9%81%D9%8A%20%D8%B5%D9%86%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA%D9%87%D8%A7%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%88%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ5 ينفذ مراقبة الجودة في صناعة المياه و المشروبات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ5%20%D9%8A%D9%86%D9%81%D8%B0%20%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9%20%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9%20%D9%81%D9%8A%20%D8%B5%D9%86%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87%20%D9%88%20%D8%A7%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%A8%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ6 ينفذ مراقبة الجودة في صناعة المعلبات ذات الأصل النباتي والحي - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ6%20%D9%8A%D9%86%D9%81%D8%B0%20%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9%20%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9%20%D9%81%D9%8A%20%D8%B5%D9%86%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D8%A8%D8%A7%D8%AA%20%D8%B0%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A3%D8%B5%D9%84%20%D8%A7%D9%84%D9%86%D8%A8%D8%A7%D8%AA%D9%8A%20%D9%88%D8%A7%D9%84%D8%AD%D9%8A%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ7 ينفذ مراقبة الجودة في صناعة اللحوم ومنتجاتها - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ7%20%D9%8A%D9%86%D9%81%D8%B0%20%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9%20%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9%20%D9%81%D9%8A%20%D8%B5%D9%86%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D9%84%D8%AD%D9%88%D9%85%20%D9%88%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA%D9%87%D8%A7%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ8 ينفذ مراقبة الجودة في صناعة المواد الدسمة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ8%20%D9%8A%D9%86%D9%81%D8%B0%20%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9%20%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9%20%D9%81%D9%8A%20%D8%B5%D9%86%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D9%85%D9%88%D8%A7%D8%AF%20%D8%A7%D9%84%D8%AF%D8%B3%D9%85%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ9 ينفذ مراقبة الجودة في صناعة السكر - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/iaa0713/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ9%20%D9%8A%D9%86%D9%81%D8%B0%20%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9%20%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9%20%D9%81%D9%8A%20%D8%B5%D9%86%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D8%B3%D9%83%D8%B1%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
       }
     ],
     "INT0701": [
@@ -6650,6 +7015,106 @@
       {
         "name": "INT0701 مُستغل المعلوماتية - مذكرات - MQ9 قواعد البيانات.pdf",
         "url": "https://archive.org/download/int0701/INT0701%20%D9%85%D9%8F%D8%B3%D8%AA%D8%BA%D9%84%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ9%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC1 تقنيات التعبير - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1%20%D8%AA%D9%82%D9%86%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D8%B9%D8%A8%D9%8A%D8%B1%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC10 الادماج - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC10%20%D8%A7%D9%84%D8%A7%D8%AF%D9%85%D8%A7%D8%AC%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC2 مكونات الكمبيوتر - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2%20%D9%85%D9%83%D9%88%D9%86%D8%A7%D8%AA%20%D8%A7%D9%84%D9%83%D9%85%D8%A8%D9%8A%D9%88%D8%AA%D8%B1%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC3 الصحة والسلامة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC3%20%D8%A7%D9%84%D8%B5%D8%AD%D8%A9%20%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC4 تنظيم المؤسسات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC4%20%D8%AA%D9%86%D8%B8%D9%8A%D9%85%20%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC5 الانجليزية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC5%20%D8%A7%D9%84%D8%A7%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC6 المعلوماتية عن بعد - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC6%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20%D8%B9%D9%86%20%D8%A8%D8%B9%D8%AF%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC7 الرياضيات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC7%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC8 حماية المستهلك - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC8%20%D8%AD%D9%85%D8%A7%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC9 البحث عن عمل - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC9%20%D8%A7%D9%84%D8%A8%D8%AD%D8%AB%20%D8%B9%D9%86%20%D8%B9%D9%85%D9%84%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ1 تركيب الحواسيب - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1%20%D8%AA%D8%B1%D9%83%D9%8A%D8%A8%20%D8%A7%D9%84%D8%AD%D9%88%D8%A7%D8%B3%D9%8A%D8%A8%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ10 الانترنت - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ10%20%D8%A7%D9%84%D8%A7%D9%86%D8%AA%D8%B1%D9%86%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ2 تركيب الشبكات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2%20%D8%AA%D8%B1%D9%83%D9%8A%D8%A8%20%D8%A7%D9%84%D8%B4%D8%A8%D9%83%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ3 اعداد الشبكات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ3%20%D8%A7%D8%B9%D8%AF%D8%A7%D8%AF%20%D8%A7%D9%84%D8%B4%D8%A8%D9%83%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ4 الصيانة الوقائية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ4%20%D8%A7%D9%84%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20%D8%A7%D9%84%D9%88%D9%82%D8%A7%D8%A6%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ5 الصيانة العلاجية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ5%20%D8%A7%D9%84%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D8%AC%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ6 معالجة النصوص - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ6%20%D9%85%D8%B9%D8%A7%D9%84%D8%AC%D8%A9%20%D8%A7%D9%84%D9%86%D8%B5%D9%88%D8%B5%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ7 جداول البيانات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ7%20%D8%AC%D8%AF%D8%A7%D9%88%D9%84%20%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ8 العرض التقديمي - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ8%20%D8%A7%D9%84%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%84%D8%AA%D9%82%D8%AF%D9%8A%D9%85%D9%8A%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ9 قواعد البيانات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0701/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ9%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
         "bytes": 0
       }
     ],
@@ -6873,6 +7338,116 @@
         "name": "INT0703 قاعدة المعطيات - مذكرات - MQ8 الاختبارات.pdf",
         "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ8%20%D8%A7%D9%84%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%D8%A7%D8%AA.pdf",
         "bytes": 0
+      },
+      {
+        "name": "المخططات/MC1 مشروع قواعد البيانات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC10 الاتصال - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC10%20%D8%A7%D9%84%D8%A7%D8%AA%D8%B5%D8%A7%D9%84%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC11 الانجليزية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC11%20%D8%A7%D9%84%D8%A7%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC12 المذكرة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC12%20%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC13 البحث عن عمل - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC13%20%D8%A7%D9%84%D8%A8%D8%AD%D8%AB%20%D8%B9%D9%86%20%D8%B9%D9%85%D9%84%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC14 الشبكات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC14%20%D8%A7%D9%84%D8%B4%D8%A8%D9%83%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC2 الانظمة الرقمية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2%20%D8%A7%D9%84%D8%A7%D9%86%D8%B8%D9%85%D8%A9%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC3 انظمة التشغيل - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC3%20%D8%A7%D9%86%D8%B8%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%B4%D8%BA%D9%8A%D9%84%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC4 المكتبيات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC4%20%D8%A7%D9%84%D9%85%D9%83%D8%AA%D8%A8%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC5 الخوارزميات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC5%20%D8%A7%D9%84%D8%AE%D9%88%D8%A7%D8%B1%D8%B2%D9%85%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC6 الاجرائية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC6%20%D8%A7%D9%84%D8%A7%D8%AC%D8%B1%D8%A7%D8%A6%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC7 الكائنية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC7%20%D8%A7%D9%84%D9%83%D8%A7%D8%A6%D9%86%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC8 حماية المستهلك - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC8%20%D8%AD%D9%85%D8%A7%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC9 تنظيم الشركات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC9%20%D8%AA%D9%86%D8%B8%D9%8A%D9%85%20%D8%A7%D9%84%D8%B4%D8%B1%D9%83%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ1 التصميم العلائقي - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1%20%D8%A7%D9%84%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D8%A6%D9%82%D9%8A%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ2 لغة UML - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2%20%D9%84%D8%BA%D8%A9%20UML%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ3 العلائقية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ3%20%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D8%A6%D9%82%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ4 قواعد المخدم - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ4%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D9%85%D8%AE%D8%AF%D9%85%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ5 ادارة المخدم - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ5%20%D8%A7%D8%AF%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%AE%D8%AF%D9%85%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ6 التطبيقات البعيدة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ6%20%D8%A7%D9%84%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A8%D8%B9%D9%8A%D8%AF%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ7 قواعد الانترنت - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ7%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A7%D9%86%D8%AA%D8%B1%D9%86%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ8 الاختبارات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int0703/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ8%20%D8%A7%D9%84%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
       }
     ],
     "INT1202": [
@@ -7054,6 +7629,96 @@
       {
         "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ9 ضمان الصيانة الوقائية لأجهزة الكمبيوتر.pdf",
         "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ9%20%D8%B6%D9%85%D8%A7%D9%86%20%D8%A7%D9%84%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20%D8%A7%D9%84%D9%88%D9%82%D8%A7%D8%A6%D9%8A%D8%A9%20%D9%84%D8%A3%D8%AC%D9%87%D8%B2%D8%A9%20%D8%A7%D9%84%D9%83%D9%85%D8%A8%D9%8A%D9%88%D8%AA%D8%B1.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC1 تنظيم أعمال الشركات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC1%20%D8%AA%D9%86%D8%B8%D9%8A%D9%85%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%B4%D8%B1%D9%83%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC2 الصحة والسلامة والبيئة المتعلقة بالحوسبة - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC2%20%D8%A7%D9%84%D8%B5%D8%AD%D8%A9%20%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9%20%D9%88%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9%20%D8%A7%D9%84%D9%85%D8%AA%D8%B9%D9%84%D9%82%D8%A9%20%D8%A8%D8%A7%D9%84%D8%AD%D9%88%D8%B3%D8%A8%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC3 البحث عن عمل - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC3%20%D8%A7%D9%84%D8%A8%D8%AD%D8%AB%20%D8%B9%D9%86%20%D8%B9%D9%85%D9%84%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC4 هيكل الآلات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC4%20%D9%87%D9%8A%D9%83%D9%84%20%D8%A7%D9%84%D8%A2%D9%84%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC5 منهجية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC5%20%D9%85%D9%86%D9%87%D8%AC%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC6 حماية المستهلك - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC6%20%D8%AD%D9%85%D8%A7%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC7 رياضيات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC7%20%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC8 تقنيات التعبير - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC8%20%D8%AA%D9%82%D9%86%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D8%B9%D8%A8%D9%8A%D8%B1%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MC9 اللغة الإنجليزية - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MC9%20%D8%A7%D9%84%D9%84%D8%BA%D8%A9%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ1 تثبيت و إعداد أجهزة الكمبيوتر - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ1%20%D8%AA%D8%AB%D8%A8%D9%8A%D8%AA%20%D9%88%20%D8%A5%D8%B9%D8%AF%D8%A7%D8%AF%20%D8%A3%D8%AC%D9%87%D8%B2%D8%A9%20%D8%A7%D9%84%D9%83%D9%85%D8%A8%D9%8A%D9%88%D8%AA%D8%B1%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ2 استخدم برامج التشغيل - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ2%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A8%D8%B1%D8%A7%D9%85%D8%AC%20%D8%A7%D9%84%D8%AA%D8%B4%D8%BA%D9%8A%D9%84%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ3 استخدم برنامج معالجة النصوص - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ3%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D9%85%D8%B9%D8%A7%D9%84%D8%AC%D8%A9%20%D8%A7%D9%84%D9%86%D8%B5%D9%88%D8%B5%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ4 استخدم جدول بيانات - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ4%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%AC%D8%AF%D9%88%D9%84%20%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ5 استخدم برنامج العرض التقديمي - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ5%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A7%D9%84%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%84%D8%AA%D9%82%D8%AF%D9%8A%D9%85%D9%8A%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ6 استخدم برنامجًا بمساعدة الكمبيوتر PAO - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ6%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%D9%8B%D8%A7%20%D8%A8%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%83%D9%85%D8%A8%D9%8A%D9%88%D8%AA%D8%B1%20PAO%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ7 استخدم برنامج التصميم الجرافيكي - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ7%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A7%D9%84%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%A7%D9%84%D8%AC%D8%B1%D8%A7%D9%81%D9%8A%D9%83%D9%8A%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ8 الاستفادة من الإنترنت ومنصة للتعاون - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ8%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D8%A9%20%D9%85%D9%86%20%D8%A7%D9%84%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA%20%D9%88%D9%85%D9%86%D8%B5%D8%A9%20%D9%84%D9%84%D8%AA%D8%B9%D8%A7%D9%88%D9%86%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "المخططات/MQ9 ضمان الصيانة الوقائية لأجهزة الكمبيوتر - مخططات الدروس.pdf",
+        "url": "https://archive.org/download/int1202/%D8%A7%D9%84%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA/MQ9%20%D8%B6%D9%85%D8%A7%D9%86%20%D8%A7%D9%84%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20%D8%A7%D9%84%D9%88%D9%82%D8%A7%D8%A6%D9%8A%D8%A9%20%D9%84%D8%A3%D8%AC%D9%87%D8%B2%D8%A9%20%D8%A7%D9%84%D9%83%D9%85%D8%A8%D9%8A%D9%88%D8%AA%D8%B1%20-%20%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3.pdf",
         "bytes": 0
       }
     ],
