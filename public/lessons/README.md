@@ -61,6 +61,11 @@ https://archive.org/download/<code-lower>/<المجلد>/<اسم-الملف>
 - `MEE0708` — https://archive.org/details/mee0708
 - `MES01Q` — https://archive.org/details/mes01q
 - `MES0701` — https://archive.org/details/mes0701
+- `MES0702` — https://archive.org/details/mes0702
+- `MME0703` — https://archive.org/details/mme0703
+- `MME0709` — https://archive.org/details/mme0709
+- `TAG0701` — https://archive.org/details/tag0701
+- `TAG0702` — https://archive.org/details/tag0702
 - `INT0701P` — https://archive.org/details/int0701p
 - `TAV06Q` — https://archive.org/details/tav06q
 - `TAV0701` — https://archive.org/details/tav0701
