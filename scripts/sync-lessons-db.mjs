@@ -102,8 +102,8 @@ function encodePath(relativePath) {
 
 function folderOf(name, url) {
   const value = String(name ?? "");
-  if (/مخططات/.test(value)) return "المخططات";
   if (/مذكرات/.test(value)) return "المذكرات";
+  if (/مخططات/.test(value)) return "المخططات";
   try {
     const first = decodeURIComponent(new URL(String(url)).pathname.split("/")[3] ?? "");
     if (first === "المخططات" || first === "المذكرات") return first;
