@@ -56,6 +56,11 @@ https://archive.org/download/<code-lower>/<المجلد>/<اسم-الملف>
 - `HRT0708` — https://archive.org/details/hrt0708
 - `IAA0713` — https://archive.org/details/iaa0713
 - `INT0701` — https://archive.org/details/int0701
+- `INT0703` — https://archive.org/details/int0703
+- `INT1202` — https://archive.org/details/int1202
+- `MEE0708` — https://archive.org/details/mee0708
+- `MES01Q` — https://archive.org/details/mes01q
+- `MES0701` — https://archive.org/details/mes0701
 - `INT0701P` — https://archive.org/details/int0701p
 - `TAV06Q` — https://archive.org/details/tav06q
 - `TAV0701` — https://archive.org/details/tav0701

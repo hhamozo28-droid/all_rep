@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T07:25:06.850Z",
+  "generatedAt": "2026-11-28T08:18:50.879Z",
   "codes": {
     "TAV06Q": [
       {
@@ -5160,6 +5160,896 @@
       {
         "name": "INT0701 مُستغل المعلوماتية - مذكرات - MQ9 قواعد البيانات.pdf",
         "url": "https://archive.org/download/int0701/INT0701%20%D9%85%D9%8F%D8%B3%D8%AA%D8%BA%D9%84%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ9%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA.pdf",
+        "bytes": 0
+      }
+    ],
+    "INT0703": [
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC1 مشروع قواعد البيانات.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC1 مشروع قواعد البيانات.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC10 الاتصال.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC10%20%D8%A7%D9%84%D8%A7%D8%AA%D8%B5%D8%A7%D9%84.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC10 الاتصال.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC10%20%D8%A7%D9%84%D8%A7%D8%AA%D8%B5%D8%A7%D9%84.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC11 الانجليزية.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC11%20%D8%A7%D9%84%D8%A7%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC11 الانجليزية.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC11%20%D8%A7%D9%84%D8%A7%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC12 المذكرة.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC12%20%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC12 المذكرة.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC12%20%D8%A7%D9%84%D9%85%D8%B0%D9%83%D8%B1%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC13 البحث عن عمل.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC13%20%D8%A7%D9%84%D8%A8%D8%AD%D8%AB%20%D8%B9%D9%86%20%D8%B9%D9%85%D9%84.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC13 البحث عن عمل.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC13%20%D8%A7%D9%84%D8%A8%D8%AD%D8%AB%20%D8%B9%D9%86%20%D8%B9%D9%85%D9%84.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC14 الشبكات.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC14%20%D8%A7%D9%84%D8%B4%D8%A8%D9%83%D8%A7%D8%AA.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC14 الشبكات.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC14%20%D8%A7%D9%84%D8%B4%D8%A8%D9%83%D8%A7%D8%AA.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC2 الانظمة الرقمية.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D8%A7%D9%86%D8%B8%D9%85%D8%A9%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC2 الانظمة الرقمية.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D8%A7%D9%86%D8%B8%D9%85%D8%A9%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC3 انظمة التشغيل.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D8%A7%D9%86%D8%B8%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%B4%D8%BA%D9%8A%D9%84.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC3 انظمة التشغيل.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D8%A7%D9%86%D8%B8%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%B4%D8%BA%D9%8A%D9%84.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC4 المكتبيات.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D8%A7%D9%84%D9%85%D9%83%D8%AA%D8%A8%D9%8A%D8%A7%D8%AA.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC4 المكتبيات.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D8%A7%D9%84%D9%85%D9%83%D8%AA%D8%A8%D9%8A%D8%A7%D8%AA.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC5 الخوارزميات.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D8%A7%D9%84%D8%AE%D9%88%D8%A7%D8%B1%D8%B2%D9%85%D9%8A%D8%A7%D8%AA.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC5 الخوارزميات.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D8%A7%D9%84%D8%AE%D9%88%D8%A7%D8%B1%D8%B2%D9%85%D9%8A%D8%A7%D8%AA.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC6 الاجرائية.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC6%20%D8%A7%D9%84%D8%A7%D8%AC%D8%B1%D8%A7%D8%A6%D9%8A%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC6 الاجرائية.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC6%20%D8%A7%D9%84%D8%A7%D8%AC%D8%B1%D8%A7%D8%A6%D9%8A%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC7 الكائنية.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC7%20%D8%A7%D9%84%D9%83%D8%A7%D8%A6%D9%86%D9%8A%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC7 الكائنية.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC7%20%D8%A7%D9%84%D9%83%D8%A7%D8%A6%D9%86%D9%8A%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC8 حماية المستهلك.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC8%20%D8%AD%D9%85%D8%A7%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC8 حماية المستهلك.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC8%20%D8%AD%D9%85%D8%A7%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC9 تنظيم الشركات.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC9%20%D8%AA%D9%86%D8%B8%D9%8A%D9%85%20%D8%A7%D9%84%D8%B4%D8%B1%D9%83%D8%A7%D8%AA.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MC9 تنظيم الشركات.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC9%20%D8%AA%D9%86%D8%B8%D9%8A%D9%85%20%D8%A7%D9%84%D8%B4%D8%B1%D9%83%D8%A7%D8%AA.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MQ1 التصميم العلائقي.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%A7%D9%84%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D8%A6%D9%82%D9%8A.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MQ1 التصميم العلائقي.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%A7%D9%84%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D8%A6%D9%82%D9%8A.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MQ2 لغة UML.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D9%84%D8%BA%D8%A9%20UML.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MQ2 لغة UML.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D9%84%D8%BA%D8%A9%20UML.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MQ3 العلائقية.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D8%A6%D9%82%D9%8A%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MQ3 العلائقية.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D8%A6%D9%82%D9%8A%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MQ4 قواعد المخدم.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D9%85%D8%AE%D8%AF%D9%85.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MQ4 قواعد المخدم.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D9%85%D8%AE%D8%AF%D9%85.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MQ5 ادارة المخدم.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%A7%D8%AF%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%AE%D8%AF%D9%85.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MQ5 ادارة المخدم.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%A7%D8%AF%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%AE%D8%AF%D9%85.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MQ6 التطبيقات البعيدة.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ6%20%D8%A7%D9%84%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A8%D8%B9%D9%8A%D8%AF%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MQ6 التطبيقات البعيدة.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ6%20%D8%A7%D9%84%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A8%D8%B9%D9%8A%D8%AF%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MQ7 قواعد الانترنت.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ7%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A7%D9%86%D8%AA%D8%B1%D9%86%D8%AA.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MQ7 قواعد الانترنت.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ7%20%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A7%D9%86%D8%AA%D8%B1%D9%86%D8%AA.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MQ8 الاختبارات.docx",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ8%20%D8%A7%D9%84%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%D8%A7%D8%AA.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT0703 قاعدة المعطيات - مذكرات - MQ8 الاختبارات.pdf",
+        "url": "https://archive.org/download/int0703/INT0703%20%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D8%B7%D9%8A%D8%A7%D8%AA%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ8%20%D8%A7%D9%84%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%D8%A7%D8%AA.pdf",
+        "bytes": 0
+      }
+    ],
+    "INT1202": [
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC1 تنظيم أعمال الشركات.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%AA%D9%86%D8%B8%D9%8A%D9%85%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%B4%D8%B1%D9%83%D8%A7%D8%AA.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC1 تنظيم أعمال الشركات.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%AA%D9%86%D8%B8%D9%8A%D9%85%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%B4%D8%B1%D9%83%D8%A7%D8%AA.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC2 الصحة والسلامة والبيئة المتعلقة بالحوسبة.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D8%B5%D8%AD%D8%A9%20%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9%20%D9%88%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9%20%D8%A7%D9%84%D9%85%D8%AA%D8%B9%D9%84%D9%82%D8%A9%20%D8%A8%D8%A7%D9%84%D8%AD%D9%88%D8%B3%D8%A8%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC2 الصحة والسلامة والبيئة المتعلقة بالحوسبة.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D8%B5%D8%AD%D8%A9%20%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9%20%D9%88%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9%20%D8%A7%D9%84%D9%85%D8%AA%D8%B9%D9%84%D9%82%D8%A9%20%D8%A8%D8%A7%D9%84%D8%AD%D9%88%D8%B3%D8%A8%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC3 البحث عن عمل.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D8%A7%D9%84%D8%A8%D8%AD%D8%AB%20%D8%B9%D9%86%20%D8%B9%D9%85%D9%84.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC3 البحث عن عمل.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D8%A7%D9%84%D8%A8%D8%AD%D8%AB%20%D8%B9%D9%86%20%D8%B9%D9%85%D9%84.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC4 هيكل الآلات.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D9%87%D9%8A%D9%83%D9%84%20%D8%A7%D9%84%D8%A2%D9%84%D8%A7%D8%AA.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC4 هيكل الآلات.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D9%87%D9%8A%D9%83%D9%84%20%D8%A7%D9%84%D8%A2%D9%84%D8%A7%D8%AA.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC5 منهجية.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D9%85%D9%86%D9%87%D8%AC%D9%8A%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC5 منهجية.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D9%85%D9%86%D9%87%D8%AC%D9%8A%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC6 حماية المستهلك.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC6%20%D8%AD%D9%85%D8%A7%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC6 حماية المستهلك.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC6%20%D8%AD%D9%85%D8%A7%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC7 رياضيات.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC7%20%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC7 رياضيات.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC7%20%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC8 تقنيات التعبير.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC8%20%D8%AA%D9%82%D9%86%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D8%B9%D8%A8%D9%8A%D8%B1.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC8 تقنيات التعبير.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC8%20%D8%AA%D9%82%D9%86%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D8%B9%D8%A8%D9%8A%D8%B1.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC9 اللغة الإنجليزية.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC9%20%D8%A7%D9%84%D9%84%D8%BA%D8%A9%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MC9 اللغة الإنجليزية.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC9%20%D8%A7%D9%84%D9%84%D8%BA%D8%A9%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ1 تثبيت و إعداد أجهزة الكمبيوتر.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%AA%D8%AB%D8%A8%D9%8A%D8%AA%20%D9%88%20%D8%A5%D8%B9%D8%AF%D8%A7%D8%AF%20%D8%A3%D8%AC%D9%87%D8%B2%D8%A9%20%D8%A7%D9%84%D9%83%D9%85%D8%A8%D9%8A%D9%88%D8%AA%D8%B1.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ1 تثبيت و إعداد أجهزة الكمبيوتر.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%AA%D8%AB%D8%A8%D9%8A%D8%AA%20%D9%88%20%D8%A5%D8%B9%D8%AF%D8%A7%D8%AF%20%D8%A3%D8%AC%D9%87%D8%B2%D8%A9%20%D8%A7%D9%84%D9%83%D9%85%D8%A8%D9%8A%D9%88%D8%AA%D8%B1.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ2 استخدم برامج التشغيل.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A8%D8%B1%D8%A7%D9%85%D8%AC%20%D8%A7%D9%84%D8%AA%D8%B4%D8%BA%D9%8A%D9%84.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ2 استخدم برامج التشغيل.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A8%D8%B1%D8%A7%D9%85%D8%AC%20%D8%A7%D9%84%D8%AA%D8%B4%D8%BA%D9%8A%D9%84.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ3 استخدم برنامج معالجة النصوص.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D9%85%D8%B9%D8%A7%D9%84%D8%AC%D8%A9%20%D8%A7%D9%84%D9%86%D8%B5%D9%88%D8%B5.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ3 استخدم برنامج معالجة النصوص.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D9%85%D8%B9%D8%A7%D9%84%D8%AC%D8%A9%20%D8%A7%D9%84%D9%86%D8%B5%D9%88%D8%B5.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ4 استخدم جدول بيانات.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%AC%D8%AF%D9%88%D9%84%20%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ4 استخدم جدول بيانات.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%AC%D8%AF%D9%88%D9%84%20%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ5 استخدم برنامج العرض التقديمي.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A7%D9%84%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%84%D8%AA%D9%82%D8%AF%D9%8A%D9%85%D9%8A.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ5 استخدم برنامج العرض التقديمي.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A7%D9%84%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%84%D8%AA%D9%82%D8%AF%D9%8A%D9%85%D9%8A.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ6 استخدم برنامجًا بمساعدة الكمبيوتر PAO.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ6%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%D9%8B%D8%A7%20%D8%A8%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%83%D9%85%D8%A8%D9%8A%D9%88%D8%AA%D8%B1%20PAO.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ6 استخدم برنامجًا بمساعدة الكمبيوتر PAO.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ6%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%D9%8B%D8%A7%20%D8%A8%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D9%83%D9%85%D8%A8%D9%8A%D9%88%D8%AA%D8%B1%20PAO.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ7 استخدم برنامج التصميم الجرافيكي.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ7%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A7%D9%84%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%A7%D9%84%D8%AC%D8%B1%D8%A7%D9%81%D9%8A%D9%83%D9%8A.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ7 استخدم برنامج التصميم الجرافيكي.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ7%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A7%D9%84%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%A7%D9%84%D8%AC%D8%B1%D8%A7%D9%81%D9%8A%D9%83%D9%8A.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ8 الاستفادة من الإنترنت ومنصة للتعاون.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ8%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D8%A9%20%D9%85%D9%86%20%D8%A7%D9%84%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA%20%D9%88%D9%85%D9%86%D8%B5%D8%A9%20%D9%84%D9%84%D8%AA%D8%B9%D8%A7%D9%88%D9%86.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ8 الاستفادة من الإنترنت ومنصة للتعاون.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ8%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D8%A9%20%D9%85%D9%86%20%D8%A7%D9%84%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA%20%D9%88%D9%85%D9%86%D8%B5%D8%A9%20%D9%84%D9%84%D8%AA%D8%B9%D8%A7%D9%88%D9%86.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ9 ضمان الصيانة الوقائية لأجهزة الكمبيوتر.docx",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ9%20%D8%B6%D9%85%D8%A7%D9%86%20%D8%A7%D9%84%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20%D8%A7%D9%84%D9%88%D9%82%D8%A7%D8%A6%D9%8A%D8%A9%20%D9%84%D8%A3%D8%AC%D9%87%D8%B2%D8%A9%20%D8%A7%D9%84%D9%83%D9%85%D8%A8%D9%8A%D9%88%D8%AA%D8%B1.docx",
+        "bytes": 0
+      },
+      {
+        "name": "INT1202 عامل في الميكرو معلـوماتيـة - مذكرات - MQ9 ضمان الصيانة الوقائية لأجهزة الكمبيوتر.pdf",
+        "url": "https://archive.org/download/int1202/INT1202%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%20%D9%85%D8%B9%D9%84%D9%80%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D9%80%D8%A9%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ9%20%D8%B6%D9%85%D8%A7%D9%86%20%D8%A7%D9%84%D8%B5%D9%8A%D8%A7%D9%86%D8%A9%20%D8%A7%D9%84%D9%88%D9%82%D8%A7%D8%A6%D9%8A%D8%A9%20%D9%84%D8%A3%D8%AC%D9%87%D8%B2%D8%A9%20%D8%A7%D9%84%D9%83%D9%85%D8%A8%D9%8A%D9%88%D8%AA%D8%B1.pdf",
+        "bytes": 0
+      }
+    ],
+    "MEE0708": [
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC1 كيمياء المياه.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1%20%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC1 كيمياء المياه.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1%20%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC10 التشريعات.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC10%20%D8%A7%D9%84%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9%D8%A7%D8%AA.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC10 التشريعات.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC10%20%D8%A7%D9%84%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9%D8%A7%D8%AA.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC11 البيئة.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC11%20%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC11 البيئة.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC11%20%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC12 النظافة والامن.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC12%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%A7%D9%85%D9%86.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC12 النظافة والامن.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC12%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%A7%D9%85%D9%86.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC13 البحث عن عمل.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC13%20%D8%A7%D9%84%D8%A8%D8%AD%D8%AB%20%D8%B9%D9%86%20%D8%B9%D9%85%D9%84.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC13 البحث عن عمل.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC13%20%D8%A7%D9%84%D8%A8%D8%AD%D8%AB%20%D8%B9%D9%86%20%D8%B9%D9%85%D9%84.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC14 المستهلك.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC14%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC14 المستهلك.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC14%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC2 الكيمياء العامة.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1%20%D8%A7%D9%84%D8%B9%D8%A7%D9%85%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC2 الكيمياء العامة.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1%20%D8%A7%D9%84%D8%B9%D8%A7%D9%85%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC3 الكيمياء التحليلية.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1%20%D8%A7%D9%84%D8%AA%D8%AD%D9%84%D9%8A%D9%84%D9%8A%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC3 الكيمياء التحليلية.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1%20%D8%A7%D9%84%D8%AA%D8%AD%D9%84%D9%8A%D9%84%D9%8A%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC4 الميكروبيولوجيا.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%D8%A8%D9%8A%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC4 الميكروبيولوجيا.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D8%A7%D9%84%D9%85%D9%8A%D9%83%D8%B1%D9%88%D8%A8%D9%8A%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC5 الهيدروليكا.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D8%A7%D9%84%D9%87%D9%8A%D8%AF%D8%B1%D9%88%D9%84%D9%8A%D9%83%D8%A7.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC5 الهيدروليكا.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D8%A7%D9%84%D9%87%D9%8A%D8%AF%D8%B1%D9%88%D9%84%D9%8A%D9%83%D8%A7.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC6 المعلوماتية.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC6%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC6 المعلوماتية.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC6%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC7 التعبير.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC7%20%D8%A7%D9%84%D8%AA%D8%B9%D8%A8%D9%8A%D8%B1.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC7 التعبير.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC7%20%D8%A7%D9%84%D8%AA%D8%B9%D8%A8%D9%8A%D8%B1.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC8 الترجمة.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC8%20%D8%A7%D9%84%D8%AA%D8%B1%D8%AC%D9%85%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC8 الترجمة.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC8%20%D8%A7%D9%84%D8%AA%D8%B1%D8%AC%D9%85%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC9 الرياضيات.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC9%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MC9 الرياضيات.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC9%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ1 التخثير والترسيب.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%A7%D9%84%D8%AA%D8%AE%D8%AB%D9%8A%D8%B1%20%D9%88%D8%A7%D9%84%D8%AA%D8%B1%D8%B3%D9%8A%D8%A8.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ1 التخثير والترسيب.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%A7%D9%84%D8%AA%D8%AE%D8%AB%D9%8A%D8%B1%20%D9%88%D8%A7%D9%84%D8%AA%D8%B1%D8%B3%D9%8A%D8%A8.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ10 المحاليل والكواشف.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ10%20%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D9%84%D9%8A%D9%84%20%D9%88%D8%A7%D9%84%D9%83%D9%88%D8%A7%D8%B4%D9%81.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ10 المحاليل والكواشف.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ10%20%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D9%84%D9%8A%D9%84%20%D9%88%D8%A7%D9%84%D9%83%D9%88%D8%A7%D8%B4%D9%81.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ11 التحليل الكيميائي.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ11%20%D8%A7%D9%84%D8%AA%D8%AD%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A6%D9%8A.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ11 التحليل الكيميائي.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ11%20%D8%A7%D9%84%D8%AA%D8%AD%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A6%D9%8A.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ12 التحليل الالي.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ12%20%D8%A7%D9%84%D8%AA%D8%AD%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D8%A7%D9%84%D9%8A.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ12 التحليل الالي.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ12%20%D8%A7%D9%84%D8%AA%D8%AD%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D8%A7%D9%84%D9%8A.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ13 التحاليل البكتريولوجية.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ13%20%D8%A7%D9%84%D8%AA%D8%AD%D8%A7%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D8%A8%D9%83%D8%AA%D8%B1%D9%8A%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ13 التحاليل البكتريولوجية.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ13%20%D8%A7%D9%84%D8%AA%D8%AD%D8%A7%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D8%A8%D9%83%D8%AA%D8%B1%D9%8A%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ2 الترشيح والكربون.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D9%84%D8%AA%D8%B1%D8%B4%D9%8A%D8%AD%20%D9%88%D8%A7%D9%84%D9%83%D8%B1%D8%A8%D9%88%D9%86.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ2 الترشيح والكربون.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D9%84%D8%AA%D8%B1%D8%B4%D9%8A%D8%AD%20%D9%88%D8%A7%D9%84%D9%83%D8%B1%D8%A8%D9%88%D9%86.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ3 التطهير والاكسدة.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D9%84%D8%AA%D8%B7%D9%87%D9%8A%D8%B1%20%D9%88%D8%A7%D9%84%D8%A7%D9%83%D8%B3%D8%AF%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ3 التطهير والاكسدة.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A7%D9%84%D8%AA%D8%B7%D9%87%D9%8A%D8%B1%20%D9%88%D8%A7%D9%84%D8%A7%D9%83%D8%B3%D8%AF%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ4 المياه المستعملة.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D8%B9%D9%85%D9%84%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ4 المياه المستعملة.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D8%B9%D9%85%D9%84%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ5 المياه العادمة.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87%20%D8%A7%D9%84%D8%B9%D8%A7%D8%AF%D9%85%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ5 المياه العادمة.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87%20%D8%A7%D9%84%D8%B9%D8%A7%D8%AF%D9%85%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ6 الحماة.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ6%20%D8%A7%D9%84%D8%AD%D9%85%D8%A7%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ6 الحماة.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ6%20%D8%A7%D9%84%D8%AD%D9%85%D8%A7%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ7 الترسيب الكيميائي.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ7%20%D8%A7%D9%84%D8%AA%D8%B1%D8%B3%D9%8A%D8%A8%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A6%D9%8A.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ7 الترسيب الكيميائي.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ7%20%D8%A7%D9%84%D8%AA%D8%B1%D8%B3%D9%8A%D8%A8%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A6%D9%8A.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ8 التبادل الايوني.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ8%20%D8%A7%D9%84%D8%AA%D8%A8%D8%A7%D8%AF%D9%84%20%D8%A7%D9%84%D8%A7%D9%8A%D9%88%D9%86%D9%8A.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ8 التبادل الايوني.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ8%20%D8%A7%D9%84%D8%AA%D8%A8%D8%A7%D8%AF%D9%84%20%D8%A7%D9%84%D8%A7%D9%8A%D9%88%D9%86%D9%8A.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ9 التناضح العكسي.docx",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ9%20%D8%A7%D9%84%D8%AA%D9%86%D8%A7%D8%B6%D8%AD%20%D8%A7%D9%84%D8%B9%D9%83%D8%B3%D9%8A.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MEE0708 معالـجـة الميـاه - مذكرات - MQ9 التناضح العكسي.pdf",
+        "url": "https://archive.org/download/mee0708/MEE0708%20%D9%85%D8%B9%D8%A7%D9%84%D9%80%D8%AC%D9%80%D8%A9%20%D8%A7%D9%84%D9%85%D9%8A%D9%80%D8%A7%D9%87%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ9%20%D8%A7%D9%84%D8%AA%D9%86%D8%A7%D8%B6%D8%AD%20%D8%A7%D9%84%D8%B9%D9%83%D8%B3%D9%8A.pdf",
+        "bytes": 0
+      }
+    ],
+    "MES01Q": [
+      {
+        "name": "MES01Q قـص و تجـفيف الشعـر - مذكرات - MC1 علم التجميل.docx",
+        "url": "https://archive.org/download/mes01q/MES01Q%20%D9%82%D9%80%D8%B5%20%D9%88%20%D8%AA%D8%AC%D9%80%D9%81%D9%8A%D9%81%20%D8%A7%D9%84%D8%B4%D8%B9%D9%80%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%B9%D9%84%D9%85%20%D8%A7%D9%84%D8%AA%D8%AC%D9%85%D9%8A%D9%84.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES01Q قـص و تجـفيف الشعـر - مذكرات - MC1 علم التجميل.pdf",
+        "url": "https://archive.org/download/mes01q/MES01Q%20%D9%82%D9%80%D8%B5%20%D9%88%20%D8%AA%D8%AC%D9%80%D9%81%D9%8A%D9%81%20%D8%A7%D9%84%D8%B4%D8%B9%D9%80%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%B9%D9%84%D9%85%20%D8%A7%D9%84%D8%AA%D8%AC%D9%85%D9%8A%D9%84.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES01Q قـص و تجـفيف الشعـر - مذكرات - MC2 الكيمياء.docx",
+        "url": "https://archive.org/download/mes01q/MES01Q%20%D9%82%D9%80%D8%B5%20%D9%88%20%D8%AA%D8%AC%D9%80%D9%81%D9%8A%D9%81%20%D8%A7%D9%84%D8%B4%D8%B9%D9%80%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES01Q قـص و تجـفيف الشعـر - مذكرات - MC2 الكيمياء.pdf",
+        "url": "https://archive.org/download/mes01q/MES01Q%20%D9%82%D9%80%D8%B5%20%D9%88%20%D8%AA%D8%AC%D9%80%D9%81%D9%8A%D9%81%20%D8%A7%D9%84%D8%B4%D8%B9%D9%80%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES01Q قـص و تجـفيف الشعـر - مذكرات - MC3 الفيزياء.docx",
+        "url": "https://archive.org/download/mes01q/MES01Q%20%D9%82%D9%80%D8%B5%20%D9%88%20%D8%AA%D8%AC%D9%80%D9%81%D9%8A%D9%81%20%D8%A7%D9%84%D8%B4%D8%B9%D9%80%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D8%A7%D9%84%D9%81%D9%8A%D8%B2%D9%8A%D8%A7%D8%A1.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES01Q قـص و تجـفيف الشعـر - مذكرات - MC3 الفيزياء.pdf",
+        "url": "https://archive.org/download/mes01q/MES01Q%20%D9%82%D9%80%D8%B5%20%D9%88%20%D8%AA%D8%AC%D9%80%D9%81%D9%8A%D9%81%20%D8%A7%D9%84%D8%B4%D8%B9%D9%80%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D8%A7%D9%84%D9%81%D9%8A%D8%B2%D9%8A%D8%A7%D8%A1.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES01Q قـص و تجـفيف الشعـر - مذكرات - MC4 الرسم.docx",
+        "url": "https://archive.org/download/mes01q/MES01Q%20%D9%82%D9%80%D8%B5%20%D9%88%20%D8%AA%D8%AC%D9%80%D9%81%D9%8A%D9%81%20%D8%A7%D9%84%D8%B4%D8%B9%D9%80%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D8%A7%D9%84%D8%B1%D8%B3%D9%85.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES01Q قـص و تجـفيف الشعـر - مذكرات - MC4 الرسم.pdf",
+        "url": "https://archive.org/download/mes01q/MES01Q%20%D9%82%D9%80%D8%B5%20%D9%88%20%D8%AA%D8%AC%D9%80%D9%81%D9%8A%D9%81%20%D8%A7%D9%84%D8%B4%D8%B9%D9%80%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D8%A7%D9%84%D8%B1%D8%B3%D9%85.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES01Q قـص و تجـفيف الشعـر - مذكرات - MQ1 إجراء قصّ الشعر.docx",
+        "url": "https://archive.org/download/mes01q/MES01Q%20%D9%82%D9%80%D8%B5%20%D9%88%20%D8%AA%D8%AC%D9%80%D9%81%D9%8A%D9%81%20%D8%A7%D9%84%D8%B4%D8%B9%D9%80%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%A5%D8%AC%D8%B1%D8%A7%D8%A1%20%D9%82%D8%B5%D9%91%20%D8%A7%D9%84%D8%B4%D8%B9%D8%B1.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES01Q قـص و تجـفيف الشعـر - مذكرات - MQ1 إجراء قصّ الشعر.pdf",
+        "url": "https://archive.org/download/mes01q/MES01Q%20%D9%82%D9%80%D8%B5%20%D9%88%20%D8%AA%D8%AC%D9%80%D9%81%D9%8A%D9%81%20%D8%A7%D9%84%D8%B4%D8%B9%D9%80%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%A5%D8%AC%D8%B1%D8%A7%D8%A1%20%D9%82%D8%B5%D9%91%20%D8%A7%D9%84%D8%B4%D8%B9%D8%B1.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES01Q قـص و تجـفيف الشعـر - مذكرات - MQ2 تنفيذ تسريحات شعر مختلفة.docx",
+        "url": "https://archive.org/download/mes01q/MES01Q%20%D9%82%D9%80%D8%B5%20%D9%88%20%D8%AA%D8%AC%D9%80%D9%81%D9%8A%D9%81%20%D8%A7%D9%84%D8%B4%D8%B9%D9%80%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%AA%D9%86%D9%81%D9%8A%D8%B0%20%D8%AA%D8%B3%D8%B1%D9%8A%D8%AD%D8%A7%D8%AA%20%D8%B4%D8%B9%D8%B1%20%D9%85%D8%AE%D8%AA%D9%84%D9%81%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES01Q قـص و تجـفيف الشعـر - مذكرات - MQ2 تنفيذ تسريحات شعر مختلفة.pdf",
+        "url": "https://archive.org/download/mes01q/MES01Q%20%D9%82%D9%80%D8%B5%20%D9%88%20%D8%AA%D8%AC%D9%80%D9%81%D9%8A%D9%81%20%D8%A7%D9%84%D8%B4%D8%B9%D9%80%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%AA%D9%86%D9%81%D9%8A%D8%B0%20%D8%AA%D8%B3%D8%B1%D9%8A%D8%AD%D8%A7%D8%AA%20%D8%B4%D8%B9%D8%B1%20%D9%85%D8%AE%D8%AA%D9%84%D9%81%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES01Q قـص و تجـفيف الشعـر - مذكرات - MQ3 إجراء تصفيف الشعر (برشينغ).docx",
+        "url": "https://archive.org/download/mes01q/MES01Q%20%D9%82%D9%80%D8%B5%20%D9%88%20%D8%AA%D8%AC%D9%80%D9%81%D9%8A%D9%81%20%D8%A7%D9%84%D8%B4%D8%B9%D9%80%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A5%D8%AC%D8%B1%D8%A7%D8%A1%20%D8%AA%D8%B5%D9%81%D9%8A%D9%81%20%D8%A7%D9%84%D8%B4%D8%B9%D8%B1%20%28%D8%A8%D8%B1%D8%B4%D9%8A%D9%86%D8%BA%29.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES01Q قـص و تجـفيف الشعـر - مذكرات - MQ3 إجراء تصفيف الشعر (برشينغ).pdf",
+        "url": "https://archive.org/download/mes01q/MES01Q%20%D9%82%D9%80%D8%B5%20%D9%88%20%D8%AA%D8%AC%D9%80%D9%81%D9%8A%D9%81%20%D8%A7%D9%84%D8%B4%D8%B9%D9%80%D8%B1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%A5%D8%AC%D8%B1%D8%A7%D8%A1%20%D8%AA%D8%B5%D9%81%D9%8A%D9%81%20%D8%A7%D9%84%D8%B4%D8%B9%D8%B1%20%28%D8%A8%D8%B1%D8%B4%D9%8A%D9%86%D8%BA%29.pdf",
+        "bytes": 0
+      }
+    ],
+    "MES0701": [
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MC1 التشريح.docx",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%A7%D9%84%D8%AA%D8%B4%D8%B1%D9%8A%D8%AD.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MC1 التشريح.pdf",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC1%20%D8%A7%D9%84%D8%AA%D8%B4%D8%B1%D9%8A%D8%AD.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MC2 الكيمياء.docx",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MC2 الكيمياء.pdf",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC2%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MC3 التعبير.docx",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D8%A7%D9%84%D8%AA%D8%B9%D8%A8%D9%8A%D8%B1.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MC3 التعبير.pdf",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC3%20%D8%A7%D9%84%D8%AA%D8%B9%D8%A8%D9%8A%D8%B1.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MC4 الرسم.docx",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D8%A7%D9%84%D8%B1%D8%B3%D9%85.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MC4 الرسم.pdf",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC4%20%D8%A7%D9%84%D8%B1%D8%B3%D9%85.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MC5 الإعلام الآلي.docx",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%85%20%D8%A7%D9%84%D8%A2%D9%84%D9%8A.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MC5 الإعلام الآلي.pdf",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC5%20%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%85%20%D8%A7%D9%84%D8%A2%D9%84%D9%8A.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MC6 النظافة والأمن.docx",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC6%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%A3%D9%85%D9%86.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MC6 النظافة والأمن.pdf",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC6%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%A3%D9%85%D9%86.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MC7 التشريع.docx",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC7%20%D8%A7%D9%84%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MC7 التشريع.pdf",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MC7%20%D8%A7%D9%84%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MQ1 استقبال الزبائن.docx",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%A7%D8%B3%D8%AA%D9%82%D8%A8%D8%A7%D9%84%20%D8%A7%D9%84%D8%B2%D8%A8%D8%A7%D8%A6%D9%86.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MQ1 استقبال الزبائن.pdf",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ1%20%D8%A7%D8%B3%D8%AA%D9%82%D8%A8%D8%A7%D9%84%20%D8%A7%D9%84%D8%B2%D8%A8%D8%A7%D8%A6%D9%86.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MQ2 الغسول والعناية.docx",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D9%84%D8%BA%D8%B3%D9%88%D9%84%20%D9%88%D8%A7%D9%84%D8%B9%D9%86%D8%A7%D9%8A%D8%A9.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MQ2 الغسول والعناية.pdf",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ2%20%D8%A7%D9%84%D8%BA%D8%B3%D9%88%D9%84%20%D9%88%D8%A7%D9%84%D8%B9%D9%86%D8%A7%D9%8A%D8%A9.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MQ3 تشكيل الشعر.docx",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%AA%D8%B4%D9%83%D9%8A%D9%84%20%D8%A7%D9%84%D8%B4%D8%B9%D8%B1.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MQ3 تشكيل الشعر.pdf",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ3%20%D8%AA%D8%B4%D9%83%D9%8A%D9%84%20%D8%A7%D9%84%D8%B4%D8%B9%D8%B1.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MQ4 قص الشعر.docx",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D9%82%D8%B5%20%D8%A7%D9%84%D8%B4%D8%B9%D8%B1.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MQ4 قص الشعر.pdf",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ4%20%D9%82%D8%B5%20%D8%A7%D9%84%D8%B4%D8%B9%D8%B1.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MQ5 تسريحة الشعر.docx",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%AA%D8%B3%D8%B1%D9%8A%D8%AD%D8%A9%20%D8%A7%D9%84%D8%B4%D8%B9%D8%B1.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MQ5 تسريحة الشعر.pdf",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ5%20%D8%AA%D8%B3%D8%B1%D9%8A%D8%AD%D8%A9%20%D8%A7%D9%84%D8%B4%D8%B9%D8%B1.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MQ6 التمويج والتمليس.docx",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ6%20%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D8%AC%20%D9%88%D8%A7%D9%84%D8%AA%D9%85%D9%84%D9%8A%D8%B3.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MQ6 التمويج والتمليس.pdf",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ6%20%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D8%AC%20%D9%88%D8%A7%D9%84%D8%AA%D9%85%D9%84%D9%8A%D8%B3.pdf",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MQ7 التلوين.docx",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ7%20%D8%A7%D9%84%D8%AA%D9%84%D9%88%D9%8A%D9%86.docx",
+        "bytes": 0
+      },
+      {
+        "name": "MES0701 حلاقـة النسـاء - مذكرات - MQ7 التلوين.pdf",
+        "url": "https://archive.org/download/mes0701/MES0701%20%D8%AD%D9%84%D8%A7%D9%82%D9%80%D8%A9%20%D8%A7%D9%84%D9%86%D8%B3%D9%80%D8%A7%D8%A1%20-%20%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA%20-%20MQ7%20%D8%A7%D9%84%D8%AA%D9%84%D9%88%D9%8A%D9%86.pdf",
         "bytes": 0
       }
     ]
